@@ -1,0 +1,25 @@
+# Mosquitto ACL Template for FARMLINK Platform
+#
+# Topic substitution details:
+# - %u: Replaced by Mosquitto with the client's authenticated username.
+# - For devices, the MQTT username is the device_id (UUID), restricting each device
+#   to its dedicated topic prefix (farmlink/v2/<device_id>/...).
+# - The backend API connects as the user 'farmlink-api' to observe telemetry/events
+#   and issue signed control commands.
+#
+# To apply, generate or copy this file to the Mosquitto acl_file location (/mosquitto/config/acl).
+
+# Backend API permissions
+user farmlink-api
+topic read farmlink/v2/+/readings
+topic read farmlink/v2/+/status
+topic read farmlink/v2/+/events
+topic read farmlink/v2/+/ack
+topic write farmlink/v2/+/cmd
+
+# Per-device permissions (%u = authenticated device_id username)
+pattern write farmlink/v2/%u/readings
+pattern write farmlink/v2/%u/status
+pattern write farmlink/v2/%u/events
+pattern write farmlink/v2/%u/ack
+pattern read farmlink/v2/%u/cmd

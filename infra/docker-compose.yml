@@ -1,0 +1,58 @@
+# Local development values only — do not use in production.
+
+services:
+  db:
+    image: timescale/timescaledb:2.18.2-pg16
+    environment:
+      POSTGRES_USER: farmlink
+      POSTGRES_PASSWORD: farmlink
+      POSTGRES_DB: farmlink
+    ports:
+      - "5433:5432"  # host 5433: 5432 is often taken by other local Postgres
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U farmlink -d farmlink"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  mqtt:
+    image: eclipse-mosquitto:2.0.20
+    ports:
+      - "8883:8883"
+    volumes:
+      - ./mosquitto:/mosquitto
+      - mqtt_data:/mosquitto/data
+    command: ["mosquitto", "-c", "/mosquitto/mosquitto.conf"]
+
+  s3:
+    # SeaweedFS with its S3 gateway; stands in for production S3 (MinIO images are no longer public).
+    image: chrislusf/seaweedfs:4.53
+    command: ["server", "-dir=/data", "-s3", "-s3.port=8333", "-ip.bind=0.0.0.0"]
+    environment:
+      AWS_ACCESS_KEY_ID: farmlink-dev
+      AWS_SECRET_ACCESS_KEY: farmlink-dev-secret
+    ports:
+      - "8333:8333"
+    volumes:
+      - s3_data:/data
+
+  proxy:
+    image: caddy:2.9.1
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+volumes:
+  db_data:
+  mqtt_data:
+  s3_data:
+  caddy_data:
+  caddy_config:
