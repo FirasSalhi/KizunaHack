@@ -1,0 +1,4 @@
+# Vérité terrain à remplir depuis les statistiques officielles (catalog.agridata.tn, par gouvernorat).
+# Une ligne par gouvernorat et par culture. Identifiants de cultures : voir data/crops.json
+# (olive, durum_wheat, wheat, barley, tomato, pepper, potato, onion, melon, watermelon, date_palm, almond, orange, faba_bean, chickpea, ...)
+gouvernorat,culture,surface_ha
