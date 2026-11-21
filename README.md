@@ -13,8 +13,7 @@ features yet. The web app shows a placeholder page and the API exposes only
 
 What exists today:
 
-- **Planning (spec-kit)**: [constitution](.specify/memory/constitution.md),
-  [spec](specs/001-farmlink-platform/spec.md), [plan](specs/001-farmlink-platform/plan.md),
+- **Planning (spec-kit)**: [spec](specs/001-farmlink-platform/spec.md), [plan](specs/001-farmlink-platform/plan.md),
   [research](specs/001-farmlink-platform/research.md),
   [data model](specs/001-farmlink-platform/data-model.md),
   [contracts](specs/001-farmlink-platform/contracts/) and 333 tasks.
@@ -57,5 +56,4 @@ Tests: `pnpm --filter web test`, `pnpm --filter web e2e`, and `uv run pytest` in
 - `packages/contracts`: generated OpenAPI types + realtime schemas
 - `tools/simulator`, `tools/catalog`: device simulator and plant catalog tools
 - `infra/`: Docker Compose, Caddyfile, Mosquitto configuration
-- `specs/`, `.specify/`: spec-kit planning documents
-- `.claude/skills/`: Claude Code skills used on this project
+- `specs/`: spec-kit planning documents (`.specify/` and `.claude/` stay local and are git-ignored)

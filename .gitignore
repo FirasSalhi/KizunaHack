@@ -29,3 +29,7 @@ services/api/data/
 
 # OS
 .DS_Store
+
+# Local tooling (spec-kit and Claude Code), not shared
+.specify/
+.claude/
