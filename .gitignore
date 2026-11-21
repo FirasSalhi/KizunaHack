@@ -1,0 +1,31 @@
+# Node / web
+node_modules/
+.next/
+out/
+dist/
+coverage/
+playwright-report/
+test-results/
+*.tsbuildinfo
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Model and data files
+*.onnx
+*.safetensors
+services/api/models/
+services/api/data/
+
+# OS
+.DS_Store

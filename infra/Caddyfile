@@ -1,0 +1,15 @@
+farmlink.localhost {
+	tls internal
+
+	handle /api/* {
+		reverse_proxy host.docker.internal:8001
+	}
+
+	handle /ws/* {
+		reverse_proxy host.docker.internal:8001
+	}
+
+	handle {
+		reverse_proxy host.docker.internal:3000
+	}
+}

@@ -1,0 +1,11 @@
+{
+  "name": "farmlink",
+  "private": true,
+  "packageManager": "pnpm@9.15.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "contracts:check": "pnpm --filter @farmlink/contracts check"
+  }
+}
