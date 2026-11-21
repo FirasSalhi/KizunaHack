@@ -1,0 +1,13 @@
+crop,name_fr,stage,kc_stage_mean,kc_start,kc_end,kc_low,kc_high,kc_provenance,root_depth_m_default,root_depth_range_m,p_table22_ETc5,stage_length_days,reference
+tomato,Tomate,initial,0.6,0.6,0.6,0.6,0.6,FAO56_TABLE,0.7,0.7-1.5,0.4,30,"FAO-56 (Allen et al., 1998), Tables 11, 12, 22"
+tomato,Tomate,development,0.875,0.6,1.15,0.6,1.15,DERIVED_LINEAR,0.7,0.7-1.5,0.4,40,"FAO-56 (Allen et al., 1998), Tables 11, 12, 22"
+tomato,Tomate,mid_season,1.15,1.15,1.15,1.15,1.15,FAO56_TABLE,0.7,0.7-1.5,0.4,45,"FAO-56 (Allen et al., 1998), Tables 11, 12, 22"
+tomato,Tomate,late_season,0.975,1.15,0.8,0.925,1.025,DERIVED_LINEAR,0.7,0.7-1.5,0.4,30,"FAO-56 (Allen et al., 1998), Tables 11, 12, 22"
+olive,Olivier,initial,0.65,0.65,0.65,0.65,0.65,FAO56_TABLE,1.2,1.2-1.7,0.65,30,"FAO-56 (Allen et al., 1998), Tables 11, 12, 22"
+olive,Olivier,development,0.675,0.65,0.7,0.65,0.7,DERIVED_LINEAR,1.2,1.2-1.7,0.65,90,"FAO-56 (Allen et al., 1998), Tables 11, 12, 22"
+olive,Olivier,mid_season,0.7,0.7,0.7,0.7,0.7,FAO56_TABLE,1.2,1.2-1.7,0.65,60,"FAO-56 (Allen et al., 1998), Tables 11, 12, 22"
+olive,Olivier,late_season,0.7,0.7,0.7,0.7,0.7,DERIVED_LINEAR,1.2,1.2-1.7,0.65,90,"FAO-56 (Allen et al., 1998), Tables 11, 12, 22"
+durum_wheat,Blé dur,initial,0.7,0.7,0.7,0.7,0.7,FAO56_TABLE,1.5,1.5-1.8,0.55,30,"FAO-56 (Allen et al., 1998), Tables 11, 12, 22"
+durum_wheat,Blé dur,development,0.925,0.7,1.15,0.7,1.15,DERIVED_LINEAR,1.5,1.5-1.8,0.55,140,"FAO-56 (Allen et al., 1998), Tables 11, 12, 22"
+durum_wheat,Blé dur,mid_season,1.15,1.15,1.15,1.15,1.15,FAO56_TABLE,1.5,1.5-1.8,0.55,40,"FAO-56 (Allen et al., 1998), Tables 11, 12, 22"
+durum_wheat,Blé dur,late_season,0.7375,1.15,0.325,0.7,0.775,DERIVED_LINEAR,1.5,1.5-1.8,0.55,30,"FAO-56 (Allen et al., 1998), Tables 11, 12, 22"

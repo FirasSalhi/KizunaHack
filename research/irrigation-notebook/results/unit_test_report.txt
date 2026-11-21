@@ -1,0 +1,56 @@
+test_supported_and_aliases (test_irrigation.TestCropSelection.test_supported_and_aliases) ... ok
+test_unsupported_crop_rejected (test_irrigation.TestCropSelection.test_unsupported_crop_rejected) ... ok
+test_depletion_override_from_water_balance (test_irrigation.TestDecisionEngine.test_depletion_override_from_water_balance) ... ok
+test_dry_soil_irrigate_now_with_gross_conversion (test_irrigation.TestDecisionEngine.test_dry_soil_irrigate_now_with_gross_conversion) ... ok
+test_early_stage_root_warning_and_override (test_irrigation.TestDecisionEngine.test_early_stage_root_warning_and_override) ... ok
+test_forecast_or_demand_triggers_window (test_irrigation.TestDecisionEngine.test_forecast_or_demand_triggers_window) ... ok
+test_illustrative_and_uncalibrated_are_labelled (test_irrigation.TestDecisionEngine.test_illustrative_and_uncalibrated_are_labelled) ... ok
+test_same_weather_different_crops (test_irrigation.TestDecisionEngine.test_same_weather_different_crops) ... ok
+test_sensor_below_wp_withholds_volume (test_irrigation.TestDecisionEngine.test_sensor_below_wp_withholds_volume) ... ok
+test_sensor_forecast_used (test_irrigation.TestDecisionEngine.test_sensor_forecast_used) ... ok
+test_wet_soil_no_irrigation (test_irrigation.TestDecisionEngine.test_wet_soil_no_irrigation) ... ok
+test_extraterrestrial_radiation_fao_examples (test_irrigation.TestEto.test_extraterrestrial_radiation_fao_examples) ... ok
+test_hargreaves_fao56_example20 (test_irrigation.TestEto.test_hargreaves_fao56_example20) ... ok
+test_method_label_and_no_silent_default (test_irrigation.TestEto.test_method_label_and_no_silent_default) ... ok
+test_nasa_fill_value_becomes_nan (test_irrigation.TestEto.test_nasa_fill_value_becomes_nan) ... ok
+test_penman_monteith_fao56_example18 (test_irrigation.TestEto.test_penman_monteith_fao56_example18) ... ok
+test_pm_vs_hargreaves_same_order_of_magnitude (test_irrigation.TestEto.test_pm_vs_hargreaves_same_order_of_magnitude) ... ok
+test_date_gap_detected (test_irrigation.TestMissingInputHandling.test_date_gap_detected) ... ok
+test_decision_missing_each_required_input (test_irrigation.TestMissingInputHandling.test_decision_missing_each_required_input) ... ok
+test_decision_without_soil_withholds_volume (test_irrigation.TestMissingInputHandling.test_decision_without_soil_withholds_volume) ... ok
+test_initial_depletion_bounds (test_irrigation.TestMissingInputHandling.test_initial_depletion_bounds) ... ok
+test_initial_depletion_is_mandatory (test_irrigation.TestMissingInputHandling.test_initial_depletion_is_mandatory) ... ok
+test_missing_column (test_irrigation.TestMissingInputHandling.test_missing_column) ... ok
+test_nan_weather_raises_by_default (test_irrigation.TestMissingInputHandling.test_nan_weather_raises_by_default) ... ok
+test_nan_weather_truncates_and_logs (test_irrigation.TestMissingInputHandling.test_nan_weather_truncates_and_logs) ... ok
+test_applied_dates_outside_series_rejected (test_irrigation.TestRainAndIrrigationAccounting.test_applied_dates_outside_series_rejected) ... ok
+test_effective_rainfall (test_irrigation.TestRainAndIrrigationAccounting.test_effective_rainfall) ... ok
+test_net_gross_conversion (test_irrigation.TestRainAndIrrigationAccounting.test_net_gross_conversion) ... ok
+test_over_application_drains (test_irrigation.TestRainAndIrrigationAccounting.test_over_application_drains) ... ok
+test_previous_irrigation_uses_efficiency (test_irrigation.TestRainAndIrrigationAccounting.test_previous_irrigation_uses_efficiency) ... ok
+test_rain_reduces_depletion_exactly (test_irrigation.TestRainAndIrrigationAccounting.test_rain_reduces_depletion_exactly) ... ok
+test_depletion_from_theta_and_flags (test_irrigation.TestSoilAndUnits.test_depletion_from_theta_and_flags) ... ok
+test_depletion_valid_fraction_and_efficiency (test_irrigation.TestSoilAndUnits.test_depletion_valid_fraction_and_efficiency) ... ok
+test_fc_greater_than_wp (test_irrigation.TestSoilAndUnits.test_fc_greater_than_wp) ... ok
+test_percent_passed_as_fraction_rejected (test_irrigation.TestSoilAndUnits.test_percent_passed_as_fraction_rejected) ... ok
+test_positive_root_depth (test_irrigation.TestSoilAndUnits.test_positive_root_depth) ... ok
+test_root_zone_weighting (test_irrigation.TestSoilAndUnits.test_root_zone_weighting) ... ok
+test_sensor_extrapolation_flagged (test_irrigation.TestSoilAndUnits.test_sensor_extrapolation_flagged) ... ok
+test_taw_units_mm (test_irrigation.TestSoilAndUnits.test_taw_units_mm) ... ok
+test_crop_parameters_in_fao_ranges (test_irrigation.TestStagesAndKc.test_crop_parameters_in_fao_ranges) ... ok
+test_crops_differ_under_same_eto (test_irrigation.TestStagesAndKc.test_crops_differ_under_same_eto) ... ok
+test_derived_stage_means (test_irrigation.TestStagesAndKc.test_derived_stage_means) ... ok
+test_fao56_table_values (test_irrigation.TestStagesAndKc.test_fao56_table_values) ... ok
+test_invalid_stage (test_irrigation.TestStagesAndKc.test_invalid_stage) ... ok
+test_kc_curve_end_points_and_monotonic_dev (test_irrigation.TestStagesAndKc.test_kc_curve_end_points_and_monotonic_dev) ... ok
+test_kc_override_bounds (test_irrigation.TestStagesAndKc.test_kc_override_bounds) ... ok
+test_closure_and_bounds_all_crops (test_irrigation.TestWaterBalanceConservation.test_closure_and_bounds_all_crops) ... ok
+test_closure_without_irrigation_with_stress (test_irrigation.TestWaterBalanceConservation.test_closure_without_irrigation_with_stress) ... ok
+test_irrigation_triggers_at_raw_and_refills (test_irrigation.TestWaterBalanceConservation.test_irrigation_triggers_at_raw_and_refills) ... ok
+test_max_net_cap (test_irrigation.TestWaterBalanceConservation.test_max_net_cap) ... ok
+test_stage_changes_demand (test_irrigation.TestWaterBalanceConservation.test_stage_changes_demand) ... ok
+
+----------------------------------------------------------------------
+Ran 51 tests in 0.131s
+
+OK

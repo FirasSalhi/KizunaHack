@@ -1,0 +1,17 @@
+{
+  "_label": "DEMO farm definition. Soil FC/WP and areas are user-declared example values, not measurements of any real field.",
+  "farm_id": "demo_farm_001",
+  "location": {"lat": 36.8, "lon": 10.1, "elevation_m": 30, "note": "illustrative coordinates (northern Tunisia), not a real farm"},
+  "zones": [
+    {"zone_id": "Z1", "name": "Tomato plot", "crop": "tomate", "area_ha": 0.5, "planting_date": "2026-04-10",
+     "soil": {"fc": 0.25, "wp": 0.12, "texture": "loam (declared)", "source": "user_declared"},
+     "irrigation": {"method": "drip"}, "last_refill_date": "2026-05-10"},
+    {"zone_id": "Z2", "name": "Olive grove", "crop": "olive", "area_ha": 1.0, "stage_override": "mid_season",
+     "soil": {"fc": 0.22, "wp": 0.10, "texture": "sandy loam (declared)", "source": "user_declared"},
+     "irrigation": {"method": "drip"}, "current_depletion_mm": 40},
+    {"zone_id": "Z3", "name": "Durum wheat field", "crop": "blé dur", "area_ha": 2.0, "planting_date": "2025-11-20",
+     "soil": {"fc": 0.30, "wp": 0.15, "texture": "clay loam (declared)", "source": "user_declared"},
+     "irrigation": {"method": "sprinkler"}, "last_refill_date": "2026-05-12"},
+    {"zone_id": "Z4", "name": "New plot, no soil data", "crop": "potato", "area_ha": 0.3, "planting_date": "2026-04-01"}
+  ]
+}

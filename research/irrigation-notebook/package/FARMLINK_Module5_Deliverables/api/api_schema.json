@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FARMLINK Module 5 irrigation API contract",
+  "description": "Python entry point: engine.farm_runner.run_farm(farm, weather_df, today, forecast_df, weather_source, available_water_m3). Weather frames: columns date,tmin,tmax,tmean,rh_mean,u2,rs,rain_mm (u2 = wind at 2 m in m/s, rs in MJ/m2/day, rain in mm/day).",
+  "request": {
+    "type": "object", "required": ["farm_id", "location", "zones"],
+    "properties": {
+      "farm_id": {"type": "string"},
+      "location": {"type": "object", "required": ["lat", "lon"], "properties": {"lat": {"type": "number"}, "lon": {"type": "number"}, "elevation_m": {"type": "number"}}},
+      "zones": {"type": "array", "minItems": 1, "items": {
+        "type": "object", "required": ["zone_id", "crop", "area_ha"],
+        "properties": {
+          "zone_id": {"type": "string"}, "name": {"type": "string"},
+          "crop": {"type": "string", "description": "id, common/scientific/FR/AR name or synonym (see crop_retrieval.search/autocomplete)"},
+          "area_ha": {"type": "number", "exclusiveMinimum": 0},
+          "planting_date": {"type": "string", "format": "date", "description": "annuals: planting date; perennials: start of the annual cycle. Needed unless stage_override is given."},
+          "stage_override": {"enum": ["initial", "development", "mid_season", "late_season"], "description": "farmer correction; wins over the estimate"},
+          "kc_variant": {"type": "string", "description": "e.g. '70% canopy' for citrus"},
+          "soil": {"type": "object", "properties": {"fc": {"type": "number"}, "wp": {"type": "number"}, "texture": {"type": "string"}, "source": {"enum": ["measured", "user_declared", "illustrative_preset"]}}, "description": "FC/WP in m3/m3. Never defaulted: absent soil => status MISSING_SOIL_PARAMS."},
+          "irrigation": {"type": "object", "properties": {"method": {"enum": ["drip", "sprinkler", "surface"]}, "ea": {"type": "number", "exclusiveMinimum": 0, "maximum": 1}, "source": {"type": "string"}}},
+          "sensor": {"type": "object", "properties": {"theta_by_depth_cm": {"type": "object"}, "units": {"enum": ["percent", "fraction"]}, "calibrated": {"type": "boolean"}}, "description": "ignored unless calibrated=true and VWC units; millivolts are never converted"},
+          "last_refill_date": {"type": "string", "format": "date", "description": "date the root zone was at field capacity (user-stated); enables a water-balance estimate"},
+          "current_depletion_mm": {"type": "number", "minimum": 0}
+        }}}
+    }
+  },
+  "response": {
+    "type": "object",
+    "properties": {
+      "farm_id": {"type": "string"}, "date": {"type": "string"}, "weather_source": {"type": "string"}, "eto_methods_in_window": {"type": "array", "items": {"type": "string"}},
+      "zones": {"type": "array", "description": "one recommendation per zone", "items": {"type": "object", "properties": {
+        "zone_id": {}, "status": {"enum": ["OK", "MISSING_INPUTS", "MISSING_SOIL_PARAMS", "MISSING_IRRIGATION_SYSTEM", "INCONSISTENT_SENSOR_SOIL", "UNKNOWN_CROP", "CROP_PARAMETERS_UNAVAILABLE", "NOT_PLANTED", "SEASON_ENDED", "INVALID_STAGE"]},
+        "stage": {}, "kc": {}, "etc_mm": {}, "zr_m": {}, "taw_mm": {}, "raw_mm": {}, "dr_mm": {}, "depletion_source": {}, "timing": {}, "days_to_raw": {},
+        "volumes": {"type": ["object", "null"], "properties": {"net_mm": {}, "gross_mm": {}, "m3": {}, "litres": {}}, "description": "null whenever a required input is missing"},
+        "warnings": {"type": "array"}, "missing_inputs": {"type": "array"}}}},
+      "ranking": {"type": "array", "items": {"properties": {"rank": {}, "zone_id": {}, "level": {"enum": ["HIGH", "MEDIUM", "LOW"]}, "score": {}, "explanation": {}}}},
+      "needs_data": {"type": "array"},
+      "allocation": {"type": "object", "description": "present when available_water_m3 is supplied; heuristic two-phase plan, not an optimum"}
+    }
+  },
+  "units": {"mm": "mm of water depth", "m3": "gross mm x ha x 10", "litres": "m3 x 1000", "fc_wp": "m3/m3", "zr": "m"},
+  "invariants": ["No soil property is invented.", "Volumes are null/withheld when inputs are missing.", "The weather source used is returned in weather_source and attempts are logged by data_sources.fetch_weather."]
+}

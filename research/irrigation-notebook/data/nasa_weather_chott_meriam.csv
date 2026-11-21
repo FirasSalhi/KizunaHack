@@ -1,0 +1,22 @@
+date,station,nasa_tmean_C,nasa_tmax_C,nasa_tmin_C,nasa_rh2m_pct,nasa_wind_ms,nasa_solar_MJ,nasa_precip_mm,provenance
+2026-11-01,Chott Meriam,19.18,22.64,16.13,66.89,4.24,13.52,0.43,NASA_POWER_MERRA2_reanalysis
+2026-11-02,Chott Meriam,18.57,20.9,16.99,60.55,7.17,13.25,0.48,NASA_POWER_MERRA2_reanalysis
+2026-11-03,Chott Meriam,18.61,21.4,15.91,58.85,3.91,14.2,0.01,NASA_POWER_MERRA2_reanalysis
+2026-11-04,Chott Meriam,19.66,22.88,16.41,58.26,4.65,9.76,0.0,NASA_POWER_MERRA2_reanalysis
+2026-11-05,Chott Meriam,20.98,24.62,18.1,62.15,4.19,10.35,1.37,NASA_POWER_MERRA2_reanalysis
+2026-11-06,Chott Meriam,20.71,24.04,18.23,67.6,2.05,12.59,0.18,NASA_POWER_MERRA2_reanalysis
+2026-11-07,Chott Meriam,20.31,22.83,18.56,69.82,1.99,11.95,2.4,NASA_POWER_MERRA2_reanalysis
+2026-11-08,Chott Meriam,19.66,21.63,18.49,79.03,2.48,12.89,7.81,NASA_POWER_MERRA2_reanalysis
+2026-11-09,Chott Meriam,21.14,25.18,17.9,69.48,4.99,12.96,0.0,NASA_POWER_MERRA2_reanalysis
+2026-11-10,Chott Meriam,21.91,26.33,18.5,59.65,3.28,12.55,0.02,NASA_POWER_MERRA2_reanalysis
+2026-11-11,Chott Meriam,23.01,27.16,19.48,53.92,3.56,12.44,0.0,NASA_POWER_MERRA2_reanalysis
+2026-11-12,Chott Meriam,22.95,27.12,19.3,48.77,5.68,7.19,0.0,NASA_POWER_MERRA2_reanalysis
+2026-11-13,Chott Meriam,22.1,25.71,19.86,66.3,1.47,12.68,0.0,NASA_POWER_MERRA2_reanalysis
+2026-11-14,Chott Meriam,20.98,24.04,18.66,73.42,2.69,12.37,0.02,NASA_POWER_MERRA2_reanalysis
+2026-11-15,Chott Meriam,20.93,25.37,17.51,73.9,2.57,12.38,0.02,NASA_POWER_MERRA2_reanalysis
+2026-11-16,Chott Meriam,21.02,25.15,17.69,69.95,2.48,,0.0,NASA_POWER_MERRA2_reanalysis
+2026-11-17,Chott Meriam,21.59,26.18,17.87,68.71,2.36,,0.0,NASA_POWER_MERRA2_reanalysis
+2026-11-18,Chott Meriam,22.73,26.56,19.06,52.99,2.71,,0.0,NASA_POWER_MERRA2_reanalysis
+2026-11-19,Chott Meriam,,,,,,,,NASA_POWER_MERRA2_reanalysis
+2026-11-20,Chott Meriam,,,,,,,,NASA_POWER_MERRA2_reanalysis
+2026-11-21,Chott Meriam,,,,,,,,NASA_POWER_MERRA2_reanalysis

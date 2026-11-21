@@ -1,0 +1,4 @@
+Model,MAE (%),RMSE (%),R2
+Persistence Baseline,0.0229,0.0479,0.9898
+Random Forest,0.8803,1.0048,-3.4749
+HistGradientBoosting,0.8823,1.0057,-3.4826

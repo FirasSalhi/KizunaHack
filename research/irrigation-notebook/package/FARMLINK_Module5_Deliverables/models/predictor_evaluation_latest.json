@@ -1,0 +1,32 @@
+{
+ "model_type": "per-horizon ridge (numpy) vs persistence",
+ "data_provenance": "REAL_DGACTA",
+ "channels_evaluated": [
+  "VWC_10cm",
+  "VWC_30cm",
+  "VWC_60cm"
+ ],
+ "horizons": {
+  "1h": {
+   "status": "INSUFFICIENT_DATA",
+   "rows": 94,
+   "winner": "persistence",
+   "note": "need >= 200 gap-free rows"
+  },
+  "6h": {
+   "status": "INSUFFICIENT_DATA",
+   "rows": 87,
+   "winner": "persistence",
+   "note": "need >= 200 gap-free rows"
+  },
+  "24h": {
+   "status": "INSUFFICIENT_DATA",
+   "rows": 78,
+   "winner": "persistence",
+   "note": "need >= 200 gap-free rows"
+  }
+ },
+ "n_hours_total": 195,
+ "n_missing_hours": 19,
+ "selection_rule": "ridge kept only if test MAE improves on persistence by >= 5%"
+}

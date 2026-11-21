@@ -1,0 +1,4 @@
+Horizon,Target Hours,Matched Pairs,Mean Interval (h),Min Interval (h),Max Interval (h),Std Interval (h),Status
+1h,1,160,1.0,1.0,1.0,0.0,Valid for modeling
+6h,6,144,6.0,6.0,6.0,0.0,Valid for modeling
+24h,24,134,24.0,24.0,24.0,0.0,Valid for modeling
