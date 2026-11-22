@@ -3,7 +3,14 @@ line-length = 100
 
 [lint]
 select = ["E", "F", "W", "I", "B", "UP", "ASYNC", "S"]
+ignore = [
+    "B008",  # FastAPI Depends(), Cookie(), Header() in parameter defaults
+]
 
 [lint.per-file-ignores]
-"tests/*" = ["S101"]
-"tests/**" = ["S101"]
+"tests/*" = ["S101", "S105", "S106"]
+"tests/**" = ["S101", "S105", "S106"]
+"migrations/*" = ["E501", "F401", "UP007", "W291"]
+"migrations/**" = ["E501", "F401", "UP007", "W291"]
+"app/core/config.py" = ["S105"]
+"app/schemas/auth.py" = ["S105"]

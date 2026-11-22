@@ -1,5 +1,5 @@
 import uuid
-from typing import List, Optional
+
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
@@ -32,7 +32,7 @@ class FarmRepository(BaseRepository[Farm]):
         await self.session.flush()
         return farm
 
-    async def get_user_memberships(self, user_id: uuid.UUID) -> List[Membership]:
+    async def get_user_memberships(self, user_id: uuid.UUID) -> list[Membership]:
         stmt = (
             select(Membership)
             .options(selectinload(Membership.farm))

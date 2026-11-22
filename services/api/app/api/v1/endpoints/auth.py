@@ -1,4 +1,3 @@
-from typing import Optional
 from fastapi import APIRouter, Cookie, Depends, Header, Response, status
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -7,7 +6,6 @@ from app.core.config import settings
 from app.models.user import User
 from app.schemas.auth import (
     LoginRequest,
-    MeResponse,
     RefreshRequest,
     RegisterRequest,
     TokenResponse,
@@ -62,7 +60,7 @@ async def signup(
     payload: RegisterRequest,
     response: Response,
     db: AsyncSession = Depends(get_db_session),
-    user_agent: Optional[str] = Header(None),
+    user_agent: str | None = Header(None),
 ) -> TokenResponse:
     service = AuthService(db)
     _, tokens = await service.register(payload, user_agent=user_agent)
@@ -79,7 +77,7 @@ async def login(
     payload: LoginRequest,
     response: Response,
     db: AsyncSession = Depends(get_db_session),
-    user_agent: Optional[str] = Header(None),
+    user_agent: str | None = Header(None),
 ) -> TokenResponse:
     service = AuthService(db)
     _, tokens = await service.login(payload, user_agent=user_agent)
@@ -94,10 +92,10 @@ async def login(
 )
 async def refresh(
     response: Response,
-    body: Optional[RefreshRequest] = None,
-    fl_refresh: Optional[str] = Cookie(None),
+    body: RefreshRequest | None = None,
+    fl_refresh: str | None = Cookie(None),
     db: AsyncSession = Depends(get_db_session),
-    user_agent: Optional[str] = Header(None),
+    user_agent: str | None = Header(None),
 ) -> TokenResponse:
     token_str = (body.refresh_token if body and body.refresh_token else None) or fl_refresh
     if not token_str:
@@ -116,10 +114,10 @@ async def refresh(
 )
 async def logout(
     response: Response,
-    body: Optional[RefreshRequest] = None,
-    fl_refresh: Optional[str] = Cookie(None),
+    body: RefreshRequest | None = None,
+    fl_refresh: str | None = Cookie(None),
     db: AsyncSession = Depends(get_db_session),
-) -> dict:
+) -> dict[str, bool]:
     token_str = (body.refresh_token if body and body.refresh_token else None) or fl_refresh
     service = AuthService(db)
     await service.logout(token_str)
@@ -136,7 +134,7 @@ async def logout_all(
     response: Response,
     current_user: User = Depends(get_current_user),
     db: AsyncSession = Depends(get_db_session),
-) -> dict:
+) -> dict[str, bool]:
     service = AuthService(db)
     await service.logout_all(current_user.id)
     _clear_auth_cookies(response)

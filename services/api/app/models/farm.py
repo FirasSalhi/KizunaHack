@@ -1,5 +1,6 @@
 import uuid
-from typing import TYPE_CHECKING, List
+from typing import TYPE_CHECKING
+
 from sqlalchemy import String
 from sqlalchemy.dialects.postgresql import UUID as PG_UUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
@@ -28,7 +29,7 @@ class Farm(Base, TimeStampMixin):
         nullable=False,
     )
 
-    memberships: Mapped[List["Membership"]] = relationship(
+    memberships: Mapped[list["Membership"]] = relationship(
         "Membership",
         back_populates="farm",
         cascade="all, delete-orphan",

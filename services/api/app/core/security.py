@@ -1,7 +1,8 @@
 import hashlib
 import secrets
-from datetime import datetime, timedelta, timezone
-from typing import Any, Dict, Optional, Tuple
+from datetime import UTC, datetime, timedelta
+from typing import Any
+
 import jwt
 from argon2 import PasswordHasher
 from argon2.exceptions import VerifyMismatchError
@@ -26,17 +27,17 @@ def verify_password(plain_password: str, hashed_password: str) -> bool:
 
 def create_access_token(
     subject: str,
-    claims: Optional[Dict[str, Any]] = None,
-    expires_delta: Optional[timedelta] = None,
+    claims: dict[str, Any] | None = None,
+    expires_delta: timedelta | None = None,
 ) -> str:
     """Create a signed JWT access token."""
-    now = datetime.now(timezone.utc)
+    now = datetime.now(UTC)
     if expires_delta:
         expire = now + expires_delta
     else:
         expire = now + timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES)
 
-    to_encode: Dict[str, Any] = {
+    to_encode: dict[str, Any] = {
         "sub": str(subject),
         "iat": int(now.timestamp()),
         "exp": int(expire.timestamp()),
@@ -53,7 +54,7 @@ def create_access_token(
     return encoded_jwt
 
 
-def decode_access_token(token: str) -> Optional[Dict[str, Any]]:
+def decode_access_token(token: str) -> dict[str, Any] | None:
     """Decode and validate a JWT access token."""
     try:
         payload = jwt.decode(
@@ -68,7 +69,7 @@ def decode_access_token(token: str) -> Optional[Dict[str, Any]]:
         return None
 
 
-def create_refresh_token() -> Tuple[str, str]:
+def create_refresh_token() -> tuple[str, str]:
     """Generate a high-entropy random refresh token and its SHA-256 hash for DB storage."""
     raw_token = secrets.token_urlsafe(48)
     token_hash = hashlib.sha256(raw_token.encode("utf-8")).hexdigest()

@@ -1,5 +1,5 @@
 """Celery application configuration for background job execution."""
-import os
+
 from app.core.config import settings
 
 # Graceful loading so the application operates seamlessly with or without celery installed
@@ -21,4 +21,4 @@ try:
         enable_utc=True,
     )
 except ImportError:
-    celery_app = None  # type: ignore
+    celery_app = None

@@ -1,11 +1,12 @@
-from typing import Any, Dict, Optional
+from typing import Any
+
 from pydantic import BaseModel
 
 
 class ErrorDetail(BaseModel):
     code: str
     message: str
-    details: Optional[Dict[str, Any]] = None
+    details: dict[str, Any] | None = None
 
 
 class ErrorResponse(BaseModel):

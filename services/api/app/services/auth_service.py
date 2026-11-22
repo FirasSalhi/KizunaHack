@@ -1,6 +1,6 @@
 import uuid
-from datetime import datetime, timedelta, timezone
-from typing import Optional, Tuple
+from datetime import UTC, datetime, timedelta
+
 from fastapi import HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -8,7 +8,6 @@ from app.core.config import settings
 from app.core.security import (
     create_access_token,
     create_refresh_token,
-    decode_access_token,
     hash_password,
     hash_refresh_token,
     verify_password,
@@ -37,14 +36,19 @@ class AuthService:
     async def register(
         self,
         payload: RegisterRequest,
-        user_agent: Optional[str] = None,
-    ) -> Tuple[User, TokenResponse]:
+        user_agent: str | None = None,
+    ) -> tuple[User, TokenResponse]:
         # 1. Check if user already exists
         existing = await self.user_repo.get_by_email(payload.email)
         if existing:
             raise HTTPException(
                 status_code=status.HTTP_409_CONFLICT,
-                detail={"error": {"code": "USER_EXISTS", "message": "A user with this email already exists."}},
+                detail={
+                    "error": {
+                        "code": "USER_EXISTS",
+                        "message": "A user with this email already exists.",
+                    }
+                },
             )
 
         # 2. Create user with hashed password
@@ -71,19 +75,29 @@ class AuthService:
     async def login(
         self,
         payload: LoginRequest,
-        user_agent: Optional[str] = None,
-    ) -> Tuple[User, TokenResponse]:
+        user_agent: str | None = None,
+    ) -> tuple[User, TokenResponse]:
         user = await self.user_repo.get_by_email(payload.email)
         if not user or not verify_password(payload.password, user.password_hash):
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
-                detail={"error": {"code": "INVALID_CREDENTIALS", "message": "Invalid email or password."}},
+                detail={
+                    "error": {
+                        "code": "INVALID_CREDENTIALS",
+                        "message": "Invalid email or password.",
+                    }
+                },
             )
 
         if user.disabled_at is not None:
             raise HTTPException(
                 status_code=status.HTTP_403_FORBIDDEN,
-                detail={"error": {"code": "USER_DISABLED", "message": "This account has been deactivated."}},
+                detail={
+                    "error": {
+                        "code": "USER_DISABLED",
+                        "message": "This account has been deactivated.",
+                    }
+                },
             )
 
         tokens = await self._create_tokens_and_session(user.id, user_agent)
@@ -92,14 +106,19 @@ class AuthService:
     async def refresh_tokens(
         self,
         refresh_token: str,
-        user_agent: Optional[str] = None,
+        user_agent: str | None = None,
     ) -> TokenResponse:
         token_hash = hash_refresh_token(refresh_token)
         session = await self.session_repo.get_active_by_hash(token_hash)
         if not session:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
-                detail={"error": {"code": "INVALID_REFRESH_TOKEN", "message": "Refresh token is expired or revoked."}},
+                detail={
+                    "error": {
+                        "code": "INVALID_REFRESH_TOKEN",
+                        "message": "Refresh token is expired or revoked.",
+                    }
+                },
             )
 
         # Revoke old session (token rotation)
@@ -108,7 +127,7 @@ class AuthService:
         # Create new tokens and session
         return await self._create_tokens_and_session(session.user_id, user_agent)
 
-    async def logout(self, refresh_token: Optional[str] = None) -> None:
+    async def logout(self, refresh_token: str | None = None) -> None:
         if refresh_token:
             token_hash = hash_refresh_token(refresh_token)
             session = await self.session_repo.get_active_by_hash(token_hash)
@@ -147,7 +166,7 @@ class AuthService:
     async def _create_tokens_and_session(
         self,
         user_id: uuid.UUID,
-        user_agent: Optional[str],
+        user_agent: str | None,
     ) -> TokenResponse:
         access_token = create_access_token(
             subject=str(user_id),
@@ -155,7 +174,7 @@ class AuthService:
         )
 
         raw_refresh, refresh_hash = create_refresh_token()
-        expires_at = datetime.now(timezone.utc) + timedelta(days=settings.REFRESH_TOKEN_EXPIRE_DAYS)
+        expires_at = datetime.now(UTC) + timedelta(days=settings.REFRESH_TOKEN_EXPIRE_DAYS)
 
         new_session = Session(
             user_id=user_id,
@@ -168,6 +187,6 @@ class AuthService:
         return TokenResponse(
             access_token=access_token,
             refresh_token=raw_refresh,
-            token_type="bearer",
+            token_type="bearer",  # noqa: S106
             expires_in=settings.ACCESS_TOKEN_EXPIRE_MINUTES * 60,
         )

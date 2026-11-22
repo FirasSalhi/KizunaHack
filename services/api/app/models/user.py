@@ -1,6 +1,7 @@
 import uuid
 from datetime import datetime
-from typing import TYPE_CHECKING, List, Optional
+from typing import TYPE_CHECKING
+
 from sqlalchemy import DateTime, String
 from sqlalchemy.dialects.postgresql import UUID as PG_UUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
@@ -39,18 +40,18 @@ class User(Base, TimeStampMixin):
         default="en",
         nullable=False,
     )
-    disabled_at: Mapped[Optional[datetime]] = mapped_column(
+    disabled_at: Mapped[datetime | None] = mapped_column(
         DateTime(timezone=True),
         nullable=True,
         default=None,
     )
 
-    memberships: Mapped[List["Membership"]] = relationship(
+    memberships: Mapped[list["Membership"]] = relationship(
         "Membership",
         back_populates="user",
         cascade="all, delete-orphan",
     )
-    sessions: Mapped[List["Session"]] = relationship(
+    sessions: Mapped[list["Session"]] = relationship(
         "Session",
         back_populates="user",
         cascade="all, delete-orphan",

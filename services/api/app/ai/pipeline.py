@@ -1,5 +1,7 @@
 """AI Inference Pipeline for Crop Health, Plant Identification, and Yield Estimation."""
-from typing import Any, Dict, List, Optional
+
+from typing import Any
+
 from app.core.logging import logger
 
 
@@ -17,14 +19,16 @@ class AIPipeline:
         self._is_loaded = True
         logger.info(f"Model {self.model_name} loaded successfully.")
 
-    def predict_disease(self, image_data: bytes) -> Dict[str, Any]:
+    def predict_disease(self, image_data: bytes) -> dict[str, Any]:
         """Perform vision inference on uploaded plant leaf photo."""
         return {
             "engine": "farmlink-onnx-v1",
             "health_status": "healthy",
             "confidence": 0.96,
             "detected_diseases": [],
-            "recommendation": "Soil moisture optimal, leaf chlorophyll index 78%. No fungicide required.",
+            "recommendation": (
+                "Soil moisture optimal, leaf chlorophyll index 78%. No fungicide required."
+            ),
         }
 
     def predict_irrigation_need(
@@ -33,7 +37,7 @@ class AIPipeline:
         temperature: float,
         humidity: float,
         crop_stage: str,
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         """Physics-informed irrigation recommendation."""
         water_needed_ml = 0
         if soil_moisture < 35.0:

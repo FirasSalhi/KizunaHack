@@ -1,5 +1,6 @@
 import uuid
 from unittest.mock import AsyncMock, patch
+
 import httpx
 import pytest
 
@@ -116,8 +117,10 @@ async def test_me_endpoint() -> None:
 
     token = create_access_token(subject=str(test_user_id))
 
-    with patch("app.api.deps.UserRepository") as mock_repo_cls, \
-         patch("app.api.v1.endpoints.users.AuthService") as mock_auth_cls:
+    with (
+        patch("app.api.deps.UserRepository") as mock_repo_cls,
+        patch("app.api.v1.endpoints.users.AuthService") as mock_auth_cls,
+    ):
         user_repo = mock_repo_cls.return_value
         user_repo.get_by_id = AsyncMock(return_value=mock_user)
 

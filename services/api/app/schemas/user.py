@@ -1,6 +1,6 @@
 import uuid
 from datetime import datetime
-from typing import Optional
+
 from pydantic import BaseModel, ConfigDict, Field
 
 EMAIL_PATTERN = r"^[^@\s]+@[^@\s]+\.[^@\s]+$"
@@ -17,13 +17,13 @@ class UserCreate(UserBase):
 
 
 class UserUpdate(BaseModel):
-    name: Optional[str] = Field(None, min_length=1, max_length=100)
-    locale: Optional[str] = Field(None, pattern="^(en|fr|ar|ja)$")
+    name: str | None = Field(None, min_length=1, max_length=100)
+    locale: str | None = Field(None, pattern="^(en|fr|ar|ja)$")
 
 
 class UserResponse(UserBase):
     id: uuid.UUID
     created_at: datetime
-    disabled_at: Optional[datetime] = None
+    disabled_at: datetime | None = None
 
     model_config = ConfigDict(from_attributes=True)

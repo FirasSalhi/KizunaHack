@@ -1,6 +1,7 @@
 import uuid
-from typing import AsyncGenerator, Optional
-from fastapi import Cookie, Depends, Header, HTTPException, status
+from collections.abc import AsyncGenerator
+
+from fastapi import Cookie, Depends, HTTPException, status
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -20,10 +21,10 @@ async def get_db_session() -> AsyncGenerator[AsyncSession, None]:
 
 async def get_current_user(
     db: AsyncSession = Depends(get_db_session),
-    auth_header: Optional[HTTPAuthorizationCredentials] = Depends(bearer_scheme),
-    fl_access: Optional[str] = Cookie(None),
+    auth_header: HTTPAuthorizationCredentials | None = Depends(bearer_scheme),
+    fl_access: str | None = Cookie(None),
 ) -> User:
-    token: Optional[str] = None
+    token: str | None = None
     if auth_header and auth_header.credentials:
         token = auth_header.credentials
     elif fl_access:
@@ -46,11 +47,11 @@ async def get_current_user(
 
     try:
         user_id = uuid.UUID(payload["sub"])
-    except (ValueError, TypeError):
+    except (ValueError, TypeError) as err:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail={"error": {"code": "INVALID_TOKEN", "message": "Malformed token subject."}},
-        )
+        ) from err
 
     user_repo = UserRepository(db)
     user = await user_repo.get_by_id(user_id)

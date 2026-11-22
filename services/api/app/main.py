@@ -1,12 +1,13 @@
+from collections.abc import AsyncGenerator
 from contextlib import asynccontextmanager
-from typing import AsyncGenerator
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.v1.api import api_router
 from app.core.config import settings
 from app.core.database import engine
-from app.core.logging import setup_logging
+from app.core.logging import logger, setup_logging
 from app.models.base import Base
 
 
@@ -19,17 +20,17 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
     try:
         async with engine.begin() as conn:
             await conn.run_sync(Base.metadata.create_all)
-    except Exception as e:
+    except Exception as exc:
         # Gracefully handle offline database during local builds or tests
-        pass
+        logger.debug("Database table auto-creation skipped: %s", exc)
 
     yield
 
     # Clean up engine resources on shutdown
     try:
         await engine.dispose()
-    except Exception:
-        pass
+    except Exception as exc:
+        logger.debug("Database engine disposal skipped: %s", exc)
 
 
 app = FastAPI(
