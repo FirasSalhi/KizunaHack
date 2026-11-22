@@ -125,13 +125,13 @@ deployment, not before development. 7–10 are needed only by the stories that u
 
 | Principle | Check | Pre-research | Post-design |
 |---|---|---|---|
-| I. Safety-Bounded Actuation | Limits in device + API + UI; signed, time-bounded, persisted-seq commands; no offline command queue | ✅ planned | ✅ `IrrigationSettings` constraints, `Command.seq`, device contract step 4, FR-019 |
-| II. One Contract, Many Clients | Generated TS client; versioned realtime & device contracts | ✅ | ✅ `packages/contracts`, contracts/*.md, CI `contracts:check` |
-| III. Field-First Mobile | 360 px, offline read, idempotent queued writes, RTL | ✅ | ✅ PWA (D2), IndexedDB queue, logical CSS, next-intl |
-| IV. Farm-Scoped Security | Server authz per farm; HttpOnly cookies; per-device keys; audit | ✅ | ✅ D4, `AuditEntry`, 404-for-foreign-farm rule |
-| V. Honest Intelligence | Confidence, engine, uncertain state; advisory only; corrections stored | ✅ | ✅ `PlantScan.ai_result` immutable, `MarketPrice.is_sample`, apply via settings path |
-| VI. Test the Risky Paths | Contract + security suites before merge; simulator E2E | ✅ | ✅ test tasks in every phase; quickstart suites |
-| VII. Simplicity | One UI app, one backend; extra components justified | ⚠️ see Complexity Tracking | ✅ justified below |
+| I. Safety-Bounded Actuation | Limits in device + API + UI; signed, time-bounded, persisted-seq commands; no offline command queue | Pass (planned) | Pass: `IrrigationSettings` constraints, `Command.seq`, device contract step 4, FR-019 |
+| II. One Contract, Many Clients | Generated TS client; versioned realtime & device contracts | Pass | Pass: `packages/contracts`, contracts/*.md, CI `contracts:check` |
+| III. Field-First Mobile | 360 px, offline read, idempotent queued writes, RTL | Pass | Pass: PWA (D2), IndexedDB queue, logical CSS, next-intl |
+| IV. Farm-Scoped Security | Server authz per farm; HttpOnly cookies; per-device keys; audit | Pass | Pass: D4, `AuditEntry`, 404-for-foreign-farm rule |
+| V. Honest Intelligence | Confidence, engine, uncertain state; advisory only; corrections stored | Pass | Pass: `PlantScan.ai_result` immutable, `MarketPrice.is_sample`, apply via settings path |
+| VI. Test the Risky Paths | Contract + security suites before merge; simulator E2E | Pass | Pass: test tasks in every phase; quickstart suites |
+| VII. Simplicity | One UI app, one backend; extra components justified | Needs justification (see Complexity Tracking) | Pass: justified below |
 
 Result: **PASS** with justified complexity.
 

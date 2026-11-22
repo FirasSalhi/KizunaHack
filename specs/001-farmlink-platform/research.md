@@ -22,7 +22,7 @@ There is **no Next.js or TypeScript code** in the reference. Its *interface laye
 reusable as **design and behavior reference** (screens, flows, tokens, copy), not as code. Its
 *backend* is reusable as code. This drives D1 and D2.
 
-> ✅ OQ-6 answered 2026-11-21: the repository is the team's own code, so it may be reused freely.
+> Resolved: OQ-6 answered 2026-11-21: the repository is the team's own code, so it may be reused freely.
 > It still has no LICENSE file; adding one is recommended. Ported files keep a header naming
 > their origin.
 

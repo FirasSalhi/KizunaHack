@@ -70,7 +70,7 @@ and run in parallel.
 **Purpose**: Data layer, security, ingestion, real-time, contract pipeline and web shell that every
 story uses.
 
-**⚠️ CRITICAL**: No user story work can begin until this phase is complete.
+**CRITICAL**: No user story work can begin until this phase is complete.
 
 ### 2A — Backend core
 
@@ -181,7 +181,7 @@ story uses.
 
 ---
 
-## Phase 3: User Story 1 — Monitor my farm live, on the web and on my phone (Priority: P1) 🎯 MVP
+## Phase 3: User Story 1 — Monitor my farm live, on the web and on my phone (Priority: P1), MVP
 
 **Goal**: A member sees live readings, status, pump, water today, online state, history and events
 on desktop and phone.

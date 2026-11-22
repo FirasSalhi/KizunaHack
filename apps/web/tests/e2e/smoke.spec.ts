@@ -1,9 +1,9 @@
 import { expect, test } from "@playwright/test";
 
 test.describe("Smoke Test", () => {
-  test("renders FARMLINK and has no horizontal scroll", async ({ page }) => {
+  test("opens on the hero with no horizontal scroll", async ({ page }) => {
     await page.goto("/");
-    await expect(page.getByText("FARMLINK")).toBeVisible();
+    await expect(page.getByRole("heading", { level: 1, name: /Grow more/ })).toBeVisible();
 
     const hasNoHorizontalScroll = await page.evaluate(() => {
       return document.documentElement.scrollWidth <= window.innerWidth;

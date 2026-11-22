@@ -1,4 +1,4 @@
-# Local development values only — do not use in production.
+# Local development and full-stack services configuration
 
 services:
   db:
@@ -17,6 +17,18 @@ services:
       timeout: 5s
       retries: 5
 
+  redis:
+    image: redis:7.2-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
   mqtt:
     image: eclipse-mosquitto:2.0.20
     ports:
@@ -27,7 +39,7 @@ services:
     command: ["mosquitto", "-c", "/mosquitto/mosquitto.conf"]
 
   s3:
-    # SeaweedFS with its S3 gateway; stands in for production S3 (MinIO images are no longer public).
+    # SeaweedFS with its S3 gateway; stands in for production S3
     image: chrislusf/seaweedfs:4.53
     command: ["server", "-dir=/data", "-s3", "-s3.port=8333", "-ip.bind=0.0.0.0"]
     environment:
@@ -37,6 +49,37 @@ services:
       - "8333:8333"
     volumes:
       - s3_data:/data
+
+  api:
+    build:
+      context: ../services/api
+      dockerfile: Dockerfile
+    environment:
+      DATABASE_URL: postgresql+asyncpg://farmlink:farmlink@db:5432/farmlink
+      REDIS_URL: redis://redis:6379/0
+      SECRET_KEY: dev_jwt_secret_change_in_production_32bytes
+      CORS_ORIGINS: '["http://localhost:3000","https://farmlink.localhost"]'
+    ports:
+      - "8001:8001"
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  celery_worker:
+    build:
+      context: ../services/api
+      dockerfile: Dockerfile
+    command: ["uv", "run", "celery", "-A", "app.workers.celery_app", "worker", "--loglevel=info"]
+    environment:
+      DATABASE_URL: postgresql+asyncpg://farmlink:farmlink@db:5432/farmlink
+      REDIS_URL: redis://redis:6379/0
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
 
   proxy:
     image: caddy:2.9.1
@@ -52,6 +95,7 @@ services:
 
 volumes:
   db_data:
+  redis_data:
   mqtt_data:
   s3_data:
   caddy_data:

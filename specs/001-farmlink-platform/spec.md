@@ -27,7 +27,7 @@ stories are ordered so that the reference capabilities are carried over first.
 
 ## User Scenarios & Testing *(mandatory)*
 
-### User Story 1 — Monitor my farm live, on the web and on my phone (Priority: P1) 🎯 MVP
+### User Story 1 — Monitor my farm live, on the web and on my phone (Priority: P1), MVP
 
 A farmer signs in and immediately sees the current state of their farm: each device's latest
 soil moisture, air temperature, humidity and light, a plain-language status for the crop

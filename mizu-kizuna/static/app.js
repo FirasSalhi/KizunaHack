@@ -5,8 +5,13 @@ const $$ = s => [...document.querySelectorAll(s)];
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
 /* ------------------------------------------------------------------ langue */
-let LANG = (() => { try { return localStorage.getItem("mizu-lang") || "fr"; } catch { return "fr"; } })();
+// Inside the FARMLINK dashboard the language comes from the page address (?lang=fr|tn|ja) and the
+// dashboard hides our own language buttons (?embed=1); otherwise the visitor's last choice is used.
+const PARAMS = new URLSearchParams(location.search);
+const EMBEDDED = PARAMS.get("embed") === "1";
+let LANG = PARAMS.get("lang") || (() => { try { return localStorage.getItem("mizu-lang") || "fr"; } catch { return "fr"; } })();
 if (!I18N[LANG]) LANG = "fr";
+if (EMBEDDED) document.body.classList.add("embedded");
 const LX = () => I18N[LANG];  // (L est réservé à Leaflet)
 const T = (k, p = {}) => String(LX()[k] ?? I18N.fr[k] ?? k).replace(/\{(\w+)\}/g, (_, x) => p[x] ?? "");
 const locale = () => ({fr: "fr-FR", tn: "fr-FR", ja: "ja-JP"}[LANG]);
@@ -24,12 +29,17 @@ function applyLang() {
   if (farm && $("#editBtn")) $("#editBtn").textContent = farm.pm.enabled() ? T("editDone") : T("edit");
   setTimeout(() => map.invalidateSize(), 50);
 }
-$$(".langs button").forEach(b => b.onclick = () => {
-  if (b.dataset.lang === LANG) return;
-  LANG = b.dataset.lang;
+function switchLang(next) {
+  if (next === LANG || !I18N[next]) return;
+  LANG = next;
   try { localStorage.setItem("mizu-lang", LANG); } catch {}
   applyLang();
   if (DATA && !$("#results").hidden) runAnalysis();  // les textes du modèle viennent du serveur
+}
+$$(".langs button").forEach(b => b.onclick = () => switchLang(b.dataset.lang));
+// The FARMLINK dashboard announces language changes; switching in place keeps the drawn parcel.
+window.addEventListener("message", e => {
+  if (e.data && e.data.type === "mizu:lang" && typeof e.data.lang === "string") switchLang(e.data.lang);
 });
 
 /* ------------------------------------------------------------------ carte */

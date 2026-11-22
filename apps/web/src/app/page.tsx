@@ -1,7 +1,5 @@
+import LandingPage from "@/components/landing/LandingPage";
+
 export default function HomePage() {
-  return (
-    <main>
-      <h1>FARMLINK</h1>
-    </main>
-  );
+  return <LandingPage />;
 }

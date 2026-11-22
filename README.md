@@ -1,59 +1,169 @@
-# KizunaHack
+# KizunaHack — FARMLINK Smart Farm & ROOTLOOP Platform
 
-FARMLINK is a smart-farm platform for Tunisia, with ROOTLOOP, its water-recovery and underground
-irrigation subsystem. One Next.js app is both the web dashboard and the installable mobile PWA,
-backed by a FastAPI API and PostgreSQL + TimescaleDB.
+FARMLINK is an intelligent precision-agriculture platform designed for Tunisian climates and soil types, featuring ROOTLOOP — an underground water-recovery and closed-loop irrigation subsystem.
 
-## Status
+The architecture comprises a Next.js web application (dashboard & PWA) and a high-performance FastAPI backend with PostgreSQL + TimescaleDB, Alembic migrations, Redis-backed Celery job processing, and AI vision inference pipelines.
 
-**Phase 1 (setup) is done** — tooling, local infrastructure and CI are in place; no product
-features yet. The web app shows a placeholder page and the API exposes only
-`GET /api/v1/health`. Next is Phase 2 (data layer, auth, ingest, realtime). See
-[tasks.md](specs/001-farmlink-platform/tasks.md).
+---
 
-What exists today:
+## Technology Stack & Architecture
 
-- **Planning (spec-kit)**: [spec](specs/001-farmlink-platform/spec.md), [plan](specs/001-farmlink-platform/plan.md),
-  [research](specs/001-farmlink-platform/research.md),
-  [data model](specs/001-farmlink-platform/data-model.md),
-  [contracts](specs/001-farmlink-platform/contracts/) and 333 tasks.
-- **`apps/web`**: Next.js 15, React 19, TypeScript strict, Tailwind CSS 4, shadcn/ui config,
-  ESLint (with jsx-a11y), Prettier, Vitest, Playwright (desktop and 360×800 phone projects).
-- **`services/api`**: Python 3.12 with uv, FastAPI, ruff, mypy, pytest (`contract`, `security`,
-  `integration` markers).
-- **`packages/contracts`**: `@farmlink/contracts`, the TypeScript client generated from the API's
-  OpenAPI schema (generation is wired in Phase 2).
-- **`tools/`**: simulator and plant-catalog scripts ported from the is9ini reference.
-- **`infra/`**: Docker Compose (TimescaleDB, Mosquitto, SeaweedFS S3, Caddy) and a same-origin
-  proxy at `https://farmlink.localhost`.
-- **CI**: GitHub Actions running lint, typecheck and tests for web and API.
+| Component | Technology | Purpose |
+|---|---|---|
+| **Frontend** | Next.js 15 (React 19, TypeScript) | User interface (Landing, Auth, Real-time Dashboard) |
+| **Backend** | FastAPI | REST API & asynchronous business logic |
+| **Language** | Python 3.12+ | Backend services and AI inference |
+| **Validation** | Pydantic v2 | Request and response schema validation |
+| **ORM** | SQLAlchemy 2.0 (Async) | Asynchronous database operations |
+| **Migrations** | Alembic | Database schema migrations and versioning |
+| **Database** | PostgreSQL 16 + TimescaleDB | Persistent and hypertable time-series storage |
+| **Queue** | Celery | Background worker for asynchronous jobs |
+| **Broker** | Redis 7 | Message broker and task distribution |
+| **AI** | PyTorch / Transformers / ONNX | Leaf disease and crop health inference |
+| **HTTP Client** | HTTPX | Asynchronous external and internal API calls |
+| **Authentication** | JWT + Argon2id | Secure user authentication and token rotation |
+| **Documentation** | Swagger / OpenAPI | Interactive API documentation (`/api/docs`) |
+| **Deployment** | Docker Compose | Containerized local and production environments |
 
-Decisions so far: interface in French, Tunisian Derja and English; alerts via web push to the
-installed PWA; is9ini code is the team's own. Open questions are listed in
-[research.md](specs/001-farmlink-platform/research.md#open-questions-consolidated).
+---
 
-## Run it locally
+## Project Structure
 
-Needs Node 22 + pnpm 9, uv, and Docker.
-
-```bash
-pnpm install
-uv sync --project services/api
-docker compose -f infra/docker-compose.yml up -d db s3 proxy
-(cd services/api && uv run uvicorn app.main:app --reload --port 8001)   # terminal 1
-pnpm --filter web dev                                                    # terminal 2
+```text
+KizunaHack/
+├── apps/
+│   └── web/                               # Next.js Frontend
+│       ├── src/
+│       │   ├── app/                       # App Router
+│       │   │   ├── (auth)/
+│       │   │   │   ├── login/page.tsx     # Sign-in page
+│       │   │   │   └── signup/page.tsx    # Sign-up page
+│       │   │   ├── (dashboard)/
+│       │   │   │   └── dashboard/page.tsx # Main application dashboard
+│       │   │   ├── layout.tsx             # Root layout with AuthProvider
+│       │   │   ├── page.tsx               # High-fidelity Landing Page
+│       │   │   └── providers.tsx          # Client-side providers
+│       │   ├── components/
+│       │   │   ├── auth/                  # LoginForm, SignupForm, AuthLayout
+│       │   │   ├── dashboard/             # DashboardLayout, DashboardOverview
+│       │   │   └── landing/               # LandingPage, rootSystem, plateData
+│       │   ├── hooks/                     # useAuth hook
+│       │   ├── services/                  # apiClient, authService
+│       │   └── types/                     # auth and user type contracts
+│       ├── tests/                         # Vitest unit tests & Playwright e2e
+│       └── Dockerfile                     # Frontend Docker build
+├── services/
+│   └── api/                               # FastAPI Backend
+│       ├── app/
+│       │   ├── main.py                    # Application entry point & lifespan
+│       │   ├── api/                       # REST endpoints & dependencies
+│       │   │   ├── deps.py                # Database and JWT user dependencies
+│       │   │   └── v1/
+│       │   │       ├── api.py             # Router aggregator
+│       │   │       └── endpoints/         # auth, users, health
+│       │   ├── core/                      # Configuration, security, logging, database
+│       │   │   ├── config.py              # Pydantic BaseSettings
+│       │   │   ├── security.py            # Argon2id hashing & PyJWT tokens
+│       │   │   ├── database.py            # Async SQLAlchemy engine & session factory
+│       │   │   └── logging.py             # Structured logging setup
+│       │   ├── models/                    # SQLAlchemy 2.0 models (User, Farm, Membership, Session)
+│       │   ├── schemas/                   # Pydantic validation schemas (auth, user, common)
+│       │   ├── repositories/              # Repository pattern data access layer
+│       │   ├── services/                  # Business logic (AuthService, UserService)
+│       │   ├── workers/                   # Celery background job queue & tasks
+│       │   ├── ai/                        # AI vision inference & diagnostics pipeline
+│       ├── migrations/                    # Alembic migration scripts
+│       ├── tests/                         # Pytest unit & security tests
+│       └── Dockerfile                     # Backend Docker build
+├── infra/                                 # Infrastructure orchestration
+│   ├── docker-compose.yml                 # TimescaleDB, Redis, MQTT, S3, Caddy, API
+│   ├── Caddyfile                          # Reverse proxy configuration
+│   └── mosquitto/                         # Mosquitto MQTT configuration
+├── .env.example                           # Global environment template
+└── README.md
 ```
 
-Open `https://farmlink.localhost` (or `http://localhost:3000`). Ports: web 3000, API 8001,
-Postgres 5433, S3 8333. MQTT needs certificates first: see `infra/mosquitto/certs/README.md`.
+---
 
-Tests: `pnpm --filter web test`, `pnpm --filter web e2e`, and `uv run pytest` in `services/api`.
+## Authentication Flow
 
-## Repository layout
+1. **Sign Up (`/signup` & `POST /api/v1/auth/signup`)**:
+   - Accepts `name`, `email`, `password` (Argon2id hashed), `farm_name`, and `locale`.
+   - Provisions the user account and initializes the default `Farm` with the user as `owner`.
+   - Issues a signed JWT access token and rotates a high-entropy refresh token.
+   - Sets secure HTTP cookies (`fl_access`, `fl_refresh`) and returns token response.
+   - Redirects user to `/dashboard`.
 
-- `apps/web`: Next.js — dashboard + PWA (the only UI)
-- `services/api`: FastAPI backend
-- `packages/contracts`: generated OpenAPI types + realtime schemas
-- `tools/simulator`, `tools/catalog`: device simulator and plant catalog tools
-- `infra/`: Docker Compose, Caddyfile, Mosquitto configuration
-- `specs/`: spec-kit planning documents (`.specify/` and `.claude/` stay local and are git-ignored)
+2. **Login (`/login` & `POST /api/v1/auth/login`)**:
+   - Verifies email and Argon2id password hash.
+   - Generates access & refresh tokens and stores active session in the database.
+   - Sets secure cookies and redirects user to `/dashboard`.
+
+3. **Main Application (`/dashboard`)**:
+   - Protected dashboard presenting active farm zones (Parcels A, B, C).
+   - Real-time ROOTLOOP underground water-recovery status and triggers.
+   - Live sensor telemetry (VWC soil moisture, temperature, solar voltage, flow rates).
+   - AI crop health overview.
+
+---
+
+## Running Locally
+
+### 1. Requirements
+- Node.js 22 + pnpm 9
+- Python 3.12+ with `uv`
+- Docker & Docker Compose
+
+### 2. Environment Configuration
+```bash
+cp .env.example .env
+cp services/api/.env.example services/api/.env
+```
+
+### 3. Start Local Infrastructure
+```bash
+docker compose -f infra/docker-compose.yml up -d db redis s3 proxy
+```
+
+### 4. Run Backend (Terminal 1)
+```bash
+cd services/api
+uv sync
+uv run uvicorn app.main:app --reload --port 8001
+```
+Interactive Swagger API documentation: `http://localhost:8001/api/docs`
+
+### 5. Run Frontend (Terminal 2)
+```bash
+pnpm install
+pnpm --filter web dev
+```
+Open `http://localhost:3000` (or `https://farmlink.localhost` via Caddy).
+
+### 6. Run the crop planner (Terminal 3, optional)
+Dashboard → **Crop Planning** shows the MIZU KIZUNA planner (`mizu-kizuna/`), which runs as its own server:
+```bash
+cd mizu-kizuna
+uv venv --python 3.12 .venv && uv pip install --python .venv/bin/python -r requirements.txt   # first time only
+.venv/bin/python -m uvicorn main:app --port 8010
+```
+Port 8010 is the default; set `NEXT_PUBLIC_MIZU_URL` in `apps/web/.env.local` to use another address.
+
+---
+
+## Running Tests
+
+### Backend Unit Tests (Pytest)
+```bash
+cd services/api && uv run pytest
+```
+
+### Frontend Unit Tests (Vitest)
+```bash
+cd apps/web && pnpm test
+```
+
+### Frontend Typecheck (TypeScript)
+```bash
+cd apps/web && pnpm typecheck
+```

@@ -1,6 +1,7 @@
 # Node / web
 node_modules/
 .next/
+.next-dev/
 out/
 dist/
 coverage/
@@ -33,3 +34,8 @@ services/api/data/
 # Local tooling (spec-kit and Claude Code), not shared
 .specify/
 .claude/
+
+# Local scratch and runtime caches
+.work/
+mizu-kizuna/cache/*
+!mizu-kizuna/cache/.keep

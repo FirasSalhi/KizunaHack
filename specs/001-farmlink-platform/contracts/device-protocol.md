@@ -1,4 +1,4 @@
-# Contract: Device Protocol v2 (ESP32 ↔ backend)
+# Contract: Device Protocol v2 (ESP32 to backend, both ways)
 
 Replaces the reference's single-device protocol (`is9ini/telemetry`, global `DEVICE_KEY`) with
 per-device identity. A v1 adapter keeps the reference payload working during transition.

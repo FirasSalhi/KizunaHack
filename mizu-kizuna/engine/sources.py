@@ -95,8 +95,13 @@ def forecast16(lat, lon):
            "&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,et0_fao_evapotranspiration"
            "&forecast_days=16&timezone=auto")
     d = _get_json(url, timeout=30)["daily"]
-    return {"dates": d["time"], "tmax": d["temperature_2m_max"], "tmin": d["temperature_2m_min"],
-            "rain": d["precipitation_sum"], "et0": d["et0_fao_evapotranspiration"],
+    # Open-Meteo leaves the last forecast days as null when its models do not reach that far: keep only full days.
+    keep = [i for i, (a, b) in enumerate(zip(d["temperature_2m_max"], d["temperature_2m_min"])) if a is not None and b is not None]
+    if not keep:
+        raise SourceUnavailable("Open-Meteo: prévision vide")
+    pick = lambda k: [d[k][i] for i in keep]
+    return {"dates": pick("time"), "tmax": pick("temperature_2m_max"), "tmin": pick("temperature_2m_min"),
+            "rain": pick("precipitation_sum"), "et0": pick("et0_fao_evapotranspiration"),
             "source": "Open-Meteo, prévision 16 jours"}
 
 
