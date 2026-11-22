@@ -9,6 +9,7 @@ from app.core.config import settings
 from app.core.database import engine
 from app.core.logging import logger, setup_logging
 from app.models.base import Base
+from app.routers import irrigation
 
 
 @asynccontextmanager
@@ -42,7 +43,7 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
-# CORS middleware for Next.js frontend and local dev proxies
+# CORS for the Next.js frontend, local dev proxies and the static irrigation demo pages (:8080)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.CORS_ORIGINS,
@@ -53,6 +54,7 @@ app.add_middleware(
 
 # Mount API routers
 app.include_router(api_router, prefix=settings.API_V1_PREFIX)
+app.include_router(irrigation.router)
 
 
 # Backward-compatible root health check

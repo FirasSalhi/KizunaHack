@@ -1,0 +1,57 @@
+{
+  "selected_model_name": "Persistence Baseline",
+  "primary_selection_metric": "MAE",
+  "selected_metrics": {
+    "MAE": 0.022916666666666696,
+    "RMSE": 0.04787135538781696,
+    "R2": 0.989843028624192
+  },
+  "all_models_evaluated": [
+    {
+      "Model": "Persistence Baseline",
+      "MAE (%)": 0.0229,
+      "RMSE (%)": 0.0479,
+      "R2": 0.9898
+    },
+    {
+      "Model": "Random Forest",
+      "MAE (%)": 0.8803,
+      "RMSE (%)": 1.0048,
+      "R2": -3.4749
+    },
+    {
+      "Model": "HistGradientBoosting",
+      "MAE (%)": 0.8823,
+      "RMSE (%)": 1.0057,
+      "R2": -3.4826
+    }
+  ],
+  "target_variable": "VWC_10cm_1h_ahead",
+  "forecast_horizon_hours": 1,
+  "station": "Chott Meriam",
+  "training_window": {
+    "start": "2026-11-13 21:00:00",
+    "end": "2026-11-19 04:00:00",
+    "samples": 112
+  },
+  "testing_window": {
+    "start": "2026-11-19 05:00:00",
+    "end": "2026-11-21 19:00:00",
+    "samples": 48
+  },
+  "feature_names": [
+    "VWC_10cm",
+    "VWC_30cm",
+    "VWC_60cm",
+    "soil_temp_10cm",
+    "soil_temp_30cm",
+    "vwc_10cm_lag1",
+    "vwc_10cm_lag2",
+    "vwc_10cm_diff1",
+    "vwc_10cm_rollmean3",
+    "vwc_10cm_rollstd3",
+    "hour_sin",
+    "hour_cos"
+  ],
+  "scientific_rationale": "Soil moisture dynamics exhibit physical inertia under gradual drying. Over a 1-hour horizon, persistence achieves near-zero error (MAE=0.0229%, R2=0.9898). Machine learning regressors trained on small hourly sets overfit diurnal noise and cannot outperform persistence."
+}

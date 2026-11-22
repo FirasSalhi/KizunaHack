@@ -1,0 +1,40 @@
+{
+ "sources": {
+  "FAO56_T12": {
+   "title": "FAO Irrigation & Drainage Paper 56, Table 12 - single crop coefficients Kc and mean max plant height",
+   "url": "https://www.fao.org/4/x0490e/x0490e0b.htm"
+  },
+  "FAO56_T11": {
+   "title": "FAO-56, Table 11 - lengths of crop development stages",
+   "url": "https://www.fao.org/4/x0490e/x0490e0b.htm"
+  },
+  "FAO56_T22": {
+   "title": "FAO-56, Table 22 - maximum effective rooting depth Zr and depletion fraction p (ETc ~5 mm/day)",
+   "url": "https://www.fao.org/4/x0490e/x0490e0e.htm"
+  },
+  "FAO56_EX38": {
+   "title": "FAO-56, Example 38 - only documented starting root depth (0.3 m on day 1, one example)",
+   "url": "https://www.fao.org/4/x0490e/x0490e0e.htm"
+  },
+  "CURATED_NAMES": {
+   "title": "Scientific/French/Arabic names curated by the FARMLINK developers (not taken from FAO tables; unverified against ECOCROP)",
+   "url": null
+  }
+ },
+ "retrieval_note": "Values transcribed from FAO-56 via a text-extraction service on 2026-11-21; Kc_ini per crop often unavailable (image column) -> group default used where flagged; re-verify against the PDF before operational use.",
+ "not_retrieved": [
+  "FAO ECOCROP (environmental requirements)",
+  "FAO CROPWAT tables",
+  "FAO WaPOR",
+  "FAO-33 yield response factors (water sensitivity)",
+  "FAO-56 Table 19 (soil water characteristics)"
+ ],
+ "confidence_labels": {
+  "directly_documented": "value printed in the cited FAO-56 table row",
+  "derived_from_published_reference": "group default / interpolation / adjacent-row proxy",
+  "generic_crop_approximation": "generic parameters of a related crop (e.g. winter wheat for durum)",
+  "regionally_estimated": "published value from another region used as estimate",
+  "locally_validated": "NOT USED - no local validation exists",
+  "curated_unverified": "names curated by developers"
+ }
+}

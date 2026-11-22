@@ -1,0 +1,670 @@
+<title>FARMLINK Ferme 3D</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: full-bleed 3D field; title chip top-left, mode switch top-right, farm panel docked right (bottom sheet on phones). */
+:root{
+  --surface:rgba(252,251,246,.95); --surface-solid:#fcfbf6; --ink:#1d2419; --muted:#5d6656; --line:#dcdfd3; --accent:#2e6a39; --accent-ink:#ffffff;
+  --now:#c8322a; --soon:#d9861c; --fine:#2f8a45; --missing:#6b7f93; --water:#1d6db0; --bg:#cfe3ef;
+  --f-display:"Space Grotesk","Segoe UI",system-ui,sans-serif; --f-body:Inter,"Segoe UI",system-ui,sans-serif; --f-mono:"JetBrains Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--surface:rgba(22,27,20,.94); --surface-solid:#161b14; --ink:#e6ebe0; --muted:#a0aa97; --line:#323b2c; --accent:#7cc68a; --accent-ink:#0f1a10; --now:#ff7a70; --soon:#f2b35a; --fine:#74d48f; --missing:#9fb3c6; --water:#6fb4f0; --bg:#1c2a33; color-scheme:dark}}
+:root[data-theme="dark"]{--surface:rgba(22,27,20,.94); --surface-solid:#161b14; --ink:#e6ebe0; --muted:#a0aa97; --line:#323b2c; --accent:#7cc68a; --accent-ink:#0f1a10; --now:#ff7a70; --soon:#f2b35a; --fine:#74d48f; --missing:#9fb3c6; --water:#6fb4f0; --bg:#1c2a33; color-scheme:dark}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font:14px/1.5 var(--f-body);overflow:hidden}
+*{box-sizing:border-box}
+#app{position:relative;height:100%;overflow:hidden}
+#scene{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none;cursor:grab}
+#scene.dragging{cursor:grabbing}
+.float{position:absolute;background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:0 6px 24px rgba(20,30,15,.14);backdrop-filter:blur(6px)}
+#title{top:max(12px,env(safe-area-inset-top,0px));left:max(16px,env(safe-area-inset-left,0px));padding:10px 14px;display:grid;gap:2px;max-width:min(360px,calc(100% - 32px))}
+#title h1{font:700 18px var(--f-display);margin:0}
+#title p{margin:0;font-size:12px;color:var(--muted)}
+#modes{top:max(12px,env(safe-area-inset-top,0px));right:max(16px,env(safe-area-inset-right,0px));padding:4px;display:flex;gap:4px}
+button{font:600 13px var(--f-body);border-radius:9px;padding:7px 11px;border:1px solid transparent;background:transparent;color:var(--ink);cursor:pointer}
+button.on{background:var(--accent);color:var(--accent-ink)}
+button.ghost{border-color:var(--line);background:var(--surface-solid)}
+button.add{border:1px dashed var(--accent);color:var(--accent);background:transparent}
+button:disabled{opacity:.45;cursor:not-allowed}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+#panel{right:max(16px,env(safe-area-inset-right,0px));top:calc(max(12px,env(safe-area-inset-top,0px)) + 56px);bottom:max(16px,env(safe-area-inset-bottom,0px));width:350px;display:flex;flex-direction:column;overflow:hidden}
+#panel .scroll{overflow-y:auto;padding:14px;display:grid;gap:16px;align-content:start}
+#panel h2{font:600 15px var(--f-display);margin:0}
+.lab{font:600 11px var(--f-body);letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.plots{display:grid;gap:6px}
+.plot{display:grid;grid-template-columns:12px 1fr auto;gap:10px;align-items:center;text-align:left;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--surface-solid);font-weight:500}
+.plot.sel{border-color:var(--ink)}
+.dot{width:12px;height:12px;border-radius:50%;display:inline-block;flex:0 0 auto}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.detail{display:grid;gap:10px;border-top:1px solid var(--line);padding-top:14px}
+.verdict{border-radius:12px;padding:12px;color:#fff;display:grid;gap:4px}
+.verdict b{font:700 18px var(--f-display)}
+.kv{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.kv div{border:1px solid var(--line);border-radius:9px;padding:7px 9px;display:grid}
+.kv span{font-size:11px;color:var(--muted)} .kv b{font:600 15px var(--f-mono)}
+.soilbar{height:12px;border-radius:99px;background:var(--line);position:relative;overflow:hidden}
+.soilbar i{position:absolute;inset:0 auto 0 0;background:var(--water)}
+.soilbar em{position:absolute;top:-2px;bottom:-2px;width:2px;background:var(--soon)}
+.need{display:grid;gap:7px}
+.need .r{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 8px;align-items:center;font-size:13px}
+.need .bar{grid-column:1 / -1;height:8px;border-radius:99px;background:var(--line);overflow:hidden}
+.need .bar i{display:block;height:100%}
+label{display:grid;gap:3px;font-size:12px;color:var(--muted)}
+input[type=number],select{font:14px var(--f-body);color:var(--ink);background:var(--surface-solid);border:1px solid var(--line);border-radius:8px;padding:6px 8px;width:100%;min-width:0}
+input[type=range]{width:100%;accent-color:var(--water)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.hint{font-size:12px;color:var(--muted)}
+.seg{display:flex;gap:4px;border:1px solid var(--line);border-radius:10px;padding:3px}
+.seg button{flex:1;padding:5px 6px;font-size:12px}
+.sect{display:grid;gap:8px} .sect-h{display:flex;justify-content:space-between;align-items:baseline}
+.prow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px;align-items:stretch}
+.prow .plot{min-width:0} .prow .plot span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.del{border:1px solid var(--line);background:var(--surface-solid);color:var(--muted);padding:0 11px;font-size:15px}
+.del:hover{color:var(--now);border-color:var(--now)}
+.confirm{display:flex;gap:6px;align-items:center;justify-content:space-between;padding:8px 10px;border:1px solid var(--now);border-radius:10px;background:var(--surface-solid);font-size:13px}
+.confirm div{display:flex;gap:6px} .confirm .yes{background:var(--now);color:#fff}
+button.primary{background:var(--accent);color:var(--accent-ink)}
+.addform{display:grid;gap:8px;border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--surface-solid)}
+.today{display:grid;gap:8px}
+.today h2{font:700 17px var(--f-display)}
+.todo{display:grid;grid-template-columns:12px minmax(0,1fr) auto;gap:10px;align-items:center;padding:9px 11px;border-radius:10px;background:var(--surface-solid);border:1px solid var(--line);text-align:left;font-weight:500}
+.todo b{font-family:var(--f-mono)}
+.big{font:700 26px var(--f-display);line-height:1.1}
+details.tech{border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+details.tech summary{cursor:pointer;font-weight:600;font-size:13px;color:var(--muted)}
+details.tech[open] summary{margin-bottom:8px}
+#legend{left:max(16px,env(safe-area-inset-left,0px));bottom:max(16px,env(safe-area-inset-bottom,0px));padding:8px 12px;display:flex;flex-wrap:wrap;gap:6px 14px;max-width:min(560px,calc(100% - 400px))}
+#legend span{display:inline-flex;align-items:center;gap:6px;font-size:12px}
+#help{left:50%;transform:translateX(-50%);top:calc(max(12px,env(safe-area-inset-top,0px)) + 56px);padding:6px 12px;font-size:12px;color:var(--muted);white-space:nowrap}
+#pad{left:max(16px,env(safe-area-inset-left,0px));bottom:calc(max(16px,env(safe-area-inset-bottom,0px)) + 56px);display:grid;grid-template-columns:repeat(3,44px);grid-template-rows:repeat(2,44px);gap:4px;padding:6px}
+#pad button{background:var(--surface-solid);border:1px solid var(--line);font-size:18px;padding:0;touch-action:none;user-select:none}
+#pad .up{grid-column:2} #pad .l{grid-column:1;grid-row:2} #pad .dn{grid-column:2;grid-row:2} #pad .r{grid-column:3;grid-row:2}
+#sheet{display:none}
+#err{position:absolute;inset:0;display:grid;place-items:center;padding:24px;text-align:center}
+@media (max-width:760px){
+  #panel{left:max(16px,env(safe-area-inset-left,0px));right:max(16px,env(safe-area-inset-right,0px));top:auto;width:auto;max-height:50%}
+  #panel.closed .scroll{display:none}
+  #sheet{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line);font-weight:600;background:transparent;border-radius:0;width:100%}
+  #legend{display:none} #help{display:none}
+  #modes{top:auto;bottom:calc(50% + 28px)}
+  #panel.closed ~ #modes{bottom:84px}
+  #pad{bottom:calc(50% + 80px)}
+}
+</style>
+
+<div id="app">
+  <canvas id="scene" aria-label="Vue 3D de la ferme : cliquez une parcelle pour voir son besoin en eau"></canvas>
+  <div class="float" id="title"><h1>Ma ferme en 3D</h1><p>Chott Meriam, Sousse · météo du <span id="dt"></span> · <span id="nplots"></span></p></div>
+  <div class="float" id="help">Glisser pour tourner · molette pour zoomer · cliquer une parcelle</div>
+  <div class="float" id="panel">
+    <button id="sheet" type="button" aria-expanded="true"><span id="sheet-t">Parcelles</span><span aria-hidden="true">▾</span></button>
+    <div class="scroll">
+      <div class="today" id="need"></div>
+      <div class="sect">
+        <div class="sect-h"><span class="lab">Mes parcelles</span><span class="hint" id="count"></span></div>
+        <div class="plots" id="plots"></div>
+        <button class="add" id="add" type="button">+ Ajouter une parcelle</button>
+        <form id="addform" class="addform" hidden autocomplete="off">
+          <b>Nouvelle parcelle</b>
+          <label>Quelle plante ?<select id="a-crop"></select></label>
+          <div class="row2"><label>Surface (hectares)<input type="number" id="a-area" min="0.1" max="4" step="0.1" value="0.5"></label>
+          <label>Dernier arrosage<select id="a-last"></select></label></div>
+          <label>Type de sol<select id="a-soil"></select></label>
+          <label>Arrosage<select id="a-meth"></select></label>
+          <div class="row2"><button class="primary" type="submit">Ajouter</button><button class="ghost" type="button" id="a-cancel">Annuler</button></div>
+        </form>
+      </div>
+      <div class="detail" id="detail"></div>
+      <div class="sect">
+        <span class="lab">Bassin d'eau</span>
+        <label for="water">Eau disponible aujourd'hui : <b class="mono" id="wl"></b></label>
+        <input type="range" id="water" min="0" max="4000" step="50" value="1500">
+        <span class="hint" id="wnote"></span>
+      </div>
+      <div class="sect" id="engine">
+        <span class="lab">Moteur de calcul</span>
+        <span style="display:flex;gap:8px;align-items:center;font-size:13px"><i class="dot" id="engine-dot"></i><span id="engine-st"></span></span>
+        <div class="row2" style="grid-template-columns:1fr auto"><label for="api-url">Adresse de l'API FARMLINK<input id="api-url" type="url" value="http://localhost:8001" style="font:13px var(--f-mono)"></label><button class="ghost" id="api-go" type="button" style="align-self:end">Connecter</button></div>
+        <span class="hint" id="engine-err" hidden></span>
+        <span class="hint">Avec l'API lancée (services/api), les décisions viennent du vrai moteur Python et de la météo du jour.</span>
+      </div>
+      <button class="ghost" id="reset" type="button">Revenir à la ferme d'exemple</button>
+    </div>
+  </div>
+  <div class="float" id="modes" role="group" aria-label="Mode de vue"><button id="m-over" class="on" type="button">Vue d'ensemble</button><button id="m-walk" type="button">Promenade</button></div>
+  <div class="float" id="pad" hidden aria-label="Marcher">
+    <button class="up" data-k="f" type="button" aria-label="Avancer">▲</button><button class="l" data-k="l" type="button" aria-label="Tourner à gauche">◀</button><button class="dn" data-k="b" type="button" aria-label="Reculer">▼</button><button class="r" data-k="r" type="button" aria-label="Tourner à droite">▶</button>
+  </div>
+  <div class="float" id="legend"></div>
+  <div id="err" hidden></div>
+</div>
+
+<script type="application/json" id="farm">__FARM__</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+const FARM = JSON.parse(document.getElementById('farm').textContent);
+const $ = s => document.querySelector(s);
+const fmt = (v, d = 0) => v == null || !isFinite(v) ? '—' : Number(v).toLocaleString('fr-FR', {minimumFractionDigits:d, maximumFractionDigits:d});
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const clamp = (x,a,b) => Math.min(b, Math.max(a, x));
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+$('#dt').textContent = FARM.date.split('-').reverse().join('/');
+if (!window.THREE){ const e = $('#err'); e.hidden = false; e.innerHTML = '<p>La bibliothèque 3D n\'a pas pu se charger. Vérifiez la connexion puis rechargez la page.</p>'; return; }
+
+/* ---------- crops and FAO-56 parameters ---------- */
+const CROP = Object.fromEntries(FARM.crops.map(c => [c.id, c]));
+const CAT = {vegetable:'Légumes', cereal:'Céréales', legume:'Légumineuses', tree:'Arbres', fruit:'Fruits', forage:'Fourrages', industrial:'Cultures industrielles', oilseed:'Oléagineux'};
+const NAME = id => ((CROP[id] || {}).fr || id).replace(/\s*\(.*\)$/, '');
+const STAGE_FR = {initial:'début', development:'développement', mid_season:'pleine saison', late_season:'fin de saison'};
+const SOILS = {loamy_sand:{fc:.15, wp:.06, fr:'Sable limoneux'}, sandy_loam:{fc:.22, wp:.10, fr:'Limon sableux'}, loam:{fc:.25, wp:.11, fr:'Limon'}, clay_loam:{fc:.30, wp:.15, fr:'Limon argileux'}, silt:{fc:.32, wp:.15, fr:'Limon fin'}, silty_clay:{fc:.35, wp:.23, fr:'Argile limoneuse'}};
+const EA = {surface:.60, sprinkler:.75, drip:.90};
+const ETO0 = FARM.etoToday, FC = FARM.forecast;
+const kcStage = (c, st) => ({initial:c.ini, development:(c.ini+c.mid)/2, mid_season:c.mid, late_season:(c.mid+c.end)/2})[st];
+const adjP = (p, etc) => clamp(p + 0.04*(5-etc), .1, .8);
+function rootDepth(c, st){ // engine rule: linear from 0.30 m to the scheduling depth over initial+development; perennials constant
+  const zr = c.zr[2] || c.zr[0]; if (c.perennial || zr <= .3) return zr;
+  const [ini, dev] = [c.sl[0] || 30, c.sl[1] || 40];
+  const day = st === 'initial' ? ini/2 : st === 'development' ? ini + dev/2 : ini + dev;
+  return .3 + (zr - .3) * Math.min(day/(ini+dev), 1);
+}
+function params(f){
+  const z = f.z;
+  if (z && z.crop === f.crop && z.stage === f.stage && z.zr_m) // unchanged demo plot: exact engine values from the notebook run
+    return {kc:z.kc, etc:z.etc_mm, zr:z.zr_m, p:z.p, stageEst:!!z.stage_estimated, proj:z.proj && z.proj.length ? z.proj.map(p=>({cum:p.dr_end_mm - z.dr_mm, pf:p.raw_mm/z.taw_mm, rain:p.rain_mm})) : null, src:'moteur'};
+  const c = CROP[f.crop], kc = kcStage(c, f.stage), etc = kc*ETO0, p = adjP(c.p, etc);
+  let cum = 0; const proj = FC.map(d => { cum += kc*d.eto; return {cum, pf:adjP(c.p, kc*d.eto), rain:d.rain}; });
+  return {kc, etc, zr:rootDepth(c, f.stage), p, stageEst:false, proj, src:'calcul'};
+}
+
+/* ---------- farm engine (port of engine/prioritization.py, verified against Python) ---------- */
+const DEMO_SOIL = {Z1:'clay_loam', Z2:'sandy_loam', Z3:'loam', Z4:''};
+const DEMO_METH = {Z1:'sprinkler', Z2:'drip', Z3:'drip', Z4:'drip'};
+let FZ, nextId = 5;
+function resetFarm(){
+  FZ = FARM.zones.map(z => { const s = DEMO_SOIL[z.zone_id]; return {id:z.zone_id, crop:z.crop, stage:z.stage, area:z.area_ha, dr:z.dr_mm ?? 30, soilKey:s, soil:s ? {fc:SOILS[s].fc, wp:SOILS[s].wp} : {fc:'', wp:''}, method:DEMO_METH[z.zone_id], lastDays:null, z}; });
+  nextId = 5; $('#water').value = 1500;
+}
+function evalZone(f){
+  const P = params(f), fc = +f.soil.fc, wp = +f.soil.wp;
+  const base = {id:f.id, P, daily:P.etc*f.area*10};
+  if (!(f.soil.fc !== '' && f.soil.wp !== '' && fc > wp && wp >= 0)) return {...base, status:'NEEDS_DATA'};
+  const taw = 1000*(fc-wp)*P.zr, raw = P.p*taw, ea = EA[f.method];
+  // demo plots keep the engine's depletion; otherwise depletion = days since the last full irrigation × crop use (no rain)
+  const dr = clamp(f.lastDays == null ? +f.dr : f.lastDays*P.etc, 0, taw);
+  const proj = P.proj || [1,2,3,4,5].map(i=>({cum:i*P.etc, pf:P.p, rain:0}));
+  let days = dr >= raw ? 0 : null, dAt = null;
+  if (days === null) proj.forEach((p,i)=>{ const d = clamp(dr+p.cum,0,taw); if (days === null && d >= p.pf*taw){ days = i+1; dAt = d; } });
+  const timing = days === 0 ? 'now' : days ? 'soon' : 'none';
+  const net = timing==='now' ? dr : timing==='soon' ? dAt : 0, gross = net/ea, m3 = gross*f.area*10;
+  const ratio = dr/raw, rainF = proj.reduce((a,p)=>a+p.rain,0), stageS = (f.stage==='development'||f.stage==='mid_season') ? 1 : .5;
+  const urg = days==null?0: days<=0?1: days<=1?.75: days<=3?.5: days<=5?.25:0;
+  const rr = (net>0 && days!==0) ? Math.min(rainF/net,1) : 0, dq = P.stageEst ? .25 : 0;
+  const comp = {stress:Math.min(ratio,1.5)/1.5, urgency:urg, stage:stageS, buffer:1-Math.min(taw/60,1), rain_relief:rr, data_quality:dq};
+  const W = {stress:.5, urgency:.2, stage:.15, buffer:.1, rain_relief:-.15, data_quality:-.1};
+  const score = Object.keys(W).reduce((a,k)=>a+W[k]*comp[k],0);
+  const level = (ratio>=1 || (days!=null && days<=1)) ? 'HIGH' : ((days!=null && days<=3) || ratio>=.7) ? 'MEDIUM' : 'LOW';
+  return {...base, status:'OK', taw, raw, dr, ea, days, timing, net, gross, m3, area:f.area, ratio, score, level};
+}
+function farmCompute(water){
+  const ev = FZ.map(evalZone), ok = ev.filter(e=>e.status==='OK'), ord = {HIGH:0,MEDIUM:1,LOW:2};
+  ok.sort((a,b)=>ord[a.level]-ord[b.level] || b.score-a.score || a.id.localeCompare(b.id)); ok.forEach((z,i)=>z.rank=i+1);
+  let left = water; ok.forEach(p=>p.alloc=0);
+  for (const phase of [1,2]) for (const p of ok){ const target = phase===1 ? Math.max(p.dr-p.raw,0) : p.dr; const already = p.alloc/(p.area*10)*p.ea; const need = Math.max(target-already,0); const m3 = need>0 ? need/p.ea*p.area*10 : 0; const give = Math.min(m3,left); p.alloc += give; left -= give; }
+  ok.forEach(p=>{ p.netApplied = p.alloc/(p.area*10)*p.ea; p.residual = Math.max(p.dr-p.netApplied,0); p.full = p.alloc >= p.m3 - 1e-9; });
+  return {ev, left, need: ok.reduce((a,p)=>a+p.m3,0), nOk: ok.length};
+}
+
+/* ---------- status vocabulary ---------- */
+const SCOL = {now:'#c8322a', soon:'#d9861c', none:'#2f8a45', NEEDS_DATA:'#6b7f93'};
+const SVAR = {now:'--now', soon:'--soon', none:'--fine', NEEDS_DATA:'--missing'};
+const key = e => e.status==='OK' ? e.timing : 'NEEDS_DATA';
+const title = e => e.status!=='OK' ? 'Sol à renseigner' : e.timing==='now' ? 'Arroser maintenant' : e.timing==='soon' ? `Arroser d'ici ${e.days} j` : 'Pas besoin d\'arroser';
+const LVL = {HIGH:'Priorité haute', MEDIUM:'Priorité moyenne', LOW:'Priorité basse'};
+$('#legend').innerHTML = [['now','Arroser maintenant'],['soon','Arroser bientôt'],['none','Pas besoin'],['NEEDS_DATA','Sol à renseigner']].map(([k,t])=>`<span><i class="dot" style="background:var(${SVAR[k]})"></i>${t}</span>`).join('');
+
+/* ---------- three.js scene (realistic look: PBR materials, sky, procedural textures, terrain) ---------- */
+const canvas = $('#scene');
+const renderer = new THREE.WebGLRenderer({canvas, antialias:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = .82;
+renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+const scene = new THREE.Scene();
+const HORIZON = new THREE.Color('#e4dccb');
+scene.fog = new THREE.Fog(HORIZON, 160, 520);
+const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 1500);
+const SUN_DIR = new THREE.Vector3(-.45, .62, .4).normalize();
+const sky = new THREE.Mesh(new THREE.SphereGeometry(1000, 32, 16), new THREE.ShaderMaterial({side:THREE.BackSide, depthWrite:false, fog:false,
+  uniforms:{top:{value:new THREE.Color('#4f88c6')}, bottom:{value:HORIZON}, sunDir:{value:SUN_DIR}},
+  vertexShader:'varying vec3 vP; void main(){ vP = normalize(position); gl_Position = projectionMatrix*modelViewMatrix*vec4(position,1.0); }',
+  fragmentShader:'uniform vec3 top; uniform vec3 bottom; uniform vec3 sunDir; varying vec3 vP; void main(){ float h = max(vP.y, 0.0); vec3 c = mix(bottom, top, pow(h, 0.5)); float s = max(dot(vP, sunDir), 0.0); c += vec3(1.0, 0.92, 0.75)*(pow(s, 900.0)*1.5 + pow(s, 10.0)*0.22); gl_FragColor = vec4(c, 1.0); }'}));
+scene.add(sky);
+scene.add(new THREE.HemisphereLight('#d6e6f5', '#8a7550', .6));
+const sun = new THREE.DirectionalLight('#fff1da', 1.25); sun.position.copy(SUN_DIR).multiplyScalar(160); sun.target.position.set(0, 0, -10); scene.add(sun.target);
+sun.castShadow = true; Object.assign(sun.shadow.camera, {left:-95, right:95, top:95, bottom:-95, near:10, far:400}); sun.shadow.mapSize.set(2048, 2048); sun.shadow.bias = -0.0004; sun.shadow.normalBias = .03; scene.add(sun);
+
+/* noise helpers */
+function hash(x, y){ const s = Math.sin(x*127.1 + y*311.7)*43758.5453; return s - Math.floor(s); }
+function vnoise(x, y){ const xi = Math.floor(x), yi = Math.floor(y), xf = x-xi, yf = y-yi, u = xf*xf*(3-2*xf), v = yf*yf*(3-2*yf);
+  const a = hash(xi,yi), b = hash(xi+1,yi), c = hash(xi,yi+1), d = hash(xi+1,yi+1); return a + (b-a)*u + (c-a)*v + (a-b-c+d)*u*v; }
+const fbm = (x, y) => { let s = 0, a = .5, f = 1; for (let i = 0; i < 4; i++){ s += a*vnoise(x*f, y*f); f *= 2; a *= .5; } return s; };
+const sstep = (a, b, x) => { const t = clamp((x-a)/(b-a), 0, 1); return t*t*(3-2*t); };
+function canvasTex(size, rep, pixel){
+  const c = document.createElement('canvas'); c.width = c.height = size; const g = c.getContext('2d'), im = g.createImageData(size, size);
+  for (let y = 0; y < size; y++) for (let x = 0; x < size; x++){ const [r, gg, b] = pixel(x, y, size), k = (y*size + x)*4; im.data[k] = r; im.data[k+1] = gg; im.data[k+2] = b; im.data[k+3] = 255; }
+  g.putImageData(im, 0, 0); const t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(rep, rep); t.anisotropy = renderer.capabilities.getMaxAnisotropy(); return t;
+}
+const T_SAND = canvasTex(256, 140, (x, y, s) => { const n = fbm(x/18, y/18), sp = hash(x, y) > .985 ? -40 : hash(x+7, y) > .99 ? 25 : 0, gr = vnoise(x/40, y/40) > .7 ? 1 : 0;
+  return [clamp(178 + 50*n + sp - gr*30, 0, 255), clamp(152 + 42*n + sp - gr*8, 0, 255), clamp(108 + 30*n + sp - gr*25, 0, 255)]; });
+const T_SOIL = canvasTex(256, 1, (x, y, s) => { const ridge = .5 + .5*Math.sin(x/s*Math.PI*2*16), n = fbm(x/10, y/10), clod = hash(x, y) > .97 ? -25 : 0;
+  const v = 150 + 60*ridge*.6 + 55*(n-.5) + clod; return [clamp(v, 0, 255), clamp(v*.86, 0, 255), clamp(v*.68, 0, 255)]; });
+const T_PATH = canvasTex(128, 1, (x, y) => { const n = fbm(x/9, y/9), p = hash(x, y) > .97 ? 30 : 0; return [clamp(205 + 30*n + p, 0, 255), clamp(186 + 28*n + p, 0, 255), clamp(150 + 24*n + p, 0, 255)]; });
+const std = (o) => new THREE.MeshStandardMaterial(Object.assign({roughness:.9, metalness:0}, o));
+
+/* terrain: flat farm, rolling ground, hills on the horizon */
+const tGeo = new THREE.PlaneGeometry(1400, 1400, 220, 220); tGeo.rotateX(-Math.PI/2);
+{ const p = tGeo.attributes.position, col = []; const sand = new THREE.Color('#e6d6b8'), dry = new THREE.Color('#c9c29a'), rock = new THREE.Color('#b8a487');
+  for (let i = 0; i < p.count; i++){ const x = p.getX(i), z = p.getZ(i), r = Math.hypot(x*.9, (z+10)*.75);
+    const h = sstep(90, 170, r)*fbm(x/70, z/70)*22 + sstep(240, 520, r)*(fbm(x/140+3, z/140)*95 + 10);
+    p.setY(i, h - .02); const c = sand.clone().lerp(dry, clamp(fbm(x/30+5, z/30)*1.2-.3, 0, .8)).lerp(rock, sstep(260, 500, r)*.6); col.push(c.r, c.g, c.b); }
+  tGeo.setAttribute('color', new THREE.Float32BufferAttribute(col, 3)); tGeo.computeVertexNormals(); }
+const terrain = new THREE.Mesh(tGeo, std({map:T_SAND, vertexColors:true, roughness:1})); terrain.receiveShadow = true; scene.add(terrain);
+const pathMat = std({map:T_PATH, roughness:1});
+[[0,-12,5,160],[0,0,80,5],[0,-34.6,80,5]].forEach(([x,z,w,d]) => { const g = new THREE.PlaneGeometry(w, d); g.rotateX(-Math.PI/2); const m = new THREE.Mesh(g, pathMat); m.material = pathMat.clone(); m.material.map = T_PATH.clone(); m.material.map.needsUpdate = true; m.material.map.repeat.set(w/6, d/6); m.position.set(x, .02, z); m.receiveShadow = true; scene.add(m); });
+
+/* geometry helpers */
+function mergeGeos(list){ const pos = [], nor = []; list.forEach(g => { const n = g.index ? g.toNonIndexed() : g; pos.push(...n.attributes.position.array); nor.push(...n.attributes.normal.array); });
+  const out = new THREE.BufferGeometry(); out.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); out.setAttribute('normal', new THREE.Float32BufferAttribute(nor, 3)); return out; }
+function lumpy(geo, amt, freq){ const p = geo.attributes.position, v = new THREE.Vector3(); for (let i = 0; i < p.count; i++){ v.fromBufferAttribute(p, i); const n = vnoise(v.x*freq+11.3, v.z*freq+v.y*freq*1.7+5.1) - .5; v.multiplyScalar(1 + n*amt); p.setXYZ(i, v.x, v.y, v.z); } geo.computeVertexNormals(); return geo; }
+const M4 = new THREE.Matrix4(), Q = new THREE.Quaternion(), UP = new THREE.Vector3(0,1,0), V = new THREE.Vector3(), S = new THREE.Vector3();
+function instanced(geo, mat, pts, opts = {}){
+  if (!pts.length) return null;
+  const mesh = new THREE.InstancedMesh(geo, mat, pts.length); mesh.castShadow = opts.cast !== false; mesh.receiveShadow = true;
+  const base = new THREE.Color(opts.color || '#ffffff');
+  pts.forEach((p, i) => { const s = p[3] || 1; Q.setFromAxisAngle(UP, p[4] ?? rnd()*6.28); M4.compose(V.set(p[0], p[1], p[2]), Q, S.set(s*(p[5]||1), s*(p[6]||1), s*(p[5]||1))); mesh.setMatrixAt(i, M4);
+    mesh.setColorAt(i, base.clone().offsetHSL((rnd()-.5)*(opts.hue ?? .03), (rnd()-.5)*.08, (rnd()-.5)*(opts.light ?? .1))); });
+  return mesh;
+}
+
+/* surroundings: tabia hedge of prickly pear, scattered shrubs and olive trees, Tunisian farmhouse */
+let seed = 7; const rnd = () => (seed = (seed*16807) % 2147483647) / 2147483647;
+{ const pad = lumpy(new THREE.SphereGeometry(.55, 10, 8), .25, 3); pad.scale(1, 1.35, .28);
+  const pts = [], edge = (x0, z0, x1, z1) => { const L = Math.hypot(x1-x0, z1-z0), n = Math.floor(L/2.1); for (let k = 0; k <= n; k++){ const t = k/n, x = x0+(x1-x0)*t, z = z0+(z1-z0)*t; if (Math.abs(x) < 4 && z > 40) continue;
+    for (let j = 0; j < 7; j++) pts.push([x+(rnd()-.5)*1.6, .4 + rnd()*2.2, z+(rnd()-.5)*1.6, .8+rnd()*.6, rnd()*6.28]); } };
+  edge(-52,-88, 52,-88); edge(52,-88, 52,66); edge(52,66, -52,66); edge(-52,66, -52,-88);
+  const m = instanced(pad, std({roughness:.7}), pts, {color:'#5d7e3c'}); scene.add(m); }
+{ const tuft = mergeGeos([0,1,2,3,4].map(k => { const c = new THREE.ConeGeometry(.04, .55, 3); c.translate(0,.27,0); c.rotateZ((rnd()-.5)*.7); c.rotateY(k*1.25); return c; }));
+  const pts = []; for (let k = 0; k < 2600; k++){ const x = (rnd()-.5)*300, z = (rnd()-.5)*300 - 10; if (Math.abs(x) < 50 && z > -86 && z < 64) continue; pts.push([x, 0, z, .7+rnd()*.8]); }
+  for (let k = 0; k < 700; k++){ const x = (rnd()-.5)*100, z = -88 + rnd()*152; if (Math.abs(x) < 36 && z > -70 && z < 34) continue; if (Math.abs(x) < 4) continue; pts.push([x, 0, z, .6+rnd()*.6]); }
+  scene.add(instanced(tuft, std({roughness:1}), pts, {color:'#a59a5c', cast:false, light:.18})); }
+const OLIVE_TRUNK = (() => { const g = new THREE.CylinderGeometry(.14, .3, 1.9, 7, 4); const p = g.attributes.position; for (let i = 0; i < p.count; i++){ const y = p.getY(i) + .95; p.setX(i, p.getX(i) + .12*y*y); } g.computeVertexNormals(); g.translate(0,.95,0); return g; })();
+function canopyClumps(r, h, n){ return [...Array(n)].map((_, k) => { const g = lumpy(new THREE.SphereGeometry(r*(k ? .72 : 1), 12, 9), .35, 2.2); const a = k*2.4; g.translate(k ? Math.cos(a)*r*.75 : 0, h + (k ? (rnd()-.3)*r*.5 : r*.2), k ? Math.sin(a)*r*.75 : 0); return g; }); }
+{ const pts = []; for (let k = 0; k < 90; k++){ const a = rnd()*6.28, r = 95 + rnd()*120; pts.push([Math.cos(a)*r, 0, Math.sin(a)*r - 10, .9+rnd()*.5]); }
+  pts.forEach(p => p[1] = sstep(90, 170, Math.hypot(p[0]*.9, (p[2]+10)*.75))*fbm(p[0]/70, p[2]/70)*22 - .1);
+  scene.add(instanced(OLIVE_TRUNK, std({color:'#5b4632'}), pts.map(p => [...p, rnd()*6.28]), {color:'#6b5338'}));
+  canopyClumps(1.5, 2.6, 4).forEach(g => scene.add(instanced(g, std({roughness:.85}), pts, {color:'#66784a'}))); }
+// farmhouse (whitewashed walls, flat roof with parapet, blue door and shutters) and a store
+{ const H = new THREE.Group(); H.position.set(-14, 0, 54); const white = std({color:'#f3efe6', roughness:.95}), blue = std({color:'#1f5f9e', roughness:.6});
+  const box = (w, h, d, m, x, y, z) => { const o = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), m); o.position.set(x, y, z); o.castShadow = o.receiveShadow = true; H.add(o); return o; };
+  box(10, 3.6, 7, white, 0, 1.8, 0); box(10.2, .5, 7.2, white, 0, 3.85, 0); box(10.2, .5, .2, white, 0, 4.3, 3.5); box(10.2, .5, .2, white, 0, 4.3, -3.5); box(.2, .5, 7.2, white, 5, 4.3, 0); box(.2, .5, 7.2, white, -5, 4.3, 0);
+  box(1.3, 2.3, .12, blue, 1.6, 1.15, 3.52); box(1.1, 1, .12, blue, -2.4, 2, 3.52); box(1.1, 1, .12, blue, 4.1, 2, 3.52);
+  box(5, 2.6, 4, white, -9, 1.3, -1); box(5.2, .3, 4.2, std({color:'#d9d2c2'}), -9, 2.75, -1); box(1.6, 2, .12, blue, -9, 1, 1.06);
+  scene.add(H);
+  const palm = new THREE.Group(); palm.position.set(6, 0, 60); const tr = new THREE.Mesh(new THREE.CylinderGeometry(.22, .34, 8, 10, 8), std({color:'#8a7154'})); tr.position.y = 4; tr.castShadow = true; palm.add(tr);
+  for (let k = 0; k < 11; k++){ const f = new THREE.PlaneGeometry(.7, 4, 1, 8); const p = f.attributes.position; for (let i = 0; i < p.count; i++){ const y = p.getY(i) + 2; p.setZ(i, -.12*y*y); } f.computeVertexNormals(); f.translate(0, 2, 0); f.rotateX(-1.1);
+    const m = new THREE.Mesh(f, std({color:'#4f7a32', side:THREE.DoubleSide, roughness:.8})); m.position.y = 8; m.rotation.y = k*0.57; m.castShadow = true; palm.add(m); }
+  scene.add(palm); }
+
+/* ---------- crop drawings ---------- */
+const STYLE = {
+  durum_wheat:['grain','#86a040'], barley:['grain','#97a94c'], maize_grain:['maize','#5c8f36'], sunflower:['sunflower','#5a8a35'],
+  olive:['tree','#66784a',1,null,'olive'], almond:['tree','#6f8c52',.85,'#efe2e4'], pistachio:['tree','#6a8a4c',.8,'#c7ad62'], walnut:['tree','#48723a',1.25], apple:['tree','#4d7f37',.9,'#c0392b'],
+  stone_fruit:['tree','#58893f',.85,'#ef8b52'], citrus:['tree','#2f5c2a',.95,'#f39a1e','citrus'], date_palm:['palm','#557d34'], grape_wine:['vine','#5c8b38',1,'#4a2556'], grape_table:['vine','#679a40',1,'#a8c45a'],
+  tomato:['bush','#4d8336',.85,'#d23a2a'], sweet_pepper:['bush','#4a7f35',.75,'#2e9b3c'], eggplant:['bush','#567b3b',.85,'#47284f'], potato:['bush','#4f8538',.8,'#f0f0f0'],
+  onion_dry:['spike','#6e9f5a',.55], garlic:['spike','#80ab6a',.5], carrot:['leafy','#4d9238',.45], cabbage:['ball','#93b97c',.65], cauliflower:['ball','#9ec18f',.65,'#f1eee3'],
+  lettuce:['ball','#a3cf73',.48], spinach:['leafy','#3d7a33',.42], cucumber:['creeper','#4b8436',.6,'#3a6f2c'], melon:['creeper','#5a913f',.6,'#ddbf6a'], watermelon:['creeper','#4b8436',.6,'#2c5a2a'],
+  zucchini:['creeper','#4a8737',.6,'#2f6a2d'], artichoke:['ball','#7a9c86',.95], green_bean:['bush','#5a983f',.65], faba_bean:['bush','#4e8537',.75], chickpea:['bush','#7da35a',.5], lentil:['bush','#88aa62',.42],
+  alfalfa:['carpet','#4d9438'], sugar_beet:['leafy','#3f7a35',.55], strawberry:['bush','#3c7a33',.35,'#d42b2b']};
+function plantSet(cropId, side, stage){
+  const st = STYLE[cropId] || ['bush','#4f8538',.8], [kind, leafC, size = 1, fruitC] = st;
+  const grow = stage==='initial' ? .4 : stage==='development' ? .72 : 1, late = stage==='late_season';
+  const half = side/2 - 1, out = {meshes:[], leaves:[]};
+  const add = (mesh, leaf) => { if (!mesh) return; out.meshes.push(mesh); if (leaf) out.leaves.push({mesh, base:[...Array(mesh.count)].map((_, i) => { const c = new THREE.Color(); mesh.getColorAt(i, c); return c; })}); };
+  const grid = (sx, sz, j = .25) => { const pts = []; for (let x = -half; x <= half+.01; x += sx) for (let z = -half; z <= half+.01; z += sz) pts.push([x+(rnd()-.5)*j, .3, z+(rnd()-.5)*j]); return pts; };
+  const leafMat = (r = .82) => std({roughness:r});
+  if (kind === 'grain'){
+    const h = .9*grow, tuft = mergeGeos([0,1,2,3,4,5].map(k => { const c = new THREE.ConeGeometry(.025, 1, 3); c.translate(0,.5,0); c.rotateZ((rnd()-.5)*.5); c.rotateY(k*1.05); return c; }));
+    add(instanced(tuft, leafMat(), grid(.34, .34, .2).map(p => [...p, h*(.8+rnd()*.4)]), {color: late ? '#c8a64a' : leafC, cast:false, light:.14}), true);
+    if (grow > .7){ const ear = new THREE.CylinderGeometry(.035, .02, .22, 5); ear.translate(0, 1.02, 0); add(instanced(ear, std({}), grid(.34, .34, .2).map(p => [...p, h]), {color: late ? '#d9b65a' : '#a7b558', cast:false}), false); }
+  } else if (kind === 'maize' || kind === 'sunflower'){
+    const h = (kind==='maize' ? 2.4 : 1.9)*grow, pts = grid(.9, .75, .2).map(p => [...p, h*(.85+rnd()*.3)]);
+    const stalk = new THREE.CylinderGeometry(.03, .05, 1, 5); stalk.translate(0,.5,0);
+    const leaves = mergeGeos([0,1,2,3].map(k => { const l = new THREE.ConeGeometry(.08, .7, 3); l.scale(1, 1, .2); l.rotateZ(1.1); l.translate(.3, .3 + k*.17, 0); l.rotateY(k*1.9); return l; }));
+    add(instanced(stalk, leafMat(), pts, {color:leafC}), true); add(instanced(leaves, leafMat(), pts, {color:leafC}), true);
+    if (grow > .7){ const head = kind==='maize' ? new THREE.ConeGeometry(.05, .3, 5) : new THREE.CylinderGeometry(.22, .22, .06, 14); head.translate(0, 1.02, 0); if (kind==='sunflower') head.rotateX(-.5);
+      add(instanced(head, std({}), pts, {color: kind==='maize' ? '#d8c27a' : '#f2c02e'}), false); }
+  } else if (kind === 'tree'){
+    const step = 5.2*size + .8, pts = grid(step, step, .5).map(p => [...p, Math.max(.45, grow)*size*(.85+rnd()*.3)]);
+    add(instanced(OLIVE_TRUNK, std({}), pts, {color: st[4]==='olive' ? '#5a4632' : '#6b5338'}), false);
+    canopyClumps(st[4]==='citrus' ? 1.35 : 1.45, 2.5, st[4]==='citrus' ? 3 : 4).forEach(g => add(instanced(g, leafMat(st[4]==='citrus' ? .55 : .85), pts, {color:leafC}), true));
+    if (fruitC && grow > .6){ const fp = []; pts.forEach(p => { for (let k = 0; k < 9; k++){ const a = rnd()*6.28, b = (rnd()-.25)*1.1, r = 1.45*p[3]; fp.push([p[0]+Math.cos(a)*Math.cos(b)*r, p[1]+2.5*p[3]+Math.sin(b)*r, p[2]+Math.sin(a)*Math.cos(b)*r, 1]); } });
+      add(instanced(new THREE.SphereGeometry(.13, 8, 6), std({roughness:.5}), fp, {color:fruitC, cast:false}), false); }
+  } else if (kind === 'palm'){
+    const pts = grid(8, 8, .5).map(p => [...p, Math.max(.4, grow)*(.85+rnd()*.3)]);
+    const trunk = new THREE.CylinderGeometry(.22, .36, 7, 9, 7); trunk.translate(0, 3.5, 0); add(instanced(trunk, std({}), pts, {color:'#87704f'}), false);
+    const frond = new THREE.PlaneGeometry(.7, 3.6, 1, 8); { const p = frond.attributes.position; for (let i = 0; i < p.count; i++){ const y = p.getY(i)+1.8; p.setZ(i, -.13*y*y); } frond.computeVertexNormals(); frond.translate(0, 1.8, 0); frond.rotateX(-1.05); }
+    for (let k = 0; k < 9; k++){ const g = frond.clone(); g.rotateY(k*.7); g.translate(0, 7, 0); add(instanced(g, std({side:THREE.DoubleSide, roughness:.8}), pts, {color:leafC}), true); }
+  } else if (kind === 'vine'){
+    const pts = []; for (let x = -half; x <= half; x += 2.6) for (let z = -half; z <= half; z += 1.1) pts.push([x, .3, z, Math.max(.45, grow), 0, 1, 1]);
+    const post = new THREE.CylinderGeometry(.05, .05, 1.6, 5); post.translate(0, .8, 0);
+    add(instanced(post, std({}), pts.filter((_, i) => i % 4 === 0), {color:'#7a6146'}), false);
+    const fol = lumpy(new THREE.SphereGeometry(.6, 10, 8), .4, 3); fol.scale(.55, .9, 1); fol.translate(0, 1.1, 0); add(instanced(fol, leafMat(), pts, {color:leafC}), true);
+    if (fruitC && grow > .6) add(instanced(new THREE.SphereGeometry(.09, 6, 5), std({roughness:.4}), pts.flatMap(p => [0,1,2].map(() => [p[0]+(rnd()>.5?.32:-.32), .75+rnd()*.25, p[2]+(rnd()-.5)*.8, 1])), {color:fruitC, cast:false}), false);
+  } else if (kind === 'carpet'){
+    const tuft = mergeGeos([0,1,2,3].map(k => { const c = new THREE.ConeGeometry(.06, .5, 4); c.translate(0,.25,0); c.rotateZ((rnd()-.5)*.6); c.rotateY(k*1.6); return c; }));
+    add(instanced(tuft, leafMat(), grid(.32, .32, .25).map(p => [...p, .5+grow*.6]), {color:leafC, cast:false}), true);
+  } else if (kind === 'spike'){
+    const sp = mergeGeos([0,1,2,3,4].map(k => { const c = new THREE.ConeGeometry(.025, .7, 3); c.translate(0,.35,0); c.rotateZ((rnd()-.5)*.35); c.rotateY(k*1.3); return c; }));
+    add(instanced(sp, leafMat(), grid(.45, .3, .1).map(p => [...p, size*Math.max(.4, grow)*1.3]), {color:leafC, cast:false}), true);
+  } else {
+    const isBall = kind==='ball', isCreeper = kind==='creeper';
+    const sx = isCreeper ? 1.7 : isBall ? .75 : kind==='leafy' ? .5 : 1.0, sz = isCreeper ? 1.5 : isBall ? .75 : kind==='leafy' ? .4 : .7;
+    const pts = grid(sx, sz, .12).map(p => [...p, size*Math.max(.35, grow)*(.85+rnd()*.3)]);
+    const g = lumpy(new THREE.SphereGeometry(.5, 12, 9), isBall ? .18 : .45, isBall ? 4 : 3.2); g.scale(isCreeper ? 1.4 : 1, isCreeper ? .35 : isBall ? .8 : .75, isCreeper ? 1.4 : 1); g.translate(0, isCreeper ? .05 : .32, 0);
+    add(instanced(g, leafMat(isBall ? .6 : .85), pts, {color:leafC}), true);
+    if (fruitC && grow > .6){
+      const fp = isBall ? pts.map(p => [p[0], p[1]+.62*p[3], p[2], p[3]*.65]) : isCreeper ? pts.filter(() => rnd() < .55).map(p => [p[0]+(rnd()-.5)*1.1, .45, p[2]+(rnd()-.5)*.9, 1, rnd()*6.28, 1.5, .85])
+        : pts.flatMap(p => [0,1,2].map(() => [p[0]+(rnd()-.5)*.55*p[3], p[1]+(.15+rnd()*.4)*p[3], p[2]+(rnd()-.5)*.55*p[3], 1]));
+      const fg = isCreeper ? new THREE.SphereGeometry(.3, 10, 8) : isBall ? lumpy(new THREE.SphereGeometry(.42, 10, 8), .15, 6) : new THREE.SphereGeometry(.09, 7, 5);
+      add(instanced(fg, std({roughness:.45}), fp, {color:fruitC, cast:isCreeper}), false);
+    }
+  }
+  return out;
+}
+
+/* ---------- plots ---------- */
+const SLOT = [[-1,-1],[1,-1],[-1,1],[1,1],[-1,-3],[1,-3]], HALF = 17.3;
+let plots = [], pickables = [];
+function makeLabel(){ const c = document.createElement('canvas'); c.width = 512; c.height = 160; const t = new THREE.CanvasTexture(c); const s = new THREE.Sprite(new THREE.SpriteMaterial({map:t, depthTest:false, transparent:true, fog:false})); s.renderOrder = 10; return {c, t, s}; }
+function roundRect(g,x,y,w,h,r){ if (typeof r === 'number') r = {tl:r,tr:r,br:r,bl:r}; g.beginPath(); g.moveTo(x+r.tl,y); g.lineTo(x+w-r.tr,y); g.quadraticCurveTo(x+w,y,x+w,y+r.tr); g.lineTo(x+w,y+h-r.br); g.quadraticCurveTo(x+w,y+h,x+w-r.br,y+h); g.lineTo(x+r.bl,y+h); g.quadraticCurveTo(x,y+h,x,y+h-r.bl); g.lineTo(x,y+r.tl); g.quadraticCurveTo(x,y,x+r.tl,y); g.closePath(); }
+function drawLabel(L, f, e){
+  const g = L.c.getContext('2d'); g.clearRect(0,0,512,160); const col = SCOL[key(e)];
+  g.fillStyle = 'rgba(252,251,246,.93)'; roundRect(g, 4, 4, 504, 132, 22); g.fill();
+  g.fillStyle = col; g.beginPath(); g.arc(46, 70, 16, 0, 6.29); g.fill();
+  g.fillStyle = '#1d2419'; g.font = '600 38px "Space Grotesk", sans-serif'; let n = `${f.id} · ${NAME(f.crop)}`; while (g.measureText(n).width > 420 && n.length > 6) n = n.slice(0,-2)+'…'; g.fillText(n, 76, 58);
+  g.fillStyle = '#4a5246'; g.font = '600 30px Inter, sans-serif'; let t = title(e); if (e.status==='OK' && e.m3 > 0) t += ` · ${fmt(e.m3)} m³`; g.fillText(t, 76, 106);
+  L.t.needsUpdate = true;
+}
+function disposeGroup(g){ g.traverse(o => { if (o.geometry && !o.geometry.userData.shared) o.geometry.dispose(); if (o.material){ if (o.material.map && o.material.map !== T_SOIL) o.material.map.dispose(); o.material.dispose(); } }); scene.remove(g); }
+OLIVE_TRUNK.userData.shared = true;
+const BERM_MAT = std({color:'#a88a62', roughness:1});
+function buildPlot(i){
+  const f = FZ[i], side = clamp(14*Math.sqrt(f.area) + 6, 8, 28), cx = SLOT[i][0]*HALF, cz = SLOT[i][1]*HALF;
+  seed = 42 + i*97 + f.crop.length*13;
+  const g = new THREE.Group(); g.position.set(cx, 0, cz); scene.add(g);
+  const tex = T_SOIL.clone(); tex.needsUpdate = true; tex.repeat.set(side/9, side/9);
+  const soilMat = std({map:tex, bumpMap:tex, bumpScale:.06, roughness:1, color:'#b08d64'});
+  const soil = new THREE.Mesh(new THREE.BoxGeometry(side, .3, side), soilMat); soil.position.y = .15; soil.receiveShadow = true; soil.userData.idx = i; g.add(soil);
+  // low earth berm around the field (how Tunisian fields are bounded)
+  const berm = new THREE.CylinderGeometry(.5, .5, 1, 7, 1); berm.rotateZ(Math.PI/2); berm.scale(1, .32, .9);
+  [[0, side/2, side+1, 0],[0,-side/2, side+1, 0],[side/2,0,side+1, Math.PI/2],[-side/2,0,side+1, Math.PI/2]].forEach(([x,z,l,ry]) => { const b = new THREE.Mesh(berm.clone(), BERM_MAT); b.scale.set(l, 1, 1); b.position.set(x, .2, z); b.rotation.y = ry; b.receiveShadow = true; g.add(b); });
+  const P = plantSet(f.crop, side, f.stage); P.meshes.forEach(m => g.add(m));
+  // status flag on a wooden post at the corner next to the path
+  const post = new THREE.Group(); post.position.set(-SLOT[i][0]*(side/2+.9), 0, -Math.sign(SLOT[i][1])*(side/2+.9)); g.add(post);
+  const pole = new THREE.Mesh(new THREE.CylinderGeometry(.06, .08, 3.2, 7), std({color:'#7a6146'})); pole.position.y = 1.6; pole.castShadow = true; post.add(pole);
+  const flagGeo = new THREE.PlaneGeometry(1.4, .9, 8, 1); flagGeo.translate(.7, 0, 0);
+  const flagMat = std({color:'#888888', side:THREE.DoubleSide, roughness:.7});
+  const flag = new THREE.Mesh(flagGeo, flagMat); flag.position.y = 2.7; flag.castShadow = true; post.add(flag);
+  const L = makeLabel(); g.add(L.s);
+  return {g, side, soil, soilMat, flag, flagMat, P, L, center:new THREE.Vector3(cx,0,cz), sig:`${f.crop}|${f.stage}|${side.toFixed(1)}`};
+}
+function syncPlots(){
+  while (plots.length > FZ.length) disposeGroup(plots.pop().g);
+  FZ.forEach((f, i) => { const side = clamp(14*Math.sqrt(f.area) + 6, 8, 28), sig = `${f.crop}|${f.stage}|${side.toFixed(1)}`;
+    if (!plots[i] || plots[i].sig !== sig){ if (plots[i]) disposeGroup(plots[i].g); plots[i] = buildPlot(i); } });
+  pickables = plots.map(p => p.soil); applyLabelMode();
+  $('#nplots').textContent = `${FZ.length} parcelle${FZ.length>1?'s':''}`; $('#add').disabled = FZ.length >= SLOT.length; $('#add').textContent = FZ.length >= SLOT.length ? 'Maximum 6 parcelles' : '+ Ajouter une parcelle';
+}
+
+/* ---------- state → scene + panel ---------- */
+const DRY = new THREE.Color('#e3cfae'), WET = new THREE.Color('#7d5f43'), MID = new THREE.Color('#b8987a'), STRESS = new THREE.Color('#b9a457');
+let sel = 1, R;
+/* ---------- real engine through the FARMLINK API (falls back to the built-in demo) ---------- */
+const API = {url: 'http://localhost:8001', on: false, busy: 0, timer: null, info: null, error: null};
+const isoToday = () => { const d = new Date(); return new Date(d.getTime() - d.getTimezoneOffset()*6e4).toISOString().slice(0,10); };
+const daysAgo = n => { const d = new Date(); d.setDate(d.getDate() - n); return new Date(d.getTime() - d.getTimezoneOffset()*6e4).toISOString().slice(0,10); };
+async function apiFetch(path, opts = {}, ms = 4000){
+  const ctl = new AbortController(), t = setTimeout(() => ctl.abort(), ms);
+  try { const r = await fetch(API.url.replace(/\/+$/, '') + path, {...opts, signal: ctl.signal}); if (!r.ok) throw new Error(`HTTP ${r.status}`); return await r.json(); }
+  finally { clearTimeout(t); }
+}
+async function connectApi(manual = true){
+  API.url = ($('#api-url').value || '').trim() || API.url; API.error = null; renderEngine('Connexion…');
+  try { const h = await apiFetch('/api/v1/health', {}, 2500); API.on = !!(h && h.ok); } catch (e) { API.on = false; API.error = manual ? 'API injoignable à cette adresse. Lancez services/api puis réessayez.' : null; }
+  refresh();
+}
+function zonePayload(f){
+  const z = {zone_id: f.id, crop: f.crop, area_ha: +f.area, stage_override: f.stage, irrigation: {method: f.method}};
+  const fc = +f.soil.fc, wp = +f.soil.wp;
+  if (f.soil.fc !== '' && f.soil.wp !== '' && fc > wp && wp > 0) z.soil = {fc, wp, source: f.soilKey === 'custom' ? 'measured' : 'user_declared'};
+  if (f.lastDays == null) z.current_depletion_mm = +f.dr; else z.last_refill_date = daysAgo(f.lastDays);
+  return z;
+}
+function fromApi(resp){
+  const byId = Object.fromEntries(resp.zones.map(z => [z.zone_id, z])), rank = Object.fromEntries(resp.ranking.map(r => [r.zone_id, r]));
+  const plan = Object.fromEntries(((resp.allocation || {}).plan || []).map(p => [p.zone_id, p]));
+  const ev = FZ.map(f => { const z = byId[f.id] || {}, P = {kc: z.kc, etc: z.etc_mm, zr: z.zr_m, src: 'api'};
+    const base = {id: f.id, P, daily: (z.etc_mm || 0)*f.area*10};
+    if (z.status !== 'OK') return {...base, status: 'NEEDS_DATA', msg: z.message || z.status};
+    const m = /irrigate_within_(\d+)_days/.exec(z.timing || ''), timing = z.timing === 'irrigate_now' ? 'now' : m ? 'soon' : 'none';
+    const r = rank[f.id] || {}, a = plan[f.id] || {}, vol = z.volumes || {};
+    return {...base, status: 'OK', taw: z.taw_mm, raw: z.raw_mm, dr: z.dr_mm, ratio: z.dr_over_raw, timing, days: timing === 'now' ? 0 : m ? +m[1] : null,
+      m3: vol.m3 || 0, rank: r.rank, level: r.level, score: r.score, alloc: a.allocated_m3 || 0, full: !!a.fully_satisfied, residual: a.residual_dr_mm ?? z.dr_mm, warnings: z.warnings || []};
+  });
+  const ok = ev.filter(e => e.status === 'OK');
+  return {ev, left: (resp.allocation || {}).unallocated_m3 ?? 0, need: ok.reduce((s, e) => s + e.m3, 0), nOk: ok.length};
+}
+function renderEngine(msg){
+  const el = $('#engine'); if (!el) return;
+  const st = msg ? msg : API.on ? (API.info ? `Moteur Python · météo du ${API.info.date.split('-').reverse().join('/')} (${API.info.source}${API.info.fallback ? ', secours' : ''})` : 'Moteur Python connecté') : 'Démo intégrée · météo figée du 21/11';
+  $('#engine-st').textContent = st; $('#engine-dot').style.background = API.on ? 'var(--fine)' : 'var(--missing)';
+  $('#engine-err').textContent = API.error || ''; $('#engine-err').hidden = !API.error;
+  $('#dt').textContent = API.on && API.info ? API.info.date.split('-').reverse().join('/') : FARM.date.split('-').reverse().join('/');
+}
+function refresh(){
+  syncPlots();
+  const water = +$('#water').value;
+  if (API.on){
+    clearTimeout(API.timer);
+    API.timer = setTimeout(async () => {
+      const ticket = ++API.busy; renderEngine('Calcul par le moteur…');
+      try {
+        const resp = await apiFetch('/api/v1/irrigation/farm', {method: 'POST', headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({farm_id: 'ferme-3d', location: {lat: 35.918, lon: 10.558, elevation_m: 10}, available_water_m3: water, zones: FZ.map(zonePayload)})}, 30000);
+        if (ticket !== API.busy) return;
+        API.info = {date: resp.date, source: resp.weather.source, fallback: resp.weather.fallback_used}; API.error = null;
+        R = fromApi(resp); paint(water);
+      } catch (e) {
+        if (ticket !== API.busy) return;
+        API.on = false; API.error = `Le moteur n'a pas répondu (${e.message || e}). Retour à la démo.`; R = farmCompute(water); paint(water);
+      }
+      renderEngine();
+    }, 250);
+    if (!R || R.ev.length !== FZ.length){ R = farmCompute(water); paint(water); }   // keep the scene consistent while the engine answers
+    return;
+  }
+  R = farmCompute(water); paint(water); renderEngine();
+}
+function paint(water){
+  $('#wl').textContent = `${fmt(water)} m³`;
+  $('#wnote').textContent = R.need ? `Besoin total ${fmt(R.need)} m³ · ${fmt(100*Math.min(water,R.need)/R.need)} % couvert · il reste ${fmt(R.left)} m³ dans le bassin.` : 'Aucune parcelle n\'a besoin d\'eau pour l\'instant.';
+  FZ.forEach((f, i) => {
+    const e = R.ev[i], p = plots[i];
+    p.flagMat.color.set(SCOL[key(e)]);
+    if (e.status === 'OK'){
+      const frac = clamp(1 - e.dr/e.taw, 0, 1); p.soilMat.color.copy(DRY).lerp(WET, frac);   // dry soil is pale, moist soil is dark
+      const stress = clamp((e.ratio - .7)/.5, 0, 1);
+      p.P.leaves.forEach(l => { l.base.forEach((c,j) => l.mesh.setColorAt(j, c.clone().lerp(STRESS, stress*.55))); l.mesh.instanceColor.needsUpdate = true; });
+    } else p.soilMat.color.copy(MID);
+    drawLabel(p.L, f, e);
+  });
+  if (sel >= FZ.length) sel = FZ.length - 1;
+  renderList(); renderDetail(); renderNeed();
+}
+let delPending = -1;
+const LAST = [[0,'Aujourd\'hui'],[1,'Hier'],[2,'Il y a 2 jours'],[3,'Il y a 3 jours'],[5,'Il y a 5 jours'],[7,'Il y a 1 semaine'],[10,'Il y a 10 jours'],[14,'Il y a 2 semaines'],[21,'Il y a 3 semaines'],[30,'Il y a 1 mois'],[45,'Il y a 1 mois et demi'],[60,'Il y a 2 mois'],[90,'Il y a 3 mois']];
+const METH_FR = {drip:'Goutte-à-goutte', sprinkler:'Aspersion', surface:'Gravitaire (rigoles)'};
+const lastOptions = (cur, demo) => (demo ? `<option value="ex" ${cur==null?'selected':''}>Comme dans l'exemple</option>` : '') + LAST.map(([d,t])=>`<option value="${d}" ${cur===d?'selected':''}>${t}</option>`).join('');
+const soilOptions = (cur, custom) => `<option value="" ${!cur?'selected':''}>Je ne sais pas</option>` + Object.entries(SOILS).map(([k,s])=>`<option value="${k}" ${k===cur?'selected':''}>${s.fr}</option>`).join('') + (custom ? `<option value="custom" ${cur==='custom'?'selected':''}>Mon sol mesuré (labo)</option>` : '');
+const methOptions = cur => Object.keys(EA).map(m=>`<option value="${m}" ${m===cur?'selected':''}>${METH_FR[m]}</option>`).join('');
+function renderList(){
+  $('#count').textContent = `${FZ.length} sur ${SLOT.length}`;
+  $('#plots').innerHTML = FZ.map((f,i)=>{ const e = R.ev[i];
+    if (i === delPending) return `<div class="confirm"><span>Supprimer <b>${f.id} · ${esc(NAME(f.crop))}</b> ?</span><div><button type="button" class="yes" data-yes="${i}">Oui</button><button type="button" class="ghost" data-no="1">Non</button></div></div>`;
+    return `<div class="prow"><button type="button" class="plot ${i===sel?'sel':''}" data-i="${i}"><i class="dot" style="background:var(${SVAR[key(e)]})"></i><span>${f.id} · ${esc(NAME(f.crop))}</span><span class="hint">${esc(title(e))}</span></button><button type="button" class="del" data-del="${i}" aria-label="Supprimer ${f.id}" title="Supprimer">✕</button></div>`; }).join('') || '<p class="hint">Aucune parcelle. Ajoutez votre première parcelle.</p>';
+}
+function cropOptions(cur){
+  const groups = {}; FARM.crops.forEach(c => (groups[c.cat||'autre'] ||= []).push(c));
+  return Object.entries(groups).map(([k,cs]) => `<optgroup label="${esc(CAT[k]||k)}">${cs.sort((a,b)=>a.fr.localeCompare(b.fr,'fr')).map(c=>`<option value="${c.id}" ${c.id===cur?'selected':''}>${esc(c.fr.replace(/\s*\(.*\)$/,''))}${c.ar?' · '+esc(c.ar):''}</option>`).join('')}</optgroup>`).join('');
+}
+function renderDetail(){
+  if (!FZ.length){ $('#detail').innerHTML = '<p class="hint">Ajoutez une parcelle avec le bouton « + Ajouter une parcelle ».</p>'; $('#sheet-t').textContent = 'Mes parcelles'; return; }
+  const f = FZ[sel], e = R.ev[sel], P = e.P;
+  let verdict;
+  if (e.status !== 'OK') verdict = `<div class="verdict" style="background:var(--missing)"><b>Dites-nous votre type de sol</b><span>Sans lui, on ne peut pas savoir combien d'eau la terre garde. Choisissez le sol le plus proche ci-dessous.</span></div>`;
+  else if (e.timing === 'now') verdict = `<div class="verdict" style="background:var(--now)"><b>Arrosez aujourd'hui</b><span class="big">${fmt(e.m3)} m³</span><span>soit ${fmt(e.m3*1000)} litres · ${esc(METH_FR[f.method].toLowerCase())}</span></div>`;
+  else if (e.timing === 'soon') verdict = `<div class="verdict" style="background:var(--soon)"><b>Arrosez dans ${e.days} jour${e.days>1?'s':''}</b><span class="big">${fmt(e.m3)} m³</span><span>soit ${fmt(e.m3*1000)} litres</span></div>`;
+  else verdict = `<div class="verdict" style="background:var(--fine)"><b>Pas besoin d'arroser</b><span>La terre a encore assez d'eau pour les 5 prochains jours.</span></div>`;
+  let water = '';
+  if (e.status === 'OK'){
+    const pct = Math.round(100*(1-e.dr/e.taw)), thr = Math.round(100*(1-e.raw/e.taw));
+    const basin = e.m3 === 0 ? '' : e.full ? `Le bassin peut donner toute cette eau.` : e.alloc > 0 ? `Le bassin ne peut donner que ${fmt(e.alloc)} m³ : il manque ${fmt(e.m3-e.alloc)} m³.` : `Le bassin est vide pour cette parcelle : d'autres sont plus urgentes.`;
+    water = `<div style="display:grid;gap:6px"><span class="lab">Eau dans la terre : ${pct} %</span><div class="soilbar" role="img" aria-label="Eau restante ${pct} pour cent"><i style="width:${pct}%"></i><em style="left:${thr}%"></em></div>
+      <span class="hint">Sous le trait orange (${thr} %), la plante a soif et pousse moins bien.</span>${basin ? `<span style="font-size:13px">${basin}</span>` : ''}</div>`;
+  }
+  const tech = e.status === 'OK' ? `<div class="kv"><div><span>Besoin de la plante</span><b>${fmt(P.etc,2)} mm/j</b></div><div><span>Consommation</span><b>${fmt(e.daily)} m³/j</b></div><div><span>Eau utilisée</span><b>${fmt(e.dr)} mm</b></div><div><span>Seuil de soif</span><b>${fmt(e.raw)} mm</b></div><div><span>Réserve du sol</span><b>${fmt(e.taw)} mm</b></div><div><span>Priorité</span><b>${e.rank} / ${R.nOk}</b></div></div>
+      <span class="hint">Kc ${fmt(P.kc,2)} · racines ${fmt(P.zr,2)} m · ET₀ ${fmt(ETO0,2)} mm/j · score ${fmt(e.score,3)}${P.src==='api'?' · moteur Python via l’API, météo du jour':P.src==='moteur'?' · valeurs du moteur Python (21/11)':' · calcul FAO-56 de la démo'}</span>`
+    : `<div class="kv"><div><span>Besoin de la plante</span><b>${fmt(P.etc,2)} mm/j</b></div><div><span>Consommation</span><b>${fmt(e.daily)} m³/j</b></div></div>`;
+  $('#detail').innerHTML = `<div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><h2>${f.id} · ${esc(NAME(f.crop))}</h2><button class="ghost" type="button" id="goto">Voir sur la carte</button></div>
+    ${verdict}${water}
+    <div class="sect"><span class="lab">Ma parcelle</span>
+      <label>Quelle plante ?<select id="e-crop">${cropOptions(f.crop)}</select></label>
+      <label>Où en est la culture ?<select id="e-stage">${[['initial','Elle vient d\'être plantée'],['development','Elle pousse'],['mid_season','Elle est en pleine production'],['late_season','Bientôt la récolte']].map(([k,t])=>`<option value="${k}" ${k===f.stage?'selected':''}>${t}</option>`).join('')}</select></label>
+      <div class="row2"><label>Surface (hectares)<input type="number" step="0.1" min="0.1" max="4" id="e-area" value="${f.area}"></label><label>Dernier arrosage complet<select id="e-last">${lastOptions(f.lastDays, f.z != null)}</select></label></div>
+      <label>Type de sol<select id="e-soil">${soilOptions(f.soilKey, true)}</select></label>
+      <div class="row2" ${f.soilKey==='custom'?'':'hidden'}><label>Capacité au champ<input type="number" step="0.01" id="e-fc" value="${f.soil.fc}"></label><label>Point de flétrissement<input type="number" step="0.01" id="e-wp" value="${f.soil.wp}"></label></div>
+      <label>Arrosage<select id="e-m">${methOptions(f.method)}</select></label>
+    </div>
+    <details class="tech"><summary>Détails techniques</summary>${tech}</details>`;
+  $('#goto').onclick = () => flyTo(sel);
+  $('#sheet-t').textContent = `${f.id} · ${title(e)}`;
+}
+function renderNeed(){
+  const rows = R.ev.map((e,i)=>({e, f:FZ[i], i}));
+  const todo = rows.filter(r=>r.e.status==='OK' && r.e.m3 > 0).sort((a,b)=>a.e.rank-b.e.rank);
+  const miss = rows.filter(r=>r.e.status!=='OK');
+  const top = [...rows].sort((a,b)=>b.e.daily-a.e.daily)[0];
+  let html = `<h2>Aujourd'hui</h2>`;
+  if (!rows.length) html += `<p class="hint">Ajoutez vos parcelles pour savoir lesquelles arroser.</p>`;
+  else if (!todo.length && !miss.length) html += `<p>Aucune parcelle n'a besoin d'eau dans les 5 prochains jours.</p>`;
+  else if (todo.length) html += `<span class="hint">À arroser, dans cet ordre :</span>`;
+  html += todo.map(r=>`<button type="button" class="todo" data-i="${r.i}"><i class="dot" style="background:var(${SVAR[key(r.e)]})"></i><span>${r.f.id} · ${esc(NAME(r.f.crop))} · ${r.e.timing==='now'?'aujourd\'hui':`dans ${r.e.days} j`}</span><b>${fmt(r.e.m3)} m³</b></button>`).join('');
+  html += miss.map(r=>`<button type="button" class="todo" data-i="${r.i}"><i class="dot" style="background:var(--missing)"></i><span>${r.f.id} · ${esc(NAME(r.f.crop))} : choisir le sol</span><b>?</b></button>`).join('');
+  if (top && rows.length > 1) html += `<span class="hint">La plus gourmande : <b style="color:var(--ink)">${top.f.id} · ${esc(NAME(top.f.crop))}</b>, ${fmt(top.e.daily)} m³ d'eau par jour.</span>`;
+  $('#need').innerHTML = html;
+}
+$('#need').addEventListener('click', ev => { const b = ev.target.closest('.todo'); if (b) select(+b.dataset.i, true); });
+$('#plots').addEventListener('click', ev => {
+  const t = ev.target;
+  if (t.closest('[data-del]')){ delPending = +t.closest('[data-del]').dataset.del; renderList(); return; }
+  if (t.closest('[data-no]')){ delPending = -1; renderList(); return; }
+  if (t.closest('[data-yes]')){ const i = +t.closest('[data-yes]').dataset.yes; FZ.splice(i, 1); delPending = -1; if (sel >= i) sel = Math.max(0, sel-1); refresh(); return; }
+  const b = t.closest('.plot'); if (b) select(+b.dataset.i, true);
+});
+$('#detail').addEventListener('change', ev => { const f = FZ[sel], t = ev.target;
+  if (t.id==='e-crop') f.crop = t.value;
+  else if (t.id==='e-stage') f.stage = t.value;
+  else if (t.id==='e-area') f.area = clamp(+t.value || .1, .1, 4);
+  else if (t.id==='e-last') f.lastDays = t.value === 'ex' ? null : +t.value;
+  else if (t.id==='e-soil'){ f.soilKey = t.value; if (SOILS[t.value]) f.soil = {fc:SOILS[t.value].fc, wp:SOILS[t.value].wp}; else if (t.value==='') f.soil = {fc:'', wp:''}; }
+  else if (t.id==='e-fc') f.soil.fc = t.value; else if (t.id==='e-wp') f.soil.wp = t.value; else if (t.id==='e-m') f.method = t.value;
+  refresh(); });
+function openAdd(){
+  $('#a-crop').innerHTML = cropOptions('tomato'); $('#a-last').innerHTML = lastOptions(3, false); $('#a-soil').innerHTML = soilOptions('loam', false); $('#a-meth').innerHTML = methOptions('drip');
+  $('#addform').hidden = false; $('#add').hidden = true; $('#a-crop').focus();
+}
+function closeAdd(){ $('#addform').hidden = true; $('#add').hidden = false; }
+$('#add').onclick = () => { if (FZ.length < SLOT.length) openAdd(); };
+$('#a-cancel').onclick = closeAdd;
+$('#addform').addEventListener('submit', ev => { ev.preventDefault(); if (FZ.length >= SLOT.length) return closeAdd();
+  const s = $('#a-soil').value;
+  FZ.push({id:'Z'+(nextId++), crop:$('#a-crop').value, stage:'mid_season', area:clamp(+$('#a-area').value || .5, .1, 4), dr:0, lastDays:+$('#a-last').value,
+    soilKey:s, soil: SOILS[s] ? {fc:SOILS[s].fc, wp:SOILS[s].wp} : {fc:'', wp:''}, method:$('#a-meth').value, z:null});
+  sel = FZ.length-1; closeAdd(); refresh(); flyTo(sel); });
+$('#water').addEventListener('input', refresh);
+$('#reset').onclick = () => { resetFarm(); sel = 1; delPending = -1; closeAdd(); refresh(); };
+$('#sheet').onclick = () => { const p = $('#panel'); p.classList.toggle('closed'); $('#sheet').setAttribute('aria-expanded', !p.classList.contains('closed')); };
+function select(i, fly){ sel = i; delPending = -1; renderList(); renderDetail(); if (fly) flyTo(i); }
+
+/* ---------- camera: overview (orbit) and walk ---------- */
+let mode = 'over';
+const wide = () => innerWidth > 760;
+const orbit = {target:new THREE.Vector3(wide()?14:0, 0, wide()?0:8), yaw:.55, pitch:.5, dist:wide()?95:115}, goal = {target:orbit.target.clone(), yaw:orbit.yaw, pitch:orbit.pitch, dist:orbit.dist};
+const walker = {pos:new THREE.Vector3(0,1.7,46), yaw:0, pitch:-.05};
+function flyTo(i){ const p = plots[i]; if (!p) return; const c = p.center;
+  if (mode==='walk'){ walker.pos.set(c.x*.25, 1.7, c.z + (c.z>0 ? 1 : -1)*(p.side/2+5)); walker.yaw = Math.atan2(walker.pos.x-c.x, walker.pos.z-c.z); return; }
+  goal.target.set(c.x + (wide()?8:0), 0, c.z); goal.dist = p.side*1.9 + 12; goal.pitch = .7; }
+function applyLabelMode(){ plots.forEach(p => { if (mode==='walk'){ p.L.s.scale.set(6.4,2,1); p.L.s.position.y = 4.6; } else { p.L.s.scale.set(16,5,1); p.L.s.position.y = 9; } }); }
+function setMode(m){ mode = m; $('#m-over').classList.toggle('on', m==='over'); $('#m-walk').classList.toggle('on', m==='walk'); $('#pad').hidden = m!=='walk';
+  $('#help').textContent = m==='walk' ? 'Flèches ou ZQSD/WASD pour marcher · glisser pour regarder · cliquer une parcelle' : 'Glisser pour tourner · molette pour zoomer · cliquer une parcelle';
+  applyLabelMode(); if (m==='walk'){ walker.pos.set(0,1.7,46); walker.yaw = 0; walker.pitch = -.08; } }
+$('#m-over').onclick = () => setMode('over'); $('#m-walk').onclick = () => setMode('walk');
+const KEYS = {KeyW:'f',ArrowUp:'f',KeyS:'b',ArrowDown:'b',KeyA:'sl',KeyD:'sr',ArrowLeft:'l',ArrowRight:'r'}, keys = new Set();
+addEventListener('keydown', e => { if (e.target && e.target.closest && e.target.closest('input,select')) return; const k = KEYS[e.code]; if (k){ keys.add(k); if (mode==='walk') e.preventDefault(); } });
+addEventListener('keyup', e => { const k = KEYS[e.code]; if (k) keys.delete(k); });
+addEventListener('blur', () => keys.clear());
+document.querySelectorAll('#pad button').forEach(b => { const k = b.dataset.k; b.addEventListener('pointerdown', e => { e.preventDefault(); keys.add(k); }); ['pointerup','pointerleave','pointercancel'].forEach(t => b.addEventListener(t, () => keys.delete(k))); });
+let drag = null; const pts = new Map();
+const dist2 = () => { const [a,b] = [...pts.values()]; return Math.hypot(a.x-b.x, a.y-b.y); };
+canvas.addEventListener('pointerdown', e => { canvas.setPointerCapture(e.pointerId); pts.set(e.pointerId, {x:e.clientX, y:e.clientY}); drag = {moved:0, pinch: pts.size===2 ? dist2() : null}; canvas.classList.add('dragging'); });
+canvas.addEventListener('pointermove', e => { if (!drag) return; const p = pts.get(e.pointerId); if (!p) return; const dx = e.clientX - p.x, dy = e.clientY - p.y; p.x = e.clientX; p.y = e.clientY; drag.moved += Math.abs(dx)+Math.abs(dy);
+  if (pts.size === 2){ const d = dist2(); if (drag.pinch) goal.dist = clamp(goal.dist * drag.pinch/d, 18, 190); drag.pinch = d; return; }
+  if (mode==='over'){ goal.yaw -= dx*.006; goal.pitch = clamp(goal.pitch + dy*.005, .15, 1.45); } else { walker.yaw -= dx*.005; walker.pitch = clamp(walker.pitch - dy*.004, -1, 1); } });
+const up = e => { pts.delete(e.pointerId); if (drag && drag.moved < 6 && pts.size===0) pick(e); if (pts.size===0){ drag = null; canvas.classList.remove('dragging'); } };
+canvas.addEventListener('pointerup', up); canvas.addEventListener('pointercancel', up);
+canvas.addEventListener('wheel', e => { e.preventDefault(); if (mode==='over') goal.dist = clamp(goal.dist * (1 + Math.sign(e.deltaY)*.1), 18, 190); else walker.pos.addScaledVector(new THREE.Vector3(-Math.sin(walker.yaw),0,-Math.cos(walker.yaw)), -Math.sign(e.deltaY)*1.5); }, {passive:false});
+const ray = new THREE.Raycaster(), mv = new THREE.Vector2();
+function pick(e){ const r = canvas.getBoundingClientRect(); mv.set(((e.clientX-r.left)/r.width)*2-1, -((e.clientY-r.top)/r.height)*2+1); ray.setFromCamera(mv, camera); const hit = ray.intersectObjects(pickables, false)[0]; if (hit) select(hit.object.userData.idx, false); }
+
+/* ---------- loop ---------- */
+function resize(){ const w = canvas.clientWidth, h = canvas.clientHeight; renderer.setSize(w, h, false); camera.aspect = w/h; camera.updateProjectionMatrix(); }
+addEventListener('resize', resize); resize();
+let lastT = performance.now(), insideSel = -1;
+function tick(t){
+  const dt = Math.min(.05, (t - lastT)/1000); lastT = t;
+  if (mode === 'over'){
+    const k = 1 - Math.pow(.002, dt);
+    orbit.target.lerp(goal.target, k); orbit.yaw += (goal.yaw-orbit.yaw)*k; orbit.pitch += (goal.pitch-orbit.pitch)*k; orbit.dist += (goal.dist-orbit.dist)*k;
+    const cp = Math.cos(orbit.pitch); camera.position.set(orbit.target.x + orbit.dist*cp*Math.sin(orbit.yaw), orbit.dist*Math.sin(orbit.pitch), orbit.target.z + orbit.dist*cp*Math.cos(orbit.yaw)); camera.lookAt(orbit.target);
+  } else {
+    const sp = 9*dt, fw = new THREE.Vector3(-Math.sin(walker.yaw),0,-Math.cos(walker.yaw)), rt = new THREE.Vector3(-fw.z,0,fw.x);
+    if (keys.has('f')) walker.pos.addScaledVector(fw, sp); if (keys.has('b')) walker.pos.addScaledVector(fw, -sp);
+    if (keys.has('sl')) walker.pos.addScaledVector(rt, -sp); if (keys.has('sr')) walker.pos.addScaledVector(rt, sp);
+    if (keys.has('l')) walker.yaw += 1.8*dt; if (keys.has('r')) walker.yaw -= 1.8*dt;
+    walker.pos.x = clamp(walker.pos.x, -90, 90); walker.pos.z = clamp(walker.pos.z, -90, 90);
+    camera.position.copy(walker.pos);
+    camera.lookAt(walker.pos.x - Math.sin(walker.yaw)*Math.cos(walker.pitch), walker.pos.y + Math.sin(walker.pitch), walker.pos.z - Math.cos(walker.yaw)*Math.cos(walker.pitch));
+    const inside = plots.findIndex(p => Math.abs(walker.pos.x-p.center.x) < p.side/2 && Math.abs(walker.pos.z-p.center.z) < p.side/2);
+    if (inside !== insideSel){ insideSel = inside; if (inside >= 0 && inside !== sel) select(inside, false); }
+  }
+  plots.forEach((p, i) => { p.flag.rotation.y = reduce ? 0 : Math.sin(t/700 + i)*.25; });
+  renderer.render(scene, camera); requestAnimationFrame(tick);
+}
+resetFarm(); refresh(); select(1, false); requestAnimationFrame(tick);
+$('#api-go').onclick = () => connectApi(true); $('#api-url').addEventListener('keydown', e => { if (e.key === 'Enter') connectApi(); }); connectApi(false);
+// self-check: the demo farm must reproduce the notebook engine (1 500 m³ → Z2 1 311, Z1 189)
+window.__farmCheck = () => { const r = farmCompute(1500); return r.ev.map(e => [e.id, e.status, e.status==='OK'?+e.score.toFixed(4):null, e.status==='OK'?Math.round(e.m3*10)/10:null, e.status==='OK'?Math.round(e.alloc*10)/10:null]); };
+})();
+</script>

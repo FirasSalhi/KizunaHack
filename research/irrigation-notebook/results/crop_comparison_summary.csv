@@ -1,0 +1,7 @@
+scenario,crop,stage,days,Kc,Zr_m,TAW_mm,RAW_mm_mean,total_ETc_mm,total_ETa_mm,min_Ks,irrigation_events,first_irrigation_day,total_net_mm,total_gross_mm,closure_error_mm,weather_source
+A_real_weather,durum_wheat,mid_season,18,1.15,1.5,135.0,82.35893876134935,62.97020412883551,62.97020412883551,1.0,0,,0.0,0.0,0.0,nasa_power_daily
+A_real_weather,olive,mid_season,18,0.7,1.2,108.0,82.60087452726576,38.32968946972596,38.32968946972596,1.0,0,,0.0,0.0,7.105427357601002e-15,nasa_power_daily
+A_real_weather,tomato,mid_season,18,1.15,0.7,62.99999999999999,28.984171421963026,62.97020412883551,62.97020412883551,1.0,1,10.0,31.021238424476415,34.468042693862685,-7.105427357601002e-15,nasa_power_daily
+B_hypothetical_ETo5_no_rain,durum_wheat,mid_season,30,1.15,1.5,135.0,70.20000000000002,172.5,172.5,1.0,2,13.0,149.5,166.11111111111111,0.0,HYPOTHETICAL_SCENARIO_NOT_AN_OBSERVATION
+B_hypothetical_ETo5_no_rain,olive,mid_season,30,0.7,1.2,108.0,76.67999999999998,105.0,105.0,1.0,1,22.0,77.0,85.55555555555556,0.0,HYPOTHETICAL_SCENARIO_NOT_AN_OBSERVATION
+B_hypothetical_ETo5_no_rain,tomato,mid_season,30,1.15,0.7,62.99999999999999,23.309999999999988,172.5,172.5,1.0,6,5.0,172.5,191.66666666666669,0.0,HYPOTHETICAL_SCENARIO_NOT_AN_OBSERVATION

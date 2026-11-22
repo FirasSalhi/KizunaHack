@@ -1,0 +1,4 @@
+Horizon,Matched Pairs,Test Samples,Persistence MAE (%),Persistence R²,HistGBDT MAE (%),HistGBDT R²,Selected Winner
+1h,160,48,0.0229,0.9898,1.0192,-4.6154,Persistence
+6h,144,44,0.1432,0.8505,1.0847,-4.5518,Persistence
+24h,134,41,0.5317,-0.2947,0.8948,-3.4903,Persistence

@@ -1,0 +1,474 @@
+{
+ "_label": "ILLUSTRATIVE RESPONSE computed from SYNTHETIC weather (tests/fixtures/synthetic.py) and the demo farm. Not a real recommendation.",
+ "response": {
+  "farm_id": "demo_farm_001",
+  "date": "2026-05-30",
+  "weather_source": "SYNTHETIC_FIXTURE",
+  "eto_methods_in_window": [
+   "FAO56_Penman_Monteith"
+  ],
+  "zones": [
+   {
+    "zone_id": "Z1",
+    "name": "Tomato plot",
+    "date": "2026-05-30",
+    "weather_source": "SYNTHETIC_FIXTURE",
+    "warnings": [
+     "Stage estimated from FAO-56 example stage lengths (region: Mediterranean); correct manually if the field differs.",
+     "Depletion simulated assuming the soil was at field capacity on last_refill_date (declared by the user)."
+    ],
+    "missing_inputs": [],
+    "volumes": {
+     "net_mm": 59.22117604707548,
+     "gross_mm": 65.80130671897275,
+     "m3": 329.00653359486375,
+     "litres": 329006.5335948638
+    },
+    "crop": "tomato",
+    "area_ha": 0.5,
+    "eto_mm": 4.57887346670298,
+    "eto_date": "2026-05-30",
+    "requirements": {
+     "crop": "tomato",
+     "date": "2026-05-30",
+     "warnings": [
+      "Stage estimated from FAO-56 example stage lengths (region: Mediterranean); correct manually if the field differs."
+     ],
+     "missing": [],
+     "stage_info": {
+      "status": "OK",
+      "stage": "development",
+      "day_in_season": 50,
+      "day_in_stage": 20,
+      "stage_length": 40,
+      "estimated": true,
+      "warnings": [
+       "Stage estimated from FAO-56 example stage lengths (region: Mediterranean); correct manually if the field differs."
+      ]
+     },
+     "kc_basis": "daily FAO-56 curve",
+     "status": "OK",
+     "stage": "development",
+     "kc": 0.875,
+     "zr_m": 0.5857142857142856,
+     "zr_basis": "linear 0.30->0.70 m over initial+development (start depth = FAO-56 Example 38 assumption)",
+     "eto_mm": 4.57887346670298,
+     "etc_mm": 4.0065142833651075,
+     "p_adjusted": 0.4397394286653957
+    },
+    "stage": "development",
+    "stage_estimated": true,
+    "kc": 0.875,
+    "etc_mm": 4.0065142833651075,
+    "zr_m": 0.5857142857142856,
+    "p": 0.4397394286653957,
+    "taw_mm": 76.14285714285714,
+    "raw_mm": 33.483016496950846,
+    "soil_source": "user_declared",
+    "dr_mm": 59.22117604707548,
+    "depletion_source": "water_balance_from_refill_date",
+    "dr_over_raw": 1.768692974615011,
+    "projection": [
+     {
+      "date": "2026-05-31",
+      "dr_end_mm": 60.987511560483775,
+      "raw_mm": 32.47376586234774,
+      "rain_mm": 0.0
+     },
+     {
+      "date": "2026-06-01",
+      "dr_end_mm": 62.80395168147736,
+      "raw_mm": 30.656455590304912,
+      "rain_mm": 0.0
+     },
+     {
+      "date": "2026-06-02",
+      "dr_end_mm": 64.46351251379352,
+      "raw_mm": 31.288110070569946,
+      "rain_mm": 0.0
+     },
+     {
+      "date": "2026-06-03",
+      "dr_end_mm": 59.797194856203156,
+      "raw_mm": 34.66332625054763,
+      "rain_mm": 8.0
+     },
+     {
+      "date": "2026-06-04",
+      "dr_end_mm": 61.710011129146366,
+      "raw_mm": 33.92322211402655,
+      "rain_mm": 0.0
+     }
+    ],
+    "days_to_raw": 0,
+    "forecast_rain_mm": 8.0,
+    "ks_now": 0.39666536113527395,
+    "ea": 0.9,
+    "ea_source": "typical_literature (method default, not measured)",
+    "irrigation_method": "drip",
+    "timing": "irrigate_now",
+    "net_mm": 59.22117604707548,
+    "status": "OK",
+    "gross_mm": 65.80130671897275,
+    "message": "irrigate_now: net 59.2 mm, gross 65.8 mm (Ea 0.90, typical_literature (method default, not measured))."
+   },
+   {
+    "zone_id": "Z2",
+    "name": "Olive grove",
+    "date": "2026-05-30",
+    "weather_source": "SYNTHETIC_FIXTURE",
+    "warnings": [],
+    "missing_inputs": [],
+    "volumes": {
+     "net_mm": 0.0,
+     "gross_mm": 0.0,
+     "m3": 0.0,
+     "litres": 0.0
+    },
+    "crop": "olive",
+    "area_ha": 1.0,
+    "eto_mm": 4.57887346670298,
+    "eto_date": "2026-05-30",
+    "requirements": {
+     "crop": "olive",
+     "date": "2026-05-30",
+     "warnings": [],
+     "missing": [],
+     "stage_info": {
+      "status": "MANUAL",
+      "stage": "mid_season",
+      "day_in_season": null,
+      "estimated": false,
+      "warnings": []
+     },
+     "kc_basis": "stage-representative",
+     "status": "OK",
+     "stage": "mid_season",
+     "kc": 0.7,
+     "zr_m": 1.2,
+     "zr_basis": "Table 22 (perennial: constant)",
+     "eto_mm": 4.57887346670298,
+     "etc_mm": 3.205211426692086,
+     "p_adjusted": 0.7217915429323166
+    },
+    "stage": "mid_season",
+    "stage_estimated": false,
+    "kc": 0.7,
+    "etc_mm": 3.205211426692086,
+    "zr_m": 1.2,
+    "p": 0.7217915429323166,
+    "taw_mm": 144.0,
+    "raw_mm": 103.93798218225359,
+    "soil_source": "user_declared",
+    "dr_mm": 40.0,
+    "depletion_source": "user_declared",
+    "dr_over_raw": 0.3848448773025114,
+    "projection": [
+     {
+      "date": "2026-05-31",
+      "dr_end_mm": 43.49775321679632,
+      "raw_mm": 102.25294147125322,
+      "rain_mm": 0.0
+     },
+     {
+      "date": "2026-06-01",
+      "dr_end_mm": 47.474528542742725,
+      "raw_mm": 99.49377412254869,
+      "rain_mm": 0.0
+     },
+     {
+      "date": "2026-06-02",
+      "dr_end_mm": 51.30918148565271,
+      "raw_mm": 100.31239904883851,
+      "rain_mm": 0.0
+     },
+     {
+      "date": "2026-06-03",
+      "dr_end_mm": 48.354888243474356,
+      "raw_mm": 104.85672907494731,
+      "rain_mm": 8.0
+     },
+     {
+      "date": "2026-06-04",
+      "dr_end_mm": 51.60365136784593,
+      "raw_mm": 103.68712440361976,
+      "rain_mm": 0.0
+     }
+    ],
+    "days_to_raw": null,
+    "forecast_rain_mm": 8.0,
+    "ks_now": 1.0,
+    "ea": 0.9,
+    "ea_source": "typical_literature (method default, not measured)",
+    "irrigation_method": "drip",
+    "timing": "no_irrigation_needed_within_horizon",
+    "status": "OK",
+    "message": "Depletion stays below RAW within the horizon.",
+    "net_mm": 0.0,
+    "gross_mm": 0.0
+   },
+   {
+    "zone_id": "Z3",
+    "name": "Durum wheat field",
+    "date": "2026-05-30",
+    "weather_source": "SYNTHETIC_FIXTURE",
+    "warnings": [
+     "Stage estimated from FAO-56 example stage lengths (region: Mediterranean); correct manually if the field differs.",
+     "durum_wheat: generic-crop approximation (see crop notes).",
+     "Depletion simulated assuming the soil was at field capacity on last_refill_date (declared by the user)."
+    ],
+    "missing_inputs": [],
+    "volumes": {
+     "net_mm": 115.76607917088006,
+     "gross_mm": 154.35477222784007,
+     "m3": 3087.0954445568013,
+     "litres": 3087095.444556801
+    },
+    "crop": "durum_wheat",
+    "area_ha": 2.0,
+    "eto_mm": 4.57887346670298,
+    "eto_date": "2026-05-30",
+    "requirements": {
+     "crop": "durum_wheat",
+     "date": "2026-05-30",
+     "warnings": [
+      "Stage estimated from FAO-56 example stage lengths (region: Mediterranean); correct manually if the field differs.",
+      "durum_wheat: generic-crop approximation (see crop notes)."
+     ],
+     "missing": [],
+     "stage_info": {
+      "status": "OK",
+      "stage": "mid_season",
+      "day_in_season": 191,
+      "day_in_stage": 21,
+      "stage_length": 40,
+      "estimated": true,
+      "warnings": [
+       "Stage estimated from FAO-56 example stage lengths (region: Mediterranean); correct manually if the field differs."
+      ]
+     },
+     "kc_basis": "daily FAO-56 curve",
+     "status": "OK",
+     "stage": "mid_season",
+     "kc": 1.15,
+     "zr_m": 1.5,
+     "zr_basis": "linear 0.30->1.50 m over initial+development (start depth = FAO-56 Example 38 assumption)",
+     "eto_mm": 4.57887346670298,
+     "etc_mm": 5.265704486708427,
+     "p_adjusted": 0.539371820531663
+    },
+    "stage": "mid_season",
+    "stage_estimated": true,
+    "kc": 1.15,
+    "etc_mm": 5.265704486708427,
+    "zr_m": 1.5,
+    "p": 0.539371820531663,
+    "taw_mm": 225.0,
+    "raw_mm": 121.35865961962418,
+    "soil_source": "user_declared",
+    "dr_mm": 103.4864965649456,
+    "depletion_source": "water_balance_from_refill_date",
+    "dr_over_raw": 0.8527326924119342,
+    "projection": [
+     {
+      "date": "2026-05-31",
+      "dr_end_mm": 109.23280542111097,
+      "raw_mm": 117.03322029451162,
+      "rain_mm": 0.0
+     },
+     {
+      "date": "2026-06-01",
+      "dr_end_mm": 115.76607917088006,
+      "raw_mm": 109.95053625207811,
+      "rain_mm": 0.0
+     },
+     {
+      "date": "2026-06-02",
+      "dr_end_mm": 121.85870522440777,
+      "raw_mm": 112.05191720125957,
+      "rain_mm": 0.0
+     },
+     {
+      "date": "2026-06-03",
+      "dr_end_mm": 120.86236632654334,
+      "raw_mm": 123.7170500807799,
+      "rain_mm": 8.0
+     },
+     {
+      "date": "2026-06-04",
+      "dr_end_mm": 126.19206341598704,
+      "raw_mm": 120.71471666107753,
+      "rain_mm": 0.0
+     }
+    ],
+    "days_to_raw": 2,
+    "forecast_rain_mm": 8.0,
+    "ks_now": 1.0,
+    "ea": 0.75,
+    "ea_source": "typical_literature (method default, not measured)",
+    "irrigation_method": "sprinkler",
+    "timing": "irrigate_within_2_days",
+    "net_mm": 115.76607917088006,
+    "status": "OK",
+    "gross_mm": 154.35477222784007,
+    "message": "irrigate_within_2_days: net 115.8 mm, gross 154.4 mm (Ea 0.75, typical_literature (method default, not measured))."
+   },
+   {
+    "zone_id": "Z4",
+    "name": "New plot, no soil data",
+    "date": "2026-05-30",
+    "weather_source": "SYNTHETIC_FIXTURE",
+    "warnings": [
+     "Stage estimated from FAO-56 example stage lengths (region: (Semi) arid climate); correct manually if the field differs."
+    ],
+    "missing_inputs": [
+     "soil.fc/wp"
+    ],
+    "volumes": null,
+    "crop": "potato",
+    "area_ha": 0.3,
+    "eto_mm": 4.57887346670298,
+    "eto_date": "2026-05-30",
+    "requirements": {
+     "crop": "potato",
+     "date": "2026-05-30",
+     "warnings": [
+      "Stage estimated from FAO-56 example stage lengths (region: (Semi) arid climate); correct manually if the field differs."
+     ],
+     "missing": [],
+     "stage_info": {
+      "status": "OK",
+      "stage": "mid_season",
+      "day_in_season": 59,
+      "day_in_stage": 4,
+      "stage_length": 45,
+      "estimated": true,
+      "warnings": [
+       "Stage estimated from FAO-56 example stage lengths (region: (Semi) arid climate); correct manually if the field differs."
+      ]
+     },
+     "kc_basis": "daily FAO-56 curve",
+     "status": "OK",
+     "stage": "mid_season",
+     "kc": 1.15,
+     "zr_m": 0.4,
+     "zr_basis": "linear 0.30->0.40 m over initial+development (start depth = FAO-56 Example 38 assumption)",
+     "eto_mm": 4.57887346670298,
+     "etc_mm": 5.265704486708427,
+     "p_adjusted": 0.3393718205316629
+    },
+    "stage": "mid_season",
+    "stage_estimated": true,
+    "kc": 1.15,
+    "etc_mm": 5.265704486708427,
+    "zr_m": 0.4,
+    "p": 0.3393718205316629,
+    "status": "MISSING_SOIL_PARAMS",
+    "message": "FC/WP are required for depletion and volumes; none are invented."
+   }
+  ],
+  "ranking": [
+   {
+    "rank": 1,
+    "zone_id": "Z1",
+    "level": "HIGH",
+    "score": 0.775,
+    "explanation": "Dr/RAW = 1.77; days to RAW: now; stage: development; TAW 76 mm; depletion/stage rests on assumptions (data-quality penalty)"
+   },
+   {
+    "rank": 2,
+    "zone_id": "Z3",
+    "level": "MEDIUM",
+    "score": 0.4489,
+    "explanation": "Dr/RAW = 0.85; days to RAW: 2; stage: mid_season; TAW 225 mm; forecast rain 8 mm lowers urgency; depletion/stage rests on assumptions (data-quality penalty)"
+   },
+   {
+    "rank": 3,
+    "zone_id": "Z2",
+    "level": "LOW",
+    "score": 0.2783,
+    "explanation": "Dr/RAW = 0.38; days to RAW: >horizon; stage: mid_season; TAW 144 mm"
+   }
+  ],
+  "needs_data": [
+   {
+    "zone_id": "Z4",
+    "name": "New plot, no soil data",
+    "category": "NEEDS_DATA",
+    "status": "MISSING_SOIL_PARAMS",
+    "missing_inputs": [
+     "soil.fc/wp"
+    ],
+    "message": "FC/WP are required for depletion and volumes; none are invented."
+   }
+  ],
+  "ranking_weights": {
+   "stress": 0.5,
+   "urgency": 0.2,
+   "stage": 0.15,
+   "buffer": 0.1,
+   "rain_relief": -0.15,
+   "data_quality": -0.1
+  },
+  "allocation": {
+   "available_m3": 20,
+   "allocated_m3": 20.0,
+   "unallocated_m3": 0.0,
+   "plan": [
+    {
+     "zone_id": "Z1",
+     "rank": 1,
+     "level": "HIGH",
+     "area_ha": 0.5,
+     "ea": 0.9,
+     "full_need_gross_m3": 329.00653359486375,
+     "allocated_m3": 20.0,
+     "dr_mm": 59.22117604707548,
+     "raw_mm": 33.483016496950846,
+     "net_mm_applied": 3.6,
+     "gross_mm_applied": 4.0,
+     "residual_dr_mm": 55.62117604707548,
+     "residual_dr_over_raw": 1.6611757800298745,
+     "still_beyond_raw": true,
+     "fully_satisfied": false
+    },
+    {
+     "zone_id": "Z3",
+     "rank": 2,
+     "level": "MEDIUM",
+     "area_ha": 2.0,
+     "ea": 0.75,
+     "full_need_gross_m3": 3087.0954445568013,
+     "allocated_m3": 0.0,
+     "dr_mm": 103.4864965649456,
+     "raw_mm": 121.35865961962418,
+     "net_mm_applied": 0.0,
+     "gross_mm_applied": 0.0,
+     "residual_dr_mm": 103.4864965649456,
+     "residual_dr_over_raw": 0.8527326924119342,
+     "still_beyond_raw": false,
+     "fully_satisfied": false
+    },
+    {
+     "zone_id": "Z2",
+     "rank": 3,
+     "level": "LOW",
+     "area_ha": 1.0,
+     "ea": 0.9,
+     "full_need_gross_m3": 0.0,
+     "allocated_m3": 0.0,
+     "dr_mm": 40.0,
+     "raw_mm": 103.93798218225359,
+     "net_mm_applied": 0.0,
+     "gross_mm_applied": 0.0,
+     "residual_dr_mm": 40.0,
+     "residual_dr_over_raw": 0.3848448773025114,
+     "still_beyond_raw": false,
+     "fully_satisfied": true
+    }
+   ],
+   "zones_without_volume_inputs": [],
+   "strategy": "two-phase protect-then-refill in priority order (heuristic; not optimised, no yield response)"
+  }
+ }
+}

@@ -1,0 +1,6 @@
+t=open('template.html',encoding='utf-8').read()
+d=open('farm.json',encoding='utf-8').read().replace('</','<\/')
+p=t.replace('__FARM__',d)
+open('farmlink_ferme_3d.html','w',encoding='utf-8').write(p)
+open('preview.html','w',encoding='utf-8').write('<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>body{margin:0}[hidden]{display:none!important}</style></head><body>'+p+'</body></html>')
+print('built', len(p))

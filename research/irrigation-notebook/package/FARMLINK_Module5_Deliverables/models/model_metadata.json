@@ -1,0 +1,18 @@
+{
+  "trained_model_exported": false,
+  "reason": "No model beat the persistence baseline on real DGACTA data in the evidence available, so no joblib artifact is shipped (a fitted model that loses to persistence would be a fake deliverable).",
+  "evidence": {
+    "source": "outputs stored in the ORIGINAL notebook tunisian_crop_monitoring_final.ipynb (executed by the notebook author on real Chott Meriam data; not re-executed here, no network in the build sandbox)",
+    "data": "170 hourly timestamps (2026-11-13 .. 2026-11-21), chronological split 107 train / 47 test for 1 h",
+    "winner_by_horizon": {"1h": "persistence (MAE 0.0191 %)", "6h": "persistence (MAE 0.1095 %)", "24h": "persistence (MAE 0.5175 %)"},
+    "caveat": "test blocks of 40-47 samples over ~5 days: weak evidence, no claim of general superiority in either direction"
+  },
+  "runtime_predictor": {
+    "module": "engine/soil_moisture_predictor.py",
+    "default": "persistence (y_hat = last observed VWC)",
+    "optional": "per-horizon ridge on lagged VWC + hour-of-day (numpy, coefficients stored as JSON, no pickle), selected only if test MAE improves on persistence by >= 5 %",
+    "how_to_regenerate": "from engine.soil_moisture_predictor import to_hourly, evaluate, save_metadata; save_metadata(evaluate(to_hourly(df,'timestamp','vwc')), 'models/model_metadata.json', {'data_provenance': '<real source>'})",
+    "min_rows_per_horizon": 200
+  },
+  "validated_on_real_data_here": false
+}

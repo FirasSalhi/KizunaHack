@@ -1,0 +1,29 @@
+station,resource,resource_id,depth_cm,channel,package_from_cache,status,bytes
+El Alâa,Capteur de pluviométrie dans la station climatique,d264b680-61bd-4b6c-82a3-42782d7b4020,,unknown,False,ALREADY_PRESENT,195
+El Alâa,Capteur d'environnement de la station climatique,c5eaf60b-21ee-4e5a-a7d2-7202b5858059,,unknown,False,ALREADY_PRESENT,592
+El Alâa,Capteur d'humidité du sol à 10 cm de la station climatique,99862b97-9f84-470c-ae2d-7b6e59f7b832,10.0,soil_vwc_percent,False,ALREADY_PRESENT,212
+El Alâa,Capteur d'humidité du sol à 20 cm de la station climatique,a921ad82-c03d-45ec-a727-519062d57c46,20.0,soil_vwc_percent,False,ALREADY_PRESENT,212
+El Alâa,Capteur d'humidité du sol à 30 cm de la station climatique,696cd196-f90d-469a-8af5-64376f33f8fb,30.0,soil_vwc_percent,False,ALREADY_PRESENT,212
+Sbikha,Capteur de pluviométrie dans la station climatique,ed43bd2e-01dc-4c0f-bb48-596e9b8c48b7,,unknown,False,ALREADY_PRESENT,411
+Sbikha,Capteur d'humidité du sol à 10 cm de la station climatique,2b7a78fd-7434-4c9a-ae0c-c3f4e712d5db,10.0,soil_vwc_percent,False,ALREADY_PRESENT,647
+Sbikha,Capteur d'humidité du sol à 20 cm de la station climatique,8d05cb98-ed2c-4e2c-aeb9-577ee5b4ac3e,20.0,soil_vwc_percent,False,ALREADY_PRESENT,647
+Sbikha,Capteur d'humidité du sol à 30 cm de la station climatique,f5a0b0d1-e9fb-4c28-86ce-cfe1f21b46e1,30.0,soil_vwc_percent,False,ALREADY_PRESENT,647
+Sbikha,Capteur d'environnement de la station climatique,84c5e601-5944-4143-bbf9-99c4a2774462,,unknown,False,ALREADY_PRESENT,1946
+Rayhana,Capteur d'environnement de la station climatique,f65493d7-c929-407b-867c-2689f9ec81cb,,unknown,False,ALREADY_PRESENT,6418
+Rayhana,Capteur d'humidité du sol à 10 cm de la station climatique,ab374aca-056b-4a0a-a022-df418b94506a,10.0,soil_vwc_percent,False,ALREADY_PRESENT,2075
+Rayhana,Capteur d'humidité du sol à 30 cm de la station climatique,c0c87962-8166-4dc5-bfe8-be573b3588df,30.0,soil_vwc_percent,False,ALREADY_PRESENT,2075
+Rayhana,Capteur d'humidité du sol à 20 cm de la station climatique,006cccc4-0681-46e6-856c-572b9bffc4ad,20.0,soil_vwc_percent,False,ALREADY_PRESENT,2075
+Rayhana,Capteur de pluviométrie dans la station climatique,f93d3a52-9f5d-4c20-a4da-3bb76ac43df1,,unknown,False,ALREADY_PRESENT,1915
+Bargou,Capteur de niveau d'eau de la station climatique,a73077c4-426d-4966-9bba-92cc0b5ad37c,,unknown,False,ALREADY_PRESENT,903
+Bargou,Capteur d'humidité du sol à 10 cm de la station climatique,c5fff673-2c51-4c8a-8827-e9cca396d27d,10.0,soil_vwc_percent,False,ALREADY_PRESENT,1265
+Bargou,Capteur Mouillage foliaire de la station climatique,f2b1717a-c762-40a7-8c2b-4ce39168cbb2,,unknown,False,ALREADY_PRESENT,1097
+Bargou,Capteur d'humidité du sol à 30 cm de la station climatique,5270fb4a-89de-44c7-84ee-682fd7a27399,30.0,soil_vwc_percent,False,ALREADY_PRESENT,1456
+Bargou,Capteur d'humidité du sol à 20 cm de la station climatique,65e43e3f-4c02-4b4b-8e93-4808228181e6,20.0,soil_vwc_percent,False,ALREADY_PRESENT,1470
+Bargou,Capteur de pluviométrie dans la station climatique,2c330480-95d5-48ea-8ce1-7bda2f9e5567,,unknown,False,ALREADY_PRESENT,223
+Bargou,Capteur d'environnement de la station climatique,65fe8611-b1a2-4d6f-baed-ddad42a6a3de,,unknown,False,ALREADY_PRESENT,1947
+Chott Meriam,Capteur de pluviométrie dans la station climatique,efdfccbb-f556-4140-84ca-d2c275c4a699,,unknown,False,ALREADY_PRESENT,783
+Chott Meriam,Capteur d'environnement de la station climatique,37c09c6c-8c35-4f37-86a0-f761fd9a0261,,unknown,False,ALREADY_PRESENT,2211
+Chott Meriam,Capteur d'humidité du sol à 10 cm de la station climatique,0dd8678b-aa5b-4d91-8131-e9f2f0cdbbc5,10.0,soil_vwc_percent,False,ALREADY_PRESENT,36115
+Chott Meriam,Capteur d'humidité du sol à 60 cm de la station climatique,483f0a15-f2e2-4a34-9d24-0864efa6d1a1,60.0,soil_vwc_percent,False,ALREADY_PRESENT,34919
+Chott Meriam,Capteur d'humidité du sol à 30 cm de la station climatique,bc446555-d982-4c2b-844a-2469d0959a39,30.0,soil_vwc_percent,False,ALREADY_PRESENT,35939
+Chott Meriam,Capteur Mouillage foliaire de la station climatique,45b4f7ab-2811-481d-a225-757fadb2239d,,unknown,False,ALREADY_PRESENT,30984
