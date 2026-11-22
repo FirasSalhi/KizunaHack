@@ -7,11 +7,15 @@ dependencies = [
     "alembic",
     "argon2-cffi",
     "asyncpg",
+    "certifi",
     "cryptography",
     "fastapi",
+    "huggingface_hub",
     "numpy",
+    "onnxruntime",
     "pandas",
     "paho-mqtt",
+    "pillow",
     "pydantic>=2.0,<3.0",
     "pydantic-settings",
     "pyjwt",
@@ -27,6 +31,11 @@ ml = [
     "numpy",
     "onnxruntime",
     "pillow",
+]
+# Plant scanner, offline BioCLIP 2 engine (~2 GB of models): uv sync --extra bioclip
+bioclip = [
+    "open_clip_torch",
+    "torch",
 ]
 
 [dependency-groups]

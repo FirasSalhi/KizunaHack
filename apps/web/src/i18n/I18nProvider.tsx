@@ -40,8 +40,8 @@ export function useI18n() {
 }
 
 /** Fill {placeholders} in a message: fill("Welcome back, {name}", { name: "Amel" }). */
-export function fill(text: string, values: Record<string, string>) {
-  return text.replace(/\{(\w+)\}/g, (_, key: string) => values[key] ?? "");
+export function fill(text: string, values: Record<string, string | number>) {
+  return text.replace(/\{(\w+)\}/g, (_, key: string) => String(values[key] ?? ""));
 }
 
 /** Render a message that contains "\n" line breaks. */

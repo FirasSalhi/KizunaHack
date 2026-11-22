@@ -149,6 +149,20 @@ uv venv --python 3.12 .venv && uv pip install --python .venv/bin/python -r requi
 ```
 Port 8010 is the default; set `NEXT_PUBLIC_MIZU_URL` in `apps/web/.env.local` to use another address.
 
+### 7. Plant scanner models (once)
+Dashboard → **Plant Scanner** identifies a plant from a photo, checks its health and shows its care sheet
+(ported from [is9ini](https://github.com/RaziSnihaa/is9ini)). It runs inside the API and needs its models:
+```bash
+cd services/api
+uv sync --extra bioclip                     # adds PyTorch for the offline BioCLIP 2 engine
+uv run python -m app.plants.catalog         # ~2 GB download + catalogue build (GPU helps, CPU works)
+# or, without BioCLIP 2:  uv run python -m app.plants.catalog --small   (~35 MB)
+```
+Engines are tried in order: **Pl@ntNet** (online, best; add a free key from my.plantnet.org as
+`PLANTNET_API_KEY` in `services/api/.env`), **BioCLIP 2** (offline), **verdant** (offline, houseplants).
+Anyone can scan; scans from signed-in users are saved to their history (table `plant_scans`, photos in
+`services/api/data/plant_scans/`). Plant names and care sheets come from English databases.
+
 ---
 
 ## Running Tests

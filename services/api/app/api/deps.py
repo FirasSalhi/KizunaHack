@@ -68,3 +68,23 @@ async def get_current_user(
         )
 
     return user
+
+
+async def get_optional_user(
+    db: AsyncSession = Depends(get_db_session),
+    auth_header: HTTPAuthorizationCredentials | None = Depends(bearer_scheme),
+    fl_access: str | None = Cookie(None),
+) -> User | None:
+    """The signed-in user, or None for visitors and the dashboard's demo session (no error)."""
+    token = auth_header.credentials if auth_header and auth_header.credentials else fl_access
+    payload = decode_access_token(token) if token else None
+    if not payload or not payload.get("sub"):
+        return None
+    try:
+        user_id = uuid.UUID(payload["sub"])
+    except (ValueError, TypeError):
+        return None
+    user = await UserRepository(db).get_by_id(user_id)
+    if user is None or user.disabled_at is not None:
+        return None
+    return user

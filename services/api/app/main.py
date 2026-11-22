@@ -9,13 +9,17 @@ from app.core.config import settings
 from app.core.database import engine
 from app.core.logging import logger, setup_logging
 from app.models.base import Base
-from app.routers import irrigation
+from app.plants import engine as plant_engine
+from app.routers import irrigation, plants
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
     # Configure logging
     setup_logging(debug=settings.DEBUG)
+
+    # Load the plant scanner models in the background so the first scan is fast
+    plant_engine.warm_up()
 
     # Initialize tables if connected to database
     try:
@@ -55,6 +59,7 @@ app.add_middleware(
 # Mount API routers
 app.include_router(api_router, prefix=settings.API_V1_PREFIX)
 app.include_router(irrigation.router)
+app.include_router(plants.router)
 
 
 # Backward-compatible root health check

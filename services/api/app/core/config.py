@@ -1,4 +1,5 @@
 from functools import lru_cache
+from pathlib import Path
 
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -31,6 +32,15 @@ class Settings(BaseSettings):
         "http://localhost:8080",
         "http://127.0.0.1:8080",
     ]
+
+    # Plant scanner (app/plants, ported from is9ini)
+    # Free Pl@ntNet key from https://my.plantnet.org (500 photos/day); empty = offline engines only
+    PLANTNET_API_KEY: str = ""
+    # auto (Pl@ntNet -> BioCLIP 2 -> verdant) | plantnet | bioclip | verdant
+    PLANT_ENGINE: str = "auto"
+    # Models and databases (python -m app.plants.catalog) and saved scan photos
+    PLANT_MODELS_DIR: str = str(Path(__file__).resolve().parents[2] / "models" / "plants")
+    PLANT_SCANS_DIR: str = str(Path(__file__).resolve().parents[2] / "data" / "plant_scans")
 
     # Security & Cookie Flags
     COOKIE_SECURE: bool = False
