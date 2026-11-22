@@ -123,6 +123,13 @@ details.tech[open] summary{margin-bottom:8px}
         <input type="range" id="water" min="0" max="4000" step="50" value="1500">
         <span class="hint" id="wnote"></span>
       </div>
+      <div class="sect" id="engine">
+        <span class="lab">Moteur de calcul</span>
+        <span style="display:flex;gap:8px;align-items:center;font-size:13px"><i class="dot" id="engine-dot"></i><span id="engine-st"></span></span>
+        <div class="row2" style="grid-template-columns:1fr auto"><label for="api-url">Adresse de l'API FARMLINK<input id="api-url" type="url" value="http://localhost:8001" style="font:13px var(--f-mono)"></label><button class="ghost" id="api-go" type="button" style="align-self:end">Connecter</button></div>
+        <span class="hint" id="engine-err" hidden></span>
+        <span class="hint">Avec l'API lancée (services/api), les décisions viennent du vrai moteur Python et de la météo du jour.</span>
+      </div>
       <button class="ghost" id="reset" type="button">Revenir à la ferme d'exemple</button>
     </div>
   </div>
@@ -424,9 +431,73 @@ function syncPlots(){
 /* ---------- state → scene + panel ---------- */
 const DRY = new THREE.Color('#e3cfae'), WET = new THREE.Color('#7d5f43'), MID = new THREE.Color('#b8987a'), STRESS = new THREE.Color('#b9a457');
 let sel = 1, R;
+/* ---------- real engine through the FARMLINK API (falls back to the built-in demo) ---------- */
+const API = {url: 'http://localhost:8001', on: false, busy: 0, timer: null, info: null, error: null};
+const isoToday = () => { const d = new Date(); return new Date(d.getTime() - d.getTimezoneOffset()*6e4).toISOString().slice(0,10); };
+const daysAgo = n => { const d = new Date(); d.setDate(d.getDate() - n); return new Date(d.getTime() - d.getTimezoneOffset()*6e4).toISOString().slice(0,10); };
+async function apiFetch(path, opts = {}, ms = 4000){
+  const ctl = new AbortController(), t = setTimeout(() => ctl.abort(), ms);
+  try { const r = await fetch(API.url.replace(/\/+$/, '') + path, {...opts, signal: ctl.signal}); if (!r.ok) throw new Error(`HTTP ${r.status}`); return await r.json(); }
+  finally { clearTimeout(t); }
+}
+async function connectApi(manual = true){
+  API.url = ($('#api-url').value || '').trim() || API.url; API.error = null; renderEngine('Connexion…');
+  try { const h = await apiFetch('/api/v1/health', {}, 2500); API.on = !!(h && h.ok); } catch (e) { API.on = false; API.error = manual ? 'API injoignable à cette adresse. Lancez services/api puis réessayez.' : null; }
+  refresh();
+}
+function zonePayload(f){
+  const z = {zone_id: f.id, crop: f.crop, area_ha: +f.area, stage_override: f.stage, irrigation: {method: f.method}};
+  const fc = +f.soil.fc, wp = +f.soil.wp;
+  if (f.soil.fc !== '' && f.soil.wp !== '' && fc > wp && wp > 0) z.soil = {fc, wp, source: f.soilKey === 'custom' ? 'measured' : 'user_declared'};
+  if (f.lastDays == null) z.current_depletion_mm = +f.dr; else z.last_refill_date = daysAgo(f.lastDays);
+  return z;
+}
+function fromApi(resp){
+  const byId = Object.fromEntries(resp.zones.map(z => [z.zone_id, z])), rank = Object.fromEntries(resp.ranking.map(r => [r.zone_id, r]));
+  const plan = Object.fromEntries(((resp.allocation || {}).plan || []).map(p => [p.zone_id, p]));
+  const ev = FZ.map(f => { const z = byId[f.id] || {}, P = {kc: z.kc, etc: z.etc_mm, zr: z.zr_m, src: 'api'};
+    const base = {id: f.id, P, daily: (z.etc_mm || 0)*f.area*10};
+    if (z.status !== 'OK') return {...base, status: 'NEEDS_DATA', msg: z.message || z.status};
+    const m = /irrigate_within_(\d+)_days/.exec(z.timing || ''), timing = z.timing === 'irrigate_now' ? 'now' : m ? 'soon' : 'none';
+    const r = rank[f.id] || {}, a = plan[f.id] || {}, vol = z.volumes || {};
+    return {...base, status: 'OK', taw: z.taw_mm, raw: z.raw_mm, dr: z.dr_mm, ratio: z.dr_over_raw, timing, days: timing === 'now' ? 0 : m ? +m[1] : null,
+      m3: vol.m3 || 0, rank: r.rank, level: r.level, score: r.score, alloc: a.allocated_m3 || 0, full: !!a.fully_satisfied, residual: a.residual_dr_mm ?? z.dr_mm, warnings: z.warnings || []};
+  });
+  const ok = ev.filter(e => e.status === 'OK');
+  return {ev, left: (resp.allocation || {}).unallocated_m3 ?? 0, need: ok.reduce((s, e) => s + e.m3, 0), nOk: ok.length};
+}
+function renderEngine(msg){
+  const el = $('#engine'); if (!el) return;
+  const st = msg ? msg : API.on ? (API.info ? `Moteur Python · météo du ${API.info.date.split('-').reverse().join('/')} (${API.info.source}${API.info.fallback ? ', secours' : ''})` : 'Moteur Python connecté') : 'Démo intégrée · météo figée du 21/11';
+  $('#engine-st').textContent = st; $('#engine-dot').style.background = API.on ? 'var(--fine)' : 'var(--missing)';
+  $('#engine-err').textContent = API.error || ''; $('#engine-err').hidden = !API.error;
+  $('#dt').textContent = API.on && API.info ? API.info.date.split('-').reverse().join('/') : FARM.date.split('-').reverse().join('/');
+}
 function refresh(){
   syncPlots();
-  const water = +$('#water').value; R = farmCompute(water);
+  const water = +$('#water').value;
+  if (API.on){
+    clearTimeout(API.timer);
+    API.timer = setTimeout(async () => {
+      const ticket = ++API.busy; renderEngine('Calcul par le moteur…');
+      try {
+        const resp = await apiFetch('/api/v1/irrigation/farm', {method: 'POST', headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({farm_id: 'ferme-3d', location: {lat: 35.918, lon: 10.558, elevation_m: 10}, available_water_m3: water, zones: FZ.map(zonePayload)})}, 30000);
+        if (ticket !== API.busy) return;
+        API.info = {date: resp.date, source: resp.weather.source, fallback: resp.weather.fallback_used}; API.error = null;
+        R = fromApi(resp); paint(water);
+      } catch (e) {
+        if (ticket !== API.busy) return;
+        API.on = false; API.error = `Le moteur n'a pas répondu (${e.message || e}). Retour à la démo.`; R = farmCompute(water); paint(water);
+      }
+      renderEngine();
+    }, 250);
+    if (!R || R.ev.length !== FZ.length){ R = farmCompute(water); paint(water); }   // keep the scene consistent while the engine answers
+    return;
+  }
+  R = farmCompute(water); paint(water); renderEngine();
+}
+function paint(water){
   $('#wl').textContent = `${fmt(water)} m³`;
   $('#wnote').textContent = R.need ? `Besoin total ${fmt(R.need)} m³ · ${fmt(100*Math.min(water,R.need)/R.need)} % couvert · il reste ${fmt(R.left)} m³ dans le bassin.` : 'Aucune parcelle n\'a besoin d\'eau pour l\'instant.';
   FZ.forEach((f, i) => {
@@ -474,7 +545,7 @@ function renderDetail(){
       <span class="hint">Sous le trait orange (${thr} %), la plante a soif et pousse moins bien.</span>${basin ? `<span style="font-size:13px">${basin}</span>` : ''}</div>`;
   }
   const tech = e.status === 'OK' ? `<div class="kv"><div><span>Besoin de la plante</span><b>${fmt(P.etc,2)} mm/j</b></div><div><span>Consommation</span><b>${fmt(e.daily)} m³/j</b></div><div><span>Eau utilisée</span><b>${fmt(e.dr)} mm</b></div><div><span>Seuil de soif</span><b>${fmt(e.raw)} mm</b></div><div><span>Réserve du sol</span><b>${fmt(e.taw)} mm</b></div><div><span>Priorité</span><b>${e.rank} / ${R.nOk}</b></div></div>
-      <span class="hint">Kc ${fmt(P.kc,2)} · racines ${fmt(P.zr,2)} m · ET₀ ${fmt(ETO0,2)} mm/j · score ${fmt(e.score,3)}${P.src==='moteur'?' · valeurs du moteur Python':' · calcul FAO-56'}</span>`
+      <span class="hint">Kc ${fmt(P.kc,2)} · racines ${fmt(P.zr,2)} m · ET₀ ${fmt(ETO0,2)} mm/j · score ${fmt(e.score,3)}${P.src==='api'?' · moteur Python via l’API, météo du jour':P.src==='moteur'?' · valeurs du moteur Python (21/11)':' · calcul FAO-56 de la démo'}</span>`
     : `<div class="kv"><div><span>Besoin de la plante</span><b>${fmt(P.etc,2)} mm/j</b></div><div><span>Consommation</span><b>${fmt(e.daily)} m³/j</b></div></div>`;
   $('#detail').innerHTML = `<div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><h2>${f.id} · ${esc(NAME(f.crop))}</h2><button class="ghost" type="button" id="goto">Voir sur la carte</button></div>
     ${verdict}${water}
@@ -592,6 +663,7 @@ function tick(t){
   renderer.render(scene, camera); requestAnimationFrame(tick);
 }
 resetFarm(); refresh(); select(1, false); requestAnimationFrame(tick);
+$('#api-go').onclick = () => connectApi(true); $('#api-url').addEventListener('keydown', e => { if (e.key === 'Enter') connectApi(); }); connectApi(false);
 // self-check: the demo farm must reproduce the notebook engine (1 500 m³ → Z2 1 311, Z1 189)
 window.__farmCheck = () => { const r = farmCompute(1500); return r.ev.map(e => [e.id, e.status, e.status==='OK'?+e.score.toFixed(4):null, e.status==='OK'?Math.round(e.m3*10)/10:null, e.status==='OK'?Math.round(e.alloc*10)/10:null]); };
 })();

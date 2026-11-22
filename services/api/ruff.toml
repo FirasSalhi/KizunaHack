@@ -1,5 +1,7 @@
 target-version = "py312"
 line-length = 100
+# Vendored FARMLINK irrigation engine, kept identical to research/irrigation-notebook.
+extend-exclude = ["app/irrigation/engine"]
 
 [lint]
 select = ["E", "F", "W", "I", "B", "UP", "ASYNC", "S"]

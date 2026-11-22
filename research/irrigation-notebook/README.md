@@ -18,6 +18,41 @@ Ouvrez ces fichiers dans un navigateur (double-clic). Il faut une connexion Inte
 
 Dans la ferme 3D, les modifications ne sont pas enregistrées : un rechargement revient à la ferme d'exemple.
 
+## Démo ou résultats réels ?
+
+Ouverte seule, la ferme 3D est une **démo** : météo figée du 21/11 et calcul recopié en JavaScript.
+Pour avoir des **résultats réels** (vrai moteur Python et météo du jour), lancez l'API du projet :
+
+```bash
+cd services/api
+uv sync
+uv run uvicorn app.main:app --port 8001        # API sur http://localhost:8001
+```
+
+Puis servez la page sur le port 8080 (autorisé par l'API) et ouvrez `http://localhost:8080/ferme_3d.html` :
+
+```bash
+cd research/irrigation-notebook/html
+python -m http.server 8080
+```
+
+En bas du panneau, « Moteur de calcul » doit afficher **« Moteur Python · météo du … (open_meteo) »**.
+Si l'API ne répond pas, la page repasse toute seule en démo. Un autre port se déclare dans
+`CORS_ALLOW_ORIGINS` (voir `services/api/.env.example`).
+
+### L'API d'irrigation (dans `services/api`)
+
+Le moteur est intégré dans l'API, dans `services/api/app/irrigation/`. Le dossier `engine/` y est
+une copie inchangée de `package/FARMLINK_Module5_Deliverables/engine`.
+
+| Adresse | Rôle |
+|---|---|
+| `GET /api/v1/irrigation/crops` | Les 39 cultures, avec leurs noms en français et en arabe, pour la liste de choix. |
+| `POST /api/v1/irrigation/farm` | Les parcelles de l'agriculteur, avec la météo du jour (Open-Meteo, sinon NASA POWER) : décision par parcelle, priorités et partage de l'eau. Renvoie 503 si aucune météo n'est disponible. |
+
+Documentation interactive : `http://localhost:8001/api/docs`. Les tests sont dans
+`services/api/tests/unit/test_irrigation.py` (`uv run pytest`). Ils n'utilisent pas le réseau.
+
 ## Ce qu'il y a dans le dossier
 
 | Dossier | Contenu |
