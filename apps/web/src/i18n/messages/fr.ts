@@ -196,6 +196,13 @@ const fr: Messages = {
     openTab: "Ouvrir dans un nouvel onglet",
     frameTitle: "Tableau de bord de stockage après récolte HarvestGuard",
   },
+  irrigation3d: {
+    title: "Ferme 3D – Irrigation",
+    subtitle: "Votre ferme en 3D : ajoutez vos parcelles, choisissez vos cultures, et chaque champ indique s'il faut arroser aujourd'hui et combien (drapeau rouge, orange ou vert). Avec l'API FARMLINK lancée, les décisions viennent du moteur d'irrigation et de la météo du jour ; sinon une démo s'affiche.",
+    frenchOnly: "Cet outil est disponible en français uniquement.",
+    openTab: "Ouvrir dans un nouvel onglet",
+    frameTitle: "Ferme 3D d'irrigation FARMLINK",
+  },
   dashboard: {
     loading: "Chargement du tableau de bord FARMLINK...",
     activeProperty: "Exploitation active",
@@ -205,6 +212,7 @@ const fr: Messages = {
       overview: "Vue d'ensemble",
       planning: "Planification des cultures",
       postHarvest: "Après-récolte",
+      irrigation3d: "Irrigation 3D",
       rootloop: "Eau ROOTLOOP",
       scans: "Scans de plantes IA",
       devices: "Appareils IoT",

@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import { useAuth } from "@/hooks/useAuth";
 import { useI18n } from "@/i18n/I18nProvider";
 import { LanguageSwitcher } from "@/i18n/LanguageSwitcher";
-import { BrandMark, IconBolt, IconCrate, IconDrop, IconLeaf, IconOverview, IconPlanMap, IconSignal, IconSignOut } from "@/components/icons";
+import { BrandMark, IconBolt, IconCrate, IconDrop, IconFields3D, IconLeaf, IconOverview, IconPlanMap, IconSignal, IconSignOut } from "@/components/icons";
 
 const NAV_ACTIVE = "flex items-center gap-3 px-3 py-2.5 rounded-lg bg-[#c6f04a]/15 text-[#c6f04a] font-medium border border-[#c6f04a]/20";
 const NAV_IDLE = "flex items-center gap-3 px-3 py-2.5 rounded-lg text-neutral-400 hover:text-white hover:bg-white/5 border border-transparent transition-colors";
@@ -79,6 +79,14 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
             >
               <span className="text-base"><IconCrate /></span>
               {t.nav.postHarvest}
+            </Link>
+            <Link
+              href="/dashboard/irrigation-3d"
+              aria-current={pathname === "/dashboard/irrigation-3d" ? "page" : undefined}
+              className={pathname === "/dashboard/irrigation-3d" ? NAV_ACTIVE : NAV_IDLE}
+            >
+              <span className="text-base"><IconFields3D /></span>
+              {t.nav.irrigation3d}
             </Link>
             <a
               href="#rootloop"
@@ -174,6 +182,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
             <Link href="/dashboard" className={`text-sm ${pathname === "/dashboard" ? "text-[#c6f04a]" : "text-neutral-300"}`}>{t.nav.overview}</Link>
             <Link href="/dashboard/planning" className={`text-sm ${pathname === "/dashboard/planning" ? "text-[#c6f04a]" : "text-neutral-300"}`}>{t.nav.planning}</Link>
             <Link href="/dashboard/post-harvest" className={`text-sm ${pathname === "/dashboard/post-harvest" ? "text-[#c6f04a]" : "text-neutral-300"}`}>{t.nav.postHarvest}</Link>
+            <Link href="/dashboard/irrigation-3d" className={`text-sm ${pathname === "/dashboard/irrigation-3d" ? "text-[#c6f04a]" : "text-neutral-300"}`}>{t.nav.irrigation3d}</Link>
             <button onClick={() => void logout()} className="text-sm text-red-400 text-start">{m.common.signOut}</button>
           </nav>
         </div>

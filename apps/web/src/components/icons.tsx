@@ -109,3 +109,14 @@ export function IconCrate(props: IconProps) {
     </Icon>
   );
 }
+
+/** Fields seen in perspective with a water drop: the 3D irrigation farm. */
+export function IconFields3D(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <path d="M2 20 6 11h12l4 9H2Z" />
+      <path d="M12 11v9M4 15.5h16" />
+      <path d="M12 2.5c1.6 1.9 2.5 3.2 2.5 4.3a2.5 2.5 0 0 1-5 0c0-1.1.9-2.4 2.5-4.3Z" />
+    </Icon>
+  );
+}

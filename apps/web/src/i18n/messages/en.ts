@@ -197,6 +197,13 @@ const en = {
     openTab: "Open in a new tab",
     frameTitle: "HarvestGuard post-harvest storage dashboard",
   },
+  irrigation3d: {
+    title: "3D Irrigation Farm",
+    subtitle: "Your farm in 3D: add your fields, choose your crops, and each field shows whether to water today and how much (red, orange or green flag). With the FARMLINK API running, decisions come from the irrigation engine and today's weather; otherwise a demo runs.",
+    frenchOnly: "This tool is available in French only.",
+    openTab: "Open in a new tab",
+    frameTitle: "FARMLINK 3D irrigation farm",
+  },
   dashboard: {
     loading: "Loading FARMLINK Dashboard...",
     activeProperty: "Active Property",
@@ -206,6 +213,7 @@ const en = {
       overview: "Overview",
       planning: "Crop Planning",
       postHarvest: "Post-Harvest",
+      irrigation3d: "3D Irrigation",
       rootloop: "ROOTLOOP Water",
       scans: "AI Plant Scans",
       devices: "IoT Devices",

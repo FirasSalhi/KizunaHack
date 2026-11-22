@@ -198,6 +198,13 @@ const ar: Messages = {
     openTab: "حلّ في تبويب جديد",
     frameTitle: "لوحة تخزين الصابة بعد الحصاد HarvestGuard",
   },
+  irrigation3d: {
+    title: "الفيرمة 3D – السقي",
+    subtitle: "فيرمتك بالـ3D: زيد السواني متاعك، اختار الزريعة، وكل سانية تقلّك تسقيها اليوم ولا لا وقدّاش (درابو أحمر، برتقالي ولا أخضر). كي تكون الـAPI متاع FARMLINK خدّامة، القرارات تجي من محرّك السقي وطقس اليوم؛ وإلّا تخدم ديمو.",
+    frenchOnly: "الأداة هذي متوفّرة كان بالفرنساوي.",
+    openTab: "حلّ في تبويب جديد",
+    frameTitle: "فيرمة السقي 3D متاع FARMLINK",
+  },
   dashboard: {
     loading: "قاعد يحمّل في لوحة FARMLINK...",
     activeProperty: "الفيرمة الحالية",
@@ -207,6 +214,7 @@ const ar: Messages = {
       overview: "نظرة عامّة",
       planning: "تخطيط الزراعة",
       postHarvest: "بعد الحصاد",
+      irrigation3d: "السقي 3D",
       rootloop: "ماء ROOTLOOP",
       scans: "سكان النبتة بالذكاء الاصطناعي",
       devices: "الأجهزة IoT",

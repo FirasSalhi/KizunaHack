@@ -197,6 +197,13 @@ const ja: Messages = {
     openTab: "新しいタブで開く",
     frameTitle: "HarvestGuard 収穫後貯蔵ダッシュボード",
   },
+  irrigation3d: {
+    title: "3D灌漑ファーム",
+    subtitle: "農場を3Dで表示。圃場を追加して作物を選ぶと、各圃場に今日水やりが必要か、どれだけ必要かが旗（赤・オレンジ・緑）で表示されます。FARMLINK APIが起動していれば灌漑エンジンと今日の天気で判断し、起動していなければデモが動きます。",
+    frenchOnly: "このツールはフランス語のみで提供されています。",
+    openTab: "新しいタブで開く",
+    frameTitle: "FARMLINK 3D灌漑ファーム",
+  },
   dashboard: {
     loading: "FARMLINK ダッシュボードを読み込み中...",
     activeProperty: "選択中の農場",
@@ -206,6 +213,7 @@ const ja: Messages = {
       overview: "概要",
       planning: "作付け計画",
       postHarvest: "収穫後管理",
+      irrigation3d: "3D灌漑",
       rootloop: "ROOTLOOP 水管理",
       scans: "AI 植物スキャン",
       devices: "IoT デバイス",
