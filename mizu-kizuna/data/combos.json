@@ -1,0 +1,790 @@
+[
+ {
+  "id": "olive_barley",
+  "members": [
+   {
+    "crop": "olive",
+    "role": "top"
+   },
+   {
+    "crop": "barley",
+    "role": "low"
+   }
+  ],
+  "water": "both",
+  "countries": [
+   "tunisie"
+  ],
+  "causes": [
+   {
+    "type": "etages",
+    "fr": "Deux étages : l'arbre occupe le haut, la culture basse utilise l'espace et la lumière entre les rangs.",
+    "tn": "زوز طبقات: الشجرة الفوق، والزرعة القصيرة تستغلّ البلاصة والضوء بين الخطوط.",
+    "ja": "2つの層：樹木が上層を、低い作物が列間の空間と光を使います。"
+   },
+   {
+    "type": "calendrier",
+    "fr": "Cycle d'hiver (novembre → mai) : la culture pousse quand l'olivier consomme peu d'eau et profite des pluies d'hiver.",
+    "tn": "تتزرع في الشتاء (نوفمبر → ماي): تكبر وقت اللي الزيتونة ما تشربش برشا، وتستفاد من مطر الشتاء.",
+    "ja": "冬作（11月→5月）：オリーブの水消費が少ない時期に育ち、冬の雨を活用します。"
+   },
+   {
+    "type": "sol",
+    "fr": "Couvre le sol entre les rangs : moins d'érosion et plus de matière organique qu'un sol labouré nu.",
+    "tn": "تغطّي الأرض بين الخطوط: أقلّ انجراف وأكثر مادّة عضوية من أرض محروثة وعريانة.",
+    "ja": "列間の地表を覆う：裸地に比べて侵食が減り、有機物が増えます。"
+   },
+   {
+    "type": "revenu",
+    "fr": "Deuxième revenu sur le même hectare, en attendant ou en plus de la récolte de l'arbre.",
+    "tn": "دخل ثاني في نفس الهكتار، قبل ولا زيادة على صابة الشجر.",
+    "ja": "同じ1ヘクタールで第2の収入。樹木の収穫を待つ間、またはそれに加えて。"
+   }
+  ],
+  "cautions": [
+   {
+    "fr": "Laissez 1,5 à 2 m libres autour du tronc (pas de labour ni de culture contre l'arbre).",
+    "tn": "خلّي 1.5 لـ2 متر فارغين دور الساق (لا حرث لا زرعة لاصقين في الشجرة).",
+    "ja": "幹の周り1.5～2 mは空けてください（樹のすぐ近くでは耕さず、作付けしない）。"
+   },
+   {
+    "fr": "En année très sèche, réduisez la surface intercalaire : l'eau doit d'abord aller à l'arbre.",
+    "tn": "في عام شايح برشا، نقّص الزرعة اللي بين الخطوط: الماء لازم يمشي للشجرة الأوّل.",
+    "ja": "極端な干ばつ年は間作面積を減らしてください。水はまず樹木に回すべきです。"
+   }
+  ],
+  "layout": {
+   "fr": "Culture semée dans l'interligne des oliviers, en bandes, en gardant le tour des troncs libre.",
+   "tn": "الزرعة بين خطوط الزيتون، شرايط شرايط، وخلّي دور الساق فارغ.",
+   "ja": "オリーブの列間に帯状に播き、幹の周りは空けておきます。"
+  },
+  "confidence": "high",
+  "sources": [
+   "Projet PRIMA Biodiversify, Institut de l'Olivier (Sfax), 2024 — olivier + orge / fève",
+   "INAT / Cahiers Agricultures 2023 — agroforesterie dans les oliveraies de Tunisie (doi:10.1051/cagri/2023017)"
+  ]
+ },
+ {
+  "id": "olive_faba",
+  "members": [
+   {
+    "crop": "olive",
+    "role": "top"
+   },
+   {
+    "crop": "faba_bean",
+    "role": "low"
+   }
+  ],
+  "water": "both",
+  "countries": [
+   "tunisie"
+  ],
+  "causes": [
+   {
+    "type": "azote",
+    "fr": "Légumineuse : fixe l'azote de l'air et enrichit le sol pour l'arbre et la culture suivante.",
+    "tn": "بقولية: تشدّ الآزوت من الهواء وتسمّد الأرض للشجرة وللزرعة اللي بعدها.",
+    "ja": "マメ科：空気中の窒素を固定し、樹木と次作のために土を肥やします。"
+   },
+   {
+    "type": "calendrier",
+    "fr": "Cycle d'hiver (novembre → mai) : la culture pousse quand l'olivier consomme peu d'eau et profite des pluies d'hiver.",
+    "tn": "تتزرع في الشتاء (نوفمبر → ماي): تكبر وقت اللي الزيتونة ما تشربش برشا، وتستفاد من مطر الشتاء.",
+    "ja": "冬作（11月→5月）：オリーブの水消費が少ない時期に育ち、冬の雨を活用します。"
+   },
+   {
+    "type": "sol",
+    "fr": "Essais en oliveraies tunisiennes : les cultures intercalaires ont amélioré la fertilité du sol.",
+    "tn": "تجارب في زياتين تونس: الزرايع بين الخطوط حسّنت خصوبة الأرض.",
+    "ja": "チュニジアのオリーブ園での試験：間作で土壌肥沃度が向上しました。"
+   },
+   {
+    "type": "revenu",
+    "fr": "Deuxième revenu sur le même hectare, en attendant ou en plus de la récolte de l'arbre.",
+    "tn": "دخل ثاني في نفس الهكتار، قبل ولا زيادة على صابة الشجر.",
+    "ja": "同じ1ヘクタールで第2の収入。樹木の収穫を待つ間、またはそれに加えて。"
+   }
+  ],
+  "cautions": [
+   {
+    "fr": "Laissez 1,5 à 2 m libres autour du tronc (pas de labour ni de culture contre l'arbre).",
+    "tn": "خلّي 1.5 لـ2 متر فارغين دور الساق (لا حرث لا زرعة لاصقين في الشجرة).",
+    "ja": "幹の周り1.5～2 mは空けてください（樹のすぐ近くでは耕さず、作付けしない）。"
+   },
+   {
+    "fr": "Ne mettez pas d'oignon ou d'ail à côté des fèves, pois ou pois chiches.",
+    "tn": "ما تحطّش البصل ولا الثوم بحذا الفول ولا الجلبانة ولا الحمّص.",
+    "ja": "タマネギやニンニクをソラマメ・エンドウ・ヒヨコマメの近くに植えないでください。"
+   }
+  ],
+  "layout": {
+   "fr": "Culture semée dans l'interligne des oliviers, en bandes, en gardant le tour des troncs libre.",
+   "tn": "الزرعة بين خطوط الزيتون، شرايط شرايط، وخلّي دور الساق فارغ.",
+   "ja": "オリーブの列間に帯状に播き、幹の周りは空けておきます。"
+  },
+  "confidence": "high",
+  "sources": [
+   "Projet PRIMA Biodiversify, Institut de l'Olivier (Sfax), 2024 — olivier + orge / fève",
+   "INAT / Cahiers Agricultures 2023 — agroforesterie dans les oliveraies de Tunisie (doi:10.1051/cagri/2023017)"
+  ]
+ },
+ {
+  "id": "olive_chickpea",
+  "members": [
+   {
+    "crop": "olive",
+    "role": "top"
+   },
+   {
+    "crop": "chickpea",
+    "role": "low"
+   }
+  ],
+  "water": "both",
+  "countries": [
+   "tunisie"
+  ],
+  "causes": [
+   {
+    "type": "azote",
+    "fr": "Légumineuse : fixe l'azote de l'air et enrichit le sol pour l'arbre et la culture suivante.",
+    "tn": "بقولية: تشدّ الآزوت من الهواء وتسمّد الأرض للشجرة وللزرعة اللي بعدها.",
+    "ja": "マメ科：空気中の窒素を固定し、樹木と次作のために土を肥やします。"
+   },
+   {
+    "type": "etages",
+    "fr": "Deux étages : l'arbre occupe le haut, la culture basse utilise l'espace et la lumière entre les rangs.",
+    "tn": "زوز طبقات: الشجرة الفوق، والزرعة القصيرة تستغلّ البلاصة والضوء بين الخطوط.",
+    "ja": "2つの層：樹木が上層を、低い作物が列間の空間と光を使います。"
+   },
+   {
+    "type": "revenu",
+    "fr": "Deuxième revenu sur le même hectare, en attendant ou en plus de la récolte de l'arbre.",
+    "tn": "دخل ثاني في نفس الهكتار، قبل ولا زيادة على صابة الشجر.",
+    "ja": "同じ1ヘクタールで第2の収入。樹木の収穫を待つ間、またはそれに加えて。"
+   }
+  ],
+  "cautions": [
+   {
+    "fr": "Laissez 1,5 à 2 m libres autour du tronc (pas de labour ni de culture contre l'arbre).",
+    "tn": "خلّي 1.5 لـ2 متر فارغين دور الساق (لا حرث لا زرعة لاصقين في الشجرة).",
+    "ja": "幹の周り1.5～2 mは空けてください（樹のすぐ近くでは耕さず、作付けしない）。"
+   },
+   {
+    "fr": "Ne mettez pas d'oignon ou d'ail à côté des fèves, pois ou pois chiches.",
+    "tn": "ما تحطّش البصل ولا الثوم بحذا الفول ولا الجلبانة ولا الحمّص.",
+    "ja": "タマネギやニンニクをソラマメ・エンドウ・ヒヨコマメの近くに植えないでください。"
+   }
+  ],
+  "layout": {
+   "fr": "Culture semée dans l'interligne des oliviers, en bandes, en gardant le tour des troncs libre.",
+   "tn": "الزرعة بين خطوط الزيتون، شرايط شرايط، وخلّي دور الساق فارغ.",
+   "ja": "オリーブの列間に帯状に播き、幹の周りは空けておきます。"
+  },
+  "confidence": "medium",
+  "sources": [
+   "INAT / Cahiers Agricultures 2023 — agroforesterie dans les oliveraies de Tunisie (doi:10.1051/cagri/2023017)"
+  ]
+ },
+ {
+  "id": "olive_mint",
+  "members": [
+   {
+    "crop": "olive",
+    "role": "top"
+   },
+   {
+    "crop": "mint",
+    "role": "low"
+   }
+  ],
+  "water": "irrigated",
+  "countries": [
+   "tunisie"
+  ],
+  "causes": [
+   {
+    "type": "etages",
+    "fr": "Deux étages : l'arbre occupe le haut, la culture basse utilise l'espace et la lumière entre les rangs.",
+    "tn": "زوز طبقات: الشجرة الفوق، والزرعة القصيرة تستغلّ البلاصة والضوء بين الخطوط.",
+    "ja": "2つの層：樹木が上層を、低い作物が列間の空間と光を使います。"
+   },
+   {
+    "type": "racines",
+    "fr": "La menthe a des racines superficielles : elle ne va pas chercher l'eau profonde de l'olivier.",
+    "tn": "النعناع عروقو قريبة من الفوق: ما يمشيش لماء الزيتونة اللي في لوطة.",
+    "ja": "ミントは根が浅く、オリーブの深層の水を奪いません。"
+   },
+   {
+    "type": "microclimat",
+    "fr": "La menthe supporte la mi-ombre : l'ombre légère de l'olivier réduit son stress en été.",
+    "tn": "النعناع يتحمّل نصّ الظلّ: ظلّ الزيتونة الخفيف ينقّصلو تعب الصيف.",
+    "ja": "ミントは半日陰に耐えます：オリーブの軽い日陰が夏のストレスを和らげます。"
+   },
+   {
+    "type": "eau",
+    "fr": "L'eau apportée à la culture basse profite aussi à l'arbre (pratique observée en Tunisie centrale).",
+    "tn": "الماء اللي تسقي بيه الزرعة اللوطانية تستفاد منو الشجرة زادة (معروفة في الوسط التونسي).",
+    "ja": "低い作物への灌水は樹木にも届きます（チュニジア中部で見られる慣行）。"
+   },
+   {
+    "type": "revenu",
+    "fr": "Menthe fraîche : vente rapide et régulière (thé à la menthe), plusieurs coupes par an.",
+    "tn": "نعناع طري: يتباع بالزربة وعلى طول (التاي بالنعناع)، وتقصّو برشا مرّات في العام.",
+    "ja": "生のミント：需要が安定して売りやすく（ミントティー）、年に何度も収穫できます。"
+   }
+  ],
+  "cautions": [
+   {
+    "fr": "La menthe demande beaucoup d'eau : seulement avec irrigation (goutte-à-goutte séparé pour les planches de menthe).",
+    "tn": "النعناع يستحقّ برشا ماء: كان بالسقي برك (قطرة قطرة وحدها لخطوط النعناع).",
+    "ja": "ミントは水を多く必要とします。灌漑がある場合のみ（ミントの畝には別系統の点滴を）。"
+   },
+   {
+    "fr": "La menthe s'étale par ses racines (rhizomes) : cultivez-la en planches délimitées et coupez les bordures.",
+    "tn": "النعناع يتمدّد بعروقو: ازرعو في خطوط محدودة وقصّ الحواشي.",
+    "ja": "ミントは地下茎で広がるので、区切った畝で育て、縁を刈り込んでください。"
+   },
+   {
+    "fr": "Laissez 1,5 à 2 m libres autour du tronc (pas de labour ni de culture contre l'arbre).",
+    "tn": "خلّي 1.5 لـ2 متر فارغين دور الساق (لا حرث لا زرعة لاصقين في الشجرة).",
+    "ja": "幹の周り1.5～2 mは空けてください（樹のすぐ近くでは耕さず、作付けしない）。"
+   },
+   {
+    "fr": "Aucun essai publié trouvé pour cette combinaison exacte : conseil basé sur les mécanismes connus, à tester sur une petite surface.",
+    "tn": "ما لقيناش تجربة منشورة على التركيبة هاذي بالضبط: النصيحة مبنية على اللي معروف، جرّبها في بلاصة صغيرة.",
+    "ja": "この組み合わせそのものの試験報告は見つかりませんでした。既知の仕組みに基づく助言です。まず小面積で試してください。"
+   }
+  ],
+  "layout": {
+   "fr": "Planches de menthe de 1 à 1,2 m de large au milieu de l'interligne, à au moins 1,5 m du tronc.",
+   "tn": "خطوط نعناع عرضها 1 لـ1.2 متر في وسط ما بين الزيتون، بعيدة على الساق 1.5 متر على الأقل.",
+   "ja": "幅1～1.2 mのミントの畝を列間の中央に。幹から少なくとも1.5 m離します。"
+  },
+  "confidence": "low",
+  "sources": [
+   "Lakra & Verma 2021, Indian J. Agric. Sci. — menthe : racines superficielles, forte demande en eau",
+   "Institut de l'Olivier — Revue des BioRessources 2015 (olivier en intercalaire, Kairouan, Zaghouan)",
+   "Marotti et al. 2023, Sustainability — aromatiques en association avec les arbres fruitiers (Méditerranée)"
+  ]
+ },
+ {
+  "id": "olive_aromatics",
+  "members": [
+   {
+    "crop": "olive",
+    "role": "top"
+   },
+   {
+    "crop": "rosemary",
+    "role": "low"
+   },
+   {
+    "crop": "thyme",
+    "role": "low"
+   }
+  ],
+  "water": "both",
+  "countries": [
+   "tunisie"
+  ],
+  "causes": [
+   {
+    "type": "ravageurs",
+    "fr": "Les plantes aromatiques en fleurs attirent les insectes utiles (pollinisateurs, prédateurs des ravageurs).",
+    "tn": "النباتات العطرية كي تنوّر تجيب الحشرات النافعة (النحل واللي ياكلو الحشرات المضرّة).",
+    "ja": "香草の花は益虫（送粉者や害虫の天敵）を引き寄せます。"
+   },
+   {
+    "type": "eau",
+    "fr": "Romarin et thym résistent à la sécheresse : ils vivent avec la pluie et ne concurrencent presque pas l'arbre pour l'eau.",
+    "tn": "الإكليل والزعتر يتحمّلو العطش: يعيشو بالمطر وما يتزاحموش تقريب مع الشجرة على الماء.",
+    "ja": "ローズマリーとタイムは乾燥に強く、雨だけで育ち、樹木と水をほとんど奪い合いません。"
+   },
+   {
+    "type": "etages",
+    "fr": "Deux étages : l'arbre occupe le haut, la culture basse utilise l'espace et la lumière entre les rangs.",
+    "tn": "زوز طبقات: الشجرة الفوق، والزرعة القصيرة تستغلّ البلاصة والضوء بين الخطوط.",
+    "ja": "2つの層：樹木が上層を、低い作物が列間の空間と光を使います。"
+   },
+   {
+    "type": "revenu",
+    "fr": "Deuxième revenu sur le même hectare, en attendant ou en plus de la récolte de l'arbre.",
+    "tn": "دخل ثاني في نفس الهكتار، قبل ولا زيادة على صابة الشجر.",
+    "ja": "同じ1ヘクタールで第2の収入。樹木の収穫を待つ間、またはそれに加えて。"
+   }
+  ],
+  "cautions": [
+   {
+    "fr": "Laissez 1,5 à 2 m libres autour du tronc (pas de labour ni de culture contre l'arbre).",
+    "tn": "خلّي 1.5 لـ2 متر فارغين دور الساق (لا حرث لا زرعة لاصقين في الشجرة).",
+    "ja": "幹の周り1.5～2 mは空けてください（樹のすぐ近くでは耕さず、作付けしない）。"
+   },
+   {
+    "fr": "Aucun essai publié trouvé pour cette combinaison exacte : conseil basé sur les mécanismes connus, à tester sur une petite surface.",
+    "tn": "ما لقيناش تجربة منشورة على التركيبة هاذي بالضبط: النصيحة مبنية على اللي معروف، جرّبها في بلاصة صغيرة.",
+    "ja": "この組み合わせそのものの試験報告は見つかりませんでした。既知の仕組みに基づく助言です。まず小面積で試してください。"
+   }
+  ],
+  "layout": {
+   "fr": "Une ou deux lignes de romarin ou de thym par interligne, ou en bordure de parcelle.",
+   "tn": "خطّ ولا زوز إكليل ولا زعتر في كل ما بين الخطوط، ولا على حاشية الأرض.",
+   "ja": "列間ごとにローズマリーまたはタイムを1～2列、または圃場の縁に。"
+  },
+  "confidence": "low",
+  "sources": [
+   "Ksentini et al., Tropentag 2019 — Institut de l'Olivier (Sfax) : diversification et faune auxiliaire",
+   "Pepe et al. 2024, Acta Botanica Brasilica — basilic et romarin sous olivier",
+   "Marotti et al. 2023, Sustainability — aromatiques en association avec les arbres fruitiers (Méditerranée)"
+  ]
+ },
+ {
+  "id": "olive_vegetables",
+  "members": [
+   {
+    "crop": "olive",
+    "role": "top"
+   },
+   {
+    "crop": "pepper",
+    "role": "low"
+   },
+   {
+    "crop": "tomato",
+    "role": "low"
+   }
+  ],
+  "water": "irrigated",
+  "countries": [
+   "tunisie"
+  ],
+  "causes": [
+   {
+    "type": "eau",
+    "fr": "L'eau apportée à la culture basse profite aussi à l'arbre (pratique observée en Tunisie centrale).",
+    "tn": "الماء اللي تسقي بيه الزرعة اللوطانية تستفاد منو الشجرة زادة (معروفة في الوسط التونسي).",
+    "ja": "低い作物への灌水は樹木にも届きます（チュニジア中部で見られる慣行）。"
+   },
+   {
+    "type": "etages",
+    "fr": "Deux étages : l'arbre occupe le haut, la culture basse utilise l'espace et la lumière entre les rangs.",
+    "tn": "زوز طبقات: الشجرة الفوق، والزرعة القصيرة تستغلّ البلاصة والضوء بين الخطوط.",
+    "ja": "2つの層：樹木が上層を、低い作物が列間の空間と光を使います。"
+   },
+   {
+    "type": "revenu",
+    "fr": "Deuxième revenu sur le même hectare, en attendant ou en plus de la récolte de l'arbre.",
+    "tn": "دخل ثاني في نفس الهكتار، قبل ولا زيادة على صابة الشجر.",
+    "ja": "同じ1ヘクタールで第2の収入。樹木の収穫を待つ間、またはそれに加えて。"
+   }
+  ],
+  "cautions": [
+   {
+    "fr": "Près des arbres, l'ombre réduit le rendement des légumes d'été : plantez-les au milieu de l'interligne.",
+    "tn": "قريب من الشجر، الظلّ ينقّص صابة خضرة الصيف: ازرعها في وسط ما بين الخطوط.",
+    "ja": "樹の近くでは日陰で夏野菜の収量が落ちます。列間の中央に植えてください。"
+   },
+   {
+    "fr": "Laissez 1,5 à 2 m libres autour du tronc (pas de labour ni de culture contre l'arbre).",
+    "tn": "خلّي 1.5 لـ2 متر فارغين دور الساق (لا حرث لا زرعة لاصقين في الشجرة).",
+    "ja": "幹の周り1.5～2 mは空けてください（樹のすぐ近くでは耕さず、作付けしない）。"
+   }
+  ],
+  "layout": {
+   "fr": "Culture semée dans l'interligne des oliviers, en bandes, en gardant le tour des troncs libre.",
+   "tn": "الزرعة بين خطوط الزيتون، شرايط شرايط، وخلّي دور الساق فارغ.",
+   "ja": "オリーブの列間に帯状に播き、幹の周りは空けておきます。"
+  },
+  "confidence": "medium",
+  "sources": [
+   "INAT / Cahiers Agricultures 2023 — agroforesterie dans les oliveraies de Tunisie (doi:10.1051/cagri/2023017)",
+   "Institut de l'Olivier — Revue des BioRessources 2015 (olivier en intercalaire, Kairouan, Zaghouan)"
+  ]
+ },
+ {
+  "id": "olive_almond",
+  "members": [
+   {
+    "crop": "olive",
+    "role": "top"
+   },
+   {
+    "crop": "almond",
+    "role": "top"
+   }
+  ],
+  "water": "both",
+  "countries": [
+   "tunisie"
+  ],
+  "causes": [
+   {
+    "type": "revenu",
+    "fr": "Deux arbres récoltés à des moments différents (amandes en été, olives en hiver) : revenu et travail mieux répartis.",
+    "tn": "زوز شجرات يتلمّو في أوقات مختلفة (اللوز في الصيف والزيتون في الشتاء): الدخل والخدمة مقسومين خير.",
+    "ja": "収穫時期の違う2種の樹（アーモンドは夏、オリーブは冬）：収入と作業が分散します。"
+   }
+  ],
+  "cautions": [
+   {
+    "fr": "En année très sèche, réduisez la surface intercalaire : l'eau doit d'abord aller à l'arbre.",
+    "tn": "في عام شايح برشا، نقّص الزرعة اللي بين الخطوط: الماء لازم يمشي للشجرة الأوّل.",
+    "ja": "極端な干ばつ年は間作面積を減らしてください。水はまず樹木に回すべきです。"
+   }
+  ],
+  "layout": {
+   "fr": "Lignes alternées d'oliviers et d'amandiers.",
+   "tn": "خطوط زيتون ولوز بالتداول.",
+   "ja": "オリーブとアーモンドを交互の列に。"
+  },
+  "confidence": "medium",
+  "sources": [
+   "INAT / Cahiers Agricultures 2023 — agroforesterie dans les oliveraies de Tunisie (doi:10.1051/cagri/2023017)"
+  ]
+ },
+ {
+  "id": "almond_barley_faba",
+  "members": [
+   {
+    "crop": "almond",
+    "role": "top"
+   },
+   {
+    "crop": "barley",
+    "role": "low"
+   },
+   {
+    "crop": "faba_bean",
+    "role": "low"
+   }
+  ],
+  "water": "both",
+  "countries": [
+   "tunisie"
+  ],
+  "causes": [
+   {
+    "type": "etages",
+    "fr": "Deux étages : l'arbre occupe le haut, la culture basse utilise l'espace et la lumière entre les rangs.",
+    "tn": "زوز طبقات: الشجرة الفوق، والزرعة القصيرة تستغلّ البلاصة والضوء بين الخطوط.",
+    "ja": "2つの層：樹木が上層を、低い作物が列間の空間と光を使います。"
+   },
+   {
+    "type": "azote",
+    "fr": "Légumineuse : fixe l'azote de l'air et enrichit le sol pour l'arbre et la culture suivante.",
+    "tn": "بقولية: تشدّ الآزوت من الهواء وتسمّد الأرض للشجرة وللزرعة اللي بعدها.",
+    "ja": "マメ科：空気中の窒素を固定し、樹木と次作のために土を肥やします。"
+   },
+   {
+    "type": "calendrier",
+    "fr": "Cycle d'hiver (novembre → mai) : la culture pousse quand l'olivier consomme peu d'eau et profite des pluies d'hiver.",
+    "tn": "تتزرع في الشتاء (نوفمبر → ماي): تكبر وقت اللي الزيتونة ما تشربش برشا، وتستفاد من مطر الشتاء.",
+    "ja": "冬作（11月→5月）：オリーブの水消費が少ない時期に育ち、冬の雨を活用します。"
+   },
+   {
+    "type": "revenu",
+    "fr": "Deuxième revenu sur le même hectare, en attendant ou en plus de la récolte de l'arbre.",
+    "tn": "دخل ثاني في نفس الهكتار، قبل ولا زيادة على صابة الشجر.",
+    "ja": "同じ1ヘクタールで第2の収入。樹木の収穫を待つ間、またはそれに加えて。"
+   }
+  ],
+  "cautions": [
+   {
+    "fr": "Laissez 1,5 à 2 m libres autour du tronc (pas de labour ni de culture contre l'arbre).",
+    "tn": "خلّي 1.5 لـ2 متر فارغين دور الساق (لا حرث لا زرعة لاصقين في الشجرة).",
+    "ja": "幹の周り1.5～2 mは空けてください（樹のすぐ近くでは耕さず、作付けしない）。"
+   },
+   {
+    "fr": "En année très sèche, réduisez la surface intercalaire : l'eau doit d'abord aller à l'arbre.",
+    "tn": "في عام شايح برشا، نقّص الزرعة اللي بين الخطوط: الماء لازم يمشي للشجرة الأوّل.",
+    "ja": "極端な干ばつ年は間作面積を減らしてください。水はまず樹木に回すべきです。"
+   }
+  ],
+  "layout": {
+   "fr": "Culture semée dans l'interligne des oliviers, en bandes, en gardant le tour des troncs libre.",
+   "tn": "الزرعة بين خطوط الزيتون، شرايط شرايط، وخلّي دور الساق فارغ.",
+   "ja": "オリーブの列間に帯状に播き、幹の周りは空けておきます。"
+  },
+  "confidence": "medium",
+  "sources": [
+   "INAT / Cahiers Agricultures 2023 — agroforesterie dans les oliveraies de Tunisie (doi:10.1051/cagri/2023017)",
+   "Littérature sur les associations céréale-légumineuse (rapport de surface équivalente > 1)"
+  ]
+ },
+ {
+  "id": "oasis",
+  "members": [
+   {
+    "crop": "date_palm",
+    "role": "top"
+   },
+   {
+    "crop": "pomegranate",
+    "role": "middle"
+   },
+   {
+    "crop": "fig",
+    "role": "middle"
+   },
+   {
+    "crop": "alfalfa",
+    "role": "low"
+   }
+  ],
+  "water": "irrigated",
+  "countries": [
+   "tunisie"
+  ],
+  "causes": [
+   {
+    "type": "etages",
+    "fr": "Trois étages : palmier en haut, arbres fruitiers au milieu, fourrage ou légumes au sol.",
+    "tn": "ثلاثة طبقات: النخلة الفوق، الشجر المثمر في الوسط، والعلف ولا الخضرة في الأرض.",
+    "ja": "3層構造：上にナツメヤシ、中層に果樹、地表に飼料作物や野菜。"
+   },
+   {
+    "type": "microclimat",
+    "fr": "Le palmier fait de l'ombre : sous lui, il fait plus frais et l'eau s'évapore moins, ce qui protège les étages du bas.",
+    "tn": "النخلة تعمل الظلّ: تحتها الجوّ أبرد والماء يتبخّر أقلّ، وهذا يحمي الطبقات اللوطانية.",
+    "ja": "ナツメヤシが日陰をつくり、下は涼しく蒸発も減るため、下層の作物が守られます。"
+   },
+   {
+    "type": "azote",
+    "fr": "Légumineuse : fixe l'azote de l'air et enrichit le sol pour l'arbre et la culture suivante.",
+    "tn": "بقولية: تشدّ الآزوت من الهواء وتسمّد الأرض للشجرة وللزرعة اللي بعدها.",
+    "ja": "マメ科：空気中の窒素を固定し、樹木と次作のために土を肥やします。"
+   },
+   {
+    "type": "revenu",
+    "fr": "Deuxième revenu sur le même hectare, en attendant ou en plus de la récolte de l'arbre.",
+    "tn": "دخل ثاني في نفس الهكتار، قبل ولا زيادة على صابة الشجر.",
+    "ja": "同じ1ヘクタールで第2の収入。樹木の収穫を待つ間、またはそれに加えて。"
+   }
+  ],
+  "cautions": [
+   {
+    "fr": "Système très gourmand en eau : seulement en oasis irriguée.",
+    "tn": "سيستام يستحقّ برشا ماء: كان في الواحات المسقية.",
+    "ja": "水を多く使う方式です。灌漑されたオアシスでのみ可能です。"
+   }
+  ],
+  "layout": {
+   "fr": "Palmiers espacés, arbres fruitiers entre eux, et planches irriguées de luzerne ou de légumes au sol.",
+   "tn": "نخيل متباعد، الشجر المثمر بيناتهم، وخطوط فصّة ولا خضرة مسقية في الأرض.",
+   "ja": "ヤシを間隔をあけて植え、その間に果樹、地表に灌水したアルファルファや野菜の畝。"
+  },
+  "confidence": "high",
+  "sources": [
+   "Système oasien traditionnel à étages (Tozeur, Kébili, Gabès)"
+  ]
+ },
+ {
+  "id": "barley_pea",
+  "members": [
+   {
+    "crop": "barley",
+    "role": "low"
+   },
+   {
+    "crop": "pea",
+    "role": "low"
+   }
+  ],
+  "water": "both",
+  "countries": [
+   "tunisie",
+   "japon"
+  ],
+  "causes": [
+   {
+    "type": "azote",
+    "fr": "Céréale + légumineuse : la légumineuse apporte l'azote, la céréale lui sert de tuteur, et l'ensemble produit plus que chaque culture seule.",
+    "tn": "حبوب + بقولية: البقولية تجيب الآزوت، والحبوب تشدّها، والزوز مع بعضهم يعطيو أكثر من كل وحدة وحدها.",
+    "ja": "穀物＋マメ科：マメ科が窒素を供給し、穀物が支柱になり、単作より合計収量が増えます。"
+   }
+  ],
+  "cautions": [
+   {
+    "fr": "Ne mettez pas d'oignon ou d'ail à côté des fèves, pois ou pois chiches.",
+    "tn": "ما تحطّش البصل ولا الثوم بحذا الفول ولا الجلبانة ولا الحمّص.",
+    "ja": "タマネギやニンニクをソラマメ・エンドウ・ヒヨコマメの近くに植えないでください。"
+   }
+  ],
+  "layout": {
+   "fr": "Semis mélangé ou en rangs alternés (par exemple 2 rangs de céréale, 1 rang de légumineuse).",
+   "tn": "زريعة مخلّطة ولا خطوط بالتداول (مثلاً زوز خطوط حبوب وخطّ بقولية).",
+   "ja": "混播、または交互の条播（例：穀物2列にマメ科1列）。"
+  },
+  "confidence": "high",
+  "sources": [
+   "Littérature sur les associations céréale-légumineuse (rapport de surface équivalente > 1)"
+  ]
+ },
+ {
+  "id": "durum_faba",
+  "members": [
+   {
+    "crop": "durum_wheat",
+    "role": "low"
+   },
+   {
+    "crop": "faba_bean",
+    "role": "low"
+   }
+  ],
+  "water": "both",
+  "countries": [
+   "tunisie"
+  ],
+  "causes": [
+   {
+    "type": "azote",
+    "fr": "Céréale + légumineuse : la légumineuse apporte l'azote, la céréale lui sert de tuteur, et l'ensemble produit plus que chaque culture seule.",
+    "tn": "حبوب + بقولية: البقولية تجيب الآزوت، والحبوب تشدّها، والزوز مع بعضهم يعطيو أكثر من كل وحدة وحدها.",
+    "ja": "穀物＋マメ科：マメ科が窒素を供給し、穀物が支柱になり、単作より合計収量が増えます。"
+   }
+  ],
+  "cautions": [
+   {
+    "fr": "Ne mettez pas d'oignon ou d'ail à côté des fèves, pois ou pois chiches.",
+    "tn": "ما تحطّش البصل ولا الثوم بحذا الفول ولا الجلبانة ولا الحمّص.",
+    "ja": "タマネギやニンニクをソラマメ・エンドウ・ヒヨコマメの近くに植えないでください。"
+   }
+  ],
+  "layout": {
+   "fr": "Semis mélangé ou en rangs alternés (par exemple 2 rangs de céréale, 1 rang de légumineuse).",
+   "tn": "زريعة مخلّطة ولا خطوط بالتداول (مثلاً زوز خطوط حبوب وخطّ بقولية).",
+   "ja": "混播、または交互の条播（例：穀物2列にマメ科1列）。"
+  },
+  "confidence": "high",
+  "sources": [
+   "Littérature sur les associations céréale-légumineuse (rapport de surface équivalente > 1)"
+  ]
+ },
+ {
+  "id": "onion_carrot",
+  "members": [
+   {
+    "crop": "onion",
+    "role": "low"
+   },
+   {
+    "crop": "carrot",
+    "role": "low"
+   }
+  ],
+  "water": "irrigated",
+  "countries": [
+   "tunisie",
+   "japon"
+  ],
+  "causes": [
+   {
+    "type": "ravageurs",
+    "fr": "L'odeur de l'oignon gêne la mouche de la carotte, et celle de la carotte gêne la mouche de l'oignon.",
+    "tn": "ريحة البصل تبعّد ذبانة السفنارية، وريحة السفنارية تبعّد ذبانة البصل.",
+    "ja": "タマネギの匂いがニンジンの害虫を、ニンジンの匂いがタマネギの害虫を遠ざけます。"
+   }
+  ],
+  "cautions": [
+   {
+    "fr": "Ne mettez pas d'oignon ou d'ail à côté des fèves, pois ou pois chiches.",
+    "tn": "ما تحطّش البصل ولا الثوم بحذا الفول ولا الجلبانة ولا الحمّص.",
+    "ja": "タマネギやニンニクをソラマメ・エンドウ・ヒヨコマメの近くに植えないでください。"
+   }
+  ],
+  "layout": {
+   "fr": "Rangs alternés sur la même planche.",
+   "tn": "خطوط بالتداول في نفس البلاصة.",
+   "ja": "同じ畝で交互の列に。"
+  },
+  "confidence": "medium",
+  "sources": [
+   "UCANR — Companion Planting Chart (Université de Californie)"
+  ]
+ },
+ {
+  "id": "tomato_basil",
+  "members": [
+   {
+    "crop": "tomato",
+    "role": "low"
+   },
+   {
+    "crop": "basil",
+    "role": "low"
+   }
+  ],
+  "water": "irrigated",
+  "countries": [
+   "tunisie",
+   "japon"
+  ],
+  "causes": [
+   {
+    "type": "ravageurs",
+    "fr": "Le basilic est associé à la tomate dans les guides de vulgarisation (odeur qui gêne certains insectes, attire les pollinisateurs).",
+    "tn": "الحبق ينصحو بيه مع الطماطم في أدلّة الإرشاد (ريحتو تبعّد بعض الحشرات وتجيب النحل).",
+    "ja": "普及資料ではバジルはトマトと相性が良いとされます（匂いで一部の害虫を遠ざけ、送粉者を呼ぶ）。"
+   }
+  ],
+  "cautions": [
+   {
+    "fr": "Aucun essai publié trouvé pour cette combinaison exacte : conseil basé sur les mécanismes connus, à tester sur une petite surface.",
+    "tn": "ما لقيناش تجربة منشورة على التركيبة هاذي بالضبط: النصيحة مبنية على اللي معروف، جرّبها في بلاصة صغيرة.",
+    "ja": "この組み合わせそのものの試験報告は見つかりませんでした。既知の仕組みに基づく助言です。まず小面積で試してください。"
+   }
+  ],
+  "layout": {
+   "fr": "Rangs alternés sur la même planche.",
+   "tn": "خطوط بالتداول في نفس البلاصة.",
+   "ja": "同じ畝で交互の列に。"
+  },
+  "confidence": "low",
+  "sources": [
+   "UCANR — Companion Planting Chart (Université de Californie)"
+  ]
+ },
+ {
+  "id": "wheat_soybean",
+  "members": [
+   {
+    "crop": "wheat",
+    "role": "first"
+   },
+   {
+    "crop": "soybean",
+    "role": "then"
+   }
+  ],
+  "water": "both",
+  "countries": [
+   "japon"
+  ],
+  "causes": [
+   {
+    "type": "calendrier",
+    "fr": "Deux récoltes par an sur la même parcelle : blé en hiver, puis soja en été.",
+    "tn": "زوز صابات في العام في نفس الأرض: قمح في الشتاء ومن بعد صوجا في الصيف.",
+    "ja": "同じ圃場で年2回収穫：冬は小麦、夏は大豆。"
+   },
+   {
+    "type": "azote",
+    "fr": "Légumineuse : fixe l'azote de l'air et enrichit le sol pour l'arbre et la culture suivante.",
+    "tn": "بقولية: تشدّ الآزوت من الهواء وتسمّد الأرض للشجرة وللزرعة اللي بعدها.",
+    "ja": "マメ科：空気中の窒素を固定し、樹木と次作のために土を肥やします。"
+   }
+  ],
+  "cautions": [],
+  "layout": {
+   "fr": "Une culture après l'autre sur la même parcelle, la même année.",
+   "tn": "زرعة بعد زرعة في نفس الأرض، في نفس العام.",
+   "ja": "同じ年に同じ圃場で順番に栽培。"
+  },
+  "confidence": "high",
+  "sources": [
+   "Pratique japonaise : blé puis soja sur la même parcelle (麦・大豆二毛作)"
+  ]
+ }
+]

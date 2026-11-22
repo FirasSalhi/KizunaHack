@@ -1,0 +1,72 @@
+crop_a,crop_b,relation,mechanism,confidence,source
+tomato,carrot,beneficial,"racines à profondeurs différentes, la carotte occupe l'interligne",medium,UCANR Companion Planting Chart
+tomato,onion,beneficial,"l'odeur de l'oignon gêne certains ravageurs",low,UCANR Companion Planting Chart
+tomato,lettuce,beneficial,"la laitue basse profite de l'ombre de la tomate",low,pratique maraîchère
+tomato,potato,antagonist,"même famille : mildiou et ravageurs communs",high,UCANR Companion Planting Chart
+tomato,eggplant,antagonist,"même famille : maladies communes",medium,pratique maraîchère
+tomato,pepper,antagonist,"même famille : maladies communes",medium,pratique maraîchère
+tomato,cabbage,antagonist,"incompatibles selon les guides de vulgarisation",low,UCANR Companion Planting Chart
+potato,faba_bean,beneficial,"légumineuse fixatrice d'azote",medium,UCANR Companion Planting Chart
+potato,cabbage,beneficial,"associés dans les guides de vulgarisation",low,UCANR Companion Planting Chart
+potato,cucumber,antagonist,"incompatibles selon les guides de vulgarisation",low,UCANR Companion Planting Chart
+potato,melon,antagonist,"concurrence et maladies communes",low,UCANR Companion Planting Chart
+potato,watermelon,antagonist,"concurrence et maladies communes",low,UCANR Companion Planting Chart
+potato,eggplant,antagonist,"même famille : maladies communes",medium,pratique maraîchère
+pepper,eggplant,antagonist,"même famille : maladies communes",medium,pratique maraîchère
+pepper,onion,beneficial,"cultures compatibles, besoins proches",low,pratique maraîchère
+onion,carrot,beneficial,"association classique : l'oignon éloigne la mouche de la carotte et inversement",medium,UCANR Companion Planting Chart
+onion,lettuce,beneficial,"cultures basses compatibles, cycles proches",low,UCANR Companion Planting Chart
+onion,cabbage,beneficial,"l'oignon gêne certains ravageurs du chou",low,UCANR Companion Planting Chart
+onion,strawberry,beneficial,"associés dans les guides de vulgarisation",low,UCANR Companion Planting Chart
+onion,faba_bean,antagonist,"les alliacées freinent la croissance des légumineuses",medium,UCANR Companion Planting Chart
+onion,pea,antagonist,"les alliacées freinent la croissance des légumineuses",medium,UCANR Companion Planting Chart
+onion,chickpea,antagonist,"les alliacées freinent la croissance des légumineuses",low,UCANR Companion Planting Chart
+garlic,faba_bean,antagonist,"les alliacées freinent la croissance des légumineuses",medium,UCANR Companion Planting Chart
+garlic,pea,antagonist,"les alliacées freinent la croissance des légumineuses",medium,UCANR Companion Planting Chart
+garlic,tomato,beneficial,"l'ail limite certains ravageurs",low,pratique maraîchère
+garlic,carrot,beneficial,"profondeurs et cycles compatibles",low,pratique maraîchère
+garlic,strawberry,beneficial,"associés dans les guides de vulgarisation",low,pratique maraîchère
+carrot,pea,beneficial,"légumineuse + racine pivot",medium,UCANR Companion Planting Chart
+carrot,lettuce,beneficial,"cultures basses compatibles",medium,UCANR Companion Planting Chart
+carrot,daikon,neutral,"racines concurrentes à la même profondeur",low,pratique maraîchère
+lettuce,cucumber,beneficial,"la laitue profite de l'ombre légère",low,UCANR Companion Planting Chart
+lettuce,daikon,beneficial,"cycles courts compatibles",medium,UCANR Companion Planting Chart
+lettuce,strawberry,beneficial,"associés dans les guides de vulgarisation",low,UCANR Companion Planting Chart
+lettuce,cabbage,beneficial,"cycle court qui occupe l'interligne",low,UCANR Companion Planting Chart
+cabbage,strawberry,antagonist,"incompatibles selon les guides de vulgarisation",low,UCANR Companion Planting Chart
+cabbage,daikon,antagonist,"même famille : ravageurs communs (altises, piérides)",medium,pratique maraîchère
+cucumber,pea,beneficial,"la légumineuse enrichit le sol en azote",medium,UCANR Companion Planting Chart
+cucumber,daikon,beneficial,"le radis repousse certains ravageurs du concombre",low,UCANR Companion Planting Chart
+cucumber,melon,antagonist,"même famille : oïdium et ravageurs communs",medium,pratique maraîchère
+melon,watermelon,antagonist,"même famille : maladies communes",medium,pratique maraîchère
+daikon,pea,beneficial,"associés dans les guides de vulgarisation",low,UCANR Companion Planting Chart
+faba_bean,durum_wheat,beneficial,"association céréale-légumineuse : azote et meilleure utilisation des ressources",high,littérature intercropping (LER > 1)
+faba_bean,wheat,beneficial,"association céréale-légumineuse : azote et meilleure utilisation des ressources",high,littérature intercropping (LER > 1)
+faba_bean,barley,beneficial,"association céréale-légumineuse : azote et meilleure utilisation des ressources",high,littérature intercropping (LER > 1)
+pea,barley,beneficial,"association céréale-légumineuse classique (fourrage, grain)",high,littérature intercropping (LER > 1)
+pea,durum_wheat,beneficial,"association céréale-légumineuse",medium,littérature intercropping
+chickpea,durum_wheat,beneficial,"rotation et association céréale-légumineuse",medium,littérature intercropping
+olive,faba_bean,beneficial,"culture intercalaire en oliveraie, apport d'azote",medium,pratique tunisienne en oliveraie
+olive,barley,beneficial,"culture intercalaire en oliveraie pluviale",medium,pratique tunisienne en oliveraie
+olive,chickpea,beneficial,"culture intercalaire en oliveraie",medium,pratique tunisienne en oliveraie
+olive,pea,beneficial,"culture intercalaire en oliveraie",low,pratique tunisienne en oliveraie
+olive,alfalfa,antagonist,"forte concurrence pour l'eau en zone sèche",medium,pratique tunisienne
+almond,barley,beneficial,"culture intercalaire en jeune verger",low,pratique méditerranéenne
+almond,faba_bean,beneficial,"culture intercalaire en jeune verger, apport d'azote",low,pratique méditerranéenne
+apricot,faba_bean,beneficial,"culture intercalaire en jeune verger",low,pratique méditerranéenne
+pistachio,barley,beneficial,"culture intercalaire en jeune verger pluvial",low,pratique méditerranéenne
+date_palm,alfalfa,beneficial,"oasis à étages : fourrage sous les palmiers",high,système oasien traditionnel
+date_palm,pomegranate,beneficial,"oasis à étages : arbres fruitiers sous les palmiers",high,système oasien traditionnel
+date_palm,fig,beneficial,"oasis à étages : arbres fruitiers sous les palmiers",high,système oasien traditionnel
+date_palm,orange,beneficial,"oasis à étages : agrumes protégés par le palmier",medium,système oasien traditionnel
+date_palm,barley,beneficial,"étage bas de l'oasis",medium,système oasien traditionnel
+date_palm,onion,beneficial,"maraîchage sous palmiers (étage bas)",medium,système oasien traditionnel
+date_palm,carrot,beneficial,"maraîchage sous palmiers (étage bas)",medium,système oasien traditionnel
+pomegranate,alfalfa,neutral,"étage bas de l'oasis, surveiller l'eau",low,système oasien traditionnel
+grape,barley,neutral,"enherbement temporaire possible",low,pratique
+rice,soybean,neutral,"rotation rizière / soja courante au Japon (pas en même temps)",medium,pratique japonaise
+wheat,soybean,neutral,"double culture blé d'hiver puis soja au Japon (successives)",medium,pratique japonaise
+sweet_potato,soybean,neutral,"couvre-sol + légumineuse",low,pratique
+tea,soybean,neutral,"culture intercalaire en jeune théier",low,pratique
+mandarin_jp,soybean,neutral,"culture intercalaire en jeune verger",low,pratique
+strawberry,pea,beneficial,"la légumineuse enrichit le sol",low,pratique maraîchère
