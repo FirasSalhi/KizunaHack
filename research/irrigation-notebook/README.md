@@ -1,59 +1,92 @@
-# Notebook d'irrigation FARMLINK (Module 5)
+# Irrigation FARMLINK : guide rapide
 
-Notebook « Tunisian Smart Crop Monitoring & Irrigation Intelligence », version corrigée (v3.1),
-avec les résultats d'une exécution complète du 21/11/2026, le modèle sauvegardé et deux pages HTML
-pour vérifier et tester chaque module.
+Ce dossier dit à un agriculteur **quelles parcelles arroser, quand, et combien d'eau donner**.
+Il s'appuie sur de vraies mesures de capteurs de sol (ministère de l'Agriculture, DGACTA), la météo
+et la méthode de la FAO (FAO-56).
 
-Ce dossier est indépendant du reste du monorepo : il n'est pas utilisé par `apps/web` ni par
-`services/api`, et la CI ne le lit pas.
+Il est indépendant du reste du projet : `apps/web` et `services/api` ne l'utilisent pas, et la CI ne le lit pas.
 
-## Contenu
+## Pour voir le résultat en 2 minutes
+
+Ouvrez ces fichiers dans un navigateur (double-clic). Il faut une connexion Internet pour la 3D et les polices.
+
+| Fichier | Ce que c'est |
+|---|---|
+| `html/ferme_3d.html` | **La ferme en 3D pour l'agriculteur.** On ajoute ou supprime ses parcelles, on choisit ses plantes, et chaque champ montre s'il faut arroser (drapeau rouge, orange ou vert). Mode « Promenade » pour marcher dans la ferme. |
+| `html/banc_essai.html` | **Le banc d'essai** : un onglet par module (capteurs, météo, prévision, calcul d'irrigation, ferme, tests). |
+| `html/rapport_verification.html` | Les contrôles automatiques du notebook, avant et après corrections. |
+
+Dans la ferme 3D, les modifications ne sont pas enregistrées : un rechargement revient à la ferme d'exemple.
+
+## Ce qu'il y a dans le dossier
 
 | Dossier | Contenu |
 |---|---|
-| `notebooks/farmlink_irrigation_kaggle.ipynb` | **Notebook à lancer sur Kaggle** (corrigé, sorties vidées). Activer *Internet* dans *Session options*. |
-| `notebooks/farmlink_irrigation_executed.ipynb` | Le même notebook exécuté en entier le 21/11/2026 (sorties et figures incluses). |
-| `notebooks/farmlink_irrigation_original_v3.ipynb` | Version d'origine (v3), avant corrections, avec ses sorties Kaggle. |
-| `results/` | Résultats CSV/JSON de l'exécution et `figures/` (7 tableaux de bord PNG). |
-| `data/` | Données téléchargées : capteurs DGACTA des 5 stations (`tunisia/`), série horaire de Chott Meriam, météo NASA POWER, manifeste des sources. |
-| `models/` | `best_model.pkl` (modèle retenu : persistance) et `persistence_predictor.py` (classe nécessaire pour le recharger). |
-| `package/` | Paquet FARMLINK (`engine/`, base de 39 cultures, API JSON, 82 tests) et son ZIP, plus le module `irrigation/` du notebook et ses 51 tests. |
-| `html/banc_essai.html` | **Interface de test** : capteurs, météo et ET₀, prévision, calcul d'irrigation, ferme, tests. S'ouvre directement dans un navigateur. |
-| `html/rapport_verification.html` | Rapport automatique avant / après corrections (21 contrôles). |
-| `scripts/` | Scripts qui ont produit les corrections, le rapport et l'interface (voir plus bas). |
+| `notebooks/` | `farmlink_irrigation_kaggle.ipynb` = **le notebook à lancer**. `..._executed` = déjà exécuté avec ses résultats. `..._original_v3` = l'ancienne version. |
+| `package/FARMLINK_Module5_Deliverables/` | **Le moteur réutilisable** (Python) : décision d'irrigation, 39 cultures, priorités, partage de l'eau. C'est la partie à brancher dans l'API. |
+| `models/` | Le modèle de prévision sauvegardé (`best_model.pkl`, c'est la « persistance »). |
+| `results/`, `data/` | Résultats CSV et figures de l'exécution du 21/11/2026, et les données téléchargées. |
+| `scripts/` | Scripts qui fabriquent les corrections et les pages HTML (à utiliser seulement pour les modifier). |
 
-## Corrections de la v3.1
+## Lancer le notebook
 
-1. **HTTPS** : `verify=False` supprimé. Le serveur `catalog.data.gov.tn` n'envoie pas son certificat
-   intermédiaire ; le notebook le récupère et l'ajoute aux certificats de confiance.
-2. **Doublons** : le parseur ne lit que les fichiers du manifeste et supprime les mesures identiques
-   (4 648 mesures comptées avant, 2 368 réelles).
-3. **Météo** : l'ET₀ utilise la météo la plus récente du moteur (Open-Meteo, NASA POWER en secours).
-4. **Conflit capteur / sol** : un capteur sous le point de flétrissement fait passer la confiance à `VERY_LOW`.
-5. **Eau limitée** : exemple à 1 500 m³ (≈ 58 % du besoin) au lieu de 20 m³.
-6. **Provenance et textes** : `DATA_PROVENANCE` honnête, explication de `INSUFFICIENT_DATA`, chiffres périmés retirés.
-7. **Blocage météo** : une erreur 429 d'Open-Meteo (quota) ne bloque plus le notebook pendant des heures.
+1. Sur Kaggle : importer `notebooks/farmlink_irrigation_kaggle.ipynb`.
+2. Dans *Session options*, mettre **Internet sur ON**.
+3. *Run all*. Compter quelques minutes : téléchargement des données, puis tests.
 
-## Résultats de l'exécution du 21/11/2026
+## Utiliser le moteur dans un autre code
 
-- 40 cellules exécutées, 0 erreur ; 51 + 82 tests réussis, aussi depuis le ZIP.
-- Chott Meriam : 176 heures de mesures à 10, 30 et 60 cm.
-- Prévision à 1 h : la persistance gagne (MAE 0,023 %, R² 0,99) ; Random Forest et Gradient Boosting ont un R² négatif.
-- Météo : Open-Meteo était saturé (quota) lors de cette exécution, donc NASA POWER a été utilisé,
-  avec 3 jours de retard. Sur Kaggle, Open-Meteo répond normalement.
-- Les volumes d'irrigation restent **illustratifs** : capteurs non calibrés, sol de Chott Meriam non documenté.
+Il faut seulement `numpy`, `pandas` et `requests`.
 
-## Refaire les pages
+```python
+import sys
+sys.path.insert(0, "research/irrigation-notebook/package/FARMLINK_Module5_Deliverables")
+from engine.data_sources import fetch_weather
+from engine.farm_runner import run_farm
 
-```bash
-# rapport de vérification d'un notebook exécuté (par exemple téléchargé depuis Kaggle)
-python scripts/make_report.py notebooks/farmlink_irrigation_executed.ipynb rapport.html notebooks/farmlink_irrigation_original_v3.ipynb
-
-# interface de test : données (dossier d'une exécution) puis assemblage
-python scripts/build_data.py <dossier_execution> scripts/data.json
-python scripts/ref_cases.py <dossier_execution> scripts/ref_cases.json
-cd scripts && python build.py      # écrit farmlink_banc_essai.html à côté du template
+meteo, prov = fetch_weather(35.918, 10.558, "2026-10-20", "2026-11-21")   # Open-Meteo, sinon NASA POWER
+ferme = {
+  "farm_id": "ma_ferme",
+  "location": {"lat": 35.918, "lon": 10.558, "elevation_m": 10},
+  "zones": [{
+    "zone_id": "A", "crop": "tomate", "area_ha": 1.5, "planting_date": "2026-10-01",
+    "soil": {"fc": 0.25, "wp": 0.11},          # capacité au champ / point de flétrissement
+    "irrigation": {"method": "drip"},           # drip, sprinkler ou surface
+    "current_depletion_mm": 45                  # eau déjà consommée depuis le dernier arrosage
+  }]
+}
+resultat = run_farm(ferme, meteo, "2026-11-18", weather_source=prov["source_used"], available_water_m3=500)
+print(resultat["zones"][0]["timing"], resultat["zones"][0]["volumes"])   # ex. irrigate_now, 750 m³
 ```
 
-`scripts/patch.py` applique les corrections au notebook d'origine :
-`python scripts/patch.py original.ipynb corrige.ipynb`.
+`resultat` est un dictionnaire prêt à être renvoyé en JSON : décision par parcelle, volumes,
+classement des priorités et partage de l'eau disponible. Le format complet est dans
+`package/FARMLINK_Module5_Deliverables/api/api_schema.json`.
+
+## Les règles à connaître
+
+- **Pas de type de sol = pas de volume.** Le moteur n'invente jamais une donnée manquante : la parcelle est marquée « données manquantes ».
+- **Les volumes sont des estimations.** Les capteurs de Chott Meriam ne sont pas calibrés et rien n'a encore été validé sur une vraie ferme.
+- **La prévision d'humidité est la persistance** (« demain comme aujourd'hui ») : avec 8 jours de données, elle bat Random Forest et Gradient Boosting.
+- **La météo vient d'Open-Meteo.** Si ce service ne répond pas, NASA POWER prend le relais, avec 2 à 3 jours de retard.
+
+## Ce qui a été corrigé dans le notebook (v3.1)
+
+1. HTTPS vérifié vers data.gov.tn : il n'y a plus de `verify=False`.
+2. Les fichiers comptés en double sont supprimés : 2 368 mesures réelles au lieu de 4 648.
+3. L'ET₀ est calculée avec la météo la plus récente.
+4. La confiance baisse quand un capteur contredit le sol.
+5. L'exemple d'eau limitée est réaliste : 1 500 m³.
+6. Les textes et la provenance des données sont honnêtes.
+7. Le notebook ne reste plus bloqué quand Open-Meteo dépasse son quota (erreur 429).
+
+## Modifier les pages HTML
+
+```bash
+# ferme 3D : éditer scripts/ferme_3d/template.html, puis
+cd scripts/ferme_3d && python build.py        # écrit farmlink_ferme_3d.html et preview.html
+cp preview.html ../../html/ferme_3d.html
+
+# rapport de vérification d'un notebook exécuté
+python scripts/make_report.py notebooks/farmlink_irrigation_executed.ipynb rapport.html
+```
