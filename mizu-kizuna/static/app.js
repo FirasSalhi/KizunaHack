@@ -11,7 +11,14 @@ const PARAMS = new URLSearchParams(location.search);
 const EMBEDDED = PARAMS.get("embed") === "1";
 let LANG = PARAMS.get("lang") || (() => { try { return localStorage.getItem("mizu-lang") || "fr"; } catch { return "fr"; } })();
 if (!I18N[LANG]) LANG = "fr";
-if (EMBEDDED) document.body.classList.add("embedded");
+if (EMBEDDED) {
+  document.body.classList.add("embedded");
+  // Same typeface as the FARMLINK dashboard around it.
+  const font = document.createElement("link");
+  font.rel = "stylesheet";
+  font.href = "https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap";
+  document.head.appendChild(font);
+}
 const LX = () => I18N[LANG];  // (L est réservé à Leaflet)
 const T = (k, p = {}) => String(LX()[k] ?? I18N.fr[k] ?? k).replace(/\{(\w+)\}/g, (_, x) => p[x] ?? "");
 const locale = () => ({fr: "fr-FR", tn: "fr-FR", ja: "ja-JP"}[LANG]);

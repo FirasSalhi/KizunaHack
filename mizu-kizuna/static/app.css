@@ -234,3 +234,103 @@ html[dir=rtl] .combo-side{align-items:flex-start}
 
 /* Inside the FARMLINK dashboard: its language menu is used instead of ours. */
 body.embedded .langs{display:none}
+
+/* ===== FARMLINK dashboard theme (only inside the dashboard: body.embedded) =====
+   Near-black surfaces, hairline white borders, lime accent and DM Sans, like the rest of FARMLINK. */
+body.embedded{
+  --green-900:#e4f7a8;--green-800:#c6f04a;--green-600:#c6f04a;--green-100:rgba(198,240,74,.16);--green-50:rgba(198,240,74,.08);
+  --sand-50:rgba(255,255,255,.04);--ink:#eef1ea;--muted:#9ba39a;--line:rgba(255,255,255,.09);--card:#111410;
+  --water:#6fd0e6;--water-50:rgba(111,208,230,.09);--warn:#f2b155;--warn-50:rgba(242,177,85,.1);--bad:#ff8a7a;--bad-50:rgba(255,138,122,.1);
+  --lime:#c6f04a;--on-lime:#0d0f0c;--surface:#0d100d;--raised:#121612;
+  --shadow:0 1px 0 rgba(255,255,255,.03) inset,0 10px 30px rgba(0,0,0,.35);
+  color-scheme:dark;background:#090b08;color:var(--ink);
+  font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased;
+}
+html[dir=rtl] body.embedded{font-family:"Noto Sans Arabic","Segoe UI","Geeza Pro",Tahoma,sans-serif}
+html[lang=ja] body.embedded{font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP","DM Sans",sans-serif}
+body.embedded ::selection{background:rgba(198,240,74,.3)}
+body.embedded :focus-visible{outline:2px solid var(--lime);outline-offset:2px}
+body.embedded #panel{scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.14) transparent}
+
+/* top bar */
+body.embedded .topbar{background:var(--surface);border-bottom-color:var(--line)}
+body.embedded .brand circle{fill:var(--lime)}
+body.embedded .brand path{fill:var(--on-lime)}
+body.embedded .brand b{color:#fff;letter-spacing:.08em;font-size:15px}
+body.embedded .brand span{color:var(--muted)}
+body.embedded .search input{background:rgba(255,255,255,.04);border-color:var(--line);color:var(--ink)}
+body.embedded .search input::placeholder{color:#7c847b}
+body.embedded .search input:focus{background:rgba(255,255,255,.06);border-color:rgba(198,240,74,.6);box-shadow:0 0 0 3px rgba(198,240,74,.12)}
+body.embedded #suggest{background:var(--raised);border-color:var(--line)}
+body.embedded .ghost{background:transparent;border-color:rgba(255,255,255,.14);color:var(--ink)}
+body.embedded .ghost:hover{border-color:var(--lime);color:var(--lime)}
+
+/* buttons */
+body.embedded .primary{background:var(--lime);color:var(--on-lime);font-weight:700}
+body.embedded .primary:hover{background:#b5e03b}
+body.embedded .primary:disabled{background:rgba(255,255,255,.08);color:#6f776e}
+
+/* panel and wizard */
+body.embedded #panel{background:var(--surface);border-left-color:var(--line)}
+html[dir=rtl] body.embedded .layout #panel{border-right-color:var(--line)}
+body.embedded .step{background:rgba(255,255,255,.025);border-color:var(--line)}
+body.embedded .step.active{border-color:rgba(198,240,74,.45);background:rgba(198,240,74,.035);box-shadow:none}
+body.embedded .step-head h2{color:#fff;font-weight:600;letter-spacing:-.01em}
+body.embedded .num{background:rgba(255,255,255,.06);color:#d5dad2;font-variant-numeric:tabular-nums}
+body.embedded .step.active .num{background:var(--lime);color:var(--on-lime)}
+body.embedded .step.done .num{background:rgba(198,240,74,.18);color:var(--lime)}
+body.embedded .quick button{background:transparent;border-color:rgba(255,255,255,.14);color:var(--ink)}
+body.embedded .quick button:hover{border-color:var(--lime);color:var(--lime)}
+body.embedded .farm-info{background:rgba(198,240,74,.08);border:1px solid rgba(198,240,74,.25)}
+body.embedded label.q{color:#e7ebe3}
+body.embedded .choices button{background:transparent;border-color:rgba(255,255,255,.14);color:var(--ink)}
+body.embedded .choices button:hover{border-color:rgba(198,240,74,.5)}
+body.embedded .choices button.on{background:rgba(198,240,74,.12);border-color:var(--lime);color:var(--lime)}
+body.embedded .volume input{background:rgba(255,255,255,.04);border-color:var(--line);color:var(--ink)}
+body.embedded .volume input:focus{outline:none;border-color:rgba(198,240,74,.6)}
+body.embedded details.more summary{color:var(--lime)}
+
+/* loading and toast */
+body.embedded #loading{background:rgba(5,7,5,.72);backdrop-filter:blur(3px)}
+body.embedded .loading-card{background:var(--raised);border:1px solid var(--line)}
+body.embedded .loading-card li::before{border-color:rgba(255,255,255,.2)}
+body.embedded .loading-card li.ok::before{background:var(--lime);border-color:var(--lime)}
+body.embedded .spinner{border-color:rgba(255,255,255,.08);border-top-color:var(--lime)}
+body.embedded #toast{background:var(--raised);border:1px solid var(--line);color:var(--ink)}
+
+/* results */
+body.embedded .res-head h2,body.embedded .block>h3{color:#fff}
+body.embedded .alert{background:var(--warn-50);color:var(--warn);border:1px solid rgba(242,177,85,.25)}
+body.embedded .plan-card,body.embedded .crop,body.embedded .combo,body.embedded .land div,body.embedded .sp-item{background:rgba(255,255,255,.025);border-color:var(--line)}
+body.embedded .sp-item{border-inline-start-width:4px}
+body.embedded .crop:hover,body.embedded .crop.open{border-color:rgba(198,240,74,.45);box-shadow:none}
+body.embedded .combo.ko{background:transparent}
+body.embedded .combo-head:hover{background:rgba(255,255,255,.03)}
+body.embedded .tabs{background:rgba(255,255,255,.04)}
+body.embedded .tabs button.on{background:rgba(255,255,255,.1);color:#fff;box-shadow:none}
+body.embedded .score{background:rgba(255,255,255,.08)}
+body.embedded .b-tres{background:var(--lime);color:var(--on-lime)}
+body.embedded .b-ad{background:rgba(198,240,74,.14);color:var(--lime)}
+body.embedded .b-pos{color:var(--warn)}
+body.embedded .sp-combo small{color:var(--warn)}
+body.embedded .sp-ha{color:var(--lime)}
+body.embedded .cal .sow{background:var(--lime);color:var(--on-lime)}
+body.embedded .chart rect[fill="#e3f4ea"]{fill:rgba(198,240,74,.08)}
+body.embedded .chart polyline[stroke="#1f8a55"]{stroke:var(--lime)}
+body.embedded .chart circle[fill="#1f8a55"]{fill:var(--lime)}
+body.embedded .chart text{fill:#8a9289}
+
+/* map controls */
+body.embedded #map{background:#0b0e0b}
+body.embedded .leaflet-bar{border:1px solid var(--line)!important;box-shadow:0 6px 20px rgba(0,0,0,.4)!important}
+body.embedded .leaflet-bar a{background:var(--raised);color:var(--ink);border-bottom-color:var(--line)}
+body.embedded .leaflet-bar a:hover{background:#1a1f19;color:var(--lime)}
+body.embedded .leaflet-control-attribution{background:rgba(9,11,8,.75)!important;color:#8a9289}
+body.embedded .leaflet-control-attribution a{color:#b9c0b6}
+body.embedded .legend,body.embedded .layer-toggle{background:rgba(18,22,18,.92);color:var(--ink);border:1px solid var(--line)}
+body.embedded .area-label{background:var(--lime);color:var(--on-lime)}
+body.embedded .leaflet-popup-content-wrapper,body.embedded .leaflet-popup-tip{background:var(--raised);color:var(--ink)}
+body.embedded .leaflet-control-layers{background:rgba(18,22,18,.94);color:var(--ink);border:1px solid var(--line)!important;box-shadow:0 6px 20px rgba(0,0,0,.4)!important}
+body.embedded .leaflet-control-layers-toggle{filter:invert(1) brightness(1.4)}
+body.embedded .leaflet-control-layers-separator{border-top-color:var(--line)}
+body.embedded .loading-card li.ok{color:#b9c0b6}
