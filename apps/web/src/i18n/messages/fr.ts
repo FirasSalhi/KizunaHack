@@ -189,6 +189,13 @@ const fr: Messages = {
     openTab: "Ouvrir dans un nouvel onglet",
     frameTitle: "Planificateur de cultures MIZU KIZUNA",
   },
+  postHarvest: {
+    title: "Stockage après récolte",
+    subtitle: "Suivez combien de temps votre récolte restera fraîche en stockage : température et humidité en direct, prévision de durée de conservation et conseils automatiques de ventilation, chauffage et brumisation. Propulsé par HarvestGuard AI.",
+    englishOnly: "Cet outil est disponible en anglais uniquement.",
+    openTab: "Ouvrir dans un nouvel onglet",
+    frameTitle: "Tableau de bord de stockage après récolte HarvestGuard",
+  },
   dashboard: {
     loading: "Chargement du tableau de bord FARMLINK...",
     activeProperty: "Exploitation active",
@@ -197,6 +204,7 @@ const fr: Messages = {
     nav: {
       overview: "Vue d'ensemble",
       planning: "Planification des cultures",
+      postHarvest: "Après-récolte",
       rootloop: "Eau ROOTLOOP",
       scans: "Scans de plantes IA",
       devices: "Appareils IoT",

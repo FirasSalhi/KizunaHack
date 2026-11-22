@@ -99,3 +99,13 @@ export function IconPlanMap(props: IconProps) {
     </Icon>
   );
 }
+
+/** A crate with a snowflake mark: harvest kept in cold storage. */
+export function IconCrate(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <path d="M3 8h18v12H3zM5 8l2-4h10l2 4" />
+      <path d="M12 11v6M9.4 12.5l5.2 3M14.6 12.5l-5.2 3" />
+    </Icon>
+  );
+}

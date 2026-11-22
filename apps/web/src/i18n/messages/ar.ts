@@ -191,6 +191,13 @@ const ar: Messages = {
     openTab: "حلّو في تبويب جديد",
     frameTitle: "مخطّط الزراعة MIZU KIZUNA",
   },
+  postHarvest: {
+    title: "تخزين الصابة بعد الحصاد",
+    subtitle: "تابع قدّاش تنجّم صابتك تقعد طريّة في المخزن: السخانة والرطوبة مباشرة، توقّع مدّة الحفظ، ونصايح أوتوماتيكية للتبريد والتسخين والرّش. يخدم بـ HarvestGuard AI.",
+    englishOnly: "الأداة هذي متوفّرة كان بالإنقليزية.",
+    openTab: "حلّ في تبويب جديد",
+    frameTitle: "لوحة تخزين الصابة بعد الحصاد HarvestGuard",
+  },
   dashboard: {
     loading: "قاعد يحمّل في لوحة FARMLINK...",
     activeProperty: "الفيرمة الحالية",
@@ -199,6 +206,7 @@ const ar: Messages = {
     nav: {
       overview: "نظرة عامّة",
       planning: "تخطيط الزراعة",
+      postHarvest: "بعد الحصاد",
       rootloop: "ماء ROOTLOOP",
       scans: "سكان النبتة بالذكاء الاصطناعي",
       devices: "الأجهزة IoT",

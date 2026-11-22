@@ -14,6 +14,8 @@ RUN pnpm install --frozen-lockfile
 
 COPY apps/web ./apps/web
 COPY packages/contracts ./packages/contracts
+# Post-Harvest section: app/embed/post-harvest serves this page from the repo
+COPY research/post-harvest-model/dashboard/farmer_dashboard.html ./research/post-harvest-model/dashboard/
 
 WORKDIR /app/apps/web
 RUN pnpm build

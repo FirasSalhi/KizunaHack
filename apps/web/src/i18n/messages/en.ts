@@ -190,6 +190,13 @@ const en = {
     openTab: "Open in a new tab",
     frameTitle: "MIZU KIZUNA crop planner",
   },
+  postHarvest: {
+    title: "Post-Harvest Storage",
+    subtitle: "Track how long your harvest will stay fresh in storage, with live temperature and humidity, a shelf-life forecast and automatic cooling, heating and misting advice. Powered by HarvestGuard AI.",
+    englishOnly: "This tool is available in English only.",
+    openTab: "Open in a new tab",
+    frameTitle: "HarvestGuard post-harvest storage dashboard",
+  },
   dashboard: {
     loading: "Loading FARMLINK Dashboard...",
     activeProperty: "Active Property",
@@ -198,6 +205,7 @@ const en = {
     nav: {
       overview: "Overview",
       planning: "Crop Planning",
+      postHarvest: "Post-Harvest",
       rootloop: "ROOTLOOP Water",
       scans: "AI Plant Scans",
       devices: "IoT Devices",

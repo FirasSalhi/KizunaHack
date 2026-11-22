@@ -190,6 +190,13 @@ const ja: Messages = {
     openTab: "新しいタブで開く",
     frameTitle: "MIZU KIZUNA 作付け計画",
   },
+  postHarvest: {
+    title: "収穫後の貯蔵管理",
+    subtitle: "保管中の作物がどれだけ新鮮さを保てるかを確認できます。温度・湿度のリアルタイム表示、日持ち予測、冷却・加温・加湿の自動アドバイス付き。HarvestGuard AI 搭載。",
+    englishOnly: "このツールは英語のみで提供されています。",
+    openTab: "新しいタブで開く",
+    frameTitle: "HarvestGuard 収穫後貯蔵ダッシュボード",
+  },
   dashboard: {
     loading: "FARMLINK ダッシュボードを読み込み中...",
     activeProperty: "選択中の農場",
@@ -198,6 +205,7 @@ const ja: Messages = {
     nav: {
       overview: "概要",
       planning: "作付け計画",
+      postHarvest: "収穫後管理",
       rootloop: "ROOTLOOP 水管理",
       scans: "AI 植物スキャン",
       devices: "IoT デバイス",
