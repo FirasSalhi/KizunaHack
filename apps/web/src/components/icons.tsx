@@ -48,31 +48,6 @@ export function IconDrop(props: IconProps) {
   );
 }
 
-export function IconLeaf(props: IconProps) {
-  return (
-    <Icon {...props}>
-      <path d="M5 19c0-8 5-13 15-14-1 10-6 15-14 15" />
-      <path d="M5 19c3-4 6-7 10-9" />
-    </Icon>
-  );
-}
-
-export function IconSignal(props: IconProps) {
-  return (
-    <Icon {...props}>
-      <path d="M12 12v9M8.5 8.5a5 5 0 0 0 0 7M15.5 8.5a5 5 0 0 1 0 7M5.6 5.6a9 9 0 0 0 0 12.8M18.4 5.6a9 9 0 0 1 0 12.8" />
-    </Icon>
-  );
-}
-
-export function IconBolt(props: IconProps) {
-  return (
-    <Icon {...props}>
-      <path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" />
-    </Icon>
-  );
-}
-
 export function IconSignOut(props: IconProps) {
   return (
     <Icon {...props}>

@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import { useAuth } from "@/hooks/useAuth";
 import { useI18n } from "@/i18n/I18nProvider";
 import { LanguageSwitcher } from "@/i18n/LanguageSwitcher";
-import { BrandMark, IconBolt, IconCrate, IconDrop, IconFields3D, IconLeaf, IconOverview, IconPlanMap, IconSignal, IconSignOut } from "@/components/icons";
+import { BrandMark, IconCrate, IconFields3D, IconOverview, IconPlanMap, IconSignOut } from "@/components/icons";
 
 const NAV_ACTIVE = "flex items-center gap-3 px-3 py-2.5 rounded-lg bg-[#c6f04a]/15 text-[#c6f04a] font-medium border border-[#c6f04a]/20";
 const NAV_IDLE = "flex items-center gap-3 px-3 py-2.5 rounded-lg text-neutral-400 hover:text-white hover:bg-white/5 border border-transparent transition-colors";
@@ -88,50 +88,6 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
               <span className="text-base"><IconFields3D /></span>
               {t.nav.irrigation3d}
             </Link>
-            <a
-              href="#rootloop"
-              onClick={(e) => {
-                e.preventDefault();
-                alert(t.navInfo.rootloop);
-              }}
-              className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-neutral-400 hover:text-white hover:bg-white/5 transition-colors"
-            >
-              <span className="text-base"><IconDrop /></span>
-              {t.nav.rootloop}
-            </a>
-            <a
-              href="#scans"
-              onClick={(e) => {
-                e.preventDefault();
-                alert(t.navInfo.scans);
-              }}
-              className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-neutral-400 hover:text-white hover:bg-white/5 transition-colors"
-            >
-              <span className="text-base"><IconLeaf /></span>
-              {t.nav.scans}
-            </a>
-            <a
-              href="#telemetry"
-              onClick={(e) => {
-                e.preventDefault();
-                alert(t.navInfo.devices);
-              }}
-              className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-neutral-400 hover:text-white hover:bg-white/5 transition-colors"
-            >
-              <span className="text-base"><IconSignal /></span>
-              {t.nav.devices}
-            </a>
-            <a
-              href="#energy"
-              onClick={(e) => {
-                e.preventDefault();
-                alert(t.navInfo.energy);
-              }}
-              className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-neutral-400 hover:text-white hover:bg-white/5 transition-colors"
-            >
-              <span className="text-base"><IconBolt /></span>
-              {t.nav.energy}
-            </a>
           </nav>
         </div>
 
