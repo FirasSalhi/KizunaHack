@@ -21,6 +21,7 @@ __pycache__/
 .env
 .env.*
 !.env.example
+firmware/**/secrets.h
 
 # Model and data files
 *.onnx
