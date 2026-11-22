@@ -55,7 +55,7 @@ class Settings(BaseSettings):
 
     # Voice assistant (app/routers/assistant.py), ported from the Pilo Tech "Horizon" assistant.
     # Local Ollama model; without Ollama the assistant still answers from the farm's data (rules).
-    ASSISTANT_NAME: str = "Farmlink"
+    ASSISTANT_NAME: str = "Mdhalla"
     OLLAMA_HOST: str = "http://localhost:11434"
     OLLAMA_MODEL: str = "qwen2.5:3b"
     OLLAMA_TIMEOUT_SECONDS: float = 60.0

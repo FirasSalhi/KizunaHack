@@ -7,7 +7,7 @@ import { fill, useI18n } from "@/i18n/I18nProvider";
 import { IRRIGATION_CROP, IRRIGATION_METHOD, PLAN_EVENT, loadPlan, soilClass, type FarmPlan } from "@/lib/farmPlan";
 import { apiClient } from "@/services/apiClient";
 import { sensorService } from "@/services/sensorService";
-import { getAssistant, setAssistantContext } from "@/components/assistant/farmAssistant";
+import { setAssistantContext } from "@/components/assistant/farmAssistant";
 import { placeLabel, usePlace } from "@/lib/place";
 import { FieldSensors } from "./FieldSensors";
 
@@ -66,20 +66,23 @@ function plotsOf(plan: FarmPlan | null): Plot[] {
 }
 
 
-/** Keep a label (440 px wide in photo pixels) inside the visible part of the cropped photo, left of the side panel. */
-function clampLabel(x: number, box: { w: number; h: number } | null) {
-  if (!box) return x;
-  const scale = Math.max(box.w / 2816, box.h / 1584);
-  const x0 = (2816 * scale - box.w) / 2 / scale;
-  const panel = box.w >= 1280 ? 380 / scale : 0; // quick actions column (xl)
-  const lo = x0 + 240, hi = x0 + box.w / scale - panel - 240;
-  return Math.min(Math.max(x, lo), Math.max(lo, hi));
+/**
+ * Where the photo's pixels land on screen: the photo covers the hero (object-cover, top-aligned), so it is scaled
+ * by the larger ratio and centred horizontally. Labels are placed with this, at a fixed readable size.
+ */
+function photoGeometry(box: { w: number; h: number } | null) {
+  if (!box) return null;
+  const s = Math.max(box.w / 2816, box.h / 1584);
+  return { s, ox: (box.w - 2816 * s) / 2 };
 }
+// Plot labels stay inside the photo.
+const LABEL_HALF = 120;
+const EDGE = 16;
 
-const PRIO_STYLE: Record<string, { pill: string; line: string; arrow: string }> = {
+const PRIO_STYLE: Record<string, { pill: string; line: string; arrow: string; ink?: string }> = {
   HIGH: { pill: "#e53935", line: "#ff5a4e", arrow: "▲" },
   MEDIUM: { pill: "#f59e0b", line: "#ffb648", arrow: "●" },
-  LOW: { pill: "#2e9d3a", line: "#53d14b", arrow: "▼" },
+  LOW: { pill: "#c6f04a", line: "#c6f04a", arrow: "▼", ink: "#0d0f0c" },
   missing: { pill: "#6b7280", line: "#cfd6dd", arrow: "" },
   none: { pill: "#6b7280", line: "#ffffff", arrow: "" },
 };
@@ -223,12 +226,8 @@ export function DashboardOverview() {
   const top = engine?.ranking[0];
   const topZone = top ? zone(top.zone_id) : undefined;
   const topPlot = top ? plots.find((p) => p.zoneId === top.zone_id) : undefined;
-  const sunToday = weather?.days[0]?.radiation_kwh_m2 ?? null;
-  const sunYesterday = weather?.yesterday?.radiation_kwh_m2 ?? null;
-  const sunTrend = sunToday != null && sunYesterday ? ((sunToday - sunYesterday) / sunYesterday) * 100 : null;
 
   const nf = (d = 0) => new Intl.NumberFormat(locale, { maximumFractionDigits: d, minimumFractionDigits: d });
-  const today = new Intl.DateTimeFormat(locale, { weekday: "short", day: "numeric", month: "short", year: "numeric" }).format(new Date());
   const name = user?.name?.split(" ")[0] || t.farmer;
   const place = farmPlace
     ? placeLabel(farmPlace, (town) => fill(t.placeNear, { town }))
@@ -256,7 +255,6 @@ export function DashboardOverview() {
     };
   else reco = { tone: "ok", title: t.recoNone, text: t.recoNoneText, href: "/dashboard/irrigation-3d" };
 
-  const alerts = urgent.length;
 
   // What the voice assistant knows about the farm: exactly what this page shows.
   const assistantContext = {
@@ -273,202 +271,114 @@ export function DashboardOverview() {
     setAssistantContext(() => assistantContextRef.current);
   }, []);
   assistantContextRef.current = assistantContext;
-  const warnings = missing.size + (weatherFailed ? 1 : 0) + (engineState === "down" ? 1 : 0);
+  // Plot labels in screen pixels (wide screens, where the whole photo is shown).
+  const geo = photoGeometry(box);
+  const labelX = (fx: number) => {
+    if (!geo || !box) return fx;
+    const x = geo.ox + fx * geo.s;
+    const lo = LABEL_HALF + EDGE, hi = box.w - LABEL_HALF - EDGE;
+    return Math.min(Math.max(x, lo), Math.max(lo, hi));
+  };
 
   return (
     <div className="relative">
-      {/* ======== photo hero: the whole top of the page ======== */}
-      <div ref={heroRef} className="relative overflow-hidden">
+      {/* ======== photo hero: greeting, weather and the plots on the aerial photo ======== */}
+      {/* Wide screens show the whole photo (its own 16:9 shape); narrower ones show a band of it. */}
+      <div ref={heroRef} className="relative w-full overflow-hidden xl:aspect-[2816/1584] xl:max-h-[78svh] flex flex-col">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/images/farmlink-field-aerial.jpg" alt="" className="absolute inset-0 w-full h-full object-cover object-top" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1d4b78]/35 via-transparent to-[#2a1e10]/20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-[#020302]" />
 
-        {/* plot outlines and labels, drawn in the photo's own pixels (desktop) */}
-        <svg viewBox="0 0 2816 1584" preserveAspectRatio="xMidYMin slice" className="absolute inset-0 w-full h-full hidden md:block" aria-label={t.mapLabel}>
-          {plots.map((p, i) => {
-            const f = FIELDS[i];
+        {/* plot outlines, drawn in the photo's own pixels (wide screens) */}
+        {geo && (
+          <svg viewBox="0 0 2816 1584" preserveAspectRatio="xMidYMin slice" className="absolute inset-0 w-full h-full hidden xl:block" aria-label={t.mapLabel}>
+            {plots.map((p, i) => {
+              const f = FIELDS[i];
+              const s = PRIO_STYLE[levelOf(p.zoneId) ?? "none"];
+              const lx = (labelX(f.label[0]) - geo.ox) / geo.s, ly = f.label[1];
+              return (
+                <g key={p.zoneId}>
+                  <polygon points={f.pts} fill={s.line} fillOpacity={0.12} stroke={s.line} strokeWidth={3} vectorEffect="non-scaling-stroke" strokeLinejoin="round" />
+                  <line x1={lx} y1={ly} x2={lx} y2={ly + 110} stroke="#fff" strokeWidth={2} vectorEffect="non-scaling-stroke" />
+                  <circle cx={lx} cy={ly + 115} r={5 / geo.s} fill="#fff" />
+                </g>
+              );
+            })}
+          </svg>
+        )}
+        {/* plot labels, at a fixed size whatever the photo's scale */}
+        {geo &&
+          plots.map((p, i) => {
             const lv = levelOf(p.zoneId);
             const s = PRIO_STYLE[lv ?? "none"];
-            const [fx, ly] = f.label;
-            const lx = clampLabel(fx, box);
+            const [fx, fy] = FIELDS[i].label;
             return (
-              <g key={p.zoneId}>
-                <polygon points={f.pts} fill={s.line} fillOpacity={0.12} stroke={s.line} strokeWidth={7} strokeLinejoin="round" />
-                <line x1={lx} y1={ly} x2={lx} y2={ly + 110} stroke="#fff" strokeWidth={4} />
-                <circle cx={lx} cy={ly + 115} r={10} fill="#fff" />
-                <foreignObject x={lx - 220} y={ly - 128} width={440} height={128}>
-                  <div className="h-full flex items-end justify-center">
-                    <div className="flex items-center gap-3 rounded-[22px] border-[3px] border-white/70 bg-[#2a2216]/85 px-5 py-3 shadow-2xl">
-                      <span className="w-12 h-12 rounded-full grid place-items-center text-[30px] text-white" style={{ background: s.pill }}>
-                        <CropIcon id={p.cropId} />
-                      </span>
-                      <span className="flex flex-col items-start">
-                        <span className="text-[32px] font-bold text-white whitespace-nowrap leading-tight">{p.zoneId} · {p.name}</span>
-                        <span className="mt-1 rounded-full px-3.5 py-0.5 text-[22px] font-semibold text-white whitespace-nowrap" style={{ background: s.pill }}>
-                          {s.arrow ? `${s.arrow} ` : ""}{prioLabel(lv)}
-                        </span>
-                      </span>
-                    </div>
-                  </div>
-                </foreignObject>
-              </g>
+              <div
+                key={p.zoneId}
+                className="absolute z-[1] hidden xl:flex items-center gap-2 rounded-2xl border-2 border-white/70 bg-[#0d0f0c]/85 px-2.5 py-1.5 shadow-xl -translate-x-1/2 -translate-y-full pointer-events-none"
+                style={{ left: labelX(fx), top: fy * geo.s }}
+              >
+                <span className="w-8 h-8 rounded-full grid place-items-center text-lg shrink-0" style={{ background: s.pill, color: s.ink ?? "#fff" }}>
+                  <CropIcon id={p.cropId} />
+                </span>
+                <span className="flex flex-col items-start">
+                  <span className="text-sm font-bold text-white whitespace-nowrap leading-tight">{p.zoneId} · {p.name}</span>
+                  <span className="mt-0.5 rounded-full px-2 py-px text-[11px] font-semibold whitespace-nowrap" style={{ background: s.pill, color: s.ink ?? "#fff" }}>
+                    {s.arrow ? `${s.arrow} ` : ""}{prioLabel(lv)}
+                  </span>
+                </span>
+              </div>
             );
           })}
-        </svg>
 
-        <div className="relative px-4 sm:px-6 lg:px-8 pt-6 pb-8">
-          {/* Header: greeting, live weather, date */}
-          <header className="flex flex-col xl:flex-row xl:items-start gap-4 justify-between">
+        <div className="relative flex-1 flex flex-col px-4 sm:px-6 lg:px-8 pt-5 pb-5">
+          {/* Header: greeting and live weather */}
+          <header className="flex flex-col xl:flex-row xl:items-start gap-3 justify-between">
             <div className="min-w-0 [text-shadow:0_2px_12px_rgba(0,0,0,.55)]">
-              <h1 className="text-3xl sm:text-[44px] font-extrabold text-white tracking-tight leading-tight">{fill(t.hello, { name })}</h1>
-              <p className="text-base sm:text-xl text-white/95 mt-1">{fill(t.subtitle, { place })}</p>
+              <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-tight">{fill(t.hello, { name })}</h1>
+              <p className="text-sm sm:text-base text-white/95 mt-1">{fill(t.subtitle, { place })}</p>
               {!farmPlace && placeStatus !== "locating" && (
                 <button
                   type="button"
                   onClick={locate}
-                  className="mt-2 inline-flex items-center gap-2 rounded-full bg-[#2e9d3a] px-4 py-1.5 text-sm font-semibold text-white [text-shadow:none] shadow"
+                  className="mt-2 inline-flex items-center gap-2 rounded-full bg-[#c6f04a] px-4 py-1.5 text-sm font-semibold text-[#0d0f0c] [text-shadow:none] shadow"
                 >
                   {t.locateMe}
                 </button>
               )}
             </div>
-            <div className="flex flex-wrap gap-3">
-              <WeatherPill weather={weather} failed={weatherFailed} t={t} nf={nf} />
-              <div className="flex items-center gap-3 rounded-2xl bg-[#25415a]/70 backdrop-blur-md border border-white/20 px-5 py-3 text-base text-white shadow-lg">
-                <span className="text-2xl"><IconCalendar /></span> <span className="capitalize font-medium">{today}</span>
-              </div>
-            </div>
+            <WeatherPill weather={weather} failed={weatherFailed} t={t} nf={nf} />
           </header>
 
-          {/* Middle: photo space (plots) + quick actions & assistant */}
-          <div className="mt-6 grid grid-cols-1 xl:grid-cols-[1fr_330px] gap-5">
-            <div className="min-h-[260px] md:min-h-[430px] relative">
-              {!plots.length && (
-                <div className="absolute left-0 bottom-4 max-w-md rounded-2xl bg-white/90 text-[#1d2b1a] p-4 shadow-xl">
-                  <p className="font-semibold">{t.noPlanMap}</p>
-                  <Link href="/dashboard/planning" className="inline-flex mt-3 rounded-lg bg-[#2e7d32] text-white font-semibold text-sm px-3 py-2">{t.planCta}</Link>
-                </div>
-              )}
-            </div>
-            <aside className="space-y-4">
-              <div className="rounded-3xl bg-[#173a1f]/90 backdrop-blur-md border border-white/15 p-4 space-y-3 shadow-2xl">
-                <h2 className="text-xl font-bold text-white">{t.quickTitle}</h2>
-                <QuickLink href="/dashboard/irrigation-3d" icon={<IconDropFill />} label={t.qIrrigate} />
-                <QuickLink href="/dashboard/planning" icon={<IconSproutFill />} label={t.qPlan} />
-                <QuickLink href="/dashboard/scanner" icon={<IconCameraFill />} label={t.qScan} />
-                <QuickLink href="/dashboard/market" icon={<IconShopFill />} label={t.qMarket} />
+          {/* Plots on the photo (labels on wide screens, a list on narrower ones) */}
+          <div className="mt-6 flex-1 min-h-[160px] md:min-h-[220px] flex flex-col justify-end">
+            {!plots.length && (
+              <div className="max-w-md rounded-2xl bg-[#0d0f0c]/90 border border-white/10 text-white p-4 shadow-xl">
+                <p className="font-semibold">{t.noPlanMap}</p>
+                <Link href="/dashboard/planning" className="inline-flex mt-3 rounded-lg bg-[#c6f04a] text-[#0d0f0c] font-semibold text-sm px-3 py-2">{t.planCta}</Link>
               </div>
-              <Assistant t={t} />
-            </aside>
-          </div>
-
-          {/* phones: plot list under the photo area */}
-          {plots.length > 0 && (
-            <ul className="md:hidden mt-4 rounded-2xl bg-white/92 divide-y divide-black/5 shadow-lg">
-              {plots.map((p) => {
-                const lv = levelOf(p.zoneId);
-                return (
-                  <li key={p.zoneId} className="flex items-center gap-3 px-4 py-2.5 text-sm text-[#1d2b1a]">
-                    <span className="text-lg text-[#2e7d32]"><CropIcon id={p.cropId} /></span>
-                    <span className="font-semibold">{p.zoneId} · {p.name}</span>
-                    <span className="ms-auto rounded-full px-2 py-0.5 text-xs font-semibold text-white" style={{ background: PRIO_STYLE[lv ?? "none"].pill }}>{prioLabel(lv)}</span>
-                  </li>
-                );
-              })}
-            </ul>
-          )}
-
-          {/* KPI cards */}
-          <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-[1.3fr_1.2fr_0.8fr_0.9fr] gap-4 xl:me-[350px]">
-            <Card className="flex items-center gap-3 !p-4">
-              <Bubble className="bg-[#e3f2fd] text-[#1e88e5]"><IconDropFill /></Bubble>
-              <div className="min-w-0 flex-1">
-                <div className="text-[15px] text-[#33402f]">{t.kWater}</div>
-                <div className="text-[26px] font-bold text-[#17220f] leading-tight tabular-nums whitespace-nowrap">
-                  {!plan ? "—" : engine ? `${nf(0).format(waterToday)} m³` : engineState === "down" ? "—" : "…"}
-                </div>
-                <div className="text-xs text-[#5d6b58]">{!plan ? t.kNeedPlan : engine ? fill(t.kWaterSub, { n: urgent.length }) : engineState === "down" ? t.kEngineDown : t.computing}</div>
-              </div>
-              <Ring value={soil} label={t.kSoilRing} />
-            </Card>
-            <Card className="flex items-center gap-3 !p-4">
-              <Bubble className="bg-[#fff6dd] text-[#f5a300]"><IconSunFill /></Bubble>
-              <div className="min-w-0">
-                <div className="text-[15px] text-[#33402f]">{t.kSun}</div>
-                <div className="flex items-center gap-2 flex-wrap">
-                  <span className="text-[26px] font-bold text-[#17220f] leading-tight tabular-nums whitespace-nowrap">{sunToday == null ? "—" : `${nf(1).format(sunToday)} kWh/m²`}</span>
-                  {sunTrend != null && (
-                    <span className={`rounded-full px-2 py-0.5 text-xs font-semibold ${sunTrend >= 0 ? "bg-[#e6f6df] text-[#2e7d32]" : "bg-[#fdeaea] text-[#c62828]"}`}>
-                      {sunTrend >= 0 ? "▲" : "▼"} {sunTrend >= 0 ? "+" : ""}{nf(0).format(sunTrend)} %
-                    </span>
-                  )}
-                </div>
-                <div className="text-xs text-[#5d6b58]">{sunToday == null ? (weatherFailed ? t.weatherDown : t.computing) : t.kSunSub}</div>
-              </div>
-            </Card>
-            <Card className="flex items-center gap-3 !p-4">
-              <Bubble className="bg-[#e8f5e0] text-[#2e7d32]"><IconPlotsFill /></Bubble>
-              <div>
-                <div className="text-[15px] text-[#33402f]">{t.kPlots}</div>
-                <div className="text-[26px] font-bold text-[#17220f] leading-tight tabular-nums whitespace-nowrap">{plan ? plan.crops.length : 0}</div>
-                <div className="text-xs text-[#5d6b58]">{plan ? fill(t.kPlotsSub, { ha: nf(1).format(plan.area_ha) }) : t.kNeedPlan}</div>
-              </div>
-            </Card>
-            <Card className={`flex items-center gap-4 ${alerts ? "bg-gradient-to-r from-white to-[#fdeceb]" : ""}`}>
-              <Bubble className="bg-[#fdeceb] text-[#e53935]"><IconBellFill /></Bubble>
-              <div>
-                <div className="text-[15px] text-[#33402f]">{t.kAlerts}</div>
-                <div className={`text-[24px] font-bold leading-tight ${alerts ? "text-[#e53935]" : warnings ? "text-[#d97706]" : "text-[#2e7d32]"}`}>
-                  {alerts ? fill(t.kAlertsUrgent, { n: alerts }) : warnings ? fill(t.kAlertsWarn, { n: warnings }) : t.kAlertsNone}
-                </div>
-                <div className="text-xs text-[#5d6b58]">{alerts ? t.kAlertsUrgentSub : warnings ? t.kAlertsWarnSub : t.kAlertsNoneSub}</div>
-              </div>
-            </Card>
-          </div>
-
-          {/* Field-unit live readings (IoT feed and API unchanged), shown with the other cards */}
-          <div className="mt-6">
-            <FieldSensors cards />
-          </div>
-
-          {/* Recommendation + forecast */}
-          <div className="mt-5 grid grid-cols-1 xl:grid-cols-[1.4fr_1fr] gap-5">
-            <Card>
-              <h2 className="text-xl font-bold text-[#17220f] flex items-center gap-2"><span className="text-[#2e7d32]"><IconSparkle /></span> {t.recoTitle}</h2>
-              <Link
-                href={reco.href}
-                className={`mt-3 flex items-center gap-4 rounded-2xl p-4 transition-colors ${reco.tone === "warn" ? "bg-[#fff4e0]" : "bg-[#eaf6e3] hover:bg-[#dff0d5]"}`}
-              >
-                <Bubble className="bg-white text-[#2e9d3a]"><IconDropFill /></Bubble>
-                <span className="min-w-0 flex-1">
-                  <span className="block text-lg sm:text-[22px] font-bold text-[#17220f]">{reco.title}</span>
-                  {reco.text && <span className="block text-[15px] text-[#3c4a37] mt-0.5">{reco.text}</span>}
-                </span>
-                <span className="grid place-items-center w-11 h-11 rounded-xl bg-[#2e7d32] text-white shrink-0 text-2xl font-bold" aria-hidden="true">›</span>
-              </Link>
-              {plan && <p className="text-xs text-[#6b7865] mt-2">{t.recoAssume}</p>}
-            </Card>
-
-            <Card>
-              <h2 className="text-xl font-bold text-[#17220f]">{t.forecastTitle}</h2>
-              {weather && weather.days.length > 1 ? (
-                <ol className="mt-3 grid grid-cols-5 divide-x divide-black/10">
-                  {weather.days.slice(1, 6).map((day) => (
-                    <li key={day.date} className="flex flex-col items-center gap-2 px-1 text-center">
-                      <span className="text-[15px] text-[#33402f] capitalize">{new Intl.DateTimeFormat(locale, { weekday: "short" }).format(new Date(`${day.date}T12:00:00`))}</span>
-                      <WeatherIcon cond={day.condition} size={34} />
-                      <span className="text-[15px] text-[#17220f] tabular-nums font-semibold">
-                        {day.tmax_c == null ? "—" : Math.round(day.tmax_c)}°<span className="text-[#6b7865] font-normal">/{day.tmin_c == null ? "—" : Math.round(day.tmin_c)}°</span>
-                      </span>
+            )}
+            {plots.length > 0 && (
+              <ul className="xl:hidden max-w-xl rounded-2xl bg-[#0d0f0c]/90 border border-white/10 divide-y divide-white/10 shadow-lg">
+                {plots.map((p) => {
+                  const lv = levelOf(p.zoneId);
+                  return (
+                    <li key={p.zoneId} className="flex items-center gap-3 px-4 py-2.5 text-sm text-white">
+                      <span className="text-lg text-[#c6f04a]"><CropIcon id={p.cropId} /></span>
+                      <span className="font-semibold">{p.zoneId} · {p.name}</span>
+                      <span className="ms-auto rounded-full px-2 py-0.5 text-xs font-semibold" style={{ background: PRIO_STYLE[lv ?? "none"].pill, color: PRIO_STYLE[lv ?? "none"].ink ?? "#fff" }}>{prioLabel(lv)}</span>
                     </li>
-                  ))}
-                </ol>
-              ) : (
-                <p className="mt-3 text-sm text-[#5d6b58]">{weatherFailed ? t.weatherDown : t.computing}</p>
-              )}
-            </Card>
+                  );
+                })}
+              </ul>
+            )}
           </div>
         </div>
+      </div>
+
+      {/* ======== below the photo: the field unit's live readings (IoT feed and API unchanged) ======== */}
+      <div className="bg-gradient-to-b from-[#020302] to-[#020302] px-4 sm:px-6 lg:px-8 pt-4 pb-6">
+        <FieldSensors cards />
       </div>
 
       <p className="px-4 sm:px-6 lg:px-8 py-4 text-xs text-neutral-500">{t.sources}</p>
@@ -489,118 +399,21 @@ function CropIcon({ id }: { id: string }) {
   return solid("M11 21v-7.2C7.2 13.4 4.5 10.5 4.5 6.5 8.6 6.6 11 9.3 11.2 12c.6-4.2 3.5-7 8.3-7 0 4.6-3 7.8-7 8.1V21h-1.5Z");
 }
 
-function Card({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return <div className={`rounded-3xl bg-white/[0.96] p-5 shadow-[0_10px_30px_rgba(0,0,0,0.18)] text-[#17220f] min-w-0 ${className}`}>{children}</div>;
-}
-
-function Bubble({ children, className }: { children: React.ReactNode; className: string }) {
-  return <span className={`grid place-items-center w-12 h-12 rounded-full shrink-0 text-[24px] ${className}`}>{children}</span>;
-}
-
-/** Soil-water gauge from the field unit (null = no fresh reading). */
-function Ring({ value, label }: { value: number | null; label: string }) {
-  const r = 26, c = 2 * Math.PI * r, v = value == null ? 0 : Math.max(0, Math.min(100, value));
-  const color = value == null ? "#c7cdc4" : v <= 20 ? "#e53935" : v <= 35 ? "#f59e0b" : "#2e7d32";
-  return (
-    <div className="relative w-[68px] h-[68px] shrink-0" title={label}>
-      <svg viewBox="0 0 64 64" className="w-full h-full -rotate-90" aria-hidden="true">
-        <circle cx="32" cy="32" r={r} fill="none" stroke="#e5ebe2" strokeWidth="7" />
-        <circle cx="32" cy="32" r={r} fill="none" stroke={color} strokeWidth="7" strokeDasharray={`${(c * v) / 100} ${c}`} strokeLinecap="round" />
-      </svg>
-      <span className="absolute inset-0 grid place-items-center text-center leading-none">
-        <span className="text-[15px] font-bold text-[#17220f]">{value == null ? "—" : `${Math.round(v)}%`}</span>
-      </span>
-      <span className="absolute -bottom-4 inset-x-0 text-center text-[10px] text-[#5d6b58]">{label}</span>
-    </div>
-  );
-}
-
 function WeatherPill({ weather, failed, t, nf }: { weather: Weather | null; failed: boolean; t: T; nf: (d?: number) => Intl.NumberFormat }) {
-  const box = "flex flex-wrap items-center gap-3 sm:gap-5 rounded-[26px] bg-[#25415a]/70 backdrop-blur-md border border-white/20 px-4 sm:px-6 py-3 text-white shadow-lg max-w-full";
-  if (!weather) return <div className={box}>{failed ? t.weatherDown : t.computing}</div>;
+  // No panel: plain text on the photo, with a shadow so it stays readable.
+  const box = "flex flex-wrap items-center gap-x-4 gap-y-1 text-white max-w-full [text-shadow:0_1px_8px_rgba(0,0,0,.6)]";
+  if (!weather) return <div className={`${box} text-sm`}>{failed ? t.weatherDown : t.computing}</div>;
   const c = weather.current;
   const wx = t.wx as Record<string, string>;
   return (
     <div className={box}>
-      <WeatherIcon cond={c.condition} size={46} />
-      <div>
-        <div className="text-[26px] sm:text-[32px] font-bold tabular-nums leading-none">{c.temperature_c == null ? "—" : nf(0).format(c.temperature_c)}°C</div>
-        <div className="text-sm text-white/90 mt-1">{wx[c.condition] ?? ""}</div>
-      </div>
-      <span className="hidden sm:block w-px self-stretch bg-white/25" />
-      <span className="text-base sm:text-lg inline-flex items-center gap-2 whitespace-nowrap" title={t.wind}><IconWind /> {c.wind_kmh == null ? "—" : nf(0).format(c.wind_kmh)} km/h</span>
-      <span className="hidden sm:block w-px self-stretch bg-white/25" />
-      <span className="text-base sm:text-lg inline-flex items-center gap-2 whitespace-nowrap" title={t.humidity}><IconDropLine /> {c.humidity_pct == null ? "—" : nf(0).format(c.humidity_pct)}%</span>
-    </div>
-  );
-}
-
-function QuickLink({ href, icon, label }: { href: string; icon: React.ReactNode; label: string }) {
-  return (
-    <Link href={href} className="flex items-center gap-4 rounded-2xl bg-gradient-to-r from-[#f3fbe9] to-[#e2f3d2] px-4 py-3.5 font-bold text-[#17330f] text-[17px] shadow hover:from-white hover:to-[#eaf7dc] transition-colors">
-      <span className="text-[28px] text-[#2e9d3a]">{icon}</span>
-      {label}
-    </Link>
-  );
-}
-
-/** Typed questions go to the same voice assistant as the bubble (answer shown here and read aloud). */
-function Assistant({ t }: { t: T }) {
-  const [q, setQ] = useState("");
-  const [answer, setAnswer] = useState<string | null>(null);
-  const [busy, setBusy] = useState(false);
-  const ask = async () => {
-    const text = q.trim();
-    if (!text || busy) return;
-    setBusy(true);
-    setAnswer(null);
-    try {
-      setAnswer(await getAssistant().askTyped(text));
-      setQ("");
-    } finally {
-      setBusy(false);
-    }
-  };
-  return (
-    <div id="assistant" className="rounded-3xl bg-[#173a1f]/90 backdrop-blur-md border border-white/15 p-4 shadow-2xl scroll-mt-6">
-      <div className="flex items-center gap-3">
-        <button type="button" onClick={() => getAssistant().openListening()} className="text-[34px] text-[#9be070]" aria-label={t.assistantTitle}>
-          <IconBot />
-        </button>
-        <div>
-          <h2 className="text-xl font-bold text-white">{t.assistantTitle}</h2>
-          <p className="text-sm text-white/85">{t.assistantSub}</p>
-        </div>
-      </div>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          void ask();
-        }}
-        className="mt-3 rounded-2xl bg-white p-3"
-      >
-        <textarea
-          value={q}
-          onChange={(e) => setQ(e.target.value)}
-          rows={2}
-          placeholder={t.assistantPh}
-          aria-label={t.assistantSub}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" && !e.shiftKey) {
-              e.preventDefault();
-              void ask();
-            }
-          }}
-          className="w-full resize-none bg-transparent text-sm text-[#17220f] placeholder:text-[#7b8676] outline-none"
-        />
-        <div className="flex justify-end">
-          <button type="submit" disabled={busy} className="grid place-items-center w-11 h-11 rounded-xl bg-[#2e9d3a] text-white text-xl disabled:opacity-60" aria-label={t.send}>
-            <IconSend />
-          </button>
-        </div>
-      </form>
-      {answer && <div className="mt-3 rounded-2xl bg-white/95 p-3 text-sm text-[#17220f]">{answer}</div>}
-      <p className="text-[11px] text-white/60 mt-2">{t.assistantNote}</p>
+      <span className="inline-flex items-center gap-2">
+        <WeatherIcon cond={c.condition} size={28} />
+        <span className="text-xl font-bold tabular-nums leading-none">{c.temperature_c == null ? "—" : nf(0).format(c.temperature_c)}°C</span>
+        <span className="text-sm text-white/90">{wx[c.condition] ?? ""}</span>
+      </span>
+      <span className="text-sm inline-flex items-center gap-1.5 whitespace-nowrap" title={t.wind}><IconWind /> {c.wind_kmh == null ? "—" : nf(0).format(c.wind_kmh)} km/h</span>
+      <span className="text-sm inline-flex items-center gap-1.5 whitespace-nowrap" title={t.humidity}><IconDropLine /> {c.humidity_pct == null ? "—" : nf(0).format(c.humidity_pct)}%</span>
     </div>
   );
 }
@@ -612,24 +425,8 @@ const line = (d: string) => (
 const solid = (d: string) => (
   <svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d={d} /></svg>
 );
-const IconDropFill = () => solid("M12 2.5c3.9 4.6 6.6 8.3 6.6 11.4a6.6 6.6 0 0 1-13.2 0C5.4 10.8 8.1 7.1 12 2.5Z");
 const IconDropLine = () => line("M12 3c3.5 4.2 6 7.6 6 10.6A6 6 0 0 1 6 13.6C6 10.6 8.5 7.2 12 3Z");
-const IconSproutFill = () => solid("M11 21v-7.2C7.2 13.4 4.5 10.5 4.5 6.5 8.6 6.6 11 9.3 11.2 12c.6-4.2 3.5-7 8.3-7 0 4.6-3 7.8-7 8.1V21h-1.5Z");
-const IconCameraFill = () => solid("M8.5 4 7 6H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-3l-1.5-2h-7ZM12 9a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm0 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z");
-const IconShopFill = () => solid("M4 3h16l2 6a3 3 0 0 1-5 2.2A3 3 0 0 1 12 11a3 3 0 0 1-5 .2A3 3 0 0 1 2 9l2-6Zm0 9.5c1 .4 2.1.4 3 0V20h4v-4h2v4h4v-7.5c.9.4 2 .4 3 0V21H4v-8.5Z");
-const IconSunFill = () => (
-  <svg viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true">
-    <circle cx="12" cy="12" r="5" fill="currentColor" />
-    <g stroke="currentColor" strokeWidth="2" strokeLinecap="round">{[0, 45, 90, 135, 180, 225, 270, 315].map((a) => <line key={a} x1="12" y1="1.8" x2="12" y2="4" transform={`rotate(${a} 12 12)`} />)}</g>
-  </svg>
-);
-const IconPlotsFill = () => line("M3 20 7 6h14l-4 14H3Zm2.5-7h14M12 6l-3 14");
-const IconBellFill = () => line("M6 16V11a6 6 0 1 1 12 0v5l2 2H4l2-2Zm4 4a2 2 0 0 0 4 0");
-const IconSparkle = () => line("M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8L12 3Zm7 11 .8 2.2 2.2.8-2.2.8L19 20l-.8-2.2L16 17l2.2-.8L19 14Z");
-const IconBot = () => line("M12 3v3m-6 3h12a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2Zm3 5h.01M15 14h.01M9.5 17h5M2 13v2M22 13v2");
-const IconSend = () => solid("M3 11.5 20.5 3.6c.6-.3 1.2.3.9.9L13.5 22c-.3.6-1.1.5-1.3-.1l-1.9-6.2-6.2-1.9c-.6-.2-.7-1-.1-1.3Z");
 const IconWind = () => line("M3 8h11a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h7");
-const IconCalendar = () => line("M4 6h16v14H4V6Zm0 4h16M8 3v4m8-4v4M8 14h2m4 0h2");
 
 function WeatherIcon({ cond, size }: { cond: string; size: number }) {
   const sun = (

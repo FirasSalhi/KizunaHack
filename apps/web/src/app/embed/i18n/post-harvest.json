@@ -1,0 +1,908 @@
+{
+ "ACTIVE ({0}°C)": {
+  "ar": "خدّام ({0}°C)",
+  "en": "ACTIVE ({0}°C)",
+  "fr": "ACTIF ({0} °C)",
+  "ja": "稼働中（{0}°C）"
+ },
+ "APPLE": {
+  "ar": "تفاح",
+  "en": "APPLE",
+  "fr": "POMME",
+  "ja": "リンゴ"
+ },
+ "AVOCADO": {
+  "ar": "أفوكا",
+  "en": "AVOCADO",
+  "fr": "AVOCAT",
+  "ja": "アボカド"
+ },
+ "All good!": {
+  "ar": "كل شي لاباس!",
+  "en": "All good!",
+  "fr": "Tout va bien !",
+  "ja": "問題ありません！"
+ },
+ "Apple": {
+  "ar": "تفاح",
+  "en": "Apple",
+  "fr": "Pomme",
+  "ja": "リンゴ"
+ },
+ "Avocado": {
+  "ar": "أفوكا",
+  "en": "Avocado",
+  "fr": "Avocat",
+  "ja": "アボカド"
+ },
+ "BANANA": {
+  "ar": "بنان",
+  "en": "BANANA",
+  "fr": "BANANE",
+  "ja": "バナナ"
+ },
+ "Banana": {
+  "ar": "بنان",
+  "en": "Banana",
+  "fr": "Banane",
+  "ja": "バナナ"
+ },
+ "Base Life:": {
+  "ar": "مدة الحفظ الأساسية:",
+  "en": "Base Life:",
+  "fr": "Durée de base :",
+  "ja": "基本保存期間："
+ },
+ "Baseline storage · Climate optimal ({0}°C, {1}%)": {
+  "ar": "خزن عادي · المناخ مثالي ({0}°C، {1}%)",
+  "en": "Baseline storage · Climate optimal ({0}°C, {1}%)",
+  "fr": "Stockage de base · climat optimal ({0} °C, {1} %)",
+  "ja": "通常保管 · 環境は最適（{0}°C、{1}%）"
+ },
+ "CABBAGE": {
+  "ar": "كرنب",
+  "en": "CABBAGE",
+  "fr": "CHOU",
+  "ja": "キャベツ"
+ },
+ "CARROT": {
+  "ar": "سفنارية",
+  "en": "CARROT",
+  "fr": "CAROTTE",
+  "ja": "ニンジン"
+ },
+ "Cabbage": {
+  "ar": "كرنب",
+  "en": "Cabbage",
+  "fr": "Chou",
+  "ja": "キャベツ"
+ },
+ "Carrot": {
+  "ar": "سفنارية",
+  "en": "Carrot",
+  "fr": "Carotte",
+  "ja": "ニンジン"
+ },
+ "Chamber Nominal": {
+  "ar": "الغرفة عادية",
+  "en": "Chamber Nominal",
+  "fr": "Chambre normale",
+  "ja": "保管室正常"
+ },
+ "Climate: Optimal": {
+  "ar": "المناخ: مثالي",
+  "en": "Climate: Optimal",
+  "fr": "Climat : optimal",
+  "ja": "環境：最適"
+ },
+ "Climate: Optimal ({0}°C, {1}%)": {
+  "ar": "المناخ: مثالي ({0}°C، {1}%)",
+  "en": "Climate: Optimal ({0}°C, {1}%)",
+  "fr": "Climat : optimal ({0} °C, {1} %)",
+  "ja": "環境：最適（{0}°C、{1}%）"
+ },
+ "Cooling Store ({0}°C)": {
+  "ar": "تبريد المخزن ({0}°C)",
+  "en": "Cooling Store ({0}°C)",
+  "fr": "Refroidissement ({0} °C)",
+  "ja": "冷却中（{0}°C）"
+ },
+ "Cooling in progress:": {
+  "ar": "التبريد قاعد يصير:",
+  "en": "Cooling in progress:",
+  "fr": "Refroidissement en cours :",
+  "ja": "冷却中："
+ },
+ "Cumulative Avg:": {
+  "ar": "المعدّل التراكمي:",
+  "en": "Cumulative Avg:",
+  "fr": "Moyenne cumulée :",
+  "ja": "累積平均："
+ },
+ "Current Humidity:": {
+  "ar": "الرطوبة توّا:",
+  "en": "Current Humidity:",
+  "fr": "Humidité actuelle :",
+  "ja": "現在の湿度："
+ },
+ "Current Room Temp:": {
+  "ar": "حرارة الغرفة توّا:",
+  "en": "Current Room Temp:",
+  "fr": "Température actuelle :",
+  "ja": "現在の室温："
+ },
+ "DATES": {
+  "ar": "دقلة",
+  "en": "DATES",
+  "fr": "DATTES",
+  "ja": "ナツメヤシの実"
+ },
+ "Dates": {
+  "ar": "دقلة",
+  "en": "Dates",
+  "fr": "Dattes",
+  "ja": "ナツメヤシの実"
+ },
+ "Day {0}": {
+  "ar": "النهار {0}",
+  "en": "Day {0}",
+  "fr": "Jour {0}",
+  "ja": "{0}日目"
+ },
+ "Days of Freshness Left": {
+  "ar": "أيام الطراوة الباقية",
+  "en": "Days of Freshness Left",
+  "fr": "Jours de fraîcheur restants",
+  "ja": "残りの鮮度日数"
+ },
+ "Evening preservation · Target {0}°C maintained": {
+  "ar": "حفظ العشية · الهدف {0}°C محافظ عليه",
+  "en": "Evening preservation · Target {0}°C maintained",
+  "fr": "Conservation du soir · cible {0} °C maintenue",
+  "ja": "夕方の保管 · 目標{0}°Cを維持"
+ },
+ "FAN IDLE": {
+  "ar": "المروحة واقفة",
+  "en": "FAN IDLE",
+  "fr": "VENTILATEUR AU REPOS",
+  "ja": "ファン待機"
+ },
+ "Facility climate is optimal. Your {a} is in peak fresh condition.": {
+  "ar": "مناخ الغرفة مثالي. {a} متاعك في أحسن طراوة.",
+  "en": "Facility climate is optimal. Your {a} is in peak fresh condition.",
+  "fr": "Le climat de la chambre est optimal. Votre {a} est en pleine fraîcheur.",
+  "ja": "保管室の環境は最適です。{a}は最高の鮮度です。"
+ },
+ "Fan cooling active ({0}°C) → Restoring setpoint {1}°C": {
+  "ar": "التبريد بالمروحة خدّام ({0}°C) ← رجوع للهدف {1}°C",
+  "en": "Fan cooling active ({0}°C) → Restoring setpoint {1}°C",
+  "fr": "Ventilation active ({0} °C) → retour à la consigne {1} °C",
+  "ja": "ファン冷却中（{0}°C）→ 設定値{1}°Cに回復中"
+ },
+ "GARLIC": {
+  "ar": "ثوم",
+  "en": "GARLIC",
+  "fr": "AIL",
+  "ja": "ニンニク"
+ },
+ "Garlic": {
+  "ar": "ثوم",
+  "en": "Garlic",
+  "fr": "Ail",
+  "ja": "ニンニク"
+ },
+ "HEATER OFF": {
+  "ar": "السخّان موقوف",
+  "en": "HEATER OFF",
+  "fr": "CHAUFFAGE ARRÊTÉ",
+  "ja": "ヒーター停止"
+ },
+ "HEATER ON": {
+  "ar": "السخّان خدّام",
+  "en": "HEATER ON",
+  "fr": "CHAUFFAGE EN MARCHE",
+  "ja": "ヒーター稼働"
+ },
+ "Harvest Date:": {
+  "ar": "تاريخ الجني:",
+  "en": "Harvest Date:",
+  "fr": "Date de récolte :",
+  "ja": "収穫日："
+ },
+ "HarvestGuard AI · Smart Cold Storage Digital Twin": {
+  "ar": "HarvestGuard AI · توأم رقمي لغرفة التبريد",
+  "en": "HarvestGuard AI · Smart Cold Storage Digital Twin",
+  "fr": "HarvestGuard AI · Jumeau numérique de chambre froide",
+  "ja": "HarvestGuard AI · スマート冷蔵庫デジタルツイン"
+ },
+ "Heating Store ({0}°C)": {
+  "ar": "تسخين المخزن ({0}°C)",
+  "en": "Heating Store ({0}°C)",
+  "fr": "Chauffage ({0} °C)",
+  "ja": "加温中（{0}°C）"
+ },
+ "Humidity:": {
+  "ar": "الرطوبة:",
+  "en": "Humidity:",
+  "fr": "Humidité :",
+  "ja": "湿度："
+ },
+ "INVERTER CHILLER": {
+  "ar": "مبرّد إنفرتر",
+  "en": "INVERTER CHILLER",
+  "fr": "REFROIDISSEUR INVERTER",
+  "ja": "インバーター冷却機"
+ },
+ "LETTUCE": {
+  "ar": "سلاطة",
+  "en": "LETTUCE",
+  "fr": "LAITUE",
+  "ja": "レタス"
+ },
+ "Lettuce": {
+  "ar": "سلاطة",
+  "en": "Lettuce",
+  "fr": "Laitue",
+  "ja": "レタス"
+ },
+ "Loading crop specifications...": {
+  "ar": "قاعد يحمّل خصائص المنتوج…",
+  "en": "Loading crop specifications...",
+  "fr": "Chargement des caractéristiques…",
+  "ja": "作物の仕様を読み込み中…"
+ },
+ "MAIZE": {
+  "ar": "قطانية",
+  "en": "MAIZE",
+  "fr": "MAÏS",
+  "ja": "トウモロコシ"
+ },
+ "MISTER IDLE": {
+  "ar": "الرشّاش واقف",
+  "en": "MISTER IDLE",
+  "fr": "BRUMISATEUR AU REPOS",
+  "ja": "加湿器待機"
+ },
+ "MISTING": {
+  "ar": "رذاذ",
+  "en": "MISTING",
+  "fr": "BRUMISATION",
+  "ja": "加湿中"
+ },
+ "Maize": {
+  "ar": "قطانية",
+  "en": "Maize",
+  "fr": "Maïs",
+  "ja": "トウモロコシ"
+ },
+ "Manual Preset: Cold Chilling ({0}°C)": {
+  "ar": "ضبط يدوي: تبريد ({0}°C)",
+  "en": "Manual Preset: Cold Chilling ({0}°C)",
+  "fr": "Préréglage : froid ({0} °C)",
+  "ja": "手動プリセット：低温（{0}°C）"
+ },
+ "Manual Preset: Heat Spike ({0}°C)": {
+  "ar": "ضبط يدوي: موجة حرّ ({0}°C)",
+  "en": "Manual Preset: Heat Spike ({0}°C)",
+  "fr": "Préréglage : pic de chaleur ({0} °C)",
+  "ja": "手動プリセット：高温（{0}°C）"
+ },
+ "Manual Preset: Room Ambient ({0}°C)": {
+  "ar": "ضبط يدوي: حرارة الغرفة ({0}°C)",
+  "en": "Manual Preset: Room Ambient ({0}°C)",
+  "fr": "Préréglage : ambiant ({0} °C)",
+  "ja": "手動プリセット：室温（{0}°C）"
+ },
+ "Manual Slider Override (Inspecting custom humidity)": {
+  "ar": "ضبط يدوي (رطوبة مختارة)",
+  "en": "Manual Slider Override (Inspecting custom humidity)",
+  "fr": "Réglage manuel (humidité choisie)",
+  "ja": "手動調整（任意の湿度）"
+ },
+ "Manual Slider Override (Inspecting custom temperature)": {
+  "ar": "ضبط يدوي (حرارة مختارة)",
+  "en": "Manual Slider Override (Inspecting custom temperature)",
+  "fr": "Réglage manuel (température choisie)",
+  "ja": "手動調整（任意の温度）"
+ },
+ "Midday heat ({0}°C) → Fan & Chiller actively cooling facility": {
+  "ar": "حرّ القايلة ({0}°C) ← المروحة والمبرّد قاعدين يبرّدو",
+  "en": "Midday heat ({0}°C) → Fan & Chiller actively cooling facility",
+  "fr": "Chaleur de midi ({0} °C) → ventilateur et refroidisseur en marche",
+  "ja": "昼の暑さ（{0}°C）→ ファンと冷却機が冷却中"
+ },
+ "Midday mild warming ({0}°C) · Nominal": {
+  "ar": "سخانة خفيفة في القايلة ({0}°C) · عادي",
+  "en": "Midday mild warming ({0}°C) · Nominal",
+  "fr": "Léger réchauffement à midi ({0} °C) · normal",
+  "ja": "昼のゆるやかな昇温（{0}°C）· 正常"
+ },
+ "Min Safe:": {
+  "ar": "الأدنى الآمن:",
+  "en": "Min Safe:",
+  "fr": "Min. sûr :",
+  "ja": "安全最低："
+ },
+ "Misting Active": {
+  "ar": "الرذاذ خدّام",
+  "en": "Misting Active",
+  "fr": "Brumisation active",
+  "ja": "加湿中"
+ },
+ "Morning baseline ({0}°C) · Storage climate optimal": {
+  "ar": "الصباح ({0}°C) · مناخ الخزن مثالي",
+  "en": "Morning baseline ({0}°C) · Storage climate optimal",
+  "fr": "Début de matinée ({0} °C) · climat de stockage optimal",
+  "ja": "朝の基準（{0}°C）· 保管環境は最適"
+ },
+ "Morning baseline · Facility climate optimal": {
+  "ar": "الصباح · المناخ مثالي",
+  "en": "Morning baseline · Facility climate optimal",
+  "fr": "Début de matinée · climat optimal",
+  "ja": "朝の基準 · 環境は最適"
+ },
+ "Night ambient cooling ({0}°C) · Nominal": {
+  "ar": "تبريد الليل ({0}°C) · عادي",
+  "en": "Night ambient cooling ({0}°C) · Nominal",
+  "fr": "Rafraîchissement nocturne ({0} °C) · normal",
+  "ja": "夜間の自然冷却（{0}°C）· 正常"
+ },
+ "Night chill ({0}°C < {1}°C min) → Radiant heater actively warming store": {
+  "ar": "برد الليل ({0}°C < {1}°C الأدنى) ← السخّان قاعد يسخّن المخزن",
+  "en": "Night chill ({0}°C < {1}°C min) → Radiant heater actively warming store",
+  "fr": "Froid nocturne ({0} °C < {1} °C min) → le chauffage réchauffe la chambre",
+  "ja": "夜間の冷え込み（{0}°C < 最低{1}°C）→ 放射ヒーターが加温中"
+ },
+ "Night cooling transition · Setpoint safe ({0}°C)": {
+  "ar": "انتقال لبرد الليل · الهدف آمن ({0}°C)",
+  "en": "Night cooling transition · Setpoint safe ({0}°C)",
+  "fr": "Passage au froid de la nuit · consigne sûre ({0} °C)",
+  "ja": "夜の冷却へ移行 · 設定値は安全（{0}°C）"
+ },
+ "OLIVE": {
+  "ar": "زيتون",
+  "en": "OLIVE",
+  "fr": "OLIVE",
+  "ja": "オリーブ"
+ },
+ "ONION": {
+  "ar": "بصل",
+  "en": "ONION",
+  "fr": "OIGNON",
+  "ja": "タマネギ"
+ },
+ "ORANGE": {
+  "ar": "برتقال",
+  "en": "ORANGE",
+  "fr": "ORANGE",
+  "ja": "オレンジ"
+ },
+ "Olive": {
+  "ar": "زيتون",
+  "en": "Olive",
+  "fr": "Olive",
+  "ja": "オリーブ"
+ },
+ "Onion": {
+  "ar": "بصل",
+  "en": "Onion",
+  "fr": "Oignon",
+  "ja": "タマネギ"
+ },
+ "Orange": {
+  "ar": "برتقال",
+  "en": "Orange",
+  "fr": "Orange",
+  "ja": "オレンジ"
+ },
+ "PEPPER": {
+  "ar": "فلفل",
+  "en": "PEPPER",
+  "fr": "POIVRON",
+  "ja": "ピーマン"
+ },
+ "PINEAPPLE": {
+  "ar": "أناناس",
+  "en": "PINEAPPLE",
+  "fr": "ANANAS",
+  "ja": "パイナップル"
+ },
+ "POTATO": {
+  "ar": "بطاطا",
+  "en": "POTATO",
+  "fr": "POMME DE TERRE",
+  "ja": "ジャガイモ"
+ },
+ "PUMPKIN": {
+  "ar": "قرع",
+  "en": "PUMPKIN",
+  "fr": "POTIRON",
+  "ja": "カボチャ"
+ },
+ "Pepper": {
+  "ar": "فلفل",
+  "en": "Pepper",
+  "fr": "Poivron",
+  "ja": "ピーマン"
+ },
+ "Pineapple": {
+  "ar": "أناناس",
+  "en": "Pineapple",
+  "fr": "Ananas",
+  "ja": "パイナップル"
+ },
+ "Potato": {
+  "ar": "بطاطا",
+  "en": "Potato",
+  "fr": "Pomme de terre",
+  "ja": "ジャガイモ"
+ },
+ "Prepare for market:": {
+  "ar": "حضّر للسوق:",
+  "en": "Prepare for market:",
+  "fr": "Préparez la vente :",
+  "ja": "出荷の準備："
+ },
+ "Produce is reaching full ripeness. Sell today or tomorrow to avoid spoil loss!": {
+  "ar": "المنتوج وصل لآخر نضجو. بيع اليوم ولا غدوة باش ما تخسرش!",
+  "en": "Produce is reaching full ripeness. Sell today or tomorrow to avoid spoil loss!",
+  "fr": "Le produit arrive à pleine maturité. Vendez aujourd'hui ou demain pour éviter les pertes !",
+  "ja": "農産物が完熟に近づいています。傷む前に今日か明日販売してください！"
+ },
+ "Pumpkin": {
+  "ar": "قرع",
+  "en": "Pumpkin",
+  "fr": "Potiron",
+  "ja": "カボチャ"
+ },
+ "READY (ECO)": {
+  "ar": "جاهز (اقتصادي)",
+  "en": "READY (ECO)",
+  "fr": "PRÊT (ÉCO)",
+  "ja": "準備完了（エコ）"
+ },
+ "RICE": {
+  "ar": "روز",
+  "en": "RICE",
+  "fr": "RIZ",
+  "ja": "米"
+ },
+ "Radiant heater active ({0}°C) → Restoring setpoint {1}°C": {
+  "ar": "السخّان خدّام ({0}°C) ← رجوع للهدف {1}°C",
+  "en": "Radiant heater active ({0}°C) → Restoring setpoint {1}°C",
+  "fr": "Chauffage actif ({0} °C) → retour à la consigne {1} °C",
+  "ja": "放射ヒーター稼働（{0}°C）→ 設定値{1}°Cに回復中"
+ },
+ "Rice": {
+  "ar": "روز",
+  "en": "Rice",
+  "fr": "Riz",
+  "ja": "米"
+ },
+ "Ripening Fast": {
+  "ar": "قاعد يطيب بالزربة",
+  "en": "Ripening Fast",
+  "fr": "Mûrit vite",
+  "ja": "急速に熟成中"
+ },
+ "SIMULATED TIME:": {
+  "ar": "الوقت المحاكى:",
+  "en": "SIMULATED TIME:",
+  "fr": "HEURE SIMULÉE :",
+  "ja": "シミュレーション時刻："
+ },
+ "STANDBY (ECO)": {
+  "ar": "استعداد (اقتصادي)",
+  "en": "STANDBY (ECO)",
+  "fr": "VEILLE (ÉCO)",
+  "ja": "待機（エコ）"
+ },
+ "STRAWBERRY": {
+  "ar": "فراولة",
+  "en": "STRAWBERRY",
+  "fr": "FRAISE",
+  "ja": "イチゴ"
+ },
+ "Safe & Fresh": {
+  "ar": "سليم وطري",
+  "en": "Safe & Fresh",
+  "fr": "Sain et frais",
+  "ja": "安全で新鮮"
+ },
+ "Sell Immediately": {
+  "ar": "بيع توّا",
+  "en": "Sell Immediately",
+  "fr": "Vendre tout de suite",
+  "ja": "すぐに販売"
+ },
+ "Setpoint {0}°C restored · Fan returned to idle": {
+  "ar": "رجع الهدف {0}°C · المروحة رجعت وقفت",
+  "en": "Setpoint {0}°C restored · Fan returned to idle",
+  "fr": "Consigne {0} °C rétablie · ventilateur au repos",
+  "ja": "設定値{0}°Cに回復 · ファン停止"
+ },
+ "Setpoint {0}°C restored · Heater returned to standby": {
+  "ar": "رجع الهدف {0}°C · السخّان رجع للاستعداد",
+  "en": "Setpoint {0}°C restored · Heater returned to standby",
+  "fr": "Consigne {0} °C rétablie · chauffage en veille",
+  "ja": "設定値{0}°Cに回復 · ヒーターは待機へ"
+ },
+ "Strawberry": {
+  "ar": "فراولة",
+  "en": "Strawberry",
+  "fr": "Fraise",
+  "ja": "イチゴ"
+ },
+ "TOMATO": {
+  "ar": "طماطم",
+  "en": "TOMATO",
+  "fr": "TOMATE",
+  "ja": "トマト"
+ },
+ "Take immediate action!": {
+  "ar": "تصرّف توّا!",
+  "en": "Take immediate action!",
+  "fr": "Agissez tout de suite !",
+  "ja": "すぐに対応してください！"
+ },
+ "Target:": {
+  "ar": "الهدف:",
+  "en": "Target:",
+  "fr": "Cible :",
+  "ja": "目標："
+ },
+ "The automated fan is cooling the room to protect your {a} from outdoor heat. Everything is safe!": {
+  "ar": "المروحة الأوتوماتيكية قاعدة تبرّد الغرفة باش تحمي {a} متاعك من حرّ البرّا. كل شي في الأمان!",
+  "en": "The automated fan is cooling the room to protect your {a} from outdoor heat. Everything is safe!",
+  "fr": "Le ventilateur automatique refroidit la chambre pour protéger votre {a} de la chaleur extérieure. Tout est sous contrôle !",
+  "ja": "自動ファンが外の暑さから{a}を守るため部屋を冷やしています。すべて安全です！"
+ },
+ "The heater is warming the room to protect your {a} from cold frost. Everything is safe!": {
+  "ar": "السخّان قاعد يسخّن الغرفة باش يحمي {a} متاعك من الصقيع. كل شي في الأمان!",
+  "en": "The heater is warming the room to protect your {a} from cold frost. Everything is safe!",
+  "fr": "Le chauffage réchauffe la chambre pour protéger votre {a} du gel. Tout est sous contrôle !",
+  "ja": "ヒーターが霜から{a}を守るため部屋を暖めています。すべて安全です！"
+ },
+ "Today": {
+  "ar": "اليوم",
+  "en": "Today",
+  "fr": "Aujourd'hui",
+  "ja": "今日"
+ },
+ "Tomato": {
+  "ar": "طماطم",
+  "en": "Tomato",
+  "fr": "Tomate",
+  "ja": "トマト"
+ },
+ "Tomorrow": {
+  "ar": "غدوة",
+  "en": "Tomorrow",
+  "fr": "Demain",
+  "ja": "明日"
+ },
+ "VENTILATING": {
+  "ar": "تهوية",
+  "en": "VENTILATING",
+  "fr": "VENTILATION",
+  "ja": "換気中"
+ },
+ "WHEAT": {
+  "ar": "قمح",
+  "en": "WHEAT",
+  "fr": "BLÉ",
+  "ja": "小麦"
+ },
+ "Warming in progress:": {
+  "ar": "التسخين قاعد يصير:",
+  "en": "Warming in progress:",
+  "fr": "Réchauffement en cours :",
+  "ja": "加温中："
+ },
+ "Wheat": {
+  "ar": "قمح",
+  "en": "Wheat",
+  "fr": "Blé",
+  "ja": "小麦"
+ },
+ "Your {a} is ripening. Plan to sell within the next week to get the best market price!": {
+  "ar": "{a} متاعك قاعد يطيب. خطّط باش تبيع في الجمعة الجاية باش تاخذ أحسن سوم!",
+  "en": "Your {a} is ripening. Plan to sell within the next week to get the best market price!",
+  "fr": "Votre {a} mûrit. Prévoyez de vendre dans la semaine pour avoir le meilleur prix !",
+  "ja": "{a}が熟してきています。最高の価格で売るため、1週間以内の販売を計画しましょう！"
+ },
+ "apple": {
+  "ar": "تفاح",
+  "en": "apple",
+  "fr": "pomme",
+  "ja": "リンゴ"
+ },
+ "avocado": {
+  "ar": "أفوكا",
+  "en": "avocado",
+  "fr": "avocat",
+  "ja": "アボカド"
+ },
+ "banana": {
+  "ar": "بنان",
+  "en": "banana",
+  "fr": "banane",
+  "ja": "バナナ"
+ },
+ "cabbage": {
+  "ar": "كرنب",
+  "en": "cabbage",
+  "fr": "chou",
+  "ja": "キャベツ"
+ },
+ "carrot": {
+  "ar": "سفنارية",
+  "en": "carrot",
+  "fr": "carotte",
+  "ja": "ニンジン"
+ },
+ "dates": {
+  "ar": "دقلة",
+  "en": "dates",
+  "fr": "dattes",
+  "ja": "ナツメヤシの実"
+ },
+ "garlic": {
+  "ar": "ثوم",
+  "en": "garlic",
+  "fr": "ail",
+  "ja": "ニンニク"
+ },
+ "lettuce": {
+  "ar": "سلاطة",
+  "en": "lettuce",
+  "fr": "laitue",
+  "ja": "レタス"
+ },
+ "maize": {
+  "ar": "قطانية",
+  "en": "maize",
+  "fr": "maïs",
+  "ja": "トウモロコシ"
+ },
+ "olive": {
+  "ar": "زيتون",
+  "en": "olive",
+  "fr": "olive",
+  "ja": "オリーブ"
+ },
+ "onion": {
+  "ar": "بصل",
+  "en": "onion",
+  "fr": "oignon",
+  "ja": "タマネギ"
+ },
+ "orange": {
+  "ar": "برتقال",
+  "en": "orange",
+  "fr": "orange",
+  "ja": "オレンジ"
+ },
+ "pepper": {
+  "ar": "فلفل",
+  "en": "pepper",
+  "fr": "poivron",
+  "ja": "ピーマン"
+ },
+ "pineapple": {
+  "ar": "أناناس",
+  "en": "pineapple",
+  "fr": "ananas",
+  "ja": "パイナップル"
+ },
+ "potato": {
+  "ar": "بطاطا",
+  "en": "potato",
+  "fr": "pomme de terre",
+  "ja": "ジャガイモ"
+ },
+ "pumpkin": {
+  "ar": "قرع",
+  "en": "pumpkin",
+  "fr": "potiron",
+  "ja": "カボチャ"
+ },
+ "rice": {
+  "ar": "روز",
+  "en": "rice",
+  "fr": "riz",
+  "ja": "米"
+ },
+ "strawberry": {
+  "ar": "فراولة",
+  "en": "strawberry",
+  "fr": "fraise",
+  "ja": "イチゴ"
+ },
+ "tomato": {
+  "ar": "طماطم",
+  "en": "tomato",
+  "fr": "tomate",
+  "ja": "トマト"
+ },
+ "wheat": {
+  "ar": "قمح",
+  "en": "wheat",
+  "fr": "blé",
+  "ja": "小麦"
+ },
+ "{0} days": {
+  "ar": "{0} أيام",
+  "en": "{0} days",
+  "fr": "{0} jours",
+  "ja": "{0}日"
+ },
+ "{0} °C ·": {
+  "ar": "{0} °C ·",
+  "en": "{0} °C ·",
+  "fr": "{0} °C ·",
+  "ja": "{0} °C ·"
+ },
+ "{0}% (Dry Store) ·": {
+  "ar": "{0}% (خزن جاف) ·",
+  "en": "{0}% (Dry Store) ·",
+  "fr": "{0} % (stockage sec) ·",
+  "ja": "{0}%（乾式保存）·"
+ },
+ "{0}% (Humid Store) ·": {
+  "ar": "{0}% (خزن رطب) ·",
+  "en": "{0}% (Humid Store) ·",
+  "fr": "{0} % (stockage humide) ·",
+  "ja": "{0}%（湿式保存）·"
+ },
+ "{0}:{1} (Midday Sun Rising)": {
+  "ar": "{0}:{1} (شمس القايلة)",
+  "en": "{0}:{1} (Midday Sun Rising)",
+  "fr": "{0}:{1} (soleil de midi)",
+  "ja": "{0}:{1}（昼の日差し）"
+ },
+ "{0}:{1} (Night Frost & Heater)": {
+  "ar": "{0}:{1} (صقيع الليل والسخّان)",
+  "en": "{0}:{1} (Night Frost & Heater)",
+  "fr": "{0}:{1} (gel nocturne et chauffage)",
+  "ja": "{0}:{1}（夜間の霜とヒーター）"
+ },
+ "{0}:{1} (Night)": {
+  "ar": "{0}:{1} (الليل)",
+  "en": "{0}:{1} (Night)",
+  "fr": "{0}:{1} (nuit)",
+  "ja": "{0}:{1}（夜）"
+ },
+ "{0}:{1} (Peak Heat & Fan)": {
+  "ar": "{0}:{1} (ذروة الحرّ والمروحة)",
+  "en": "{0}:{1} (Peak Heat & Fan)",
+  "fr": "{0}:{1} (pic de chaleur et ventilateur)",
+  "ja": "{0}:{1}（暑さのピークとファン）"
+ },
+ "{0}:{1} (Target Restored)": {
+  "ar": "{0}:{1} (رجع الهدف)",
+  "en": "{0}:{1} (Target Restored)",
+  "fr": "{0}:{1} (cible rétablie)",
+  "ja": "{0}:{1}（目標回復）"
+ },
+ "{0}:{1} AM": {
+  "ar": "{0}:{1} ص",
+  "en": "{0}:{1} AM",
+  "fr": "{0}:{1}",
+  "ja": "午前{0}:{1}"
+ },
+ "{0}:{1} PM": {
+  "ar": "{0}:{1} م",
+  "en": "{0}:{1} PM",
+  "fr": "{0}:{1} (après-midi)",
+  "ja": "午後{0}:{1}"
+ },
+ "{0}d ago": {
+  "ar": "قبل {0} أيام",
+  "en": "{0}d ago",
+  "fr": "il y a {0} j",
+  "ja": "{0}日前"
+ },
+ "{a} · BATCH #{0}": {
+  "ar": "{a} · الدفعة رقم {0}",
+  "en": "{a} · BATCH #{0}",
+  "fr": "{a} · LOT N°{0}",
+  "ja": "{a} · ロット#{0}"
+ },
+ "⏸ Pause": {
+  "ar": "⏸ إيقاف",
+  "en": "⏸ Pause",
+  "fr": "⏸ Pause",
+  "ja": "⏸ 一時停止"
+ },
+ "▶ Play Timeline": {
+  "ar": "▶ شغّل النهار",
+  "en": "▶ Play Timeline",
+  "fr": "▶ Lancer la journée",
+  "ja": "▶ 1日を再生"
+ },
+ "⛅ Room {0}°": {
+  "ar": "⛅ الغرفة {0}°",
+  "en": "⛅ Room {0}°",
+  "fr": "⛅ Ambiant {0}°",
+  "ja": "⛅ 室温 {0}°"
+ },
+ "❄️ Optimal": {
+  "ar": "❄️ مثالي",
+  "en": "❄️ Optimal",
+  "fr": "❄️ Optimal",
+  "ja": "❄️ 最適"
+ },
+ "🌡️ Storage Climate Sensors": {
+  "ar": "🌡️ حسّاسات مناخ الخزن",
+  "en": "🌡️ Storage Climate Sensors",
+  "fr": "🌡️ Capteurs du climat de stockage",
+  "ja": "🌡️ 保管環境センサー"
+ },
+ "🌱 Crop Health & Freshness": {
+  "ar": "🌱 صحة المنتوج وطراوتو",
+  "en": "🌱 Crop Health & Freshness",
+  "fr": "🌱 État et fraîcheur du produit",
+  "ja": "🌱 作物の状態と鮮度"
+ },
+ "🏢 Digital Twin · Storage Chamber Simulation": {
+  "ar": "🏢 التوأم الرقمي · محاكاة غرفة الخزن",
+  "en": "🏢 Digital Twin · Storage Chamber Simulation",
+  "fr": "🏢 Jumeau numérique · Simulation de la chambre",
+  "ja": "🏢 デジタルツイン · 保管室シミュレーション"
+ },
+ "👍 Storage climate is optimal. Your produce is well preserved.": {
+  "ar": "👍 مناخ الخزن مثالي. المنتوج متاعك محفوظ مليح.",
+  "en": "👍 Storage climate is optimal. Your produce is well preserved.",
+  "fr": "👍 Le climat de stockage est optimal. Votre produit est bien conservé.",
+  "ja": "👍 保管環境は最適です。農産物はよく保存されています。"
+ },
+ "📅 {0}-Day Freshness Outlook": {
+  "ar": "📅 الطراوة على {0} أيام",
+  "en": "📅 {0}-Day Freshness Outlook",
+  "fr": "📅 Fraîcheur sur {0} jours",
+  "ja": "📅 {0}日間の鮮度予測"
+ },
+ "📢 What Should You Do?": {
+  "ar": "📢 شنوّة لازمك تعمل؟",
+  "en": "📢 What Should You Do?",
+  "fr": "📢 Que faire ?",
+  "ja": "📢 どうすればいい？"
+ },
+ "📦 Selected Produce": {
+  "ar": "📦 المنتوج المختار",
+  "en": "📦 Selected Produce",
+  "fr": "📦 Produit choisi",
+  "ja": "📦 選んだ農産物"
+ },
+ "🔥 Hot {0}°": {
+  "ar": "🔥 سخون {0}°",
+  "en": "🔥 Hot {0}°",
+  "fr": "🔥 Chaud {0}°",
+  "ja": "🔥 高温 {0}°"
+ },
+ "🔴 Sell Now": {
+  "ar": "🔴 بيع توّا",
+  "en": "🔴 Sell Now",
+  "fr": "🔴 À vendre",
+  "ja": "🔴 今すぐ販売"
+ },
+ "🟡 Ripening": {
+  "ar": "🟡 قاعد يطيب",
+  "en": "🟡 Ripening",
+  "fr": "🟡 Mûrit",
+  "ja": "🟡 熟成中"
+ },
+ "🟢 Fresh": {
+  "ar": "🟢 طري",
+  "en": "🟢 Fresh",
+  "fr": "🟢 Frais",
+  "ja": "🟢 新鮮"
+ },
+ "🧊 Cold {0}°": {
+  "ar": "🧊 برد {0}°",
+  "en": "🧊 Cold {0}°",
+  "fr": "🧊 Froid {0}°",
+  "ja": "🧊 低温 {0}°"
+ }
+}

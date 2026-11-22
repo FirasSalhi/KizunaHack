@@ -1,0 +1,942 @@
+{
+ "+ Ajouter une parcelle": {
+  "ar": "+ زيد قطعة",
+  "en": "+ Add a plot",
+  "ja": "+ 区画を追加"
+ },
+ ", {0} m³ d'eau par jour.": {
+  "ar": "، {0} م³ ماء في النهار.",
+  "en": ", {0} m³ of water a day.",
+  "ja": "、1日あたり{0} m³の水。"
+ },
+ "API injoignable à cette adresse. Lancez services/api puis réessayez.": {
+  "ar": "ما نجمناش نوصلو للـAPI في هالعنوان. شغّل services/api وعاود.",
+  "en": "API unreachable at this address. Start services/api and try again.",
+  "ja": "このアドレスのAPIに接続できません。services/apiを起動して再試行してください。"
+ },
+ "Adresse de l'API Mdhalla": {
+  "ar": "عنوان API مظلّة",
+  "en": "Mdhalla API address",
+  "ja": "Mdhalla APIのアドレス"
+ },
+ "Agrumes": {
+  "ar": "حمضيات",
+  "en": "Citrus",
+  "ja": "柑橘類"
+ },
+ "Agrumes · حمضيات": {
+  "ar": "حمضيات",
+  "en": "Citrus",
+  "ja": "柑橘類"
+ },
+ "Ail": {
+  "ar": "ثوم",
+  "en": "Garlic",
+  "ja": "ニンニク"
+ },
+ "Ail · ثوم": {
+  "ar": "ثوم",
+  "en": "Garlic",
+  "ja": "ニンニク"
+ },
+ "Ajouter": {
+  "ar": "زيد",
+  "en": "Add",
+  "ja": "追加"
+ },
+ "Amandier": {
+  "ar": "لوز",
+  "en": "Almond tree",
+  "ja": "アーモンド"
+ },
+ "Amandier · لوز": {
+  "ar": "لوز",
+  "en": "Almond tree",
+  "ja": "アーモンド"
+ },
+ "Annuler": {
+  "ar": "إلغاء",
+  "en": "Cancel",
+  "ja": "キャンセル"
+ },
+ "Arbres à noyau": {
+  "ar": "فواكه ذات نواة",
+  "en": "Stone fruit trees",
+  "ja": "核果類"
+ },
+ "Arbres à noyau · فواكه ذات نواة": {
+  "ar": "فواكه ذات نواة",
+  "en": "Stone fruit trees",
+  "ja": "核果類"
+ },
+ "Argile limoneuse": {
+  "ar": "طين طمي",
+  "en": "Silty clay",
+  "ja": "シルト質埴土"
+ },
+ "Arrosage": {
+  "ar": "السقي",
+  "en": "Irrigation",
+  "ja": "灌水方法"
+ },
+ "Arroser bientôt": {
+  "ar": "اسقي قريب",
+  "en": "Water soon",
+  "ja": "もうすぐ水やり"
+ },
+ "Arroser d'ici {0} j": {
+  "ar": "اسقي في ظرف {0} أيام",
+  "en": "Water within {0} d",
+  "ja": "{0}日以内に水やり"
+ },
+ "Arroser d'ici {0} j · {1} m³": {
+  "ar": "اسقي في ظرف {0} أيام · {1} م³",
+  "en": "Water within {0} d · {1} m³",
+  "ja": "{0}日以内に水やり · {1} m³"
+ },
+ "Arroser maintenant": {
+  "ar": "اسقي توّا",
+  "en": "Water now",
+  "ja": "今すぐ水やり"
+ },
+ "Arroser maintenant · {0} m³": {
+  "ar": "اسقي توّا · {0} م³",
+  "en": "Water now · {0} m³",
+  "ja": "今すぐ水やり · {0} m³"
+ },
+ "Arrosez aujourd'hui": {
+  "ar": "اسقي اليوم",
+  "en": "Water today",
+  "ja": "今日水やり"
+ },
+ "Arrosez dans {0} jour": {
+  "ar": "اسقي بعد {0} نهار",
+  "en": "Water in {0} day",
+  "ja": "{0}日後に水やり"
+ },
+ "Arrosez dans {0} jours": {
+  "ar": "اسقي بعد {0} أيام",
+  "en": "Water in {0} days",
+  "ja": "{0}日後に水やり"
+ },
+ "Artichaut": {
+  "ar": "قنارية",
+  "en": "Artichoke",
+  "ja": "アーティチョーク"
+ },
+ "Artichaut · قنارية": {
+  "ar": "قنارية",
+  "en": "Artichoke",
+  "ja": "アーティチョーク"
+ },
+ "Aspersion": {
+  "ar": "رشّ",
+  "en": "Sprinkler",
+  "ja": "スプリンクラー"
+ },
+ "Aubergine": {
+  "ar": "باذنجان",
+  "en": "Eggplant",
+  "ja": "ナス"
+ },
+ "Aubergine · باذنجان": {
+  "ar": "باذنجان",
+  "en": "Eggplant",
+  "ja": "ナス"
+ },
+ "Aucune parcelle n'a besoin d'eau pour l'instant.": {
+  "ar": "حتى قطعة ما تستحق ماء توّا.",
+  "en": "No plot needs water right now.",
+  "ja": "今、水が必要な区画はありません。"
+ },
+ "Aujourd'hui": {
+  "ar": "اليوم",
+  "en": "Today",
+  "ja": "今日"
+ },
+ "Avancer": {
+  "ar": "قدّام",
+  "en": "Forward",
+  "ja": "前進"
+ },
+ "Avec l'API lancée (services/api), les décisions viennent du vrai moteur Python et de la météo du jour.": {
+  "ar": "كي يكون الـAPI خدّام (services/api)، القرارات تجي من محرّك Python الحقيقي وطقس اليوم.",
+  "en": "With the API running (services/api), decisions come from the real Python engine and today's weather.",
+  "ja": "API（services/api）が動いていれば、判断は本物のPythonエンジンと今日の天気から得られます。"
+ },
+ "Bassin d'eau": {
+  "ar": "حوض الماء",
+  "en": "Water basin",
+  "ja": "貯水池"
+ },
+ "Besoin de la plante": {
+  "ar": "حاجة النبتة",
+  "en": "Plant need",
+  "ja": "植物の必要量"
+ },
+ "Besoin total {0} m³ · {1} % couvert · il reste {2} m³ dans le bassin.": {
+  "ar": "الحاجة الجملية {0} م³ · {1} % مغطّاة · يبقى {2} م³ في الحوض.",
+  "en": "Total need {0} m³ · {1} % covered · {2} m³ left in the basin.",
+  "ja": "必要量合計 {0} m³ · {1} % を確保 · 貯水池に残り {2} m³。"
+ },
+ "Betterave sucrière": {
+  "ar": "شمندر سكري",
+  "en": "Sugar beet",
+  "ja": "テンサイ"
+ },
+ "Betterave sucrière · شمندر سكري": {
+  "ar": "شمندر سكري",
+  "en": "Sugar beet",
+  "ja": "テンサイ"
+ },
+ "Bientôt la récolte": {
+  "ar": "الصابة قريب",
+  "en": "Harvest soon",
+  "ja": "まもなく収穫"
+ },
+ "Blé dur": {
+  "ar": "قمح صلب",
+  "en": "Durum wheat",
+  "ja": "デュラム小麦"
+ },
+ "Blé dur · قمح صلب": {
+  "ar": "قمح صلب",
+  "en": "Durum wheat",
+  "ja": "デュラム小麦"
+ },
+ "Capacité au champ": {
+  "ar": "السعة الحقلية",
+  "en": "Field capacity",
+  "ja": "圃場容水量"
+ },
+ "Carotte": {
+  "ar": "جزر",
+  "en": "Carrot",
+  "ja": "ニンジン"
+ },
+ "Carotte · جزر": {
+  "ar": "جزر",
+  "en": "Carrot",
+  "ja": "ニンジン"
+ },
+ "Chott Meriam, Sousse · météo du": {
+  "ar": "شط مريم، سوسة · طقس",
+  "en": "Chott Meriam, Sousse · weather on",
+  "ja": "チョット・メリアム、スース · 天気"
+ },
+ "Chou": {
+  "ar": "ملفوف",
+  "en": "Cabbage",
+  "ja": "キャベツ"
+ },
+ "Chou · ملفوف": {
+  "ar": "ملفوف",
+  "en": "Cabbage",
+  "ja": "キャベツ"
+ },
+ "Chou-fleur": {
+  "ar": "قرنبيط",
+  "en": "Cauliflower",
+  "ja": "カリフラワー"
+ },
+ "Chou-fleur · قرنبيط": {
+  "ar": "قرنبيط",
+  "en": "Cauliflower",
+  "ja": "カリフラワー"
+ },
+ "Comme dans l'exemple": {
+  "ar": "كيف المثال",
+  "en": "As in the example",
+  "ja": "例と同じ"
+ },
+ "Concombre": {
+  "ar": "خيار",
+  "en": "Cucumber",
+  "ja": "キュウリ"
+ },
+ "Concombre · خيار": {
+  "ar": "خيار",
+  "en": "Cucumber",
+  "ja": "キュウリ"
+ },
+ "Connecter": {
+  "ar": "اتّصل",
+  "en": "Connect",
+  "ja": "接続"
+ },
+ "Connexion…": {
+  "ar": "قاعد يتّصل…",
+  "en": "Connecting…",
+  "ja": "接続中…"
+ },
+ "Consommation": {
+  "ar": "الاستهلاك",
+  "en": "Use",
+  "ja": "消費量"
+ },
+ "Courgette": {
+  "ar": "كوسة",
+  "en": "Courgette",
+  "ja": "ズッキーニ"
+ },
+ "Courgette · كوسة": {
+  "ar": "كوسة",
+  "en": "Courgette",
+  "ja": "ズッキーニ"
+ },
+ "Dernier arrosage": {
+  "ar": "آخر سقية",
+  "en": "Last watering",
+  "ja": "最後の水やり"
+ },
+ "Dernier arrosage complet": {
+  "ar": "آخر سقية كاملة",
+  "en": "Last full watering",
+  "ja": "最後の十分な水やり"
+ },
+ "Dites-nous votre type de sol": {
+  "ar": "قلّنا شنوّة نوع تربتك",
+  "en": "Tell us your soil type",
+  "ja": "土壌の種類を教えてください"
+ },
+ "Démo intégrée · météo figée du {0}/{1}": {
+  "ar": "عرض تجريبي · طقس ثابت متاع {0}/{1}",
+  "en": "Built-in demo · weather fixed on {0}/{1}",
+  "ja": "組み込みデモ · {0}/{1}の固定天気"
+ },
+ "Détails techniques": {
+  "ar": "تفاصيل تقنية",
+  "en": "Technical details",
+  "ja": "技術的な詳細"
+ },
+ "Eau dans la terre : {0} %": {
+  "ar": "الماء في التربة: {0} %",
+  "en": "Water in the soil: {0} %",
+  "ja": "土壌中の水：{0} %"
+ },
+ "Eau disponible aujourd'hui :": {
+  "ar": "الماء المتوفّر اليوم:",
+  "en": "Water available today:",
+  "ja": "今日使える水："
+ },
+ "Eau restante {0} pour cent": {
+  "ar": "الماء الباقي {0} بالمية",
+  "en": "Water left {0} percent",
+  "ja": "残りの水 {0} パーセント"
+ },
+ "Eau utilisée": {
+  "ar": "الماء المستعمل",
+  "en": "Water used",
+  "ja": "使用水量"
+ },
+ "Elle est en pleine production": {
+  "ar": "في عزّ الإنتاج",
+  "en": "In full production",
+  "ja": "最盛期"
+ },
+ "Elle pousse": {
+  "ar": "قاعدة تكبر",
+  "en": "Growing",
+  "ja": "生育中"
+ },
+ "Elle vient d'être plantée": {
+  "ar": "توّا تزرعت",
+  "en": "Just planted",
+  "ja": "植えたばかり"
+ },
+ "Flèches ou ZQSD/WASD pour marcher · glisser pour regarder · cliquer une parcelle": {
+  "ar": "الأسهم ولا WASD باش تمشي · اسحب باش تتفرّج · انقر على قطعة",
+  "en": "Arrows or WASD to walk · drag to look · click a plot",
+  "ja": "矢印キーかWASDで歩く · ドラッグで見回す · 区画をクリック"
+ },
+ "Fraise": {
+  "ar": "فراولة",
+  "en": "Strawberry",
+  "ja": "イチゴ"
+ },
+ "Fraise · فراولة": {
+  "ar": "فراولة",
+  "en": "Strawberry",
+  "ja": "イチゴ"
+ },
+ "Fève": {
+  "ar": "فول",
+  "en": "Broad bean",
+  "ja": "ソラマメ"
+ },
+ "Fève · فول": {
+  "ar": "فول",
+  "en": "Broad bean",
+  "ja": "ソラマメ"
+ },
+ "Glisser pour tourner · molette pour zoomer · cliquer une parcelle": {
+  "ar": "اسحب باش تدوّر · العجلة باش تكبّر · انقر على قطعة",
+  "en": "Drag to turn · scroll to zoom · click a plot",
+  "ja": "ドラッグで回転 · ホイールでズーム · 区画をクリック"
+ },
+ "Goutte-à-goutte": {
+  "ar": "قطرة قطرة",
+  "en": "Drip",
+  "ja": "点滴"
+ },
+ "Gravitaire (rigoles)": {
+  "ar": "بالجاذبية (سواقي)",
+  "en": "Surface (furrows)",
+  "ja": "地表灌漑（畝間）"
+ },
+ "Haricot vert": {
+  "ar": "لوبيا خضراء",
+  "en": "Green bean",
+  "ja": "インゲン"
+ },
+ "Haricot vert · لوبيا خضراء": {
+  "ar": "لوبيا خضراء",
+  "en": "Green bean",
+  "ja": "インゲン"
+ },
+ "Hier": {
+  "ar": "البارح",
+  "en": "Yesterday",
+  "ja": "昨日"
+ },
+ "Il y a {0} jours": {
+  "ar": "قبل {0} أيام",
+  "en": "{0} days ago",
+  "ja": "{0}日前"
+ },
+ "Il y a {0} mois": {
+  "ar": "قبل {0} شهر",
+  "en": "{0} months ago",
+  "ja": "{0}か月前"
+ },
+ "Il y a {0} mois et demi": {
+  "ar": "قبل {0} شهر ونص",
+  "en": "{0}.5 months ago",
+  "ja": "{0}か月半前"
+ },
+ "Il y a {0} semaine": {
+  "ar": "قبل {0} جمعة",
+  "en": "{0} week ago",
+  "ja": "{0}週間前"
+ },
+ "Il y a {0} semaines": {
+  "ar": "قبل {0} جمعات",
+  "en": "{0} weeks ago",
+  "ja": "{0}週間前"
+ },
+ "Je ne sais pas": {
+  "ar": "ما نعرفش",
+  "en": "I don't know",
+  "ja": "わからない"
+ },
+ "Kc {0} · racines {1} m · ET₀ {2} mm/j · score {3} · calcul FAO{4} de la démo": {
+  "ar": "Kc {0} · العروق {1} م · ET₀ {2} مم/يوم · نتيجة {3} · حساب FAO{4} التجريبي",
+  "en": "Kc {0} · roots {1} m · ET₀ {2} mm/d · score {3} · demo FAO{4} calculation",
+  "ja": "Kc {0} · 根 {1} m · ET₀ {2} mm/日 · スコア {3} · デモのFAO{4}計算"
+ },
+ "Kc {0} · racines {1} m · ET₀ {2} mm/j · score {3} · valeurs du moteur Python ({4}/{5})": {
+  "ar": "Kc {0} · العروق {1} م · ET₀ {2} مم/يوم · نتيجة {3} · قيم محرّك Python ({4}/{5})",
+  "en": "Kc {0} · roots {1} m · ET₀ {2} mm/d · score {3} · Python engine values ({4}/{5})",
+  "ja": "Kc {0} · 根 {1} m · ET₀ {2} mm/日 · スコア {3} · Pythonエンジンの値（{4}/{5}）"
+ },
+ "La plus gourmande :": {
+  "ar": "الأكثر استهلاكاً:",
+  "en": "Thirstiest:",
+  "ja": "最も水を使う区画："
+ },
+ "La terre a encore assez d'eau pour les {0} prochains jours.": {
+  "ar": "التربة مازال فيها ماء يكفي للـ{0} أيام الجايين.",
+  "en": "The soil still has enough water for the next {0} days.",
+  "ja": "土壌にはあと{0}日分の水があります。"
+ },
+ "Laitue": {
+  "ar": "خس",
+  "en": "Lettuce",
+  "ja": "レタス"
+ },
+ "Laitue · خس": {
+  "ar": "خس",
+  "en": "Lettuce",
+  "ja": "レタス"
+ },
+ "Le bassin ne peut donner que {0} m³ : il manque {1} m³.": {
+  "ar": "الحوض ما ينجمش يعطي كان {0} م³: ناقص {1} م³.",
+  "en": "The basin can only supply {0} m³: {1} m³ short.",
+  "ja": "貯水池から出せるのは{0} m³のみ：{1} m³不足。"
+ },
+ "Le bassin peut donner toute cette eau.": {
+  "ar": "الحوض ينجم يعطي الماء الكل.",
+  "en": "The basin can supply all this water.",
+  "ja": "貯水池でこの水をすべて賄えます。"
+ },
+ "Lentille": {
+  "ar": "عدس",
+  "en": "Lentil",
+  "ja": "レンズ豆"
+ },
+ "Lentille · عدس": {
+  "ar": "عدس",
+  "en": "Lentil",
+  "ja": "レンズ豆"
+ },
+ "Limon": {
+  "ar": "طمي",
+  "en": "Loam",
+  "ja": "壌土"
+ },
+ "Limon argileux": {
+  "ar": "طمي طيني",
+  "en": "Clay loam",
+  "ja": "埴壌土"
+ },
+ "Limon fin": {
+  "ar": "طمي ناعم",
+  "en": "Silt loam",
+  "ja": "シルト壌土"
+ },
+ "Limon sableux": {
+  "ar": "طمي رملي",
+  "en": "Sandy loam",
+  "ja": "砂壌土"
+ },
+ "Luzerne": {
+  "ar": "برسيم حجازي",
+  "en": "Alfalfa",
+  "ja": "アルファルファ"
+ },
+ "Luzerne · برسيم حجازي": {
+  "ar": "برسيم حجازي",
+  "en": "Alfalfa",
+  "ja": "アルファルファ"
+ },
+ "Ma ferme en {0}D": {
+  "ar": "فلاحتي {0}D",
+  "en": "My farm in {0}D",
+  "ja": "{0}Dの私の農場"
+ },
+ "Ma parcelle": {
+  "ar": "قطعتي",
+  "en": "My plot",
+  "ja": "私の区画"
+ },
+ "Marcher": {
+  "ar": "امشي",
+  "en": "Walk",
+  "ja": "歩く"
+ },
+ "Maïs grain": {
+  "ar": "ذرة",
+  "en": "Grain maize",
+  "ja": "子実トウモロコシ"
+ },
+ "Maïs grain · ذرة": {
+  "ar": "ذرة",
+  "en": "Grain maize",
+  "ja": "子実トウモロコシ"
+ },
+ "Mdhalla Ferme {0}D": {
+  "ar": "مظلّة · الفلاحة {0}D",
+  "en": "Mdhalla {0}D farm",
+  "ja": "Mdhalla {0}D農場"
+ },
+ "Melon": {
+  "ar": "شمام",
+  "en": "Melon",
+  "ja": "メロン"
+ },
+ "Melon · شمام": {
+  "ar": "شمام",
+  "en": "Melon",
+  "ja": "メロン"
+ },
+ "Mes parcelles": {
+  "ar": "قطعي",
+  "en": "My plots",
+  "ja": "私の区画"
+ },
+ "Mode de vue": {
+  "ar": "نوع العرض",
+  "en": "View mode",
+  "ja": "表示モード"
+ },
+ "Mon sol mesuré (labo)": {
+  "ar": "تربتي المقيسة (مخبر)",
+  "en": "My measured soil (lab)",
+  "ja": "測定した土壌（ラボ）"
+ },
+ "Moteur de calcul": {
+  "ar": "محرّك الحساب",
+  "en": "Calculation engine",
+  "ja": "計算エンジン"
+ },
+ "Non": {
+  "ar": "لا",
+  "en": "No",
+  "ja": "いいえ"
+ },
+ "Nouvelle parcelle": {
+  "ar": "قطعة جديدة",
+  "en": "New plot",
+  "ja": "新しい区画"
+ },
+ "Noyer": {
+  "ar": "جوز",
+  "en": "Walnut tree",
+  "ja": "クルミ"
+ },
+ "Noyer · جوز": {
+  "ar": "جوز",
+  "en": "Walnut tree",
+  "ja": "クルミ"
+ },
+ "Oignon sec": {
+  "ar": "بصل",
+  "en": "Dry onion",
+  "ja": "タマネギ"
+ },
+ "Oignon sec · بصل": {
+  "ar": "بصل",
+  "en": "Dry onion",
+  "ja": "タマネギ"
+ },
+ "Olivier": {
+  "ar": "زيتون",
+  "en": "Olive tree",
+  "ja": "オリーブ"
+ },
+ "Olivier · زيتون": {
+  "ar": "زيتون",
+  "en": "Olive tree",
+  "ja": "オリーブ"
+ },
+ "Orge": {
+  "ar": "شعير",
+  "en": "Barley",
+  "ja": "大麦"
+ },
+ "Orge · شعير": {
+  "ar": "شعير",
+  "en": "Barley",
+  "ja": "大麦"
+ },
+ "Oui": {
+  "ar": "إيه",
+  "en": "Yes",
+  "ja": "はい"
+ },
+ "Où en est la culture ?": {
+  "ar": "وين وصلت الزراعة؟",
+  "en": "How far along is the crop?",
+  "ja": "作物の生育段階は？"
+ },
+ "Palmier dattier": {
+  "ar": "نخيل التمر",
+  "en": "Date palm",
+  "ja": "ナツメヤシ"
+ },
+ "Palmier dattier · نخيل التمر": {
+  "ar": "نخيل التمر",
+  "en": "Date palm",
+  "ja": "ナツメヤシ"
+ },
+ "Parcelles": {
+  "ar": "القطع",
+  "en": "Plots",
+  "ja": "区画"
+ },
+ "Pas besoin": {
+  "ar": "ما يستحقش",
+  "en": "Not needed",
+  "ja": "不要"
+ },
+ "Pas besoin d'arroser": {
+  "ar": "ما يستحقش سقي",
+  "en": "No need to water",
+  "ja": "水やり不要"
+ },
+ "Pastèque": {
+  "ar": "دلاع",
+  "en": "Watermelon",
+  "ja": "スイカ"
+ },
+ "Pastèque · دلاع": {
+  "ar": "دلاع",
+  "en": "Watermelon",
+  "ja": "スイカ"
+ },
+ "Pistachier": {
+  "ar": "فستق",
+  "en": "Pistachio tree",
+  "ja": "ピスタチオ"
+ },
+ "Pistachier · فستق": {
+  "ar": "فستق",
+  "en": "Pistachio tree",
+  "ja": "ピスタチオ"
+ },
+ "Point de flétrissement": {
+  "ar": "نقطة الذبول",
+  "en": "Wilting point",
+  "ja": "しおれ点"
+ },
+ "Pois chiche": {
+  "ar": "حمص",
+  "en": "Chickpea",
+  "ja": "ヒヨコマメ"
+ },
+ "Pois chiche · حمص": {
+  "ar": "حمص",
+  "en": "Chickpea",
+  "ja": "ヒヨコマメ"
+ },
+ "Poivron": {
+  "ar": "فلفل",
+  "en": "Sweet pepper",
+  "ja": "ピーマン"
+ },
+ "Poivron · فلفل": {
+  "ar": "فلفل",
+  "en": "Sweet pepper",
+  "ja": "ピーマン"
+ },
+ "Pomme de terre": {
+  "ar": "بطاطا",
+  "en": "Potato",
+  "ja": "ジャガイモ"
+ },
+ "Pomme de terre · بطاطا": {
+  "ar": "بطاطا",
+  "en": "Potato",
+  "ja": "ジャガイモ"
+ },
+ "Pommier": {
+  "ar": "تفاح",
+  "en": "Apple tree",
+  "ja": "リンゴ"
+ },
+ "Pommier · تفاح": {
+  "ar": "تفاح",
+  "en": "Apple tree",
+  "ja": "リンゴ"
+ },
+ "Priorité": {
+  "ar": "الأولوية",
+  "en": "Priority",
+  "ja": "優先度"
+ },
+ "Promenade": {
+  "ar": "جولة",
+  "en": "Walk",
+  "ja": "散歩"
+ },
+ "Quelle plante ?": {
+  "ar": "شنوّة النبتة؟",
+  "en": "Which plant?",
+  "ja": "どの植物？"
+ },
+ "Raisin de table": {
+  "ar": "عنب مائدة",
+  "en": "Table grapes",
+  "ja": "生食用ブドウ"
+ },
+ "Raisin de table · عنب مائدة": {
+  "ar": "عنب مائدة",
+  "en": "Table grapes",
+  "ja": "生食用ブドウ"
+ },
+ "Reculer": {
+  "ar": "لتالي",
+  "en": "Back",
+  "ja": "後退"
+ },
+ "Revenir à la ferme d'exemple": {
+  "ar": "ارجع للفلاحة المثال",
+  "en": "Back to the example farm",
+  "ja": "例の農場に戻る"
+ },
+ "Réserve du sol": {
+  "ar": "مخزون التربة",
+  "en": "Soil reserve",
+  "ja": "土壌の貯水量"
+ },
+ "Sable limoneux": {
+  "ar": "رمل طمي",
+  "en": "Loamy sand",
+  "ja": "壌質砂土"
+ },
+ "Sans lui, on ne peut pas savoir combien d'eau la terre garde. Choisissez le sol le plus proche ci-dessous.": {
+  "ar": "بلاش بيه ما نجموش نعرفو قدّاش التربة تشدّ ماء. اختار التربة الأقرب لتحت.",
+  "en": "Without it we can't tell how much water the soil holds. Choose the closest soil below.",
+  "ja": "それがないと土壌が保つ水の量がわかりません。下から最も近い土壌を選んでください。"
+ },
+ "Seuil de soif": {
+  "ar": "عتبة العطش",
+  "en": "Thirst threshold",
+  "ja": "水不足の閾値"
+ },
+ "Sol à renseigner": {
+  "ar": "لازم تحدّد التربة",
+  "en": "Soil to fill in",
+  "ja": "土壌を入力"
+ },
+ "Sous le trait orange ({0} %), la plante a soif et pousse moins bien.": {
+  "ar": "تحت الخط البرتقالي ({0} %)، النبتة عطشانة وما تكبرش مليح.",
+  "en": "Below the orange line ({0} %), the plant is thirsty and grows less well.",
+  "ja": "オレンジの線（{0} %）より下では植物が水不足で育ちが悪くなります。"
+ },
+ "Supprimer": {
+  "ar": "فسّخ",
+  "en": "Delete",
+  "ja": "削除"
+ },
+ "Supprimer Z{0}": {
+  "ar": "فسّخ Z{0}",
+  "en": "Delete Z{0}",
+  "ja": "Z{0}を削除"
+ },
+ "Surface (hectares)": {
+  "ar": "المساحة (هكتار)",
+  "en": "Area (hectares)",
+  "ja": "面積（ha）"
+ },
+ "Tomate": {
+  "ar": "طماطم",
+  "en": "Tomato",
+  "ja": "トマト"
+ },
+ "Tomate · طماطم": {
+  "ar": "طماطم",
+  "en": "Tomato",
+  "ja": "トマト"
+ },
+ "Tourner à droite": {
+  "ar": "دوّر لليمين",
+  "en": "Turn right",
+  "ja": "右に回る"
+ },
+ "Tourner à gauche": {
+  "ar": "دوّر لليسار",
+  "en": "Turn left",
+  "ja": "左に回る"
+ },
+ "Tournesol": {
+  "ar": "دوار الشمس",
+  "en": "Sunflower",
+  "ja": "ヒマワリ"
+ },
+ "Tournesol · دوار الشمس": {
+  "ar": "دوار الشمس",
+  "en": "Sunflower",
+  "ja": "ヒマワリ"
+ },
+ "Type de sol": {
+  "ar": "نوع التربة",
+  "en": "Soil type",
+  "ja": "土壌の種類"
+ },
+ "Vigne": {
+  "ar": "عنب",
+  "en": "Grapevine (wine)",
+  "ja": "ブドウ（醸造用）"
+ },
+ "Vigne · عنب": {
+  "ar": "عنب",
+  "en": "Grapevine (wine)",
+  "ja": "ブドウ（醸造用）"
+ },
+ "Voir sur la carte": {
+  "ar": "شوف في الخريطة",
+  "en": "See on the map",
+  "ja": "地図で見る"
+ },
+ "Votre ferme (plan validé) · météo du": {
+  "ar": "فلاحتك (الخطة المعتمدة) · طقس",
+  "en": "Your farm (validated plan) · weather on",
+  "ja": "あなたの農場（確定プラン）· 天気"
+ },
+ "Vue d'ensemble": {
+  "ar": "نظرة عامة",
+  "en": "Overview",
+  "ja": "全体表示"
+ },
+ "Vue {0}D de la ferme : cliquez une parcelle pour voir son besoin en eau": {
+  "ar": "عرض {0}D للفلاحة: انقر على قطعة باش تشوف حاجتها للماء",
+  "en": "{0}D view of the farm: click a plot to see its water need",
+  "ja": "農場の{0}D表示：区画をクリックすると必要水量が見られます"
+ },
+ "Z{0} · {a}": {
+  "ar": "Z{0} · {a}",
+  "en": "Z{0} · {a}",
+  "ja": "Z{0} · {a}"
+ },
+ "Z{0} · {a} : choisir le sol": {
+  "ar": "Z{0} · {a}: اختار التربة",
+  "en": "Z{0} · {a}: choose the soil",
+  "ja": "Z{0} · {a}：土壌を選択"
+ },
+ "Z{0} · {a} · aujourd'hui": {
+  "ar": "Z{0} · {a} · اليوم",
+  "en": "Z{0} · {a} · today",
+  "ja": "Z{0} · {a} · 今日"
+ },
+ "Z{0} · {a} · dans {1} j": {
+  "ar": "Z{0} · {a} · بعد {1} أيام",
+  "en": "Z{0} · {a} · in {1} d",
+  "ja": "Z{0} · {a} · {1}日後"
+ },
+ "soit {0} litres": {
+  "ar": "يعني {0} لتر",
+  "en": "that is {0} litres",
+  "ja": "つまり{0}リットル"
+ },
+ "soit {0} litres · aspersion": {
+  "ar": "يعني {0} لتر · رشّ",
+  "en": "that is {0} litres · sprinkler",
+  "ja": "つまり{0}リットル · スプリンクラー"
+ },
+ "soit {0} litres · goutte-à-goutte": {
+  "ar": "يعني {0} لتر · قطرة قطرة",
+  "en": "that is {0} litres · drip",
+  "ja": "つまり{0}リットル · 点滴"
+ },
+ "soit {0} litres · gravitaire (rigoles)": {
+  "ar": "يعني {0} لتر · بالجاذبية (سواقي)",
+  "en": "that is {0} litres · surface (furrows)",
+  "ja": "つまり{0}リットル · 地表灌漑（畝間）"
+ },
+ "{0} mm/j": {
+  "ar": "{0} مم/يوم",
+  "en": "{0} mm/d",
+  "ja": "{0} mm/日"
+ },
+ "{0} m³/j": {
+  "ar": "{0} م³/يوم",
+  "en": "{0} m³/d",
+  "ja": "{0} m³/日"
+ },
+ "{0} parcelles": {
+  "ar": "{0} قطع",
+  "en": "{0} plots",
+  "ja": "{0}区画"
+ },
+ "{0} sur {1}": {
+  "ar": "{0} من {1}",
+  "en": "{0} of {1}",
+  "ja": "{1}中{0}"
+ },
+ "À arroser, dans cet ordre :": {
+  "ar": "لازم تسقي، بهالترتيب:",
+  "en": "To water, in this order:",
+  "ja": "この順に水やり："
+ },
+ "Épinard": {
+  "ar": "سبانخ",
+  "en": "Spinach",
+  "ja": "ホウレンソウ"
+ },
+ "Épinard · سبانخ": {
+  "ar": "سبانخ",
+  "en": "Spinach",
+  "ja": "ホウレンソウ"
+ }
+}

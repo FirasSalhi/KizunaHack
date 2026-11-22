@@ -1,5 +1,5 @@
 /*
- * FARMLINK voice assistant: the Pilo Tech "Horizon" assistant (homeassistant/www/horizon-home.js), renamed.
+ * Mdhalla voice assistant: the Pilo Tech "Horizon" assistant (homeassistant/www/horizon-home.js), renamed.
  * Same bubble, Siri-like orb, wake word, follow-up conversation, "bye bye" and interruption rules; the
  * Home Assistant parts (rooms, Android, Tunisian recording through Whisper) are left out.
  * Questions go to POST /api/v1/assistant/chat with what the dashboard shows (weather, plots, advice, sensors).
@@ -25,7 +25,7 @@ interface Recognition {
 }
 type RecognitionCtor = new () => Recognition;
 
-const DEFAULT_NAME = "Farmlink";
+const DEFAULT_NAME = "Mdhalla";
 const PAUSE_BEFORE_SEND_MS = 1200;
 const CONVERSATION_IDLE_MS = 10 * 60 * 1000;
 const GOODBYE_MAX_MS = 2500;
@@ -40,22 +40,22 @@ const SPEECH_LANG: Record<AssistantLanguage, string> = { fr: "fr-FR", en: "en-US
 
 const TEXT: Record<AssistantLanguage, Record<string, string>> = {
   fr: { listening: "Je vous écoute", thinking: "Je réfléchis…", more: "Autre chose ?", yes: "Oui ?", goodbye: "À bientôt !",
-    error: "Désolé, je n'arrive pas à joindre FARMLINK.", noMic: "Assistant vocal : utilisez Chrome ou Edge",
+    error: "Désolé, je n'arrive pas à joindre Mdhalla.", noMic: "Assistant vocal : utilisez Chrome ou Edge",
     allowMic: "Autorisez le micro pour parler à {name}", say: "Dites « {name} » ou touchez la bulle", touch: "Touchez la bulle pour parler",
     toggle: "Écoute « {name} » : {state}", on: "activée", off: "désactivée", tip: "Dites « bye bye » pour terminer · Parlez pour l'interrompre",
     close: "Fermer", empty: "Je n'ai pas de réponse." },
   en: { listening: "I'm listening", thinking: "Thinking…", more: "Anything else?", yes: "Yes?", goodbye: "See you soon!",
-    error: "Sorry, I can't reach FARMLINK.", noMic: "Voice assistant: use Chrome or Edge",
+    error: "Sorry, I can't reach Mdhalla.", noMic: "Voice assistant: use Chrome or Edge",
     allowMic: "Allow the microphone to talk to {name}", say: "Say “{name}” or tap the bubble", touch: "Tap the bubble to talk",
     toggle: "Listening for “{name}”: {state}", on: "on", off: "off", tip: "Say “bye bye” to finish · Speak to interrupt",
     close: "Close", empty: "I have no answer." },
   ar: { listening: "نسمع فيك", thinking: "نخمّم…", more: "حاجة أخرى؟", yes: "نعم؟", goodbye: "بالسلامة!",
-    error: "سامحني، ما نجمتش نوصل لـFARMLINK توّا.", noMic: "المساعد الصوتي: استعمل Chrome ولا Edge",
+    error: "سامحني، ما نجمتش نوصل لـمظلّة توّا.", noMic: "المساعد الصوتي: استعمل Chrome ولا Edge",
     allowMic: "اسمح بالميكرو باش تحكي مع {name}", say: "قول «{name}» ولا انقر على الفقاعة", touch: "انقر على الفقاعة باش تحكي",
     toggle: "الاستماع لـ«{name}»: {state}", on: "مفعّل", off: "موقوف", tip: "قول «باي باي» باش تكمّل · احكي باش تقطعو",
     close: "سكّر", empty: "ما عنديش جواب." },
   ja: { listening: "聞いています", thinking: "考えています…", more: "ほかに何か？", yes: "はい？", goodbye: "またね！",
-    error: "FARMLINKに接続できません。", noMic: "音声アシスタント：ChromeまたはEdgeをご利用ください",
+    error: "Mdhallaに接続できません。", noMic: "音声アシスタント：ChromeまたはEdgeをご利用ください",
     allowMic: "{name}と話すにはマイクを許可してください", say: "「{name}」と言うか、バブルをタップ", touch: "バブルをタップして話す",
     toggle: "「{name}」の待ち受け：{state}", on: "オン", off: "オフ", tip: "「バイバイ」で終了 · 話すと中断します",
     close: "閉じる", empty: "答えがありません。" },
@@ -64,11 +64,11 @@ const TEXT: Record<AssistantLanguage, Record<string, string>> = {
 const normalizeSpeech = (text: string) => text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 const fill = (s: string, v: Record<string, string>) => s.replace(/\{(\w+)\}/g, (_, k: string) => v[k] ?? "");
 
-/** Wake word = the assistant's name; recognizers often split or bend "Farmlink". */
+/** Wake word = the assistant's name; recognizers often split or bend "Mdhalla" (مظلّة). */
 function buildWakeRe(name: string) {
   const escaped = normalizeSpeech(name).trim().replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/[\s-]+/g, "[\\s-]*");
   return new RegExp(
-    `(?<![\\p{L}\\p{N}])(${escaped}s?|f[ae]r?m[\\s-]*l[iy]n[kc]s?|ferme[\\s-]*link|فارم[\\s-]*لينك|فارملينك|ファームリンク)(?![\\p{L}\\p{N}])`,
+    `(?<![\\p{L}\\p{N}])(${escaped}s?|m[ae]?[dt]?[h]?[\\s-]*all?ah?|m[ae]?d[\\s-]*h?al+a|مظلّ?[ةه]|مضلّ?[ةه]|ムダラ|マダラ|ムダッラ)(?![\\p{L}\\p{N}])`.normalize("NFD"), // speech text is compared in NFD form
     "u",
   );
 }
@@ -116,48 +116,50 @@ export class FarmAssistantController {
   }
 
   private get text() { return TEXT[this.language] || TEXT.fr; }
+  /** The name as shown: the brand's Arabic name in Arabic. */
+  private get shownName() { return this.language === "ar" && this.name === DEFAULT_NAME ? "مظلّة" : this.name; }
 
   // --- UI (attached to document.body, above the dashboard) ----------------
   private buildUi() {
     const root = this.host.attachShadow({ mode: "open" });
     root.innerHTML = `<style>
-      :host { all: initial; font-family: Inter, "Segoe UI", Roboto, system-ui, sans-serif; --accent: #4cc35a; --accent-soft: #a6e86b; --deep: #0f6b3a; }
+      :host { all: initial; font-family: Inter, "Segoe UI", Roboto, system-ui, sans-serif; --accent: #c6f04a; --accent-soft: #d4e88a; --deep: #0d0f0c; }
       .launcher { position: fixed; right: 24px; bottom: 24px; z-index: 9998; width: 66px; height: 66px; border: 0; border-radius: 50%; cursor: pointer; padding: 0; background: transparent; }
-      .mini { position: absolute; inset: 0; border-radius: 50%; overflow: hidden; background: #062a14; box-shadow: 0 12px 30px -8px rgba(76,195,90,.75); transition: transform .25s ease, box-shadow .25s ease; }
+      .mini { position: absolute; inset: 0; border-radius: 50%; overflow: hidden; background: #0d0f0c; box-shadow: 0 12px 30px -8px rgba(198,240,74,.55); transition: transform .25s ease, box-shadow .25s ease; }
       .mini .blob { filter: blur(6px); animation: none; }
-      .launcher:hover .mini, .launcher:focus-visible .mini { transform: scale(1.06); box-shadow: 0 14px 34px -8px rgba(166,232,107,.9); }
+      .launcher:hover .mini, .launcher:focus-visible .mini { transform: scale(1.06); box-shadow: 0 14px 34px -8px rgba(198,240,74,.8); }
       .launcher:hover .mini .blob { animation: spin 6s linear infinite; }
       .launcher:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
       .launcher.off .mini { filter: saturate(.75); }
       .badge { position: absolute; right: 2px; top: 2px; width: 14px; height: 14px; border-radius: 50%; border: 2px solid #fff; background: #94a3b8; }
-      .launcher.idle .badge { background: #22c55e; box-shadow: 0 0 0 4px rgba(34,197,94,.25); }
+      .launcher.idle .badge { background: #c6f04a; box-shadow: 0 0 0 4px rgba(198,240,74,.25); }
       .hint { position: fixed; right: 100px; bottom: 40px; z-index: 9998; padding: 8px 14px; border-radius: 999px; font-size: 13px; font-weight: 600;
-        color: #17330f; background: rgba(255,255,255,.95); box-shadow: 0 10px 24px -14px rgba(15,23,42,.6); cursor: pointer;
+        color: #0d0f0c; background: rgba(255,255,255,.95); box-shadow: 0 10px 24px -14px rgba(15,23,42,.6); cursor: pointer;
         opacity: 0; transform: translateX(8px); transition: opacity .25s, transform .25s; white-space: nowrap; }
       .wrap:hover .hint, .hint.show { opacity: 1; transform: none; }
       .overlay { position: fixed; inset: 0; z-index: 9999; display: none; flex-direction: column; align-items: center; justify-content: center; gap: 26px;
-        padding: 24px; background: radial-gradient(circle at 50% 40%, rgba(16,64,32,.78), rgba(3,14,7,.92)); backdrop-filter: blur(18px);
+        padding: 24px; background: radial-gradient(circle at 50% 40%, rgba(13,15,12,.82), rgba(2,3,2,.94)); backdrop-filter: blur(18px);
         -webkit-backdrop-filter: blur(18px); color: #fff; text-align: center; }
       .overlay.open { display: flex; animation: fade .25s ease; }
       .close { position: absolute; top: 22px; right: 22px; width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,.25);
         background: rgba(255,255,255,.08); color: #fff; font-size: 22px; cursor: pointer; }
       .orb { position: relative; width: 240px; height: 240px; border-radius: 50%; cursor: pointer; transform: scale(var(--level, 1));
-        transition: transform .08s linear; filter: drop-shadow(0 0 60px rgba(76,195,90,.55)); }
-      .orb .core { position: absolute; inset: 0; border-radius: 50%; overflow: hidden; background: #052012; }
+        transition: transform .08s linear; filter: drop-shadow(0 0 60px rgba(198,240,74,.45)); }
+      .orb .core { position: absolute; inset: 0; border-radius: 50%; overflow: hidden; background: #020302; }
       .blob { position: absolute; inset: -20%; border-radius: 50%; mix-blend-mode: screen; filter: blur(18px); opacity: .9; will-change: transform; }
       .b1 { background: conic-gradient(from 0deg, var(--accent), #ffd54a, var(--deep), var(--accent)); animation: spin 7s linear infinite; }
-      .b2 { background: radial-gradient(circle at 30% 30%, var(--accent-soft), transparent 60%), radial-gradient(circle at 70% 70%, #2bb3a3, transparent 55%); animation: spin 5s linear infinite reverse; }
+      .b2 { background: radial-gradient(circle at 30% 30%, var(--accent-soft), transparent 60%), radial-gradient(circle at 70% 70%, #8d9189, transparent 55%); animation: spin 5s linear infinite reverse; }
       .b3 { background: radial-gradient(circle at 60% 25%, #fff59d, transparent 50%), radial-gradient(circle at 25% 75%, var(--deep), transparent 55%); animation: wobble 4s ease-in-out infinite; }
       .orb .core::after { content: ""; position: absolute; inset: 0; border-radius: 50%; opacity: 0; transition: opacity .3s ease;
         background: radial-gradient(circle at 50% 50%, rgba(239,68,68,.75), rgba(127,29,29,.4) 70%); }
       .overlay[data-state="error"] .core::after { opacity: 1; }
       .ring, .spinner, .glow { position: absolute; border-radius: 50%; pointer-events: none; opacity: 0; }
-      .ring { inset: 0; border: 2px solid rgba(166,232,107,.65); }
+      .ring { inset: 0; border: 2px solid rgba(198,240,74,.65); }
       .overlay[data-state="listening"] .ring { animation: ripple 2.4s cubic-bezier(.2,.6,.3,1) infinite; }
       .overlay[data-state="listening"] .r2 { animation-delay: 1.2s; }
       .spinner { inset: -16px; border: 3px solid transparent; border-top-color: var(--accent-soft); border-right-color: rgba(255,213,74,.85); transition: opacity .3s ease; }
       .overlay[data-state="thinking"] .spinner { opacity: 1; animation: spin 1s linear infinite; }
-      .glow { inset: -28%; background: radial-gradient(circle, rgba(166,232,107,.5), rgba(255,213,74,.18) 45%, transparent 68%); }
+      .glow { inset: -28%; background: radial-gradient(circle, rgba(198,240,74,.5), rgba(255,213,74,.18) 45%, transparent 68%); }
       .overlay[data-state="speaking"] .glow { animation: halo 1.1s ease-in-out infinite alternate; }
       @keyframes ripple { from { opacity: .75; transform: scale(1); } to { opacity: 0; transform: scale(1.6); } }
       @keyframes halo { from { opacity: .35; transform: scale(.94); } to { opacity: .9; transform: scale(1.06); } }
@@ -169,8 +171,8 @@ export class FarmAssistantController {
       .overlay[data-state="speaking"] .orb { animation: talk .55s ease-in-out infinite alternate; }
       .label { font-size: 15px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-soft); font-weight: 700; transition: color .3s ease; }
       .transcript { max-width: 760px; min-height: 1.3em; font-size: clamp(22px, 3.4vw, 36px); font-weight: 300; line-height: 1.3; }
-      .answer { max-width: 760px; font-size: clamp(16px, 2vw, 20px); line-height: 1.5; color: #e8f5e0; white-space: pre-line; }
-      .tip { font-size: 13px; color: #9fb59a; }
+      .answer { max-width: 760px; font-size: clamp(16px, 2vw, 20px); line-height: 1.5; color: rgba(255,255,255,.85); white-space: pre-line; }
+      .tip { font-size: 13px; color: #8d9189; }
       .toggle { border: 1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.08); color: #e2e8f0; border-radius: 999px; padding: 8px 14px; font: inherit; font-size: 13px; cursor: pointer; }
       @keyframes spin { to { transform: rotate(360deg); } }
       @keyframes wobble { 50% { transform: scale(1.18) rotate(40deg); } }
@@ -262,13 +264,13 @@ export class FarmAssistantController {
   private refresh() {
     const supported = !!this.Recognition;
     const listeningForWake = supported && this.wakeEnabled && this.running;
-    const v = { name: this.name };
+    const v = { name: this.shownName };
     this.ui.launcher.className = `launcher ${listeningForWake ? "idle" : "off"}`;
-    this.ui.launcher.title = `Assistant ${this.name}`;
-    this.ui.launcher.setAttribute("aria-label", `Assistant ${this.name}`);
+    this.ui.launcher.title = `Assistant ${this.shownName}`;
+    this.ui.launcher.setAttribute("aria-label", `Assistant ${this.shownName}`);
     this.ui.hint.textContent = !supported ? this.text.noMic : this.micBlocked ? fill(this.text.allowMic, v)
       : listeningForWake ? fill(this.text.say, v) : this.text.touch;
-    this.ui.toggle.textContent = fill(this.text.toggle, { name: this.name, state: this.wakeEnabled ? this.text.on : this.text.off });
+    this.ui.toggle.textContent = fill(this.text.toggle, { name: this.shownName, state: this.wakeEnabled ? this.text.on : this.text.off });
     this.ui.close.title = this.text.close;
     this.ui.overlay.dir = this.language === "ar" ? "rtl" : "ltr";
   }
@@ -371,7 +373,7 @@ export class FarmAssistantController {
     clearTimeout(this.pauseTimer);
     this.state = "speaking";
     this.ui.overlay.dataset.state = "speaking";
-    this.ui.label.textContent = this.name;
+    this.ui.label.textContent = this.shownName;
     this.ui.transcript.textContent = "";
     this.ui.answer.textContent = this.text.goodbye;
     await Promise.race([this.speak(this.text.goodbye), new Promise((r) => setTimeout(r, GOODBYE_MAX_MS))]);
@@ -473,7 +475,7 @@ export class FarmAssistantController {
     if (this.state !== "thinking" || token !== this.askToken) return answer;
     this.state = "speaking";
     this.ui.overlay.dataset.state = failed ? "error" : "speaking";
-    this.ui.label.textContent = this.name;
+    this.ui.label.textContent = this.shownName;
     this.ui.answer.textContent = answer;
     await this.speak(answer);
     if (failed) await new Promise((r) => setTimeout(r, 1500));

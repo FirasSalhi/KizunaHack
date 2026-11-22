@@ -1,0 +1,702 @@
+{
+ "Abricot": {
+  "ar": "مشمش",
+  "en": "Apricot",
+  "ja": "アンズ"
+ },
+ "Ail": {
+  "ar": "ثوم",
+  "en": "Garlic",
+  "ja": "ニンニク"
+ },
+ "Août": {
+  "ar": "أوت",
+  "en": "August",
+  "ja": "8月"
+ },
+ "Ariana": {
+  "ar": "أريانة",
+  "en": "Ariana",
+  "ja": "アリアナ"
+ },
+ "Artichaut": {
+  "ar": "قنارية",
+  "en": "Artichoke",
+  "ja": "アーティチョーク"
+ },
+ "Aubergine": {
+  "ar": "باذنجان",
+  "en": "Eggplant",
+  "ja": "ナス"
+ },
+ "Avril": {
+  "ar": "أفريل",
+  "en": "April",
+  "ja": "4月"
+ },
+ "Beaucoup d'eau ·": {
+  "ar": "ماء برشا",
+  "en": "Plenty of water",
+  "ja": "水が多い"
+ },
+ "Ben Arous": {
+  "ar": "بن عروس",
+  "en": "Ben Arous",
+  "ja": "ベン・アルース"
+ },
+ "Besoin en eau": {
+  "ar": "حاجة الماء",
+  "en": "Water need",
+  "ja": "必要水量"
+ },
+ "Betterave": {
+  "ar": "بنجر",
+  "en": "Beetroot",
+  "ja": "ビーツ"
+ },
+ "Bizerte": {
+  "ar": "بنزرت",
+  "en": "Bizerte",
+  "ja": "ビゼルト"
+ },
+ "Béja": {
+  "ar": "باجة",
+  "en": "Béja",
+  "ja": "ベジャ"
+ },
+ "Campagne {0}/{1}": {
+  "ar": "موسم {0}/{1}",
+  "en": "Season {0}/{1}",
+  "ja": "{0}/{1}年シーズン"
+ },
+ "Carotte": {
+  "ar": "سفنارية",
+  "en": "Carrot",
+  "ja": "ニンジン"
+ },
+ "Ce qui arrive au marché": {
+  "ar": "شنوّة يدخل للسوق",
+  "en": "What reaches the market",
+  "ja": "市場に入るもの"
+ },
+ "Choisissez votre région et l'eau dont vous disposez. Les cultures sont classées selon le prix, le rendement, le revenu et l'eau.": {
+  "ar": "اختار جهتك والماء اللي عندك. الزراعات مرتّبة حسب السوم، المردود، المدخول والماء.",
+  "en": "Choose your region and the water you have. Crops are ranked by price, yield, income and water.",
+  "ja": "地域と使える水の量を選んでください。作物は価格、収量、収入、水で順位付けされます。"
+ },
+ "Chou": {
+  "ar": "كرنب",
+  "en": "Cabbage",
+  "ja": "キャベツ"
+ },
+ "Citron": {
+  "ar": "قارص",
+  "en": "Lemon",
+  "ja": "レモン"
+ },
+ "Concombre": {
+  "ar": "فقوس",
+  "en": "Cucumber",
+  "ja": "キュウリ"
+ },
+ "Courge": {
+  "ar": "قرع",
+  "en": "Squash",
+  "ja": "カボチャ"
+ },
+ "Courgette": {
+  "ar": "قرع أخضر",
+  "en": "Courgette",
+  "ja": "ズッキーニ"
+ },
+ "DT/kg": {
+  "ar": "د/كغ",
+  "en": "DT/kg",
+  "ja": "DT/kg"
+ },
+ "Datte": {
+  "ar": "دقلة",
+  "en": "Date",
+  "ja": "ナツメヤシの実"
+ },
+ "Décembre": {
+  "ar": "ديسمبر",
+  "en": "December",
+  "ja": "12月"
+ },
+ "Eau moyenne ·": {
+  "ar": "ماء متوسّط",
+  "en": "Some water",
+  "ja": "水は普通"
+ },
+ "FAO{0} + climat NASA POWER par gouvernorat (estimation, goutte-à-goutte)": {
+  "ar": "FAO{0} + مناخ NASA POWER حسب الولاية (تقدير، قطرة قطرة)",
+  "en": "FAO{0} + NASA POWER climate per governorate (estimate, drip irrigation)",
+  "ja": "FAO{0}＋県別NASA POWER気候（推定、点滴灌漑）"
+ },
+ "Fenouil": {
+  "ar": "بسباس",
+  "en": "Fennel",
+  "ja": "フェンネル"
+ },
+ "Figue": {
+  "ar": "كرموس",
+  "en": "Fig",
+  "ja": "イチジク"
+ },
+ "Fraise": {
+  "ar": "فراولة",
+  "en": "Strawberry",
+  "ja": "イチゴ"
+ },
+ "Fruits arrivés au marché de Tunis": {
+  "ar": "غلال دخلت لسوق تونس",
+  "en": "Fruit delivered to the Tunis market",
+  "ja": "チュニス市場に入った果物"
+ },
+ "Fruits ·": {
+  "ar": "غلال",
+  "en": "Fruit",
+  "ja": "果物"
+ },
+ "Fève": {
+  "ar": "فول",
+  "en": "Broad bean",
+  "ja": "ソラマメ"
+ },
+ "Février": {
+  "ar": "فيفري",
+  "en": "February",
+  "ja": "2月"
+ },
+ "Gabès": {
+  "ar": "قابس",
+  "en": "Gabès",
+  "ja": "ガベス"
+ },
+ "Gafsa": {
+  "ar": "قفصة",
+  "en": "Gafsa",
+  "ja": "ガフサ"
+ },
+ "Gouvernorat": {
+  "ar": "الولاية",
+  "en": "Governorate",
+  "ja": "県"
+ },
+ "Grenade": {
+  "ar": "رمان",
+  "en": "Pomegranate",
+  "ja": "ザクロ"
+ },
+ "Haricot vert": {
+  "ar": "لوبيا",
+  "en": "Green bean",
+  "ja": "インゲン"
+ },
+ "INS, Bulletin mensuel de la statistique, tableau {0} (Marché de gros de Tunis)": {
+  "ar": "المعهد الوطني للإحصاء، النشرة الشهرية للإحصاء، الجدول {0} (سوق الجملة بتونس)",
+  "en": "INS, Monthly statistics bulletin, table {0} (Tunis wholesale market)",
+  "ja": "INS 月次統計報 表{0}（チュニス卸売市場）"
+ },
+ "INS, Bulletin mensuel, tableau {0} (prix de détail à Tunis)": {
+  "ar": "المعهد الوطني للإحصاء، النشرة الشهرية، الجدول {0} (أسوام التفصيل في تونس)",
+  "en": "INS, Monthly bulletin, table {0} (retail prices in Tunis)",
+  "ja": "INS 月報 表{0}（チュニスの小売価格）"
+ },
+ "Janvier": {
+  "ar": "جانفي",
+  "en": "January",
+  "ja": "1月"
+ },
+ "Jendouba": {
+  "ar": "جندوبة",
+  "en": "Jendouba",
+  "ja": "ジャンドゥーバ"
+ },
+ "Juillet": {
+  "ar": "جويلية",
+  "en": "July",
+  "ja": "7月"
+ },
+ "Juin": {
+  "ar": "جوان",
+  "en": "June",
+  "ja": "6月"
+ },
+ "Kairouan": {
+  "ar": "القيروان",
+  "en": "Kairouan",
+  "ja": "ケルアン"
+ },
+ "Kasserine": {
+  "ar": "القصرين",
+  "en": "Kasserine",
+  "ja": "カセリーヌ"
+ },
+ "Kébili": {
+  "ar": "قبلي",
+  "en": "Kébili",
+  "ja": "ケビリ"
+ },
+ "Laitue": {
+  "ar": "سلاطة",
+  "en": "Lettuce",
+  "ja": "レタス"
+ },
+ "Le Kef": {
+  "ar": "الكاف",
+  "en": "Le Kef",
+  "ja": "ル・ケフ"
+ },
+ "Le marché en un coup d'œil": {
+  "ar": "السوق في لمحة",
+  "en": "The market at a glance",
+  "ja": "ひと目でわかる市場"
+ },
+ "Le moins cher ·": {
+  "ar": "أرخص شهر",
+  "en": "Cheapest",
+  "ja": "最も安い月"
+ },
+ "Le plus cher ·": {
+  "ar": "أغلى شهر",
+  "en": "Most expensive",
+  "ja": "最も高い月"
+ },
+ "Légumes arrivés au marché de Tunis": {
+  "ar": "خضر دخلت لسوق تونس",
+  "en": "Vegetables delivered to the Tunis market",
+  "ja": "チュニス市場に入った野菜"
+ },
+ "Légumes ·": {
+  "ar": "خضر",
+  "en": "Vegetables",
+  "ja": "野菜"
+ },
+ "Mahdia": {
+  "ar": "المهدية",
+  "en": "Mahdia",
+  "ja": "マハディア"
+ },
+ "Mai": {
+  "ar": "ماي",
+  "en": "May",
+  "ja": "5月"
+ },
+ "Maltaise": {
+  "ar": "مالطي",
+  "en": "Maltaise orange",
+  "ja": "マルテーズオレンジ"
+ },
+ "Mandarine": {
+  "ar": "مندرين",
+  "en": "Mandarin",
+  "ja": "マンダリン"
+ },
+ "Manouba": {
+  "ar": "منوبة",
+  "en": "Manouba",
+  "ja": "マヌーバ"
+ },
+ "Mars": {
+  "ar": "مارس",
+  "en": "March",
+  "ja": "3月"
+ },
+ "Mdhalla · Le marché en un coup d'œil": {
+  "ar": "مظلّة · السوق في لمحة",
+  "en": "Mdhalla · The market at a glance",
+  "ja": "Mdhalla · ひと目でわかる市場"
+ },
+ "Melon": {
+  "ar": "بطيخ",
+  "en": "Melon",
+  "ja": "メロン"
+ },
+ "Ministère de l'Agriculture, data.gov.tn (séries nationales {0}{1})": {
+  "ar": "وزارة الفلاحة، data.gov.tn (سلاسل وطنية {0}{1})",
+  "en": "Ministry of Agriculture, data.gov.tn (national series {0}{1})",
+  "ja": "農業省 data.gov.tn（全国統計 {0}{1}）"
+ },
+ "Monastir": {
+  "ar": "المنستير",
+  "en": "Monastir",
+  "ja": "モナスティル"
+ },
+ "Médenine": {
+  "ar": "مدنين",
+  "en": "Médenine",
+  "ja": "メドニン"
+ },
+ "Nabeul": {
+  "ar": "نابل",
+  "en": "Nabeul",
+  "ja": "ナブール"
+ },
+ "Navet": {
+  "ar": "لفت",
+  "en": "Turnip",
+  "ja": "カブ"
+ },
+ "Note globale": {
+  "ar": "التقييم العام",
+  "en": "Overall score",
+  "ja": "総合評価"
+ },
+ "Novembre": {
+  "ar": "نوفمبر",
+  "en": "November",
+  "ja": "11月"
+ },
+ "Octobre": {
+  "ar": "أكتوبر",
+  "en": "October",
+  "ja": "10月"
+ },
+ "Oignon": {
+  "ar": "بصل",
+  "en": "Onion",
+  "ja": "タマネギ"
+ },
+ "Olive": {
+  "ar": "زيتون",
+  "en": "Olive",
+  "ja": "オリーブ"
+ },
+ "Orange": {
+  "ar": "برتقال",
+  "en": "Orange",
+  "ja": "オレンジ"
+ },
+ "Pastèque": {
+  "ar": "دلاع",
+  "en": "Watermelon",
+  "ja": "スイカ"
+ },
+ "Pastèque et melon": {
+  "ar": "دلاع وبطيخ",
+  "en": "Watermelon and melon",
+  "ja": "スイカとメロン"
+ },
+ "Petits pois": {
+  "ar": "جلبانة",
+  "en": "Peas",
+  "ja": "エンドウ"
+ },
+ "Peu d'eau ·": {
+  "ar": "ماء قليل",
+  "en": "Little water",
+  "ja": "水が少ない"
+ },
+ "Piment / poivron": {
+  "ar": "فلفل",
+  "en": "Pepper",
+  "ja": "トウガラシ／ピーマン"
+ },
+ "Piment piquant": {
+  "ar": "فلفل حار",
+  "en": "Hot pepper",
+  "ja": "トウガラシ"
+ },
+ "Plus la pile est haute, plus il est arrivé de tonnes. Faites tourner l'étal avec la souris ou le doigt.": {
+  "ar": "كل ما الكدس أعلى، كل ما دخلو أطنان أكثر. دوّر الطاولة بالفأرة ولا بصبعك.",
+  "en": "The higher the pile, the more tonnes arrived. Turn the stall with your mouse or finger.",
+  "ja": "山が高いほど入荷量（トン）が多いことを示します。マウスや指で屋台を回せます。"
+ },
+ "Poire": {
+  "ar": "إنجاص",
+  "en": "Pear",
+  "ja": "洋ナシ"
+ },
+ "Poivron doux": {
+  "ar": "فلفل حلو",
+  "en": "Sweet pepper",
+  "ja": "ピーマン"
+ },
+ "Pomme": {
+  "ar": "تفاح",
+  "en": "Apple",
+  "ja": "リンゴ"
+ },
+ "Pomme de terre": {
+  "ar": "بطاطا",
+  "en": "Potato",
+  "ja": "ジャガイモ"
+ },
+ "Prix au détail à Tunis, mois par mois : une colonne haute veut dire un prix plus cher que d'habitude.": {
+  "ar": "أسوام التفصيل في تونس، شهر بشهر: العمود العالي معناه سوم أغلى من العادة.",
+  "en": "Retail prices in Tunis, month by month: a tall bar means a higher price than usual.",
+  "ja": "チュニスの小売価格（月別）：高い棒は通常より高い価格を意味します。"
+ },
+ "Prix moyen payé au producteur en {0} (national). La flèche montre l'évolution par an depuis {1}, inflation déduite.": {
+  "ar": "معدّل السوم اللي خذاه الفلاح في {0} (وطني). السهم يورّي التطوّر في العام من {1}، بعد طرح التضخّم.",
+  "en": "Average price paid to growers in {0} (national). The arrow shows the yearly change since {1}, after inflation.",
+  "ja": "{0}年の生産者平均価格（全国）。矢印は{1}年以降の年間変化（インフレ調整後）です。"
+ },
+ "Prix payé au producteur": {
+  "ar": "سوم المنتج",
+  "en": "Price paid to the grower",
+  "ja": "生産者価格"
+ },
+ "Prix producteur": {
+  "ar": "سوم المنتج",
+  "en": "Grower price",
+  "ja": "生産者価格"
+ },
+ "Pêche": {
+  "ar": "خوخ",
+  "en": "Peach",
+  "ja": "モモ"
+ },
+ "Quand le prix est haut": {
+  "ar": "وقتاش السوم غالي",
+  "en": "When the price is high",
+  "ja": "価格が高い時期"
+ },
+ "Que planter cette saison": {
+  "ar": "شنوّة تزرع هالموسم",
+  "en": "What to plant this season",
+  "ja": "今季植えるもの"
+ },
+ "Raisin de table": {
+  "ar": "عنب",
+  "en": "Table grapes",
+  "ja": "生食用ブドウ"
+ },
+ "Revenu habituel / ha": {
+  "ar": "المدخول العادي / هك",
+  "en": "Usual income / ha",
+  "ja": "通常の収入／ha"
+ },
+ "Scores relatifs entre les {0} cultures qui ont assez de données officielles. Revenus = fourchette {1}{2} en dinars constants, sans les coûts de production. Prix = prix payé au producteur (national), pas le prix au marché. Revenu sans les coûts (semences, engrais, main-d'œuvre) : ce n'est pas un bénéfice.": {
+  "ar": "التقييمات نسبية بين {0} زراعات عندها معطيات رسمية كافية. المدخول = مجال {1}{2} بالدينار الثابت، بلا تكاليف الإنتاج. السوم = السوم اللي ياخذو الفلاح (وطني)، موش سوم السوق. المدخول بلا تكاليف (زريعة، سماد، يد عاملة): هذا موش ربح.",
+  "en": "Scores are relative between the {0} crops with enough official data. Income = {1}{2} range in constant dinars, without production costs. Price = price paid to the grower (national), not the market price. Income without costs (seeds, fertiliser, labour): this is not a profit.",
+  "ja": "評価は公式データが十分な{0}作物間の相対値です。収入＝{1}{2}の範囲（実質ディナール、生産費用を除く）。価格＝生産者価格（全国）で、市場価格ではありません。費用（種子、肥料、人件費）を除いた収入であり、利益ではありません。"
+ },
+ "Semis pris pour le calcul": {
+  "ar": "الزريعة المعتمدة في الحساب",
+  "en": "Sowing used in the calculation",
+  "ja": "計算に使った播種"
+ },
+ "Septembre": {
+  "ar": "سبتمبر",
+  "en": "September",
+  "ja": "9月"
+ },
+ "Sfax": {
+  "ar": "صفاقس",
+  "en": "Sfax",
+  "ja": "スファックス"
+ },
+ "Sidi Bouzid": {
+  "ar": "سيدي بوزيد",
+  "en": "Sidi Bouzid",
+  "ja": "シディ・ブジッド"
+ },
+ "Siliana": {
+  "ar": "سليانة",
+  "en": "Siliana",
+  "ja": "シリアナ"
+ },
+ "Sources": {
+  "ar": "المصادر",
+  "en": "Sources",
+  "ja": "出典"
+ },
+ "Sousse": {
+  "ar": "سوسة",
+  "en": "Sousse",
+  "ja": "スース"
+ },
+ "Tataouine": {
+  "ar": "تطاوين",
+  "en": "Tataouine",
+  "ja": "タタウィン"
+ },
+ "Tomate": {
+  "ar": "طماطم",
+  "en": "Tomato",
+  "ja": "トマト"
+ },
+ "Tonnes arrivées au marché de gros de Tunis pendant la campagne {0}/{1} (septembre à août). Ce ne sont pas des ventes aux consommateurs.": {
+  "ar": "أطنان دخلت لسوق الجملة بتونس في موسم {0}/{1} (من سبتمبر لأوت). هاذي موش مبيعات للمستهلكين.",
+  "en": "Tonnes delivered to the Tunis wholesale market during the {0}/{1} season (September to August). These are not sales to consumers.",
+  "ja": "{0}/{1}年シーズン（9月～8月）にチュニス卸売市場に入荷したトン数。消費者への販売量ではありません。"
+ },
+ "Tozeur": {
+  "ar": "توزر",
+  "en": "Tozeur",
+  "ja": "トズール"
+ },
+ "Tunis": {
+  "ar": "تونس",
+  "en": "Tunis",
+  "ja": "チュニス"
+ },
+ "Zaghouan": {
+  "ar": "زغوان",
+  "en": "Zaghouan",
+  "ja": "ザグワン"
+ },
+ "août": {
+  "ar": "أوت",
+  "en": "August",
+  "ja": "8月"
+ },
+ "avr.": {
+  "ar": "أفريل",
+  "en": "Apr",
+  "ja": "4月"
+ },
+ "avril": {
+  "ar": "أفريل",
+  "en": "April",
+  "ja": "4月"
+ },
+ "déc.": {
+  "ar": "ديسمبر",
+  "en": "Dec",
+  "ja": "12月"
+ },
+ "décembre": {
+  "ar": "ديسمبر",
+  "en": "December",
+  "ja": "12月"
+ },
+ "févr.": {
+  "ar": "فيفري",
+  "en": "Feb",
+  "ja": "2月"
+ },
+ "février": {
+  "ar": "فيفري",
+  "en": "February",
+  "ja": "2月"
+ },
+ "janv.": {
+  "ar": "جانفي",
+  "en": "Jan",
+  "ja": "1月"
+ },
+ "janvier": {
+  "ar": "جانفي",
+  "en": "January",
+  "ja": "1月"
+ },
+ "juil.": {
+  "ar": "جويلية",
+  "en": "Jul",
+  "ja": "7月"
+ },
+ "juillet": {
+  "ar": "جويلية",
+  "en": "July",
+  "ja": "7月"
+ },
+ "juin": {
+  "ar": "جوان",
+  "en": "June",
+  "ja": "6月"
+ },
+ "mai": {
+  "ar": "ماي",
+  "en": "May",
+  "ja": "5月"
+ },
+ "mars": {
+  "ar": "مارس",
+  "en": "March",
+  "ja": "3月"
+ },
+ "non calculé": {
+  "ar": "ما تحسبش",
+  "en": "not calculated",
+  "ja": "未計算"
+ },
+ "nov.": {
+  "ar": "نوفمبر",
+  "en": "Nov",
+  "ja": "11月"
+ },
+ "novembre": {
+  "ar": "نوفمبر",
+  "en": "November",
+  "ja": "11月"
+ },
+ "oct.": {
+  "ar": "أكتوبر",
+  "en": "Oct",
+  "ja": "10月"
+ },
+ "octobre": {
+  "ar": "أكتوبر",
+  "en": "October",
+  "ja": "10月"
+ },
+ "par an": {
+  "ar": "في العام",
+  "en": "per year",
+  "ja": "/年"
+ },
+ "par rapport à la campagne d'avant": {
+  "ar": "مقارنة بالموسم اللي فات",
+  "en": "compared with the previous season",
+  "ja": "前シーズン比"
+ },
+ "pic : {a}": {
+  "ar": "الذروة: {a}",
+  "en": "peak: {a}",
+  "ja": "ピーク：{a}"
+ },
+ "sept.": {
+  "ar": "سبتمبر",
+  "en": "Sep",
+  "ja": "9月"
+ },
+ "septembre": {
+  "ar": "سبتمبر",
+  "en": "September",
+  "ja": "9月"
+ },
+ "septembre → août · Marché de gros de Tunis (apports, pas la consommation)": {
+  "ar": "سبتمبر → أوت · سوق الجملة بتونس (الكميات اللي دخلت، موش الاستهلاك)",
+  "en": "September → August · Tunis wholesale market (arrivals, not consumption)",
+  "ja": "9月→8月 · チュニス卸売市場（入荷量、消費量ではありません）"
+ },
+ "{0} % par rapport à la moyenne de l'année": {
+  "ar": "{0} % مقارنة بمعدّل العام",
+  "en": "{0} % compared with the yearly average",
+  "ja": "年平均比 {0} %"
+ },
+ "{0} {1} m³/ha": {
+  "ar": "{0} {1} م³/هك",
+  "en": "{0} {1} m³/ha",
+  "ja": "{0} {1} m³/ha"
+ },
+ "{0} {1} – {2} {3} DT": {
+  "ar": "{0} {1} – {2} {3} د",
+  "en": "{0} {1} – {2} {3} DT",
+  "ja": "{0} {1} – {2} {3} DT"
+ },
+ "{0}. Les produits les plus présents au marché": {
+  "ar": "{0}. أكثر المنتوجات في السوق",
+  "en": "{0}. The most present produce at the market",
+  "ja": "{0}. 市場で最も多い農産物"
+ },
+ "{0}. Quand vendre ?": {
+  "ar": "{0}. وقتاش تبيع؟",
+  "en": "{0}. When to sell?",
+  "ja": "{0}. いつ売るか？"
+ },
+ "{0}. Que planter cette saison ?": {
+  "ar": "{0}. شنوّة تزرع هالموسم؟",
+  "en": "{0}. What to plant this season?",
+  "ja": "{0}. 今季何を植えるか？"
+ },
+ "{a} : moyenne de {0} campagnes, prix au détail à Tunis (DT/kg, niveau des {1} derniers mois). Le prix payé au producteur est plus bas, mais il suit en général les mêmes saisons.": {
+  "ar": "{a}: معدّل {0} مواسم، سوم التفصيل في تونس (د/كغ، مستوى آخر {1} شهر). السوم اللي ياخذو الفلاح أقل، أما عادةً يتبع نفس المواسم.",
+  "en": "{a}: average of {0} seasons, retail price in Tunis (DT/kg, level of the last {1} months). The price paid to the grower is lower, but it usually follows the same seasons.",
+  "ja": "{a}：{0}シーズンの平均、チュニスの小売価格（DT/kg、直近{1}か月の水準）。生産者価格はこれより低いですが、通常は同じ季節変動に従います。"
+ }
+}

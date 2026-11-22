@@ -17,7 +17,7 @@ type Phase = "idle" | "analysing" | "done" | "error";
 
 /** Plant scanner (ported from is9ini): photo -> plant, health, care sheet; history for signed-in users. */
 export function PlantScanner() {
-  const { m, locale } = useI18n();
+  const { m } = useI18n();
   const t = m.scanner;
   const { token } = useAuth();
   const signedIn = !!token && token !== DEMO_TOKEN;
@@ -108,12 +108,6 @@ export function PlantScanner() {
 
   return (
     <div className="flex flex-col min-h-[calc(100svh-65px)] lg:min-h-svh">
-      <header className="px-6 sm:px-10 pt-6 pb-4 border-b border-white/10">
-        <h1 className="text-2xl font-bold text-white tracking-tight">{t.title}</h1>
-        <p className="text-sm text-neutral-400 mt-1 max-w-3xl">{t.subtitle}</p>
-        {locale !== "en" && <p className="text-xs text-[#c6f04a] mt-1.5">{t.resultsInEnglish}</p>}
-      </header>
-
       <div className="flex-1 grid xl:grid-cols-[minmax(320px,400px)_1fr] gap-6 p-6 sm:p-10">
         {/* Left: photo, engines, history */}
         <div className="space-y-5 min-w-0">

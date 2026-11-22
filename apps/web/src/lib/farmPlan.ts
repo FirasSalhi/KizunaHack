@@ -125,6 +125,18 @@ export const POST_HARVEST_CROP: Record<string, string> = {
   garlic: "garlic", wheat: "wheat", durum_wheat: "wheat", date_palm: "dates",
 };
 
+/** MIZU KIZUNA crop -> Market "best month to sell" crop (research/market-advisor, Tunis retail prices). */
+export const MARKET_CROP: Record<string, string> = {
+  tomato: "tomato", potato: "potato", onion: "onion", pepper: "sweet_pepper", carrot: "carrot",
+  cabbage: "cabbage", garlic: "garlic", date_palm: "date",
+};
+
+/** MIZU KIZUNA crop -> Solar pump simulation crop (research/solar-pump, FAO-56 Kc). */
+export const SOLAR_CROP: Record<string, string> = {
+  tomato: "tomato", pepper: "pepper", potato: "potato", watermelon: "watermelon", olive: "olive",
+  orange: "citrus", mandarin_jp: "citrus", date_palm: "date_palm",
+};
+
 /** MIZU KIZUNA irrigation method -> Irrigation 3D method. */
 export const IRRIGATION_METHOD: Record<string, string> = {
   goutte_a_goutte: "drip", aspersion: "sprinkler", gravitaire: "surface",

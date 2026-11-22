@@ -113,7 +113,7 @@ export async function apiClient<T>(
   } catch (netErr: unknown) {
     const errorMsg = netErr instanceof Error ? netErr.message : "Network request failed";
     throw new ApiError(
-      "Can't reach the FARMLINK server. Check your connection and try again.",
+      "Can't reach the Mdhalla server. Check your connection and try again.",
       0,
       "NETWORK_ERROR",
       { cause: errorMsg, apiBaseUrl: API_BASE_URL }

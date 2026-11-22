@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { IRRIGATION_CROP, parsePlan, POST_HARVEST_CROP, soilClass } from "@/lib/farmPlan";
+import { IRRIGATION_CROP, MARKET_CROP, parsePlan, POST_HARVEST_CROP, SOLAR_CROP, soilClass } from "@/lib/farmPlan";
+import { nearestSeat } from "@/lib/seats";
 
 // The message "Valider ce plan" sends from the crop planner (mizu-kizuna/static/app.js, sendPlan)
 const fromPlanner = {
@@ -40,6 +41,9 @@ describe("Validated crop plan", () => {
   it("maps the planned crops onto Irrigation 3D and Post-Harvest crops", () => {
     expect(fromPlanner.crops.map((c) => IRRIGATION_CROP[c.id])).toEqual(["onion_dry", "strawberry", "grape_wine"]);
     expect(fromPlanner.crops.map((c) => POST_HARVEST_CROP[c.id]).filter(Boolean)).toEqual(["onion", "strawberry"]);
+    expect(fromPlanner.crops.map((c) => MARKET_CROP[c.id]).filter(Boolean)).toEqual(["onion"]);
+    expect(["tomato", "orange", "onion"].map((id) => SOLAR_CROP[id])).toEqual(["tomato", "citrus", undefined]);
+    expect(nearestSeat(fromPlanner.location.lat, fromPlanner.location.lon)).toBe("Nabeul");
   });
 
   it("turns the SoilGrids texture into an Irrigation 3D soil class", () => {

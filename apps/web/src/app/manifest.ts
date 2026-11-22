@@ -1,18 +1,18 @@
 import type { MetadataRoute } from "next";
 
-/** Web app manifest: lets phones install FARMLINK to the home screen and open it full-screen (FR-033). */
+/** Web app manifest: lets phones install Mdhalla to the home screen and open it full-screen (FR-033). */
 export default function manifest(): MetadataRoute.Manifest {
   return {
     id: "/",
-    name: "FARMLINK",
-    short_name: "FARMLINK",
+    name: "Mdhalla",
+    short_name: "Mdhalla",
     description: "Agriculture de précision : capteurs, IA et irrigation pour votre ferme.",
     lang: "fr",
     start_url: "/dashboard",
     scope: "/",
     display: "standalone",
-    background_color: "#090b08",
-    theme_color: "#090b08",
+    background_color: "#020302",
+    theme_color: "#020302",
     categories: ["productivity", "utilities"],
     icons: [
       { src: "/icons/icon-192.png", sizes: "192x192", type: "image/png", purpose: "any" },

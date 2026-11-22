@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { PLATE } from "./plateData";
 import { buildCropRow, buildRootContinuation, buildShrub } from "./rootSystem";
+import { BrandLogo } from "@/components/BrandLogo";
 import { BrandMark, IconTrendDown } from "@/components/icons";
 import { InstallBanner, InstallButton } from "@/components/pwa/InstallApp";
 import { LanguageSwitcher } from "@/i18n/LanguageSwitcher";
@@ -21,7 +22,7 @@ function LandingNav() {
   const { m } = useI18n();
   return (
     <header className="site-nav">
-      <Link href="/" className="site-nav-logo" aria-label={m.common.home}><BrandMark /></Link>
+      <Link href="/" className="site-nav-logo" aria-label={m.common.home}><BrandLogo size={42} className="rounded-[10px]" /></Link>
       <LanguageSwitcher className="site-nav-lang" />
       <InstallButton className="site-nav-install" />
       <Link href="/login" className="site-nav-signin" aria-label={m.auth.signInLink}>
@@ -525,7 +526,7 @@ function Outcomes() {
           {items.map((o, i) => (
             <div key={i} className={`outcome-photo outcome-photo--${i}`}><Photo src={o.image} alt={o.title} sizes="(max-width: 720px) 90vw, 45vw" /></div>
           ))}
-          <span className="outcome-logo" aria-hidden="true"><BrandMark /></span>
+          <span className="outcome-logo" aria-hidden="true"><BrandLogo size={34} className="rounded-lg" /></span>
           <div className="metric">
             <Brackets />
             {items.map((o, i) => <strong key={i} className={`metric-v metric-v--${i}`}>{o.value}<small>{o.unit}</small></strong>)}

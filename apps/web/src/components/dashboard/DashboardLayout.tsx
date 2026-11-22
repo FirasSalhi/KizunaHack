@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { BrandLogo } from "@/components/BrandLogo";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 import { useAuth } from "@/hooks/useAuth";
@@ -10,28 +11,13 @@ import { VoiceAssistant } from "@/components/assistant/VoiceAssistant";
 import { getAssistant } from "@/components/assistant/farmAssistant";
 import { IconClose, IconMenu, IconCrate, IconFields3D, IconMarketStall, IconOverview, IconSolarPanel, IconPlanMap, IconScanLeaf, IconSignOut } from "@/components/icons";
 
-const NAV_ACTIVE = "flex items-center gap-3 px-3.5 py-3 rounded-xl bg-gradient-to-r from-[#3f9d2f] to-[#2d7a22] text-white font-semibold border border-[#8fd36a]/40 shadow-[0_4px_14px_rgba(60,160,40,0.35)]";
-const NAV_IDLE = "flex items-center gap-3 px-3.5 py-3 rounded-xl text-[#dbe9d3] hover:text-white hover:bg-white/[0.07] border border-transparent transition-colors";
+const NAV_ACTIVE = "flex items-center gap-3 px-3.5 py-3 rounded-xl bg-gradient-to-r from-[#c6f04a] to-[#b5e03b] text-[#0d0f0c] font-semibold border border-[#c6f04a]/40 shadow-[0_4px_14px_rgba(198,240,74,0.25)]";
+const NAV_IDLE = "flex items-center gap-3 px-3.5 py-3 rounded-xl text-white/80 hover:text-white hover:bg-white/[0.07] border border-transparent transition-colors";
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
 }
 
-/** Leaf logo of the design (sidebar). */
-function LeafLogo() {
-  return (
-    <svg viewBox="0 0 48 48" width="44" height="44" aria-hidden="true">
-      <defs>
-        <linearGradient id="fl-leaf" x1="0" y1="1" x2="1" y2="0">
-          <stop offset="0" stopColor="#2f8f2a" />
-          <stop offset="1" stopColor="#8fdc4e" />
-        </linearGradient>
-      </defs>
-      <path d="M8 40C8 20 20 8 42 6c-1 22-13 34-32 34Z" fill="url(#fl-leaf)" />
-      <path d="M10 38C18 28 26 20 36 13M19 29l-1-8M26 22l7 1" stroke="#0f3a16" strokeWidth="2" strokeLinecap="round" fill="none" opacity=".55" />
-    </svg>
-  );
-}
 
 export function DashboardLayout({ children }: DashboardLayoutProps) {
   const { user, logout } = useAuth();
@@ -56,16 +42,16 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
   ];
 
   return (
-    <div className="min-h-screen bg-[#090b08] text-white flex flex-col lg:flex-row">
+    <div className="min-h-screen bg-[#020302] text-white flex flex-col lg:flex-row">
       {/* Sidebar for Desktop */}
-      <aside className="hidden lg:flex w-[268px] flex-col justify-between bg-gradient-to-b from-[#123b1c] via-[#0e2f17] to-[#0a2111] border-e border-white/10 p-5 shrink-0 sticky top-0 h-screen">
+      <aside className="hidden lg:flex w-[268px] flex-col justify-between bg-gradient-to-b from-[#0d0f0c] via-[#070807] to-[#020302] border-e border-white/10 p-5 shrink-0 sticky top-0 h-screen">
         <div className="space-y-7">
           {/* Logo */}
           <Link href="/dashboard" className="flex items-center gap-2.5 px-1">
-            <LeafLogo />
+            <BrandLogo size={44} />
             <div className="flex flex-col leading-tight">
-              <span className="font-extrabold tracking-tight text-white text-[22px]">FARMLINK</span>
-              <span className="text-[13px] text-[#a9e07a]">{t.tagline}</span>
+              <span className="font-extrabold tracking-tight text-white text-[22px]">{m.common.brand}</span>
+              <span className="text-[13px] text-[#c6f04a]">{t.tagline}</span>
             </div>
           </Link>
 
@@ -85,24 +71,24 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
           <button
             type="button"
             onClick={() => getAssistant().openListening()}
-            className="w-full flex items-center gap-3 rounded-2xl border border-[#8fd36a]/35 bg-white/[0.04] px-4 py-3 text-white font-semibold hover:bg-white/[0.08]"
+            className="w-full flex items-center gap-3 rounded-2xl border border-[#c6f04a]/35 bg-white/[0.04] px-4 py-3 text-white font-semibold hover:bg-white/[0.08]"
           >
             <span className="text-2xl"><IconBotSide /></span>
             {t.nav.assistant}
-            <span className="ms-auto w-2.5 h-2.5 rounded-full bg-[#7ee04f] shadow-[0_0_8px_#7ee04f]" aria-hidden="true" />
+            <span className="ms-auto w-2.5 h-2.5 rounded-full bg-[#c6f04a] shadow-[0_0_8px_#c6f04a]" aria-hidden="true" />
           </button>
           <LanguageSwitcher placement="up" align="start" />
           <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-3">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-[#3f9d2f] text-white flex items-center justify-center font-bold uppercase">{user?.name?.[0] || "U"}</div>
+              <div className="w-10 h-10 rounded-full bg-[#c6f04a] text-[#0d0f0c] flex items-center justify-center font-bold uppercase">{user?.name?.[0] || "U"}</div>
               <div className="flex-1 min-w-0">
                 <div className="text-sm font-semibold text-white truncate">{user?.name || t.farmer}</div>
-                <div className="text-[12px] text-[#b7c9ae] truncate">{user?.email}</div>
+                <div className="text-[12px] text-white/60 truncate">{user?.email}</div>
               </div>
             </div>
-            <div className="mt-2 flex items-center justify-between text-[11px] text-[#b7c9ae]">
+            <div className="mt-2 flex items-center justify-between text-[11px] text-white/60">
               <span className="truncate">{primaryFarm} · {userRole}</span>
-              <button onClick={() => void logout()} className="inline-flex items-center gap-1 text-[#dbe9d3] hover:text-red-300" title={m.common.signOut}>
+              <button onClick={() => void logout()} className="inline-flex items-center gap-1 text-white/80 hover:text-red-300" title={m.common.signOut}>
                 <IconSignOut /> <span className="sr-only">{m.common.signOut}</span>
               </button>
             </div>
@@ -111,10 +97,10 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
       </aside>
 
       {/* Mobile Top Navigation */}
-      <header className="lg:hidden flex items-center justify-between p-4 border-b border-white/10 bg-[#0e2f17]">
+      <header className="lg:hidden flex items-center justify-between p-4 border-b border-white/10 bg-[#0d0f0c]">
         <Link href="/dashboard" className="flex items-center gap-2 py-1.5">
-          <LeafLogo />
-          <span className="font-bold tracking-tight text-white text-base">FARMLINK</span>
+          <BrandLogo size={34} />
+          <span className="font-bold tracking-tight text-white text-base">{m.common.brand}</span>
         </Link>
         <LanguageSwitcher className="ms-auto me-2" />
         <button
@@ -130,11 +116,11 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
 
       {/* Mobile drawer if open */}
       {mobileMenuOpen && (
-        <div className="lg:hidden p-4 bg-[#0e2f17] border-b border-white/10 space-y-3">
+        <div className="lg:hidden p-4 bg-[#0d0f0c] border-b border-white/10 space-y-3">
           <div className="text-xs text-neutral-300 font-mono">{primaryFarm} ({userRole})</div>
           <nav className="flex flex-col divide-y divide-white/5">
             {NAV.map((n) => (
-              <Link key={n.href} href={n.href} className={`block py-2.5 text-[15px] ${pathname === n.href ? "text-[#a9e07a]" : "text-neutral-200"}`}>
+              <Link key={n.href} href={n.href} className={`block py-2.5 text-[15px] ${pathname === n.href ? "text-[#c6f04a]" : "text-neutral-200"}`}>
                 {n.label}
               </Link>
             ))}

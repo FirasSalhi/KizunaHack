@@ -8,12 +8,12 @@ import { Providers } from "./providers";
 const dmSans = { variable: "font-sans" };
 
 export const metadata: Metadata = {
-  title: "FARMLINK — Precision Agriculture",
+  title: "Mdhalla — Precision Agriculture",
   description:
-    "FARMLINK combines AI vision, sensors and precision action to protect crops with less water, fewer chemicals and lower costs.",
-  applicationName: "FARMLINK",
-  // Installed on an iPhone: opens full-screen with the FARMLINK name and icon (the manifest is app/manifest.ts).
-  appleWebApp: { capable: true, title: "FARMLINK", statusBarStyle: "black" },
+    "Mdhalla combines AI vision, sensors and precision action to protect crops with less water, fewer chemicals and lower costs.",
+  applicationName: "Mdhalla",
+  // Installed on an iPhone: opens full-screen with the Mdhalla name and icon (the manifest is app/manifest.ts).
+  appleWebApp: { capable: true, title: "Mdhalla", statusBarStyle: "black" },
   formatDetection: { telephone: false },
   icons: {
     icon: [
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   // Colour of the phone's status bar and the installed app's title bar.
-  themeColor: "#090b08",
+  themeColor: "#020302",
 };
 
 export default async function RootLayout({

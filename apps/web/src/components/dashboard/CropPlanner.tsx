@@ -5,8 +5,6 @@ import { useI18n } from "@/i18n/I18nProvider";
 import type { Locale } from "@/i18n/config";
 import { parsePlan, savePlan } from "@/lib/farmPlan";
 import { parsePlace, savePlace } from "@/lib/place";
-import { PlanSummary } from "./PlanSummary";
-import { HeaderPills } from "./farmHeader";
 
 /** Where the MIZU KIZUNA crop planner (mizu-kizuna/, its own FastAPI server) runs. */
 const MIZU_URL = (process.env.NEXT_PUBLIC_MIZU_URL || "http://localhost:8010").replace(/\/$/, "");
@@ -17,7 +15,7 @@ const MIZU_LANG: Record<Locale, "fr" | "tn" | "ja"> = { fr: "fr", ar: "tn", ja: 
 
 // Version of the planner's page (mizu-kizuna/static/index.html asset versions). Part of the frame address,
 // so browsers fetch the new planner page instead of an old cached copy after an update.
-const MIZU_UI_VERSION = "2.8";
+const MIZU_UI_VERSION = "2.9";
 
 type Status = "checking" | "online" | "offline";
 
@@ -81,49 +79,26 @@ export function CropPlanner() {
   };
 
   return (
-    <div className="flex flex-col h-[calc(100svh-65px)] lg:h-svh bg-gradient-to-b from-[#0f2d18] to-[#0b2212]">
-      <header className="px-5 sm:px-6 pt-5 pb-3 flex flex-col gap-4">
-        <div className="flex flex-col xl:flex-row xl:items-start xl:justify-between gap-3">
-          <div className="flex items-start gap-3 min-w-0">
-            <span className="text-[40px] leading-none"><LeafIcon /></span>
-            <div className="min-w-0">
-              <h1 className="text-2xl sm:text-[32px] font-extrabold text-white tracking-tight leading-tight">{t.title}</h1>
-              <p className="text-sm sm:text-base text-[#d6e6cf] mt-0.5">{t.lead}</p>
-              {locale === "en" && <p className="text-xs text-[#c6f04a] mt-1.5">{t.noEnglish}</p>}
-            </div>
-          </div>
-          <HeaderPills />
-        </div>
-        <div className="flex flex-wrap items-center gap-2.5">
-          {TABS.map((x) => (
-            <button
-              key={x.view}
-              type="button"
-              onClick={() => showView(x.view)}
-              aria-pressed={tab === x.view}
-              className={`inline-flex items-center gap-2.5 rounded-2xl px-5 py-2.5 text-[15px] font-semibold transition-colors ${
-                tab === x.view
-                  ? "bg-gradient-to-r from-[#c8f56a] to-[#8fdc4e] text-[#0c2410] shadow-[0_8px_22px_rgba(143,220,78,0.35)]"
-                  : "bg-[#173a1f]/80 text-white border border-white/10 hover:bg-[#1d4826]"
-              }`}
-            >
-              <span className="text-lg">{x.icon}</span>
-              {x.label}
-            </button>
-          ))}
-          <span className="ms-auto flex items-center gap-4">
-            <PlanSummary variant="planner" />
-            <a
-              href={src.replace("embed=1&", "").replace(/&v=[^&]*/, "")}
-              target="_blank"
-              rel="noreferrer"
-              className="shrink-0 py-2 text-xs text-[#cfe0c7] hover:text-white underline underline-offset-4"
-            >
-              {t.openTab}
-            </a>
-          </span>
-        </div>
-      </header>
+    <div className="flex flex-col h-[calc(100svh-65px)] lg:h-svh bg-gradient-to-b from-[#0d0f0c] to-[#020302]">
+      {/* View tabs: scroll the planner to the matching part */}
+      <nav className="px-5 sm:px-6 pt-4 pb-3 flex flex-wrap items-center gap-2.5" aria-label={t.title}>
+      {TABS.map((x) => (
+        <button
+          key={x.view}
+          type="button"
+          onClick={() => showView(x.view)}
+          aria-pressed={tab === x.view}
+          className={`inline-flex items-center gap-2.5 rounded-2xl px-5 py-2.5 text-[15px] font-semibold transition-colors ${
+            tab === x.view
+              ? "bg-gradient-to-r from-[#c6f04a] to-[#b5e03b] text-[#0d0f0c] shadow-[0_8px_22px_rgba(198,240,74,0.25)]"
+              : "bg-white/[0.06] text-white border border-white/10 hover:bg-white/[0.1]"
+          }`}
+        >
+          <span className="text-lg">{x.icon}</span>
+          {x.label}
+        </button>
+      ))}
+      </nav>
 
       <div className="relative flex-1 min-h-[520px]">
         {status === "offline" ? (
@@ -167,18 +142,3 @@ const IconFarm = () => icon("M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6M3 10l9-7 9 
 const IconSparkles = () => icon("M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8L12 3Zm7 11 .8 2.2 2.2.8-2.2.8L19 20l-.8-2.2L16 17l2.2-.8L19 14Z");
 const IconBars = () => icon("M4 20V10M10 20V4M16 20v-7M22 20H2");
 const IconCoins = () => icon("M12 4c4.4 0 8 1.3 8 3s-3.6 3-8 3-8-1.3-8-3 3.6-3 8-3ZM4 7v5c0 1.7 3.6 3 8 3s8-1.3 8-3V7M4 12v5c0 1.7 3.6 3 8 3s8-1.3 8-3v-5");
-
-function LeafIcon() {
-  return (
-    <svg viewBox="0 0 48 48" width="1em" height="1em" aria-hidden="true">
-      <defs>
-        <linearGradient id="fl-plan-leaf" x1="0" y1="1" x2="1" y2="0">
-          <stop offset="0" stopColor="#2f8f2a" />
-          <stop offset="1" stopColor="#8fdc4e" />
-        </linearGradient>
-      </defs>
-      <path d="M8 40C8 20 20 8 42 6c-1 22-13 34-32 34Z" fill="url(#fl-plan-leaf)" />
-      <path d="M10 38C18 28 26 20 36 13" stroke="#0f3a16" strokeWidth="2" strokeLinecap="round" fill="none" opacity=".55" />
-    </svg>
-  );
-}

@@ -1,6 +1,12 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
-import { IRRIGATION_CROP, IRRIGATION_METHOD, PLAN_KEY, POST_HARVEST_CROP } from "@/lib/farmPlan";
+import { IRRIGATION_CROP, IRRIGATION_METHOD, MARKET_CROP, PLAN_KEY, POST_HARVEST_CROP, SOLAR_CROP } from "@/lib/farmPlan";
+import { SEATS } from "@/lib/seats";
+import { type Dictionary, i18nLayer, isLang, type Lang, pick } from "../i18nLayer";
+import irrigationWords from "../i18n/irrigation-3d.json";
+import marketWords from "../i18n/market.json";
+import postHarvestWords from "../i18n/post-harvest.json";
+import solarWords from "../i18n/solar.json";
 
 /**
  * Serves the standalone research pages shown in dashboard sections, from the same origin as the app, so
@@ -63,7 +69,7 @@ const IRRIGATION_BRIDGE = `(function () {
       var title = document.querySelector("#title p");
       if (title && title.firstChild) title.firstChild.textContent = "Votre ferme (plan validé) · météo du ";
       window.__flSetPlots(zones);
-    } catch (e) { console.warn("FARMLINK: plan not applied", e); }
+    } catch (e) { console.warn("Mdhalla: plan not applied", e); }
   }
   if (document.readyState === "complete") setTimeout(apply, 0); else window.addEventListener("load", function () { setTimeout(apply, 0); });
 })();`;
@@ -96,22 +102,89 @@ const POST_HARVEST_BRIDGE = `(function () {
         });
       };
       selectCrop(planned[0]);
-    } catch (e) { console.warn("FARMLINK: plan not applied", e); }
+    } catch (e) { console.warn("Mdhalla: plan not applied", e); }
   }
   if (document.readyState === "complete") setTimeout(apply, 0); else window.addEventListener("load", function () { setTimeout(apply, 0); });
 })();`;
 
-const BRIDGES: Record<string, string> = { "irrigation-3d": IRRIGATION_BRIDGE, "post-harvest": POST_HARVEST_BRIDGE };
+/** Nearest governorate seat to the plan's parcel (same rule as lib/seats.ts), as page script. */
+const NEAREST_GOV = `function nearestGov(loc) {
+    if (!loc) return null;
+    var seats = ${JSON.stringify(SEATS)}, best = null, d = Infinity;
+    seats.forEach(function (s) {
+      var dd = Math.pow(s[1] - loc.lat, 2) + Math.pow((s[2] - loc.lon) * Math.cos(loc.lat * Math.PI / 180), 2);
+      if (dd < d) { d = dd; best = s[0]; }
+    });
+    return Math.sqrt(d) * 111 <= 60 ? best : null;
+  }
+  function setSelect(id, value) {
+    var el = document.getElementById(id);
+    if (!el || value == null || ![].some.call(el.options, function (o) { return (o.value || o.text) === value; })) return false;
+    el.value = value; return true;
+  }`;
 
-export async function GET(_req: Request, { params }: { params: Promise<{ page: string }> }) {
+/** Market: the parcel's governorate in "what to plant", and the first planned crop in "when to sell". */
+const MARKET_BRIDGE = `(function () {
+  ${readPlan}
+  var CROPS = ${JSON.stringify(MARKET_CROP)};
+  ${NEAREST_GOV}
+  function apply() {
+    try {
+      if (setSelect("gov", nearestGov(plan.location)) && typeof drawAdvice === "function") drawAdvice();
+      var crop = plan.crops.map(function (c) { return CROPS[c.id]; }).filter(function (k) { return k && D.best_months[k]; })[0];
+      if (crop && typeof drawMonths === "function") { cur = crop; drawMonths(); }
+    } catch (e) { console.warn("Mdhalla: plan not applied", e); }
+  }
+  if (document.readyState === "complete") setTimeout(apply, 0); else window.addEventListener("load", function () { setTimeout(apply, 0); });
+})();`;
+
+/** Solar energy: the parcel's governorate, the first planned crop it knows and that crop's hectares. */
+const SOLAR_BRIDGE = `(function () {
+  ${readPlan}
+  var CROPS = ${JSON.stringify(SOLAR_CROP)};
+  ${NEAREST_GOV}
+  function apply() {
+    try {
+      if (typeof rebuild !== "function") return;
+      setSelect("gov", nearestGov(plan.location));
+      var c = plan.crops.filter(function (c) { return CROPS[c.id]; })[0];
+      if (c) {
+        setSelect("crop", CROPS[c.id]);
+        var area = document.getElementById("area"), ha = Math.max(0.5, Math.round(c.area_ha * 2) / 2);
+        if (area) { if (ha > +area.max) area.max = String(Math.ceil(ha)); area.value = String(ha); }
+      }
+      rebuild();
+    } catch (e) { console.warn("Mdhalla: plan not applied", e); }
+  }
+  if (document.readyState === "complete") setTimeout(apply, 0); else window.addEventListener("load", function () { setTimeout(apply, 0); });
+})();`;
+
+/** Each page's own language, and its dictionary to the dashboard's languages (../i18n/*.json). */
+const LANGUAGE: Record<string, { source: Lang; words: Dictionary; hideBilingual?: boolean }> = {
+  "post-harvest": { source: "en", words: postHarvestWords as Dictionary },
+  "irrigation-3d": { source: "fr", words: irrigationWords as Dictionary },
+  market: { source: "fr", words: marketWords as Dictionary, hideBilingual: true },
+  solar: { source: "fr", words: solarWords as Dictionary, hideBilingual: true },
+};
+
+const BRIDGES: Record<string, string> = {
+  "irrigation-3d": IRRIGATION_BRIDGE,
+  "post-harvest": POST_HARVEST_BRIDGE,
+  market: MARKET_BRIDGE,
+  solar: SOLAR_BRIDGE,
+};
+
+export async function GET(req: Request, { params }: { params: Promise<{ page: string }> }) {
   const { page } = await params;
+  const asked = new URL(req.url).searchParams.get("lang");
   const parts = Object.hasOwn(PAGES, page) ? PAGES[page] : undefined;
   if (!parts) return new Response("Not found", { status: 404 });
 
   const file = path.join(process.cwd(), "..", "..", "research", ...parts);
   let html: string;
   try {
-    html = await readFile(file, "utf8");
+    // Git for Windows checks these pages out with CRLF line endings; the hooks below match "\n".
+    html = (await readFile(file, "utf8")).replace(/\r\n/g, "\n");
   } catch {
     return new Response(`Page not found (research/${parts.join("/")}).`, {
       status: 404,
@@ -119,12 +192,25 @@ export async function GET(_req: Request, { params }: { params: Promise<{ page: s
     });
   }
 
+  // Post-Harvest in the dashboard: no brand header and no location/weather bar (they stay in the standalone page,
+  // and their code keeps running).
+  if (page === "post-harvest") {
+    html = html.replace("</head>", "<style>.top-bar,.meteo-bar{display:none!important}</style>\n</head>");
+  }
   if (page === "irrigation-3d") {
     html = html.replace(DEMO_LOCATION, `location: (window.__FL_LOC || {lat: 35.918, lon: 10.558, elevation_m: 10})`);
     const end = html.lastIndexOf(IRRIGATION_CLOSURE_END);
     if (end !== -1) html = html.slice(0, end) + IRRIGATION_HOOK + html.slice(end);
   }
-  const bridge = `<script>/* FARMLINK: pre-fill with the validated crop plan */\n${BRIDGES[page]}\n</script>`;
+  // The dashboard's language: added first in <head>, so it is in place before the page draws anything.
+  const language = LANGUAGE[page];
+  if (language) {
+    const lang: Lang = isLang(asked) ? asked : language.source;
+    const words = lang === language.source ? {} : pick(language.words, lang);
+    const layer = i18nLayer(lang, words, { hideBilingual: language.hideBilingual });
+    html = /<head[^>]*>/i.test(html) ? html.replace(/<head[^>]*>/i, (m) => `${m}\n${layer}`) : layer + html;
+  }
+  const bridge = `<script>/* Mdhalla: pre-fill with the validated crop plan */\n${BRIDGES[page]}\n</script>`;
   html = html.includes("</body>") ? html.replace(/<\/body>(?![\s\S]*<\/body>)/, `${bridge}\n</body>`) : html + bridge;
 
   return new Response(html, {

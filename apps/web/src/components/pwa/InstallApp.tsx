@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { BrandMark, IconClose } from "@/components/icons";
+import { BrandLogo } from "@/components/BrandLogo";
+import { IconClose } from "@/components/icons";
 import { useI18n } from "@/i18n/I18nProvider";
 import { useInstall } from "./useInstall";
 
@@ -72,9 +73,7 @@ export function InstallBanner() {
         className="lg:hidden fixed inset-x-3 bottom-3 z-[60] rounded-2xl border border-white/10 bg-[#121612]/95 backdrop-blur p-3 shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex items-center gap-3"
         style={{ marginBottom: "env(safe-area-inset-bottom)" }}
       >
-        <span className="grid place-items-center w-11 h-11 rounded-xl bg-[#c6f04a] text-[#0d0f0c] text-xl shrink-0">
-          <BrandMark />
-        </span>
+        <BrandLogo size={44} />
         <div className="flex-1 min-w-0">
           <p className="text-sm font-semibold text-white">{t.installTitle}</p>
           <p className="text-xs text-neutral-400">{t.installText}</p>

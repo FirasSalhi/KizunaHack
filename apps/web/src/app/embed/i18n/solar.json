@@ -1,0 +1,777 @@
+{
+ ". Énergie de la pompe aujourd'hui : solaire {0} kWh, batterie {1} kWh, STEG {2} kWh. CO₂ évité ≈ {3} kg ({4} kg/kWh, hypothèse).": {
+  "ar": ". طاقة المضخة اليوم: شمسية {0} kWh، بطارية {1} kWh، ستاغ {2} kWh. CO₂ اللي تفادينا ≈ {3} kg ({4} kg/kWh، فرضية).",
+  "en": ". Pump energy today: solar {0} kWh, battery {1} kWh, STEG {2} kWh. CO₂ avoided ≈ {3} kg ({4} kg/kWh, assumption).",
+  "ja": "。今日のポンプ電力：太陽光 {0} kWh、バッテリー {1} kWh、STEG {2} kWh。回避したCO₂ ≈ {3} kg（{4} kg/kWh、前提）。"
+ },
+ "ARRÊT": {
+  "ar": "متوقّف",
+  "en": "OFF",
+  "ja": "停止"
+ },
+ "Agrumes": {
+  "ar": "قوارص",
+  "en": "Citrus",
+  "ja": "柑橘類"
+ },
+ "Août": {
+  "ar": "أوت",
+  "en": "August",
+  "ja": "8月"
+ },
+ "Ariana": {
+  "ar": "أريانة",
+  "en": "Ariana",
+  "ja": "アリアナ"
+ },
+ "Autonomie batterie": {
+  "ar": "استقلالية البطارية",
+  "en": "Battery autonomy",
+  "ja": "バッテリー持続"
+ },
+ "Avec solaire": {
+  "ar": "بالطاقة الشمسية",
+  "en": "With solar",
+  "ja": "太陽光あり"
+ },
+ "Avril": {
+  "ar": "أفريل",
+  "en": "April",
+  "ja": "4月"
+ },
+ "BATTERIE": {
+  "ar": "بطارية",
+  "en": "BATTERY",
+  "ja": "バッテリー"
+ },
+ "Batterie": {
+  "ar": "البطارية",
+  "en": "Battery",
+  "ja": "バッテリー"
+ },
+ "Batterie (%)": {
+  "ar": "البطارية (%)",
+  "en": "Battery (%)",
+  "ja": "バッテリー（%）"
+ },
+ "Ben Arous": {
+  "ar": "بن عروس",
+  "en": "Ben Arous",
+  "ja": "ベン・アルース"
+ },
+ "Besoin du jour": {
+  "ar": "حاجة اليوم",
+  "en": "Today's need",
+  "ja": "今日の必要量"
+ },
+ "Bilan à droite : eau livrée aux racines, énergie solaire utilisée et dinars économisés sur la journée.": {
+  "ar": "الحصيلة على اليمين: الماء اللي وصل للعروق، الطاقة الشمسية المستعملة والدنانير اللي وفّرتها في النهار.",
+  "en": "Summary on the right: water delivered to the roots, solar energy used and dinars saved over the day.",
+  "ja": "右に結果：根に届いた水、使った太陽エネルギー、1日で節約したディナール。"
+ },
+ "Bizerte": {
+  "ar": "بنزرت",
+  "en": "Bizerte",
+  "ja": "ビゼルト"
+ },
+ "Béja": {
+  "ar": "باجة",
+  "en": "Béja",
+  "ja": "ベジャ"
+ },
+ "COUPÉE": {
+  "ar": "مقصوصة",
+  "en": "CUT",
+  "ja": "停止中"
+ },
+ "Ciel": {
+  "ar": "السماء",
+  "en": "Sky",
+  "ja": "空"
+ },
+ "Ciel dégagé": {
+  "ar": "سماء صافية",
+  "en": "Clear sky",
+  "ja": "快晴"
+ },
+ "Couper la STEG": {
+  "ar": "قطع الستاغ",
+  "en": "Cut the STEG grid",
+  "ja": "STEGを停止"
+ },
+ "Coupure STEG": {
+  "ar": "انقطاع الستاغ",
+  "en": "STEG outage",
+  "ja": "STEG停電"
+ },
+ "Coupure STEG : la pompe continue au solaire": {
+  "ar": "انقطاع الستاغ: المضخة تكمّل بالطاقة الشمسية",
+  "en": "STEG outage: the pump keeps running on solar",
+  "ja": "STEG停電：ポンプは太陽光で動き続けます"
+ },
+ "Coupure STEG : pompe arrêtée": {
+  "ar": "انقطاع الستاغ: المضخة واقفة",
+  "en": "STEG outage: pump stopped",
+  "ja": "STEG停電：ポンプ停止"
+ },
+ "Courbes = journée entière simulée ; le trait blanc = l'heure affichée.": {
+  "ar": "المنحنيات = النهار الكامل المحاكى؛ الخط الأبيض = الوقت المعروض.",
+  "en": "Curves = the whole simulated day; the white line = the time shown.",
+  "ja": "曲線＝シミュレーションした1日全体、白い線＝表示中の時刻。"
+ },
+ "Culture": {
+  "ar": "الزراعة",
+  "en": "Crop",
+  "ja": "作物"
+ },
+ "Débit de la pompe": {
+  "ar": "صبيب المضخة",
+  "en": "Pump flow",
+  "ja": "ポンプ流量"
+ },
+ "Décembre": {
+  "ar": "ديسمبر",
+  "en": "December",
+  "ja": "12月"
+ },
+ "Eau envoyée aux racines aujourd'hui": {
+  "ar": "الماء اللي وصل للعروق اليوم",
+  "en": "Water sent to the roots today",
+  "ja": "今日根に届けた水"
+ },
+ "Ensemble": {
+  "ar": "الكل",
+  "en": "Overview",
+  "ja": "全体"
+ },
+ "Ferme et pompe": {
+  "ar": "الفلاحة والمضخة",
+  "en": "Farm and pump",
+  "ja": "農場とポンプ"
+ },
+ "Février": {
+  "ar": "فيفري",
+  "en": "February",
+  "ja": "2月"
+ },
+ "Gabès": {
+  "ar": "قابس",
+  "en": "Gabès",
+  "ja": "ガベス"
+ },
+ "Gafsa": {
+  "ar": "قفصة",
+  "en": "Gafsa",
+  "ja": "ガフサ"
+ },
+ "Gouvernorat": {
+  "ar": "الولاية",
+  "en": "Governorate",
+  "ja": "県"
+ },
+ "Hauteur à pomper": {
+  "ar": "علوّ الضخ",
+  "en": "Pumping height",
+  "ja": "揚程"
+ },
+ "Heure": {
+  "ar": "الوقت",
+  "en": "Time",
+  "ja": "時刻"
+ },
+ "Hypothèses modifiables": {
+  "ar": "فرضيات تنجم تبدّلها",
+  "en": "Adjustable assumptions",
+  "ja": "変更できる前提"
+ },
+ "Installation": {
+  "ar": "التركيب",
+  "en": "Installation",
+  "ja": "設備"
+ },
+ "Irrigation du jour terminée": {
+  "ar": "السقي متاع اليوم كمل",
+  "en": "Today's irrigation is done",
+  "ja": "今日の灌漑は完了"
+ },
+ "Irrigation souterraine": {
+  "ar": "سقي تحت الأرض",
+  "en": "Subsurface irrigation",
+  "ja": "地下灌漑"
+ },
+ "Irrigation souterraine ROOTLOOP alimentée par panneaux et batterie.": {
+  "ar": "سقي تحت الأرض ROOTLOOP يخدم بالألواح الشمسية والبطارية.",
+  "en": "ROOTLOOP subsurface irrigation powered by panels and a battery.",
+  "ja": "パネルとバッテリーで動くROOTLOOP地下灌漑。"
+ },
+ "Janvier": {
+  "ar": "جانفي",
+  "en": "January",
+  "ja": "1月"
+ },
+ "Jendouba": {
+  "ar": "جندوبة",
+  "en": "Jendouba",
+  "ja": "ジャンドゥーバ"
+ },
+ "Juillet": {
+  "ar": "جويلية",
+  "en": "July",
+  "ja": "7月"
+ },
+ "Juin": {
+  "ar": "جوان",
+  "en": "June",
+  "ja": "6月"
+ },
+ "Kairouan": {
+  "ar": "القيروان",
+  "en": "Kairouan",
+  "ja": "ケルアン"
+ },
+ "Kasserine": {
+  "ar": "القصرين",
+  "en": "Kasserine",
+  "ja": "カセリーヌ"
+ },
+ "Kébili": {
+  "ar": "قبلي",
+  "en": "Kébili",
+  "ja": "ケビリ"
+ },
+ "Le Kef": {
+  "ar": "الكاف",
+  "en": "Le Kef",
+  "ja": "ル・ケフ"
+ },
+ "Le surplus de soleil recharge la batterie pour la fin de journée.": {
+  "ar": "الشمس الزايدة تشرجي البطارية لآخر النهار.",
+  "en": "Extra sunshine recharges the battery for the end of the day.",
+  "ja": "余った日射でバッテリーを夕方に向けて充電します。"
+ },
+ "Lecture / pause": {
+  "ar": "تشغيل / إيقاف",
+  "en": "Play / pause",
+  "ja": "再生／一時停止"
+ },
+ "Local": {
+  "ar": "المحل",
+  "en": "Plant room",
+  "ja": "機械室"
+ },
+ "Local technique": {
+  "ar": "المحل التقني",
+  "en": "Plant room",
+  "ja": "機械室"
+ },
+ "MIXTE": {
+  "ar": "مختلط",
+  "en": "MIXED",
+  "ja": "混合"
+ },
+ "Mahdia": {
+  "ar": "المهدية",
+  "en": "Mahdia",
+  "ja": "マハディア"
+ },
+ "Mai": {
+  "ar": "ماي",
+  "en": "May",
+  "ja": "5月"
+ },
+ "Manouba": {
+  "ar": "منوبة",
+  "en": "Manouba",
+  "ja": "マヌーバ"
+ },
+ "Mars": {
+  "ar": "مارس",
+  "en": "March",
+  "ja": "3月"
+ },
+ "Mdhalla · Pompe solaire et coupure STEG": {
+  "ar": "مظلّة · مضخة شمسية وانقطاع الستاغ",
+  "en": "Mdhalla · Solar pump and STEG outage",
+  "ja": "Mdhalla · ソーラーポンプとSTEG停電"
+ },
+ "Mois": {
+  "ar": "الشهر",
+  "en": "Month",
+  "ja": "月"
+ },
+ "Monastir": {
+  "ar": "المنستير",
+  "en": "Monastir",
+  "ja": "モナスティル"
+ },
+ "Moyenne du mois (NASA)": {
+  "ar": "معدّل الشهر (ناسا)",
+  "en": "Monthly average (NASA)",
+  "ja": "月平均（NASA）"
+ },
+ "Médenine": {
+  "ar": "مدنين",
+  "en": "Médenine",
+  "ja": "メドニン"
+ },
+ "Nabeul": {
+  "ar": "نابل",
+  "en": "Nabeul",
+  "ja": "ナブール"
+ },
+ "Novembre": {
+  "ar": "نوفمبر",
+  "en": "November",
+  "ja": "11月"
+ },
+ "Nuageux": {
+  "ar": "مغيّم",
+  "en": "Cloudy",
+  "ja": "くもり"
+ },
+ "Octobre": {
+  "ar": "أكتوبر",
+  "en": "October",
+  "ja": "10月"
+ },
+ "Olivier": {
+  "ar": "زيتون",
+  "en": "Olive tree",
+  "ja": "オリーブ"
+ },
+ "Onduleur": {
+  "ar": "المموّج",
+  "en": "Inverter",
+  "ja": "インバーター"
+ },
+ "Onduleur + batterie": {
+  "ar": "المموّج + البطارية",
+  "en": "Inverter + battery",
+  "ja": "インバーター＋バッテリー"
+ },
+ "POMPE ARRÊTÉE": {
+  "ar": "المضخة وقفت",
+  "en": "PUMP STOPPED",
+  "ja": "ポンプ停止"
+ },
+ "Palmier dattier": {
+  "ar": "نخيل",
+  "en": "Date palm",
+  "ja": "ナツメヤシ"
+ },
+ "Panneaux": {
+  "ar": "الألواح",
+  "en": "Panels",
+  "ja": "パネル"
+ },
+ "Panneaux solaires": {
+  "ar": "الألواح الشمسية",
+  "en": "Solar panels",
+  "ja": "ソーラーパネル"
+ },
+ "Pastèque": {
+  "ar": "دلاع",
+  "en": "Watermelon",
+  "ja": "スイカ"
+ },
+ "Piment": {
+  "ar": "فلفل",
+  "en": "Pepper",
+  "ja": "トウガラシ"
+ },
+ "Plantes :": {
+  "ar": "النباتات:",
+  "en": "Plants:",
+  "ja": "植物："
+ },
+ "Pomme de terre": {
+  "ar": "بطاطا",
+  "en": "Potato",
+  "ja": "ジャガイモ"
+ },
+ "Pompe": {
+  "ar": "المضخة",
+  "en": "Pump",
+  "ja": "ポンプ"
+ },
+ "Pompe (kW)": {
+  "ar": "المضخة (kW)",
+  "en": "Pump (kW)",
+  "ja": "ポンプ（kW）"
+ },
+ "Pompe alimentée par : {a}": {
+  "ar": "المضخة تخدم بـ: {a}",
+  "en": "Pump powered by: {a}",
+  "ja": "ポンプの電源：{a}"
+ },
+ "Pompe en attente (nuit)": {
+  "ar": "المضخة تستنّى (الليل)",
+  "en": "Pump on standby (night)",
+  "ja": "ポンプ待機中（夜間）"
+ },
+ "Production solaire": {
+  "ar": "الإنتاج الشمسي",
+  "en": "Solar output",
+  "ja": "太陽光発電"
+ },
+ "Recommencer": {
+  "ar": "عاود من الأول",
+  "en": "Start over",
+  "ja": "最初から"
+ },
+ "Rendement pompe + moteur": {
+  "ar": "مردود المضخة + المحرّك",
+  "en": "Pump + motor efficiency",
+  "ja": "ポンプ＋モーター効率"
+ },
+ "RÉSEAU": {
+  "ar": "الشبكة",
+  "en": "GRID",
+  "ja": "電力網"
+ },
+ "Réseau STEG": {
+  "ar": "شبكة الستاغ",
+  "en": "STEG grid",
+  "ja": "STEG電力網"
+ },
+ "Réserve batterie": {
+  "ar": "احتياطي البطارية",
+  "en": "Battery reserve",
+  "ja": "バッテリー予備"
+ },
+ "Réservoir ROOTLOOP": {
+  "ar": "خزّان ROOTLOOP",
+  "en": "ROOTLOOP tank",
+  "ja": "ROOTLOOPタンク"
+ },
+ "Rétablir la STEG": {
+  "ar": "رجّع الستاغ",
+  "en": "Restore the STEG grid",
+  "ja": "STEGを復旧"
+ },
+ "SOLAIRE": {
+  "ar": "شمسي",
+  "en": "SOLAR",
+  "ja": "太陽光"
+ },
+ "STEG (kW)": {
+  "ar": "الستاغ (kW)",
+  "en": "STEG (kW)",
+  "ja": "STEG（kW）"
+ },
+ "STEG seule": {
+  "ar": "الستاغ برك",
+  "en": "STEG only",
+  "ja": "STEGのみ"
+ },
+ "Scénario pour le jury": {
+  "ar": "سيناريو للجنة التحكيم",
+  "en": "Scenario for the jury",
+  "ja": "審査員向けシナリオ"
+ },
+ "Septembre": {
+  "ar": "سبتمبر",
+  "en": "September",
+  "ja": "9月"
+ },
+ "Sfax": {
+  "ar": "صفاقس",
+  "en": "Sfax",
+  "ja": "スファックス"
+ },
+ "Sidi Bouzid": {
+  "ar": "سيدي بوزيد",
+  "en": "Sidi Bouzid",
+  "ja": "シディ・ブジッド"
+ },
+ "Siliana": {
+  "ar": "سليانة",
+  "en": "Siliana",
+  "ja": "シリアナ"
+ },
+ "Solaire (kW)": {
+  "ar": "شمسي (kW)",
+  "en": "Solar (kW)",
+  "ja": "太陽光（kW）"
+ },
+ "Soleil": {
+  "ar": "الشمس",
+  "en": "Sun",
+  "ja": "太陽"
+ },
+ "Sous le sol": {
+  "ar": "تحت الأرض",
+  "en": "Underground",
+  "ja": "地下"
+ },
+ "Sous le sol, l'eau arrive toujours aux racines par le goutte-à-goutte enterré.": {
+  "ar": "تحت الأرض، الماء ديما يوصل للعروق بالقطرة قطرة المدفونة.",
+  "en": "Underground, water keeps reaching the roots through the buried drip line.",
+  "ja": "地下では、地中点滴で水が根に届き続けます。"
+ },
+ "Sousse": {
+  "ar": "سوسة",
+  "en": "Sousse",
+  "ja": "スース"
+ },
+ "Surface irriguée": {
+  "ar": "المساحة المسقية",
+  "en": "Irrigated area",
+  "ja": "灌漑面積"
+ },
+ "Tarif STEG": {
+  "ar": "تعريفة الستاغ",
+  "en": "STEG tariff",
+  "ja": "STEG料金"
+ },
+ "Tataouine": {
+  "ar": "تطاوين",
+  "en": "Tataouine",
+  "ja": "タタウィン"
+ },
+ "Tomate": {
+  "ar": "طماطم",
+  "en": "Tomato",
+  "ja": "トマト"
+ },
+ "Tozeur": {
+  "ar": "توزر",
+  "en": "Tozeur",
+  "ja": "トズール"
+ },
+ "Tunis": {
+  "ar": "تونس",
+  "en": "Tunis",
+  "ja": "チュニス"
+ },
+ "Vue": {
+  "ar": "العرض",
+  "en": "View",
+  "ja": "表示"
+ },
+ "Zaghouan": {
+  "ar": "زغوان",
+  "en": "Zaghouan",
+  "ja": "ザグワン"
+ },
+ "absente": {
+  "ar": "ما فماش",
+  "en": "none",
+  "ja": "なし"
+ },
+ "absents": {
+  "ar": "ما فماش",
+  "en": "none",
+  "ja": "なし"
+ },
+ "août": {
+  "ar": "أوت",
+  "en": "August",
+  "ja": "8月"
+ },
+ "automatique": {
+  "ar": "أوتوماتيكي",
+  "en": "automatic",
+  "ja": "自動"
+ },
+ "avril": {
+  "ar": "أفريل",
+  "en": "April",
+  "ja": "4月"
+ },
+ "batterie": {
+  "ar": "البطارية",
+  "en": "battery",
+  "ja": "バッテリー"
+ },
+ "batterie + STEG": {
+  "ar": "البطارية + الستاغ",
+  "en": "battery + STEG",
+  "ja": "バッテリー＋STEG"
+ },
+ "batterie {0} %": {
+  "ar": "البطارية {0} %",
+  "en": "battery {0} %",
+  "ja": "バッテリー {0} %"
+ },
+ "bien arrosées": {
+  "ar": "مسقية مليح",
+  "en": "well watered",
+  "ja": "十分に灌水"
+ },
+ "coupé": {
+  "ar": "مقصوص",
+  "en": "cut",
+  "ja": "停止"
+ },
+ "décembre": {
+  "ar": "ديسمبر",
+  "en": "December",
+  "ja": "12月"
+ },
+ "eau récupérée": {
+  "ar": "ماء مسترجع",
+  "en": "recovered water",
+  "ja": "回収水"
+ },
+ "en manque d'eau": {
+  "ar": "ناقصها الماء",
+  "en": "short of water",
+  "ja": "水不足"
+ },
+ "février": {
+  "ar": "فيفري",
+  "en": "February",
+  "ja": "2月"
+ },
+ "goutte-à-goutte enterré · {0} m³": {
+  "ar": "قطرة قطرة مدفونة · {0} م³",
+  "en": "buried drip · {0} m³",
+  "ja": "地中点滴 · {0} m³"
+ },
+ "h de pompe": {
+  "ar": "ساعة ضخ",
+  "en": "h of pumping",
+  "ja": "時間のポンプ運転"
+ },
+ "janvier": {
+  "ar": "جانفي",
+  "en": "January",
+  "ja": "1月"
+ },
+ "juillet": {
+  "ar": "جويلية",
+  "en": "July",
+  "ja": "7月"
+ },
+ "juin": {
+  "ar": "جوان",
+  "en": "June",
+  "ja": "6月"
+ },
+ "mai": {
+  "ar": "ماي",
+  "en": "May",
+  "ja": "5月"
+ },
+ "mars": {
+  "ar": "مارس",
+  "en": "March",
+  "ja": "3月"
+ },
+ "novembre": {
+  "ar": "نوفمبر",
+  "en": "November",
+  "ja": "11月"
+ },
+ "octobre": {
+  "ar": "أكتوبر",
+  "en": "October",
+  "ja": "10月"
+ },
+ "pas de batterie": {
+  "ar": "ما فماش بطارية",
+  "en": "no battery",
+  "ja": "バッテリーなし"
+ },
+ "pas de panneaux": {
+  "ar": "ما فماش ألواح",
+  "en": "no panels",
+  "ja": "パネルなし"
+ },
+ "septembre": {
+  "ar": "سبتمبر",
+  "en": "September",
+  "ja": "9月"
+ },
+ "soleil": {
+  "ar": "الشمس",
+  "en": "sun",
+  "ja": "太陽"
+ },
+ "soleil + STEG": {
+  "ar": "الشمس + الستاغ",
+  "en": "sun + STEG",
+  "ja": "太陽＋STEG"
+ },
+ "soleil + batterie": {
+  "ar": "الشمس + البطارية",
+  "en": "sun + battery",
+  "ja": "太陽＋バッテリー"
+ },
+ "soleil + batterie + STEG": {
+  "ar": "الشمس + البطارية + الستاغ",
+  "en": "sun + battery + STEG",
+  "ja": "太陽＋バッテリー＋STEG"
+ },
+ "stress hydrique": {
+  "ar": "إجهاد مائي",
+  "en": "water stress",
+  "ja": "水ストレス"
+ },
+ "{0} DT/kWh": {
+  "ar": "{0} د/kWh",
+  "en": "{0} DT/kWh",
+  "ja": "{0} DT/kWh"
+ },
+ "{0} h : coupure de la STEG. La pompe s'arrête : plus une goutte n'arrive aux racines.": {
+  "ar": "الساعة {0}: الستاغ تقصّت. المضخة توقف: حتى قطرة ما توصل للعروق.",
+  "en": "{0}:00: STEG outage. The pump stops: not a drop reaches the roots.",
+  "ja": "{0}時：STEG停電。ポンプが止まり、根に一滴も届きません。"
+ },
+ "{0} h : le soleil se lève, les panneaux alimentent déjà la pompe. La STEG n'est presque pas utilisée.": {
+  "ar": "الساعة {0}: الشمس تطلع والألواح تخدّم المضخة. الستاغ تقريب ما تستعملش.",
+  "en": "{0}:00: the sun rises and the panels already power the pump. STEG is barely used.",
+  "ja": "{0}時：日が昇り、パネルがもうポンプを動かしています。STEGはほとんど使いません。"
+ },
+ "{0} h : même coupure STEG. L'onduleur bascule tout seul : la pompe continue au solaire.": {
+  "ar": "الساعة {0}: نفس انقطاع الستاغ. المموّج يبدّل وحدو: المضخة تكمّل بالطاقة الشمسية.",
+  "en": "{0}:00: the same STEG outage. The inverter switches over by itself: the pump keeps running on solar.",
+  "ja": "{0}時：同じSTEG停電。インバーターが自動で切り替え、ポンプは太陽光で動き続けます。"
+ },
+ "{0} h : retour de la STEG. Aucune heure d'irrigation perdue, et la facture a baissé.": {
+  "ar": "الساعة {0}: رجعت الستاغ. حتى ساعة سقي ما ضاعت، والفاتورة نقصت.",
+  "en": "{0}:00: STEG is back. Not one hour of irrigation lost, and the bill went down.",
+  "ja": "{0}時：STEG復旧。灌漑は1時間も失われず、電気代も下がりました。"
+ },
+ "{0} h : retour du courant. Cinq heures d'irrigation perdues.": {
+  "ar": "الساعة {0}: رجع الضوء. خمسة سوايع سقي ضاعو.",
+  "en": "{0}:00: power is back. Five hours of irrigation lost.",
+  "ja": "{0}時：電気が復旧。灌漑が5時間失われました。"
+ },
+ "{0} h, pleine chaleur, toujours pas de courant. Les plantes jaunissent : la récolte est en danger.": {
+  "ar": "الساعة {0}، الحرّ في الذروة، والضوء مازال مقصوص. النباتات تصفار: الصابة في خطر.",
+  "en": "{0}:00, peak heat, still no power. The plants turn yellow: the harvest is at risk.",
+  "ja": "{0}時、暑さのピーク、まだ停電中。植物が黄ばみ、収穫が危険です。"
+ },
+ "{0} kW pour {1} m³/h sur {2} m.": {
+  "ar": "{0} kW لـ {1} م³/س على {2} م.",
+  "en": "{0} kW for {1} m³/h over {2} m.",
+  "ja": "{1} m³/h・揚程 {2} m で {0} kW。"
+ },
+ "{0} kWh/m²/jour (NASA POWER, {a}, {b}). Le tarif STEG, les rendements et la batterie sont des hypothèses à ajuster.": {
+  "ar": "{0} kWh/م²/يوم (NASA POWER، {a}، {b}). تعريفة الستاغ والمردود والبطارية فرضيات تنجم تبدّلها.",
+  "en": "{0} kWh/m²/day (NASA POWER, {a}, {b}). The STEG tariff, efficiencies and battery are assumptions to adjust.",
+  "ja": "{0} kWh/m²/日（NASA POWER、{a}、{b}）。STEG料金、効率、バッテリーは調整できる前提です。"
+ },
+ "{0} m³ (ET₀ {1} mm/j × Kc {2} FAO{3} − pluie, {4} ha, goutte-à-goutte enterré {5} %).": {
+  "ar": "{0} م³ (ET₀ {1} مم/يوم × Kc {2} FAO{3} − المطر، {4} هك، قطرة قطرة مدفونة {5} %).",
+  "en": "{0} m³ (ET₀ {1} mm/day × Kc {2} FAO{3} − rain, {4} ha, buried drip {5} %).",
+  "ja": "{0} m³（ET₀ {1} mm/日 × Kc {2} FAO{3} − 雨、{4} ha、地中点滴 {5} %）。"
+ },
+ "{0}/{1} · Ferme classique, sans solaire : la pompe tourne sur le réseau STEG. {2} h, l'irrigation commence.": {
+  "ar": "{0}/{1} · فلاحة عادية بلا طاقة شمسية: المضخة تخدم بشبكة الستاغ. الساعة {2}، يبدا السقي.",
+  "en": "{0}/{1} · A classic farm without solar: the pump runs on the STEG grid. {2}:00, irrigation starts.",
+  "ja": "{0}/{1} · 太陽光のない普通の農場：ポンプはSTEGの電力で動きます。{2}時、灌漑開始。"
+ },
+ "{0}/{1} · La même journée avec Mdhalla : panneaux solaires + batterie + onduleur automatique.": {
+  "ar": "{0}/{1} · نفس النهار مع مظلّة: ألواح شمسية + بطارية + مموّج أوتوماتيكي.",
+  "en": "{0}/{1} · The same day with Mdhalla: solar panels + battery + automatic inverter.",
+  "ja": "{0}/{1} · 同じ1日をMdhallaで：ソーラーパネル＋バッテリー＋自動インバーター。"
+ },
+ "Économie STEG (jour)": {
+  "ar": "توفير الستاغ (اليوم)",
+  "en": "STEG savings (day)",
+  "ja": "STEG節約（1日）"
+ }
+}

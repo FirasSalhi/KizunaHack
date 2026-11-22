@@ -1,4 +1,4 @@
-"""FARMLINK voice assistant (ported from the Pilo Tech "Horizon" assistant, renamed).
+"""Mdhalla voice assistant (ported from the Pilo Tech "Horizon" assistant, renamed).
 
 POST /api/v1/assistant/chat answers one message of a conversation:
   - with the local Ollama model (same setup as Horizon: OLLAMA_HOST, OLLAMA_MODEL), given the farm data
@@ -93,7 +93,7 @@ def get_llm() -> LLM:
 def system_prompt(language: str, context: dict[str, Any]) -> str:
     name = settings.ASSISTANT_NAME
     return (
-        f"Tu es {name}, l'assistant vocal de la plateforme agricole FARMLINK (Tunisie). "
+        f"Tu es {name}, l'assistant vocal de la plateforme agricole Mdhalla (مظلّة, Tunisie). "
         f"Réponds uniquement en {LANGUAGE_NAMES.get(language, 'français')}, en 1 à 3 phrases courtes, "
         "simples, pour un agriculteur, faciles à lire à voix haute (pas de listes, pas de Markdown). "
         "Utilise seulement les données de la ferme ci-dessous ; si une donnée manque, dis-le et indique "

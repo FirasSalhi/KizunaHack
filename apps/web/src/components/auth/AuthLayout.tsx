@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 import { useAuth } from "@/hooks/useAuth";
-import { BrandMark } from "@/components/icons";
+import { BrandLogo } from "@/components/BrandLogo";
 import { useI18n } from "@/i18n/I18nProvider";
 import { LanguageSwitcher } from "@/i18n/LanguageSwitcher";
 
@@ -55,12 +55,8 @@ export function AuthLayout({
         {/* Brand header */}
         <header className="relative z-10">
           <Link href="/" className="inline-flex items-center gap-2.5 group">
-            <span className="w-8 h-8 rounded-lg bg-[#a3e635] text-[#0c0f0d] font-bold flex items-center justify-center text-base transition-transform group-hover:scale-105">
-              <BrandMark />
-            </span>
-            <span className="font-semibold tracking-tight text-white text-lg">
-              FARMLINK
-            </span>
+            <BrandLogo size={36} className="rounded-lg transition-transform group-hover:scale-105" />
+            <span className="font-semibold tracking-tight text-white text-lg">{m.common.brand}</span>
           </Link>
         </header>
 
