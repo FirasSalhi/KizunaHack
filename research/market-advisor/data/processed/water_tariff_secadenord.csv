@@ -1,0 +1,264 @@
+year,client,zone,tariff_millime_m3,tariff_dt_m3,agricultural_client,source_id
+2014,SONEDE ,Ghdir El golla ,49.11,0.04911,False,secadenord_tariff
+2014,SONEDE ,Belly,51.61,0.051609999999999996,False,secadenord_tariff
+2014,SONEDE ,Bizerte ,49.11,0.04911,False,secadenord_tariff
+2014,CRDA-Tunis,Tunis,39.41,0.039409999999999994,True,secadenord_tariff
+2014,CRDA-Ben-Arous,Ben-Arous,43.41,0.04341,True,secadenord_tariff
+2014,CRDA-Nabeul ,,40.41,0.040409999999999995,True,secadenord_tariff
+2014,CRDA-Béja,Borj Ettoumi,72.41,0.07241,True,secadenord_tariff
+2014,CRDA-Béja,Kliwa,72.41,0.07241,True,secadenord_tariff
+2014,CRDA-Béja,Teffeha ,105.41,0.10540999999999999,True,secadenord_tariff
+2014,CRDA-Béja,Griaat,110.41,0.11041,True,secadenord_tariff
+2014,CRDA-Béja,Sidi Ismail,57.41,0.057409999999999996,True,secadenord_tariff
+2014,CRDA-Béja,Nefza,39.41,0.039409999999999994,True,secadenord_tariff
+2014,CRDA-Manouba,Manouba,72.41,0.07241,True,secadenord_tariff
+2014,CRDA-Jendouba,Jendouba,57.41,0.057409999999999996,True,secadenord_tariff
+2014,CRDA-Ariana ,Ariana,52.41,0.05241,True,secadenord_tariff
+2014,CRDA-Bizerte ,Complexe Kalaat El Andalous ,56.41,0.056409999999999995,True,secadenord_tariff
+2014,CRDA-Bizerte ,Complexe Sejnane Joumine ,21.41,0.02141,True,secadenord_tariff
+2014,CRDA-Monastir,Monastir,56.41,0.056409999999999995,True,secadenord_tariff
+2014,CRDA Sousse ,Sousse,54.41,0.05441,True,secadenord_tariff
+2014,CRDA Kairouan ,Kairouan,54.41,0.05441,True,secadenord_tariff
+2014,CRDA Mahdia ,Mahdia,54.41,0.05441,True,secadenord_tariff
+2015,SONEDE ,Ghdir El golla ,49.11,0.04911,False,secadenord_tariff
+2015,SONEDE ,Belly,51.61,0.051609999999999996,False,secadenord_tariff
+2015,SONEDE ,Bizerte ,49.11,0.04911,False,secadenord_tariff
+2015,CRDA-Tunis,Tunis,39.41,0.039409999999999994,True,secadenord_tariff
+2015,CRDA-Ben-Arous,Ben-Arous,43.41,0.04341,True,secadenord_tariff
+2015,CRDA-Nabeul ,,40.41,0.040409999999999995,True,secadenord_tariff
+2015,CRDA-Béja,Borj Ettoumi,72.41,0.07241,True,secadenord_tariff
+2015,CRDA-Béja,Kliwa,72.41,0.07241,True,secadenord_tariff
+2015,CRDA-Béja,Teffeha ,105.41,0.10540999999999999,True,secadenord_tariff
+2015,CRDA-Béja,Griaat,110.41,0.11041,True,secadenord_tariff
+2015,CRDA-Béja,Sidi Ismail,57.41,0.057409999999999996,True,secadenord_tariff
+2015,CRDA-Béja,Nefza,39.41,0.039409999999999994,True,secadenord_tariff
+2015,CRDA-Béja,Tbordga,39.41,0.039409999999999994,True,secadenord_tariff
+2015,CRDA-Manouba,Manouba,72.41,0.07241,True,secadenord_tariff
+2015,CRDA-Jendouba,Jendouba,57.41,0.057409999999999996,True,secadenord_tariff
+2015,CRDA-Ariana ,Ariana,52.41,0.05241,True,secadenord_tariff
+2015,CRDA-Bizerte ,Complexe Kalaat El Andalous ,56.41,0.056409999999999995,True,secadenord_tariff
+2015,CRDA-Bizerte ,Complexe Sejnane Joumine ,21.41,0.02141,True,secadenord_tariff
+2015,CRDA-Monastir,Monastir,56.41,0.056409999999999995,True,secadenord_tariff
+2015,CRDA Sousse ,Sousse,54.41,0.05441,True,secadenord_tariff
+2015,CRDA Kairouan ,Kairouan,54.41,0.05441,True,secadenord_tariff
+2015,CRDA Mahdia ,Mahdia,54.41,0.05441,True,secadenord_tariff
+2016,SONEDE ,Ghdir El golla ,53.67,0.05367,False,secadenord_tariff
+2016,SONEDE ,Belly,56.17,0.056170000000000005,False,secadenord_tariff
+2016,SONEDE ,Bizerte ,53.67,0.05367,False,secadenord_tariff
+2016,CRDA-Tunis,Tunis,39.41,0.039409999999999994,True,secadenord_tariff
+2016,CRDA-Ben-Arous,Ben-Arous,43.41,0.04341,True,secadenord_tariff
+2016,CRDA-Nabeul ,,40.41,0.040409999999999995,True,secadenord_tariff
+2016,CRDA-Béja,Borj Ettoumi,72.41,0.07241,True,secadenord_tariff
+2016,CRDA-Béja,Kliwa,72.41,0.07241,True,secadenord_tariff
+2016,CRDA-Béja,Teffeha ,105.41,0.10540999999999999,True,secadenord_tariff
+2016,CRDA-Béja,Griaat,110.41,0.11041,True,secadenord_tariff
+2016,CRDA-Béja,Sidi Ismail,57.41,0.057409999999999996,True,secadenord_tariff
+2016,CRDA-Béja,Nefza,39.41,0.039409999999999994,True,secadenord_tariff
+2016,CRDA-Béja,Tbordga,39.41,0.039409999999999994,True,secadenord_tariff
+2016,CRDA-Manouba,Manouba,72.41,0.07241,True,secadenord_tariff
+2016,CRDA-Jendouba,Jendouba,57.41,0.057409999999999996,True,secadenord_tariff
+2016,CRDA-Ariana ,Ariana,52.41,0.05241,True,secadenord_tariff
+2016,CRDA-Bizerte ,Complexe Kalaat El Andalous ,56.41,0.056409999999999995,True,secadenord_tariff
+2016,CRDA-Bizerte ,Complexe Sejnane Joumine ,21.41,0.02141,True,secadenord_tariff
+2016,CRDA-Monastir,Monastir,56.41,0.056409999999999995,True,secadenord_tariff
+2016,CRDA Sousse ,Sousse,54.41,0.05441,True,secadenord_tariff
+2016,CRDA Kairouan ,Kairouan,54.41,0.05441,True,secadenord_tariff
+2016,CRDA Mahdia ,Mahdia,54.41,0.05441,True,secadenord_tariff
+2017,SONEDE ,Ghdir El golla ,53.67,0.05367,False,secadenord_tariff
+2017,SONEDE ,Belly,56.17,0.056170000000000005,False,secadenord_tariff
+2017,SONEDE ,Bizerte ,53.67,0.05367,False,secadenord_tariff
+2017,CRDA-Tunis,Tunis,39.41,0.039409999999999994,True,secadenord_tariff
+2017,CRDA-Ben-Arous,Ben-Arous,43.41,0.04341,True,secadenord_tariff
+2017,CRDA-Nabeul ,,40.41,0.040409999999999995,True,secadenord_tariff
+2017,CRDA-Béja,Borj Ettoumi,72.41,0.07241,True,secadenord_tariff
+2017,CRDA-Béja,Kliwa,72.41,0.07241,True,secadenord_tariff
+2017,CRDA-Béja,Teffeha ,105.41,0.10540999999999999,True,secadenord_tariff
+2017,CRDA-Béja,Griaat,110.41,0.11041,True,secadenord_tariff
+2017,CRDA-Béja,Sidi Ismail,57.41,0.057409999999999996,True,secadenord_tariff
+2017,CRDA-Béja,Nefza,39.41,0.039409999999999994,True,secadenord_tariff
+2017,CRDA-Béja,Tbordga,39.41,0.039409999999999994,True,secadenord_tariff
+2017,CRDA-Manouba,Manouba,72.41,0.07241,True,secadenord_tariff
+2017,CRDA-Jendouba,Jendouba,57.41,0.057409999999999996,True,secadenord_tariff
+2017,CRDA-Ariana ,Ariana,52.41,0.05241,True,secadenord_tariff
+2017,CRDA-Bizerte ,Complexe Kalaat El Andalous ,56.41,0.056409999999999995,True,secadenord_tariff
+2017,CRDA-Bizerte ,Complexe Sejnane Joumine ,21.41,0.02141,True,secadenord_tariff
+2017,CRDA-Monastir,Monastir,56.41,0.056409999999999995,True,secadenord_tariff
+2017,CRDA Sousse ,Sousse,54.41,0.05441,True,secadenord_tariff
+2017,CRDA Kairouan ,kairouan,54.41,0.05441,True,secadenord_tariff
+2017,CRDA Mahdia ,Mahdia,54.41,0.05441,True,secadenord_tariff
+2018,SONEDE ,Ghdir El golla ,53.67,0.05367,False,secadenord_tariff
+2018,SONEDE ,Belly,56.17,0.056170000000000005,False,secadenord_tariff
+2018,SONEDE ,Bizerte ,53.67,0.05367,False,secadenord_tariff
+2018,CRDA-Tunis,Tunis,39.41,0.039409999999999994,True,secadenord_tariff
+2018,CRDA-Ben-Arous,Ben-Arous,43.41,0.04341,True,secadenord_tariff
+2018,CRDA-Nabeul ,,40.41,0.040409999999999995,True,secadenord_tariff
+2018,CRDA-Béja,Borj Ettoumi,72.41,0.07241,True,secadenord_tariff
+2018,CRDA-Béja,Kliwa,72.41,0.07241,True,secadenord_tariff
+2018,CRDA-Béja,Teffeha ,105.41,0.10540999999999999,True,secadenord_tariff
+2018,CRDA-Béja,Griaat,110.41,0.11041,True,secadenord_tariff
+2018,CRDA-Béja,Sidi Ismail,57.41,0.057409999999999996,True,secadenord_tariff
+2018,CRDA-Béja,Nefza,39.41,0.039409999999999994,True,secadenord_tariff
+2018,CRDA-Béja,Tbordga,39.41,0.039409999999999994,True,secadenord_tariff
+2018,CRDA-Manouba,Manouba,72.41,0.07241,True,secadenord_tariff
+2018,CRDA-Jendouba,Jendouba,57.41,0.057409999999999996,True,secadenord_tariff
+2018,CRDA-Ariana ,Ariana,52.41,0.05241,True,secadenord_tariff
+2018,CRDA-Bizerte ,Complexe Kalaat El Andalous ,56.41,0.056409999999999995,True,secadenord_tariff
+2018,CRDA-Bizerte ,Complexe Sejnane Joumine ,21.41,0.02141,True,secadenord_tariff
+2018,CRDA-Monastir,Monastir,56.41,0.056409999999999995,True,secadenord_tariff
+2018,CRDA Sousse ,Sousse,54.41,0.05441,True,secadenord_tariff
+2018,CRDA Kairouan ,Kairouan,54.41,0.05441,True,secadenord_tariff
+2018,CRDA Mahdia ,Mahdia,54.41,0.05441,True,secadenord_tariff
+2019,SONEDE ,Ghdir El golla ,53.67,0.05367,False,secadenord_tariff
+2019,SONEDE ,Belly,56.17,0.056170000000000005,False,secadenord_tariff
+2019,SONEDE ,Bizerte ,53.67,0.05367,False,secadenord_tariff
+2019,CRDA-Tunis,Tunis,39.41,0.039409999999999994,True,secadenord_tariff
+2019,CRDA-Ben-Arous,Ben-arous,43.41,0.04341,True,secadenord_tariff
+2019,CRDA-Nabeul ,,40.41,0.040409999999999995,True,secadenord_tariff
+2019,CRDA-Béja,Borj Ettoumi,72.41,0.07241,True,secadenord_tariff
+2019,CRDA-Béja,Kliwa,72.41,0.07241,True,secadenord_tariff
+2019,CRDA-Béja,Teffeha ,105.41,0.10540999999999999,True,secadenord_tariff
+2019,CRDA-Béja,Griaat,110.41,0.11041,True,secadenord_tariff
+2019,CRDA-Béja,Sidi Ismail,57.41,0.057409999999999996,True,secadenord_tariff
+2019,CRDA-Béja,Nefza,39.41,0.039409999999999994,True,secadenord_tariff
+2019,CRDA-Béja,Tbordga,39.41,0.039409999999999994,True,secadenord_tariff
+2019,CRDA-Manouba,Manouba,72.41,0.07241,True,secadenord_tariff
+2019,CRDA-Jendouba,Jendouba,57.41,0.057409999999999996,True,secadenord_tariff
+2019,CRDA-Ariana ,Ariana,52.41,0.05241,True,secadenord_tariff
+2019,CRDA-Bizerte ,Complexe Kalaat El Andalous ,56.41,0.056409999999999995,True,secadenord_tariff
+2019,CRDA-Bizerte ,Complexe Sejnane Joumine ,21.41,0.02141,True,secadenord_tariff
+2019,CRDA-Monastir,Monastir,56.41,0.056409999999999995,True,secadenord_tariff
+2019,CRDA Sousse ,Sousse,54.41,0.05441,True,secadenord_tariff
+2019,CRDA Kairouan ,Kairouan,54.41,0.05441,True,secadenord_tariff
+2019,CRDA Mahdia ,Mahdia,54.41,0.05441,True,secadenord_tariff
+2020,SONEDE ,Ghdir El golla ,53.67,0.05367,False,secadenord_tariff
+2020,SONEDE ,Belly,56.17,0.056170000000000005,False,secadenord_tariff
+2020,SONEDE ,Bizerte ,53.67,0.05367,False,secadenord_tariff
+2020,CRDA-Tunis,Tunis,39.41,0.039409999999999994,True,secadenord_tariff
+2020,CRDA-Ben-Arous,Ben-Arous,43.41,0.04341,True,secadenord_tariff
+2020,CRDA-Nabeul ,,40.41,0.040409999999999995,True,secadenord_tariff
+2020,CRDA-Béja,Borj Ettoumi,72.41,0.07241,True,secadenord_tariff
+2020,CRDA-Béja,Kliwa,72.41,0.07241,True,secadenord_tariff
+2020,CRDA-Béja,Teffeha ,105.41,0.10540999999999999,True,secadenord_tariff
+2020,CRDA-Béja,Griaat,110.41,0.11041,True,secadenord_tariff
+2020,CRDA-Béja,Sidi Ismail,57.41,0.057409999999999996,True,secadenord_tariff
+2020,CRDA-Béja,Nefza,39.41,0.039409999999999994,True,secadenord_tariff
+2020,CRDA-Béja,Tbordga,39.41,0.039409999999999994,True,secadenord_tariff
+2020,CRDA-Manouba,Manouba,72.41,0.07241,True,secadenord_tariff
+2020,CRDA-Jendouba,Jendouba,57.41,0.057409999999999996,True,secadenord_tariff
+2020,CRDA-Ariana ,Ariana,52.41,0.05241,True,secadenord_tariff
+2020,CRDA-Bizerte ,Complexe Kalaat El Andalous ,56.41,0.056409999999999995,True,secadenord_tariff
+2020,CRDA-Bizerte ,Complexe Sejnane Joumine ,21.41,0.02141,True,secadenord_tariff
+2020,CRDA-Monastir,Monastir,56.41,0.056409999999999995,True,secadenord_tariff
+2020,CRDA Sousse ,Sousse,54.41,0.05441,True,secadenord_tariff
+2020,CRDA Kairouan ,Kairouan,54.41,0.05441,True,secadenord_tariff
+2020,CRDA Mahdia ,Mahdia,54.41,0.05441,True,secadenord_tariff
+2021,SONEDE ,Ghdir El golla ,53.67,0.05367,False,secadenord_tariff
+2021,SONEDE ,Belly,56.17,0.056170000000000005,False,secadenord_tariff
+2021,SONEDE ,Bizerte ,53.67,0.05367,False,secadenord_tariff
+2021,CRDA-Tunis,Tunis,39.41,0.039409999999999994,True,secadenord_tariff
+2021,CRDA-Ben-Arous,Ben-Arous,43.41,0.04341,True,secadenord_tariff
+2021,CRDA-Nabeul ,,40.41,0.040409999999999995,True,secadenord_tariff
+2021,CRDA-Béja,Borj Ettoumi,72.41,0.07241,True,secadenord_tariff
+2021,CRDA-Béja,Kliwa,72.41,0.07241,True,secadenord_tariff
+2021,CRDA-Béja,Teffeha ,105.41,0.10540999999999999,True,secadenord_tariff
+2021,CRDA-Béja,Griaat,110.41,0.11041,True,secadenord_tariff
+2021,CRDA-Béja,Sidi Ismail,57.41,0.057409999999999996,True,secadenord_tariff
+2021,CRDA-Béja,Nefza,39.41,0.039409999999999994,True,secadenord_tariff
+2021,CRDA-Béja,Tbordga,39.41,0.039409999999999994,True,secadenord_tariff
+2021,CRDA-Manouba,Manouba,72.41,0.07241,True,secadenord_tariff
+2021,CRDA-Jendouba,Jendouba,57.41,0.057409999999999996,True,secadenord_tariff
+2021,CRDA-Ariana ,Ariana,52.41,0.05241,True,secadenord_tariff
+2021,CRDA-Bizerte ,Complexe Kalaat El Andalous ,56.41,0.056409999999999995,True,secadenord_tariff
+2021,CRDA-Bizerte ,Complexe Sejnane Joumine ,21.41,0.02141,True,secadenord_tariff
+2021,CRDA-Monastir,Monastir,56.41,0.056409999999999995,True,secadenord_tariff
+2021,CRDA Sousse ,Sousse,54.41,0.05441,True,secadenord_tariff
+2021,CRDA Kairouan ,Kairouan,54.41,0.05441,True,secadenord_tariff
+2021,CRDA Mahdia ,Mahdia,54.41,0.05441,True,secadenord_tariff
+2022,SONEDE ,Ghdir El golla ,68.69,0.06869,False,secadenord_tariff
+2022,SONEDE ,Belly,71.19,0.07119,False,secadenord_tariff
+2022,SONEDE ,Bizerte ,68.69,0.06869,False,secadenord_tariff
+2022,CRDA-Tunis,Tunis,54.42999999999999,0.05442999999999999,True,secadenord_tariff
+2022,CRDA-Ben-Arous,Ben-Arous,58.42999999999999,0.058429999999999996,True,secadenord_tariff
+2022,CRDA-Nabeul ,,55.42999999999999,0.05542999999999999,True,secadenord_tariff
+2022,CRDA-Béja,Borj Ettoumi,87.42999999999999,0.08743,True,secadenord_tariff
+2022,CRDA-Béja,Kliwa,87.42999999999999,0.08743,True,secadenord_tariff
+2022,CRDA-Béja,Teffeha ,120.42999999999999,0.12043,True,secadenord_tariff
+2022,CRDA-Béja,Griaat,125.42999999999999,0.12542999999999999,True,secadenord_tariff
+2022,CRDA-Béja,Sidi Ismail,72.42999999999999,0.07243,True,secadenord_tariff
+2022,CRDA-Béja,Nefza,54.42999999999999,0.05442999999999999,True,secadenord_tariff
+2022,CRDA-Béja,Tbordga,54.42999999999999,0.05442999999999999,True,secadenord_tariff
+2022,CRDA-Manouba,Manouba,87.42999999999999,0.08743,True,secadenord_tariff
+2022,CRDA-Jendouba,Jendouba,72.42999999999999,0.07243,True,secadenord_tariff
+2022,CRDA-Ariana ,Ariana,67.42999999999999,0.06742999999999999,True,secadenord_tariff
+2022,CRDA-Bizerte ,Complexe Kalaat El Andalous ,71.42999999999999,0.07143,True,secadenord_tariff
+2022,CRDA-Bizerte ,Complexe Sejnane Joumine ,36.43,0.03643,True,secadenord_tariff
+2022,CRDA-Monastir,Monastir,71.42999999999999,0.07143,True,secadenord_tariff
+2022,CRDA Sousse ,Sousse,69.42999999999999,0.06942999999999999,True,secadenord_tariff
+2022,CRDA Kairouan ,Kairouan,69.42999999999999,0.06942999999999999,True,secadenord_tariff
+2022,CRDA Mahdia ,Mahdia,69.42999999999999,0.06942999999999999,True,secadenord_tariff
+2023,SONEDE ,Ghdir El golla ,63.67,0.06367,False,secadenord_tariff
+2023,SONEDE ,Belly,66.17,0.06617,False,secadenord_tariff
+2023,SONEDE ,Bizerte ,68.69,0.06869,False,secadenord_tariff
+2023,CRDA-Tunis,Tunis,49.41,0.049409999999999996,True,secadenord_tariff
+2023,CRDA-Ben-Arous,Ben-Arous,53.41,0.05341,True,secadenord_tariff
+2023,CRDA-Nabeul ,,50.41,0.050409999999999996,True,secadenord_tariff
+2023,CRDA-Béja,Borj Ettoumi,82.41,0.08241,True,secadenord_tariff
+2023,CRDA-Béja,Kliwa,82.41,0.08241,True,secadenord_tariff
+2023,CRDA-Béja,Teffeha ,115.41,0.11541,True,secadenord_tariff
+2023,CRDA-Béja,Griaat,120.41,0.12041,True,secadenord_tariff
+2023,CRDA-Béja,Sidi Ismail,67.41,0.06741,True,secadenord_tariff
+2023,CRDA-Béja,Nefza,49.41,0.049409999999999996,True,secadenord_tariff
+2023,CRDA-Béja,Tbordga,49.41,0.049409999999999996,True,secadenord_tariff
+2023,CRDA-Manouba,Manouba,82.41,0.08241,True,secadenord_tariff
+2023,CRDA-Jendouba,Jendouba,67.41,0.06741,True,secadenord_tariff
+2023,CRDA-Ariana ,Ariana,62.41,0.06240999999999999,True,secadenord_tariff
+2023,CRDA-Bizerte ,Complexe Kalaat El Andalous ,66.41,0.06641,True,secadenord_tariff
+2023,CRDA-Bizerte ,Complexe Sejnane Joumine ,31.41,0.03141,True,secadenord_tariff
+2023,CRDA-Monastir,Monastir,66.41,0.06641,True,secadenord_tariff
+2023,CRDA Sousse ,Sousse,64.41,0.06441,True,secadenord_tariff
+2023,CRDA Kairouan ,Kairouan,64.41,0.06441,True,secadenord_tariff
+2023,CRDA Mahdia ,Mahdia,64.41,0.06441,True,secadenord_tariff
+2024,SONEDE ,Ghdir El golla ,73.69,0.07368999999999999,False,secadenord_tariff
+2024,SONEDE ,Belly,76.19,0.07619,False,secadenord_tariff
+2024,SONEDE ,Bizerte ,73.69,0.07368999999999999,False,secadenord_tariff
+2024,CRDA-Tunis,tunis,59.43,0.05943,True,secadenord_tariff
+2024,CRDA-Ben-Arous,ben-arous,63.43,0.06343,True,secadenord_tariff
+2024,CRDA-Nabeul ,,60.43,0.06043,True,secadenord_tariff
+2024,CRDA-Béja,Borj Ettoumi,92.43,0.09243000000000001,True,secadenord_tariff
+2024,CRDA-Béja,Kliwa,92.43,0.09243000000000001,True,secadenord_tariff
+2024,CRDA-Béja,Teffeha ,125.43,0.12543,True,secadenord_tariff
+2024,CRDA-Béja,Griaat,130.43,0.13043000000000002,True,secadenord_tariff
+2024,CRDA-Béja,Sidi Ismail,77.43,0.07743000000000001,True,secadenord_tariff
+2024,CRDA-Béja,Nefza,59.43,0.05943,True,secadenord_tariff
+2024,CRDA-Béja,Tbordga,59.43,0.05943,True,secadenord_tariff
+2024,CRDA-Manouba,manouba,92.43,0.09243000000000001,True,secadenord_tariff
+2024,CRDA-Jandouba,jendouba,77.43,0.07743000000000001,True,secadenord_tariff
+2024,CRDA-Ariana ,ariana,72.43,0.07243000000000001,True,secadenord_tariff
+2024,CRDA-Bizerte ,Complexe Kalaat El Andalous ,76.43,0.07643000000000001,True,secadenord_tariff
+2024,CRDA-Bizerte ,Complexe Sejnane Joumine ,41.43,0.04143,True,secadenord_tariff
+2024,CRDA-Monastir,monastir,76.43,0.07643000000000001,True,secadenord_tariff
+2024,CRDA Sousse ,sousse,74.43,0.07443000000000001,True,secadenord_tariff
+2024,CRDA Kairouan ,kairouan,74.43,0.07443000000000001,True,secadenord_tariff
+2024,CRDA Mahdia ,mahdia,74.43,0.07443000000000001,True,secadenord_tariff
+2025,SONEDE ,Ghdir El golla ,78.69,0.07869,False,secadenord_tariff
+2025,SONEDE ,Belly,81.19,0.08119,False,secadenord_tariff
+2025,SONEDE ,Bizerte ,78.69,0.07869,False,secadenord_tariff
+2025,CRDA-Tunis,tunis,64.42999999999999,0.06442999999999999,True,secadenord_tariff
+2025,CRDA-Ben-Arous,ben-arous,68.42999999999999,0.06842999999999999,True,secadenord_tariff
+2025,CRDA-Nabeul ,,65.42999999999999,0.06542999999999999,True,secadenord_tariff
+2025,CRDA-Béja,Borj Ettoumi,97.42999999999999,0.09742999999999999,True,secadenord_tariff
+2025,CRDA-Béja,Kliwa,97.42999999999999,0.09742999999999999,True,secadenord_tariff
+2025,CRDA-Béja,Teffeha ,130.43,0.13043000000000002,True,secadenord_tariff
+2025,CRDA-Béja,Griaat,135.43,0.13543,True,secadenord_tariff
+2025,CRDA-Béja,Sidi Ismail,82.42999999999999,0.08242999999999999,True,secadenord_tariff
+2025,CRDA-Béja,Nefza,64.42999999999999,0.06442999999999999,True,secadenord_tariff
+2025,CRDA-Béja,Tbordga,64.42999999999999,0.06442999999999999,True,secadenord_tariff
+2025,CRDA-Manouba,manouba,97.42999999999999,0.09742999999999999,True,secadenord_tariff
+2025,CRDA-Jandouba,jendouba,82.42999999999999,0.08242999999999999,True,secadenord_tariff
+2025,CRDA-Ariana ,ariana,77.42999999999999,0.07743,True,secadenord_tariff
+2025,CRDA-Bizerte ,Complexe Kalaat El Andalous ,81.42999999999999,0.08142999999999999,True,secadenord_tariff
+2025,CRDA-Bizerte ,Complexe Sejnane Joumine ,46.43,0.04643,True,secadenord_tariff
+2025,CRDA-Monastir,monastir,81.42999999999999,0.08142999999999999,True,secadenord_tariff
+2025,CRDA Sousse ,sousse,79.42999999999999,0.07942999999999999,True,secadenord_tariff
+2025,CRDA Kairouan ,kairouan,79.42999999999999,0.07942999999999999,True,secadenord_tariff
+2025,CRDA Mahdia ,mahdia,79.42999999999999,0.07942999999999999,True,secadenord_tariff

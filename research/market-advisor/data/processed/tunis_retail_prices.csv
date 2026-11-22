@@ -1,0 +1,1221 @@
+item_raw,unit,year,month,status,bulletin,bulletin_end,n_bulletins,date,crop_id,retail_price_dt_kg,source_id
+Ails secs,Kg,2021,7,ok,bms_juillet-2022.pdf,202202,1,2021-07-01,garlic,11.091,ins_tunis_retail
+Ails secs,Kg,2021,8,ok,bms_juillet-2022.pdf,202202,1,2021-08-01,garlic,10.75,ins_tunis_retail
+Ails secs,Kg,2021,9,ok,bms_juillet-2022.pdf,202202,1,2021-09-01,garlic,11.175,ins_tunis_retail
+Ails secs,Kg,2021,10,ok,bms_juillet-2022.pdf,202202,1,2021-10-01,garlic,12.292,ins_tunis_retail
+Ails secs,Kg,2021,11,ok,bms_juillet-2022.pdf,202202,1,2021-11-01,garlic,13.833,ins_tunis_retail
+Ails secs,Kg,2021,12,ok,bms_decembre-2022.pdf,202211,2,2021-12-01,garlic,15.917,ins_tunis_retail
+Ails secs,Kg,2022,1,ok,bms_decembre-2022.pdf,202211,2,2022-01-01,garlic,16.75,ins_tunis_retail
+Ails secs,Kg,2022,2,ok,bms_decembre-2022.pdf,202211,2,2022-02-01,garlic,18.133,ins_tunis_retail
+Ails secs,Kg,2022,3,ok,bms_decembre-2022.pdf,202211,2,2022-03-01,garlic,18.792,ins_tunis_retail
+Ails secs,Kg,2022,4,ok,bms_decembre-2022.pdf,202211,2,2022-04-01,garlic,18.975,ins_tunis_retail
+Ails secs,Kg,2022,5,ok,bms_decembre-2022.pdf,202211,2,2022-05-01,garlic,17.207,ins_tunis_retail
+Ails secs,Kg,2022,6,ok,bms_decembre-2022.pdf,202211,2,2022-06-01,garlic,17.3,ins_tunis_retail
+Ails secs,Kg,2022,7,ok,bms_juillet-2023.pdf,202307,3,2022-07-01,garlic,16.067,ins_tunis_retail
+Ails secs,Kg,2022,8,ok,bms_juillet-2023.pdf,202307,2,2022-08-01,garlic,15.3,ins_tunis_retail
+Ails secs,Kg,2022,9,ok,bms_juillet-2023.pdf,202307,2,2022-09-01,garlic,14.833,ins_tunis_retail
+Ails secs,Kg,2022,10,ok,bms_juillet-2023.pdf,202307,2,2022-10-01,garlic,15.833,ins_tunis_retail
+Ails secs,Kg,2022,11,ok,bms_juillet-2023.pdf,202307,2,2022-11-01,garlic,14.8,ins_tunis_retail
+Ails secs,Kg,2022,12,ok,bms_decembre-2023.pdf,202310,3,2022-12-01,garlic,15.95,ins_tunis_retail
+Ails secs,Kg,2023,1,ok,bms_decembre-2023.pdf,202310,2,2023-01-01,garlic,16.083,ins_tunis_retail
+Ails secs,Kg,2023,2,ok,bms_fevrier-2024.pdf,202402,3,2023-02-01,garlic,16.467,ins_tunis_retail
+Ails secs,Kg,2023,3,ok,bms_mars-2024.pdf,202403,4,2023-03-01,garlic,16.433,ins_tunis_retail
+Ails secs,Kg,2023,4,ok,bms_avril-2024.pdf,202404,5,2023-04-01,garlic,17.008,ins_tunis_retail
+Ails secs,Kg,2023,5,ok,bms_avril-2024.pdf,202404,5,2023-05-01,garlic,15.725,ins_tunis_retail
+Ails secs,Kg,2023,6,ok,bms_avril-2024.pdf,202404,5,2023-06-01,garlic,14.333,ins_tunis_retail
+Ails secs,Kg,2023,7,ok,bms_juillet-2024.pdf,202407,6,2023-07-01,garlic,14.342,ins_tunis_retail
+Ails secs,Kg,2023,8,ok,bms_juillet-2024.pdf,202407,5,2023-08-01,garlic,12.525,ins_tunis_retail
+Ails secs,Kg,2023,9,ok,bms_juillet-2024.pdf,202407,5,2023-09-01,garlic,12.842,ins_tunis_retail
+Ails secs,Kg,2023,10,ok,bms_juillet-2024.pdf,202407,5,2023-10-01,garlic,13.25,ins_tunis_retail
+Ails secs,Kg,2023,11,ok,bms_juillet-2024.pdf,202407,5,2023-11-01,garlic,14.075,ins_tunis_retail
+Ails secs,Kg,2023,12,ok,bms_decembre-2024.pdf,202412,6,2023-12-01,garlic,14.142,ins_tunis_retail
+Ails secs,Kg,2024,1,ok,bms_decembre-2024.pdf,202412,5,2024-01-01,garlic,14.225,ins_tunis_retail
+Ails secs,Kg,2024,2,ok,bms_decembre-2024.pdf,202412,5,2024-02-01,garlic,16.033,ins_tunis_retail
+Ails secs,Kg,2024,3,ok,bms_mars-2025.pdf,202501,5,2024-03-01,garlic,20.908,ins_tunis_retail
+Ails secs,Kg,2024,4,ok,bms_avril-2025.pdf,202504,5,2024-04-01,garlic,21.442,ins_tunis_retail
+Ails secs,Kg,2024,5,ok,bms_mai-2025.pdf,202505,5,2024-05-01,garlic,18.633,ins_tunis_retail
+Ails secs,Kg,2024,6,ok,bms_juin-2025.pdf,202506,6,2024-06-01,garlic,14.333,ins_tunis_retail
+Ails secs,Kg,2024,7,ok,bms_juillet-2025.pdf,202506,7,2024-07-01,garlic,13.25,ins_tunis_retail
+Ails secs,Kg,2024,8,ok,bms_aout-2025.pdf,202508,7,2024-08-01,garlic,14.392,ins_tunis_retail
+Ails secs,Kg,2024,9,ok,bms_septembre-2025.pdf,202509,8,2024-09-01,garlic,14.617,ins_tunis_retail
+Ails secs,Kg,2024,10,ok,bms_octobre-2025.pdf,202509,9,2024-10-01,garlic,14.725,ins_tunis_retail
+Ails secs,Kg,2024,11,ok,bms_novembre-2025.pdf,202509,10,2024-11-01,garlic,14.617,ins_tunis_retail
+Ails secs,Kg,2024,12,ok,bms_decembre-2025.pdf,202509,11,2024-12-01,garlic,14.95,ins_tunis_retail
+Ails secs,Kg,2025,1,ok,bms_decembre-2025.pdf,202509,11,2025-01-01,garlic,16.917,ins_tunis_retail
+Ails secs,Kg,2025,2,ok,bms_fevrier-2026.pdf,202602,12,2025-02-01,garlic,17.883,ins_tunis_retail
+Ails secs,Kg,2025,3,ok,bms_mars-2026.pdf,202603,13,2025-03-01,garlic,18.6,ins_tunis_retail
+Ails secs,Kg,2025,4,ok,bms_avril-2026.pdf,202603,13,2025-04-01,garlic,18.017,ins_tunis_retail
+Ails secs,Kg,2025,5,ok,bms_mai-2026.pdf,202605,13,2025-05-01,garlic,17.3,ins_tunis_retail
+Ails secs,Kg,2025,6,ok,bms_juin-2026.pdf,202606,13,2025-06-01,garlic,16.208,ins_tunis_retail
+Ails secs,Kg,2025,7,ok,bms_juillet-2026.pdf,202607,13,2025-07-01,garlic,16.042,ins_tunis_retail
+Ails secs,Kg,2025,8,ok,bms_juillet-2026.pdf,202607,12,2025-08-01,garlic,15.925,ins_tunis_retail
+Ails secs,Kg,2025,9,ok,bms_juillet-2026.pdf,202607,11,2025-09-01,garlic,15.925,ins_tunis_retail
+Ails secs,Kg,2025,10,ok,bms_juillet-2026.pdf,202607,10,2025-10-01,garlic,15.675,ins_tunis_retail
+Ails secs,Kg,2025,11,ok,bms_juillet-2026.pdf,202607,9,2025-11-01,garlic,15.817,ins_tunis_retail
+Ails secs,Kg,2025,12,ok,bms_juillet-2026.pdf,202607,8,2025-12-01,garlic,15.917,ins_tunis_retail
+Ails secs,Kg,2026,1,ok,bms_juillet-2026.pdf,202607,7,2026-01-01,garlic,16.583,ins_tunis_retail
+Ails secs,Kg,2026,2,ok,bms_juillet-2026.pdf,202607,6,2026-02-01,garlic,16.583,ins_tunis_retail
+Ails secs,Kg,2026,3,ok,bms_juillet-2026.pdf,202607,5,2026-03-01,garlic,16.75,ins_tunis_retail
+Ails secs,Kg,2026,4,ok,bms_juillet-2026.pdf,202607,4,2026-04-01,garlic,14.192,ins_tunis_retail
+Ails secs,Kg,2026,5,ok,bms_juillet-2026.pdf,202607,3,2026-05-01,garlic,11.908,ins_tunis_retail
+Ails secs,Kg,2026,6,ok,bms_juillet-2026.pdf,202607,2,2026-06-01,garlic,11.892,ins_tunis_retail
+Ails secs,Kg,2026,7,ok,bms_juillet-2026.pdf,202607,1,2026-07-01,garlic,12.017,ins_tunis_retail
+Carottes,Kg,2021,7,ok,bms_juillet-2022.pdf,202202,1,2021-07-01,carrot,1.641,ins_tunis_retail
+Carottes,Kg,2021,8,ok,bms_juillet-2022.pdf,202202,1,2021-08-01,carrot,1.913,ins_tunis_retail
+Carottes,Kg,2021,9,ok,bms_juillet-2022.pdf,202202,1,2021-09-01,carrot,2.0,ins_tunis_retail
+Carottes,Kg,2021,10,ok,bms_juillet-2022.pdf,202202,1,2021-10-01,carrot,2.278,ins_tunis_retail
+Carottes,Kg,2021,11,ok,bms_juillet-2022.pdf,202202,1,2021-11-01,carrot,1.663,ins_tunis_retail
+Carottes,Kg,2021,12,ok,bms_decembre-2022.pdf,202211,2,2021-12-01,carrot,1.412,ins_tunis_retail
+Carottes,Kg,2022,1,ok,bms_decembre-2022.pdf,202211,2,2022-01-01,carrot,1.41,ins_tunis_retail
+Carottes,Kg,2022,2,ok,bms_decembre-2022.pdf,202211,2,2022-02-01,carrot,1.338,ins_tunis_retail
+Carottes,Kg,2022,3,ok,bms_decembre-2022.pdf,202211,2,2022-03-01,carrot,1.265,ins_tunis_retail
+Carottes,Kg,2022,4,ok,bms_decembre-2022.pdf,202211,2,2022-04-01,carrot,1.582,ins_tunis_retail
+Carottes,Kg,2022,5,ok,bms_decembre-2022.pdf,202211,2,2022-05-01,carrot,1.517,ins_tunis_retail
+Carottes,Kg,2022,6,ok,bms_decembre-2022.pdf,202211,2,2022-06-01,carrot,1.632,ins_tunis_retail
+Carottes,Kg,2022,7,ok,bms_juillet-2023.pdf,202307,3,2022-07-01,carrot,2.134,ins_tunis_retail
+Carottes,Kg,2022,8,ok,bms_juillet-2023.pdf,202307,2,2022-08-01,carrot,2.172,ins_tunis_retail
+Carottes,Kg,2022,9,ok,bms_juillet-2023.pdf,202307,2,2022-09-01,carrot,2.242,ins_tunis_retail
+Carottes,Kg,2022,10,ok,bms_juillet-2023.pdf,202307,2,2022-10-01,carrot,2.022,ins_tunis_retail
+Carottes,Kg,2022,11,ok,bms_juillet-2023.pdf,202307,2,2022-11-01,carrot,1.682,ins_tunis_retail
+Carottes,Kg,2022,12,ok,bms_decembre-2023.pdf,202310,3,2022-12-01,carrot,1.568,ins_tunis_retail
+Carottes,Kg,2023,1,ok,bms_decembre-2023.pdf,202310,2,2023-01-01,carrot,1.525,ins_tunis_retail
+Carottes,Kg,2023,2,ok,bms_fevrier-2024.pdf,202402,3,2023-02-01,carrot,1.74,ins_tunis_retail
+Carottes,Kg,2023,3,ok,bms_mars-2024.pdf,202403,4,2023-03-01,carrot,1.704,ins_tunis_retail
+Carottes,Kg,2023,4,ok,bms_avril-2024.pdf,202404,5,2023-04-01,carrot,2.105,ins_tunis_retail
+Carottes,Kg,2023,5,ok,bms_avril-2024.pdf,202404,5,2023-05-01,carrot,2.323,ins_tunis_retail
+Carottes,Kg,2023,6,ok,bms_avril-2024.pdf,202404,5,2023-06-01,carrot,2.41,ins_tunis_retail
+Carottes,Kg,2023,7,ok,bms_juillet-2024.pdf,202407,6,2023-07-01,carrot,2.313,ins_tunis_retail
+Carottes,Kg,2023,8,ok,bms_juillet-2024.pdf,202407,5,2023-08-01,carrot,2.442,ins_tunis_retail
+Carottes,Kg,2023,9,ok,bms_juillet-2024.pdf,202407,5,2023-09-01,carrot,2.471,ins_tunis_retail
+Carottes,Kg,2023,10,ok,bms_juillet-2024.pdf,202407,5,2023-10-01,carrot,2.359,ins_tunis_retail
+Carottes,Kg,2023,11,ok,bms_juillet-2024.pdf,202407,5,2023-11-01,carrot,2.238,ins_tunis_retail
+Carottes,Kg,2023,12,ok,bms_decembre-2024.pdf,202412,6,2023-12-01,carrot,2.186,ins_tunis_retail
+Carottes,Kg,2024,1,ok,bms_decembre-2024.pdf,202412,5,2024-01-01,carrot,2.105,ins_tunis_retail
+Carottes,Kg,2024,2,ok,bms_decembre-2024.pdf,202412,5,2024-02-01,carrot,1.898,ins_tunis_retail
+Carottes,Kg,2024,3,ok,bms_mars-2025.pdf,202501,5,2024-03-01,carrot,2.203,ins_tunis_retail
+Carottes,Kg,2024,4,ok,bms_avril-2025.pdf,202504,5,2024-04-01,carrot,2.408,ins_tunis_retail
+Carottes,Kg,2024,5,ok,bms_mai-2025.pdf,202505,5,2024-05-01,carrot,2.442,ins_tunis_retail
+Carottes,Kg,2024,6,ok,bms_juin-2025.pdf,202506,6,2024-06-01,carrot,2.308,ins_tunis_retail
+Carottes,Kg,2024,7,ok,bms_juillet-2025.pdf,202506,7,2024-07-01,carrot,2.35,ins_tunis_retail
+Carottes,Kg,2024,8,ok,bms_aout-2025.pdf,202508,7,2024-08-01,carrot,2.316,ins_tunis_retail
+Carottes,Kg,2024,9,ok,bms_septembre-2025.pdf,202509,8,2024-09-01,carrot,2.485,ins_tunis_retail
+Carottes,Kg,2024,10,ok,bms_octobre-2025.pdf,202509,9,2024-10-01,carrot,2.505,ins_tunis_retail
+Carottes,Kg,2024,11,ok,bms_novembre-2025.pdf,202509,10,2024-11-01,carrot,2.148,ins_tunis_retail
+Carottes,Kg,2024,12,ok,bms_decembre-2025.pdf,202509,11,2024-12-01,carrot,1.964,ins_tunis_retail
+Carottes,Kg,2025,1,ok,bms_decembre-2025.pdf,202509,11,2025-01-01,carrot,2.026,ins_tunis_retail
+Carottes,Kg,2025,2,ok,bms_fevrier-2026.pdf,202602,12,2025-02-01,carrot,2.145,ins_tunis_retail
+Carottes,Kg,2025,3,ok,bms_mars-2026.pdf,202603,13,2025-03-01,carrot,2.352,ins_tunis_retail
+Carottes,Kg,2025,4,ok,bms_avril-2026.pdf,202603,13,2025-04-01,carrot,2.488,ins_tunis_retail
+Carottes,Kg,2025,5,ok,bms_mai-2026.pdf,202605,13,2025-05-01,carrot,2.448,ins_tunis_retail
+Carottes,Kg,2025,6,ok,bms_juin-2026.pdf,202606,13,2025-06-01,carrot,2.45,ins_tunis_retail
+Carottes,Kg,2025,7,ok,bms_juillet-2026.pdf,202607,13,2025-07-01,carrot,2.529,ins_tunis_retail
+Carottes,Kg,2025,8,ok,bms_juillet-2026.pdf,202607,12,2025-08-01,carrot,2.669,ins_tunis_retail
+Carottes,Kg,2025,9,ok,bms_juillet-2026.pdf,202607,11,2025-09-01,carrot,2.756,ins_tunis_retail
+Carottes,Kg,2025,10,ok,bms_juillet-2026.pdf,202607,10,2025-10-01,carrot,2.688,ins_tunis_retail
+Carottes,Kg,2025,11,ok,bms_juillet-2026.pdf,202607,9,2025-11-01,carrot,2.242,ins_tunis_retail
+Carottes,Kg,2025,12,ok,bms_juillet-2026.pdf,202607,8,2025-12-01,carrot,2.053,ins_tunis_retail
+Carottes,Kg,2026,1,ok,bms_juillet-2026.pdf,202607,7,2026-01-01,carrot,2.206,ins_tunis_retail
+Carottes,Kg,2026,2,ok,bms_juillet-2026.pdf,202607,6,2026-02-01,carrot,2.193,ins_tunis_retail
+Carottes,Kg,2026,3,ok,bms_juillet-2026.pdf,202607,5,2026-03-01,carrot,2.31,ins_tunis_retail
+Carottes,Kg,2026,4,ok,bms_juillet-2026.pdf,202607,4,2026-04-01,carrot,2.595,ins_tunis_retail
+Carottes,Kg,2026,5,ok,bms_juillet-2026.pdf,202607,3,2026-05-01,carrot,2.703,ins_tunis_retail
+Carottes,Kg,2026,6,ok,bms_juillet-2026.pdf,202607,2,2026-06-01,carrot,2.428,ins_tunis_retail
+Carottes,Kg,2026,7,ok,bms_juillet-2026.pdf,202607,1,2026-07-01,carrot,2.229,ins_tunis_retail
+Choux,Kg,2021,7,ok,bms_juillet-2022.pdf,202202,1,2021-07-01,cabbage,1.464,ins_tunis_retail
+Choux,Kg,2021,8,ok,bms_juillet-2022.pdf,202202,1,2021-08-01,cabbage,1.398,ins_tunis_retail
+Choux,Kg,2021,9,ok,bms_juillet-2022.pdf,202202,1,2021-09-01,cabbage,1.65,ins_tunis_retail
+Choux,Kg,2021,10,ok,bms_juillet-2022.pdf,202202,1,2021-10-01,cabbage,1.603,ins_tunis_retail
+Choux,Kg,2021,11,ok,bms_juillet-2022.pdf,202202,1,2021-11-01,cabbage,1.5,ins_tunis_retail
+Choux,Kg,2021,12,ok,bms_decembre-2022.pdf,202211,2,2021-12-01,cabbage,1.493,ins_tunis_retail
+Choux,Kg,2022,1,ok,bms_decembre-2022.pdf,202211,2,2022-01-01,cabbage,1.463,ins_tunis_retail
+Choux,Kg,2022,2,ok,bms_decembre-2022.pdf,202211,2,2022-02-01,cabbage,1.354,ins_tunis_retail
+Choux,Kg,2022,3,ok,bms_decembre-2022.pdf,202211,2,2022-03-01,cabbage,1.312,ins_tunis_retail
+Choux,Kg,2022,4,ok,bms_decembre-2022.pdf,202211,2,2022-04-01,cabbage,1.371,ins_tunis_retail
+Choux,Kg,2022,5,ok,bms_decembre-2022.pdf,202211,2,2022-05-01,cabbage,1.26,ins_tunis_retail
+Choux,Kg,2022,6,ok,bms_decembre-2022.pdf,202211,2,2022-06-01,cabbage,1.546,ins_tunis_retail
+Choux,Kg,2022,7,ok,bms_juillet-2023.pdf,202307,3,2022-07-01,cabbage,1.678,ins_tunis_retail
+Choux,Kg,2022,8,ok,bms_juillet-2023.pdf,202307,2,2022-08-01,cabbage,1.792,ins_tunis_retail
+Choux,Kg,2022,9,ok,bms_juillet-2023.pdf,202307,2,2022-09-01,cabbage,1.963,ins_tunis_retail
+Choux,Kg,2022,10,ok,bms_juillet-2023.pdf,202307,2,2022-10-01,cabbage,1.8,ins_tunis_retail
+Choux,Kg,2022,11,ok,bms_juillet-2023.pdf,202307,2,2022-11-01,cabbage,1.658,ins_tunis_retail
+Choux,Kg,2022,12,ok,bms_decembre-2023.pdf,202310,3,2022-12-01,cabbage,1.523,ins_tunis_retail
+Choux,Kg,2023,1,ok,bms_decembre-2023.pdf,202310,2,2023-01-01,cabbage,1.496,ins_tunis_retail
+Choux,Kg,2023,2,ok,bms_fevrier-2024.pdf,202402,3,2023-02-01,cabbage,1.38,ins_tunis_retail
+Choux,Kg,2023,3,ok,bms_mars-2024.pdf,202403,4,2023-03-01,cabbage,1.317,ins_tunis_retail
+Choux,Kg,2023,4,ok,bms_avril-2024.pdf,202404,5,2023-04-01,cabbage,1.453,ins_tunis_retail
+Choux,Kg,2023,5,ok,bms_avril-2024.pdf,202404,5,2023-05-01,cabbage,1.615,ins_tunis_retail
+Choux,Kg,2023,6,ok,bms_avril-2024.pdf,202404,5,2023-06-01,cabbage,1.746,ins_tunis_retail
+Choux,Kg,2023,7,ok,bms_juillet-2024.pdf,202407,6,2023-07-01,cabbage,2.825,ins_tunis_retail
+Choux,Kg,2023,8,ok,bms_juillet-2024.pdf,202407,5,2023-08-01,cabbage,2.684,ins_tunis_retail
+Choux,Kg,2023,9,ok,bms_juillet-2024.pdf,202407,5,2023-09-01,cabbage,2.26,ins_tunis_retail
+Choux,Kg,2023,10,ok,bms_juillet-2024.pdf,202407,5,2023-10-01,cabbage,2.123,ins_tunis_retail
+Choux,Kg,2023,11,ok,bms_juillet-2024.pdf,202407,5,2023-11-01,cabbage,2.284,ins_tunis_retail
+Choux,Kg,2023,12,ok,bms_decembre-2024.pdf,202412,6,2023-12-01,cabbage,2.079,ins_tunis_retail
+Choux,Kg,2024,1,ok,bms_decembre-2024.pdf,202412,5,2024-01-01,cabbage,2.003,ins_tunis_retail
+Choux,Kg,2024,2,ok,bms_decembre-2024.pdf,202412,5,2024-02-01,cabbage,1.741,ins_tunis_retail
+Choux,Kg,2024,3,ok,bms_mars-2025.pdf,202501,5,2024-03-01,cabbage,2.028,ins_tunis_retail
+Choux,Kg,2024,4,ok,bms_avril-2025.pdf,202504,5,2024-04-01,cabbage,2.208,ins_tunis_retail
+Choux,Kg,2024,5,ok,bms_mai-2025.pdf,202505,5,2024-05-01,cabbage,2.298,ins_tunis_retail
+Choux,Kg,2024,6,ok,bms_juin-2025.pdf,202506,6,2024-06-01,cabbage,2.183,ins_tunis_retail
+Choux,Kg,2024,7,ok,bms_juillet-2025.pdf,202506,7,2024-07-01,cabbage,2.468,ins_tunis_retail
+Choux,Kg,2024,8,ok,bms_aout-2025.pdf,202508,7,2024-08-01,cabbage,2.442,ins_tunis_retail
+Choux,Kg,2024,9,ok,bms_septembre-2025.pdf,202509,8,2024-09-01,cabbage,2.362,ins_tunis_retail
+Choux,Kg,2024,10,ok,bms_octobre-2025.pdf,202509,9,2024-10-01,cabbage,2.579,ins_tunis_retail
+Choux,Kg,2024,11,ok,bms_novembre-2025.pdf,202509,10,2024-11-01,cabbage,2.515,ins_tunis_retail
+Choux,Kg,2024,12,ok,bms_decembre-2025.pdf,202509,11,2024-12-01,cabbage,1.976,ins_tunis_retail
+Choux,Kg,2025,1,ok,bms_decembre-2025.pdf,202509,11,2025-01-01,cabbage,1.797,ins_tunis_retail
+Choux,Kg,2025,2,ok,bms_fevrier-2026.pdf,202602,12,2025-02-01,cabbage,1.815,ins_tunis_retail
+Choux,Kg,2025,3,ok,bms_mars-2026.pdf,202603,13,2025-03-01,cabbage,1.973,ins_tunis_retail
+Choux,Kg,2025,4,ok,bms_avril-2026.pdf,202603,13,2025-04-01,cabbage,2.06,ins_tunis_retail
+Choux,Kg,2025,5,ok,bms_mai-2026.pdf,202605,13,2025-05-01,cabbage,2.27,ins_tunis_retail
+Choux,Kg,2025,6,ok,bms_juin-2026.pdf,202606,13,2025-06-01,cabbage,2.685,ins_tunis_retail
+Choux,Kg,2025,7,ok,bms_juillet-2026.pdf,202607,13,2025-07-01,cabbage,2.499,ins_tunis_retail
+Choux,Kg,2025,8,ok,bms_juillet-2026.pdf,202607,12,2025-08-01,cabbage,2.442,ins_tunis_retail
+Choux,Kg,2025,9,ok,bms_juillet-2026.pdf,202607,11,2025-09-01,cabbage,2.392,ins_tunis_retail
+Choux,Kg,2025,10,ok,bms_juillet-2026.pdf,202607,10,2025-10-01,cabbage,2.467,ins_tunis_retail
+Choux,Kg,2025,11,ok,bms_juillet-2026.pdf,202607,9,2025-11-01,cabbage,2.097,ins_tunis_retail
+Choux,Kg,2025,12,ok,bms_juillet-2026.pdf,202607,8,2025-12-01,cabbage,1.955,ins_tunis_retail
+Choux,Kg,2026,1,ok,bms_juillet-2026.pdf,202607,7,2026-01-01,cabbage,1.934,ins_tunis_retail
+Choux,Kg,2026,2,ok,bms_juillet-2026.pdf,202607,6,2026-02-01,cabbage,1.967,ins_tunis_retail
+Choux,Kg,2026,3,ok,bms_juillet-2026.pdf,202607,5,2026-03-01,cabbage,2.221,ins_tunis_retail
+Choux,Kg,2026,4,ok,bms_juillet-2026.pdf,202607,4,2026-04-01,cabbage,2.273,ins_tunis_retail
+Choux,Kg,2026,5,ok,bms_juillet-2026.pdf,202607,3,2026-05-01,cabbage,2.438,ins_tunis_retail
+Choux,Kg,2026,6,ok,bms_juillet-2026.pdf,202607,2,2026-06-01,cabbage,2.773,ins_tunis_retail
+Choux,Kg,2026,7,ok,bms_juillet-2026.pdf,202607,1,2026-07-01,cabbage,2.354,ins_tunis_retail
+Citrons,Kg,2021,7,ok,bms_juillet-2022.pdf,202202,1,2021-07-01,lemon,3.058,ins_tunis_retail
+Citrons,Kg,2021,8,ok,bms_juillet-2022.pdf,202202,1,2021-08-01,lemon,3.49,ins_tunis_retail
+Citrons,Kg,2021,9,ok,bms_juillet-2022.pdf,202202,1,2021-09-01,lemon,3.293,ins_tunis_retail
+Citrons,Kg,2021,10,ok,bms_juillet-2022.pdf,202202,1,2021-10-01,lemon,2.913,ins_tunis_retail
+Citrons,Kg,2021,11,ok,bms_juillet-2022.pdf,202202,1,2021-11-01,lemon,2.283,ins_tunis_retail
+Citrons,Kg,2021,12,ok,bms_decembre-2022.pdf,202211,2,2021-12-01,lemon,1.73,ins_tunis_retail
+Citrons,Kg,2022,1,ok,bms_decembre-2022.pdf,202211,2,2022-01-01,lemon,1.561,ins_tunis_retail
+Citrons,Kg,2022,2,ok,bms_decembre-2022.pdf,202211,2,2022-02-01,lemon,1.792,ins_tunis_retail
+Citrons,Kg,2022,3,ok,bms_decembre-2022.pdf,202211,2,2022-03-01,lemon,1.843,ins_tunis_retail
+Citrons,Kg,2022,4,ok,bms_decembre-2022.pdf,202211,2,2022-04-01,lemon,1.909,ins_tunis_retail
+Citrons,Kg,2022,5,ok,bms_decembre-2022.pdf,202211,2,2022-05-01,lemon,2.998,ins_tunis_retail
+Citrons,Kg,2022,6,ok,bms_decembre-2022.pdf,202211,2,2022-06-01,lemon,4.56,ins_tunis_retail
+Citrons,Kg,2022,7,ok,bms_juillet-2023.pdf,202307,3,2022-07-01,lemon,6.93,ins_tunis_retail
+Citrons,Kg,2022,8,ok,bms_juillet-2023.pdf,202307,2,2022-08-01,lemon,7.056,ins_tunis_retail
+Citrons,Kg,2022,9,ok,bms_juillet-2023.pdf,202307,2,2022-09-01,lemon,6.18,ins_tunis_retail
+Citrons,Kg,2022,10,ok,bms_juillet-2023.pdf,202307,2,2022-10-01,lemon,4.275,ins_tunis_retail
+Citrons,Kg,2022,11,ok,bms_juillet-2023.pdf,202307,2,2022-11-01,lemon,3.167,ins_tunis_retail
+Citrons,Kg,2022,12,ok,bms_decembre-2023.pdf,202310,3,2022-12-01,lemon,3.228,ins_tunis_retail
+Citrons,Kg,2023,1,ok,bms_decembre-2023.pdf,202310,2,2023-01-01,lemon,3.167,ins_tunis_retail
+Citrons,Kg,2023,2,ok,bms_fevrier-2024.pdf,202402,3,2023-02-01,lemon,4.045,ins_tunis_retail
+Citrons,Kg,2023,3,ok,bms_mars-2024.pdf,202403,4,2023-03-01,lemon,4.65,ins_tunis_retail
+Citrons,Kg,2023,4,ok,bms_avril-2024.pdf,202404,5,2023-04-01,lemon,6.809,ins_tunis_retail
+Citrons,Kg,2023,5,ok,bms_avril-2024.pdf,202404,5,2023-05-01,lemon,7.594,ins_tunis_retail
+Citrons,Kg,2023,6,ok,bms_avril-2024.pdf,202404,5,2023-06-01,lemon,6.854,ins_tunis_retail
+Citrons,Kg,2023,7,ok,bms_juillet-2024.pdf,202407,6,2023-07-01,lemon,6.408,ins_tunis_retail
+Citrons,Kg,2023,8,ok,bms_juillet-2024.pdf,202407,5,2023-08-01,lemon,6.593,ins_tunis_retail
+Citrons,Kg,2023,9,ok,bms_juillet-2024.pdf,202407,5,2023-09-01,lemon,5.965,ins_tunis_retail
+Citrons,Kg,2023,10,ok,bms_juillet-2024.pdf,202407,5,2023-10-01,lemon,4.472,ins_tunis_retail
+Citrons,Kg,2023,11,ok,bms_juillet-2024.pdf,202407,5,2023-11-01,lemon,3.15,ins_tunis_retail
+Citrons,Kg,2023,12,ok,bms_decembre-2024.pdf,202412,6,2023-12-01,lemon,2.21,ins_tunis_retail
+Citrons,Kg,2024,1,ok,bms_decembre-2024.pdf,202412,5,2024-01-01,lemon,1.947,ins_tunis_retail
+Citrons,Kg,2024,2,ok,bms_decembre-2024.pdf,202412,5,2024-02-01,lemon,1.749,ins_tunis_retail
+Citrons,Kg,2024,3,ok,bms_mars-2025.pdf,202501,5,2024-03-01,lemon,1.868,ins_tunis_retail
+Citrons,Kg,2024,4,ok,bms_avril-2025.pdf,202504,5,2024-04-01,lemon,1.801,ins_tunis_retail
+Citrons,Kg,2024,5,ok,bms_mai-2025.pdf,202505,5,2024-05-01,lemon,1.543,ins_tunis_retail
+Citrons,Kg,2024,6,ok,bms_juin-2025.pdf,202506,6,2024-06-01,lemon,2.363,ins_tunis_retail
+Citrons,Kg,2024,7,ok,bms_juillet-2025.pdf,202506,7,2024-07-01,lemon,3.9,ins_tunis_retail
+Citrons,Kg,2024,8,ok,bms_aout-2025.pdf,202508,7,2024-08-01,lemon,4.672,ins_tunis_retail
+Citrons,Kg,2024,9,ok,bms_septembre-2025.pdf,202509,8,2024-09-01,lemon,4.26,ins_tunis_retail
+Citrons,Kg,2024,10,ok,bms_octobre-2025.pdf,202509,9,2024-10-01,lemon,3.9,ins_tunis_retail
+Citrons,Kg,2024,11,ok,bms_novembre-2025.pdf,202509,10,2024-11-01,lemon,2.415,ins_tunis_retail
+Citrons,Kg,2024,12,ok,bms_decembre-2025.pdf,202509,11,2024-12-01,lemon,1.938,ins_tunis_retail
+Citrons,Kg,2025,1,ok,bms_decembre-2025.pdf,202509,11,2025-01-01,lemon,1.87,ins_tunis_retail
+Citrons,Kg,2025,2,ok,bms_fevrier-2026.pdf,202602,12,2025-02-01,lemon,1.625,ins_tunis_retail
+Citrons,Kg,2025,3,ok,bms_mars-2026.pdf,202603,13,2025-03-01,lemon,1.681,ins_tunis_retail
+Citrons,Kg,2025,4,ok,bms_avril-2026.pdf,202603,13,2025-04-01,lemon,1.868,ins_tunis_retail
+Citrons,Kg,2025,5,ok,bms_mai-2026.pdf,202605,13,2025-05-01,lemon,2.937,ins_tunis_retail
+Citrons,Kg,2025,6,ok,bms_juin-2026.pdf,202606,13,2025-06-01,lemon,4.784,ins_tunis_retail
+Citrons,Kg,2025,7,ok,bms_juillet-2026.pdf,202607,13,2025-07-01,lemon,4.517,ins_tunis_retail
+Citrons,Kg,2025,8,ok,bms_juillet-2026.pdf,202607,12,2025-08-01,lemon,4.542,ins_tunis_retail
+Citrons,Kg,2025,9,ok,bms_juillet-2026.pdf,202607,11,2025-09-01,lemon,4.182,ins_tunis_retail
+Citrons,Kg,2025,10,ok,bms_juillet-2026.pdf,202607,10,2025-10-01,lemon,3.343,ins_tunis_retail
+Citrons,Kg,2025,11,ok,bms_juillet-2026.pdf,202607,9,2025-11-01,lemon,2.634,ins_tunis_retail
+Citrons,Kg,2025,12,ok,bms_juillet-2026.pdf,202607,8,2025-12-01,lemon,2.301,ins_tunis_retail
+Citrons,Kg,2026,1,ok,bms_juillet-2026.pdf,202607,7,2026-01-01,lemon,2.086,ins_tunis_retail
+Citrons,Kg,2026,2,ok,bms_juillet-2026.pdf,202607,6,2026-02-01,lemon,2.075,ins_tunis_retail
+Citrons,Kg,2026,3,ok,bms_juillet-2026.pdf,202607,5,2026-03-01,lemon,2.283,ins_tunis_retail
+Citrons,Kg,2026,4,ok,bms_juillet-2026.pdf,202607,4,2026-04-01,lemon,2.517,ins_tunis_retail
+Citrons,Kg,2026,5,ok,bms_juillet-2026.pdf,202607,3,2026-05-01,lemon,2.801,ins_tunis_retail
+Citrons,Kg,2026,6,ok,bms_juillet-2026.pdf,202607,2,2026-06-01,lemon,3.613,ins_tunis_retail
+Citrons,Kg,2026,7,ok,bms_juillet-2026.pdf,202607,1,2026-07-01,lemon,4.273,ins_tunis_retail
+Courges,Kg,2021,7,ok,bms_juillet-2022.pdf,202202,1,2021-07-01,squash,2.0,ins_tunis_retail
+Courges,Kg,2021,8,ok,bms_juillet-2022.pdf,202202,1,2021-08-01,squash,1.394,ins_tunis_retail
+Courges,Kg,2021,9,ok,bms_juillet-2022.pdf,202202,1,2021-09-01,squash,1.643,ins_tunis_retail
+Courges,Kg,2021,10,ok,bms_juillet-2022.pdf,202202,1,2021-10-01,squash,2.125,ins_tunis_retail
+Courges,Kg,2021,11,ok,bms_juillet-2022.pdf,202202,1,2021-11-01,squash,2.442,ins_tunis_retail
+Courges,Kg,2021,12,ok,bms_decembre-2022.pdf,202211,2,2021-12-01,squash,2.688,ins_tunis_retail
+Courges,Kg,2022,1,ok,bms_decembre-2022.pdf,202211,2,2022-01-01,squash,2.845,ins_tunis_retail
+Courges,Kg,2022,2,ok,bms_decembre-2022.pdf,202211,2,2022-02-01,squash,3.767,ins_tunis_retail
+Courges,Kg,2022,3,ok,bms_decembre-2022.pdf,202211,2,2022-03-01,squash,3.5,ins_tunis_retail
+Courges,Kg,2022,4,ok,bms_decembre-2022.pdf,202211,2,2022-04-01,squash,4.661,ins_tunis_retail
+Courges,Kg,2022,5,ok,bms_decembre-2022.pdf,202211,2,2022-05-01,squash,5.133,ins_tunis_retail
+Courges,Kg,2022,6,ok,bms_decembre-2022.pdf,202211,2,2022-06-01,squash,2.721,ins_tunis_retail
+Courges,Kg,2022,7,ok,bms_juillet-2023.pdf,202307,3,2022-07-01,squash,2.23,ins_tunis_retail
+Courges,Kg,2022,8,ok,bms_juillet-2023.pdf,202307,2,2022-08-01,squash,2.4,ins_tunis_retail
+Courges,Kg,2022,9,ok,bms_juillet-2023.pdf,202307,2,2022-09-01,squash,2.408,ins_tunis_retail
+Courges,Kg,2022,10,ok,bms_juillet-2023.pdf,202307,2,2022-10-01,squash,2.433,ins_tunis_retail
+Courges,Kg,2022,11,ok,bms_juillet-2023.pdf,202307,2,2022-11-01,squash,2.492,ins_tunis_retail
+Courges,Kg,2022,12,ok,bms_decembre-2023.pdf,202310,3,2022-12-01,squash,2.48,ins_tunis_retail
+Courges,Kg,2023,1,ok,bms_decembre-2023.pdf,202310,2,2023-01-01,squash,2.788,ins_tunis_retail
+Courges,Kg,2023,2,ok,bms_fevrier-2024.pdf,202402,3,2023-02-01,squash,2.679,ins_tunis_retail
+Courges,Kg,2023,3,ok,bms_mars-2024.pdf,202403,4,2023-03-01,squash,2.688,ins_tunis_retail
+Courges,Kg,2023,4,ok,bms_avril-2024.pdf,202404,5,2023-04-01,squash,3.833,ins_tunis_retail
+Courges,Kg,2023,5,ok,bms_avril-2024.pdf,202404,5,2023-05-01,squash,3.948,ins_tunis_retail
+Courges,Kg,2023,6,ok,bms_avril-2024.pdf,202404,5,2023-06-01,squash,3.38,ins_tunis_retail
+Courges,Kg,2023,7,ok,bms_juillet-2024.pdf,202407,6,2023-07-01,squash,2.358,ins_tunis_retail
+Courges,Kg,2023,8,ok,bms_juillet-2024.pdf,202407,5,2023-08-01,squash,2.146,ins_tunis_retail
+Courges,Kg,2023,9,ok,bms_juillet-2024.pdf,202407,5,2023-09-01,squash,2.039,ins_tunis_retail
+Courges,Kg,2023,10,ok,bms_juillet-2024.pdf,202407,5,2023-10-01,squash,2.283,ins_tunis_retail
+Courges,Kg,2023,11,ok,bms_juillet-2024.pdf,202407,5,2023-11-01,squash,2.262,ins_tunis_retail
+Courges,Kg,2023,12,ok,bms_decembre-2024.pdf,202412,6,2023-12-01,squash,2.397,ins_tunis_retail
+Courges,Kg,2024,1,ok,bms_decembre-2024.pdf,202412,5,2024-01-01,squash,2.429,ins_tunis_retail
+Courges,Kg,2024,2,ok,bms_decembre-2024.pdf,202412,5,2024-02-01,squash,2.601,ins_tunis_retail
+Courges,Kg,2024,3,ok,bms_mars-2025.pdf,202501,5,2024-03-01,squash,2.657,ins_tunis_retail
+Courges,Kg,2024,4,ok,bms_avril-2025.pdf,202504,5,2024-04-01,squash,3.017,ins_tunis_retail
+Courges,Kg,2024,5,ok,bms_mai-2025.pdf,202505,5,2024-05-01,squash,3.563,ins_tunis_retail
+Courges,Kg,2024,6,ok,bms_juin-2025.pdf,202506,6,2024-06-01,squash,2.546,ins_tunis_retail
+Courges,Kg,2024,7,ok,bms_juillet-2025.pdf,202506,7,2024-07-01,squash,2.961,ins_tunis_retail
+Courges,Kg,2024,8,ok,bms_aout-2025.pdf,202508,7,2024-08-01,squash,2.4,ins_tunis_retail
+Courges,Kg,2024,9,ok,bms_septembre-2025.pdf,202509,8,2024-09-01,squash,2.192,ins_tunis_retail
+Courges,Kg,2024,10,ok,bms_octobre-2025.pdf,202509,9,2024-10-01,squash,2.15,ins_tunis_retail
+Courges,Kg,2024,11,ok,bms_novembre-2025.pdf,202509,10,2024-11-01,squash,2.358,ins_tunis_retail
+Courges,Kg,2024,12,ok,bms_decembre-2025.pdf,202509,11,2024-12-01,squash,2.658,ins_tunis_retail
+Courges,Kg,2025,1,ok,bms_decembre-2025.pdf,202509,11,2025-01-01,squash,2.842,ins_tunis_retail
+Courges,Kg,2025,2,ok,bms_fevrier-2026.pdf,202602,12,2025-02-01,squash,3.196,ins_tunis_retail
+Courges,Kg,2025,3,ok,bms_mars-2026.pdf,202603,13,2025-03-01,squash,3.625,ins_tunis_retail
+Courges,Kg,2025,4,ok,bms_avril-2026.pdf,202603,13,2025-04-01,squash,4.831,ins_tunis_retail
+Courges,Kg,2025,5,ok,bms_mai-2026.pdf,202605,13,2025-05-01,squash,3.685,ins_tunis_retail
+Courges,Kg,2025,6,ok,bms_juin-2026.pdf,202606,13,2025-06-01,squash,2.371,ins_tunis_retail
+Courges,Kg,2025,7,ok,bms_juillet-2026.pdf,202607,13,2025-07-01,squash,2.158,ins_tunis_retail
+Courges,Kg,2025,8,ok,bms_juillet-2026.pdf,202607,12,2025-08-01,squash,2.4,ins_tunis_retail
+Courges,Kg,2025,9,ok,bms_juillet-2026.pdf,202607,11,2025-09-01,squash,2.425,ins_tunis_retail
+Courges,Kg,2025,10,ok,bms_juillet-2026.pdf,202607,10,2025-10-01,squash,2.396,ins_tunis_retail
+Courges,Kg,2025,11,ok,bms_juillet-2026.pdf,202607,9,2025-11-01,squash,2.083,ins_tunis_retail
+Courges,Kg,2025,12,ok,bms_juillet-2026.pdf,202607,8,2025-12-01,squash,2.329,ins_tunis_retail
+Courges,Kg,2026,1,ok,bms_juillet-2026.pdf,202607,7,2026-01-01,squash,2.833,ins_tunis_retail
+Courges,Kg,2026,2,ok,bms_juillet-2026.pdf,202607,6,2026-02-01,squash,2.708,ins_tunis_retail
+Courges,Kg,2026,3,ok,bms_juillet-2026.pdf,202607,5,2026-03-01,squash,2.75,ins_tunis_retail
+Courges,Kg,2026,4,ok,bms_juillet-2026.pdf,202607,4,2026-04-01,squash,3.796,ins_tunis_retail
+Courges,Kg,2026,5,ok,bms_juillet-2026.pdf,202607,3,2026-05-01,squash,3.904,ins_tunis_retail
+Courges,Kg,2026,6,ok,bms_juillet-2026.pdf,202607,2,2026-06-01,squash,3.148,ins_tunis_retail
+Courges,Kg,2026,7,ok,bms_juillet-2026.pdf,202607,1,2026-07-01,squash,2.305,ins_tunis_retail
+Dégela,Kg,2021,7,ok,bms_juillet-2022.pdf,202202,1,2021-07-01,date,11.45,ins_tunis_retail
+Dégela,Kg,2021,8,ok,bms_juillet-2022.pdf,202202,1,2021-08-01,date,10.833,ins_tunis_retail
+Dégela,Kg,2021,9,ok,bms_juillet-2022.pdf,202202,1,2021-09-01,date,10.427,ins_tunis_retail
+Dégela,Kg,2021,10,ok,bms_juillet-2022.pdf,202202,1,2021-10-01,date,9.733,ins_tunis_retail
+Dégela,Kg,2021,11,ok,bms_juillet-2022.pdf,202202,1,2021-11-01,date,10.543,ins_tunis_retail
+Dégela,Kg,2021,12,ok,bms_decembre-2022.pdf,202211,2,2021-12-01,date,11.183,ins_tunis_retail
+Dégela,Kg,2022,1,ok,bms_decembre-2022.pdf,202211,2,2022-01-01,date,10.264,ins_tunis_retail
+Dégela,Kg,2022,2,ok,bms_decembre-2022.pdf,202211,2,2022-02-01,date,11.517,ins_tunis_retail
+Dégela,Kg,2022,3,ok,bms_decembre-2022.pdf,202211,2,2022-03-01,date,11.563,ins_tunis_retail
+Dégela,Kg,2022,4,ok,bms_decembre-2022.pdf,202211,2,2022-04-01,date,11.408,ins_tunis_retail
+Dégela,Kg,2022,5,ok,bms_decembre-2022.pdf,202211,2,2022-05-01,date,10.067,ins_tunis_retail
+Dégela,Kg,2022,6,ok,bms_decembre-2022.pdf,202211,2,2022-06-01,date,10.217,ins_tunis_retail
+Dégela,Kg,2022,7,ok,bms_juillet-2023.pdf,202307,3,2022-07-01,date,10.733,ins_tunis_retail
+Dégela,Kg,2022,8,ok,bms_juillet-2023.pdf,202307,2,2022-08-01,date,11.45,ins_tunis_retail
+Dégela,Kg,2022,9,ok,bms_juillet-2023.pdf,202307,2,2022-09-01,date,11.608,ins_tunis_retail
+Dégela,Kg,2022,10,ok,bms_juillet-2023.pdf,202307,2,2022-10-01,date,10.228,ins_tunis_retail
+Dégela,Kg,2022,11,ok,bms_juillet-2023.pdf,202307,2,2022-11-01,date,10.946,ins_tunis_retail
+Dégela,Kg,2022,12,ok,bms_decembre-2023.pdf,202310,3,2022-12-01,date,11.208,ins_tunis_retail
+Dégela,Kg,2023,1,ok,bms_decembre-2023.pdf,202310,2,2023-01-01,date,11.154,ins_tunis_retail
+Dégela,Kg,2023,2,ok,bms_fevrier-2024.pdf,202402,3,2023-02-01,date,12.225,ins_tunis_retail
+Dégela,Kg,2023,3,ok,bms_mars-2024.pdf,202403,4,2023-03-01,date,11.658,ins_tunis_retail
+Dégela,Kg,2023,4,ok,bms_avril-2024.pdf,202404,5,2023-04-01,date,12.208,ins_tunis_retail
+Dégela,Kg,2023,5,ok,bms_avril-2024.pdf,202404,5,2023-05-01,date,13.625,ins_tunis_retail
+Dégela,Kg,2023,6,ok,bms_avril-2024.pdf,202404,5,2023-06-01,date,14.35,ins_tunis_retail
+Dégela,Kg,2023,7,ok,bms_juillet-2024.pdf,202407,6,2023-07-01,date,14.773,ins_tunis_retail
+Dégela,Kg,2023,8,ok,bms_juillet-2024.pdf,202407,5,2023-08-01,date,14.964,ins_tunis_retail
+Dégela,Kg,2023,9,ok,bms_juillet-2024.pdf,202407,5,2023-09-01,date,14.76,ins_tunis_retail
+Dégela,Kg,2023,10,ok,bms_juillet-2024.pdf,202407,5,2023-10-01,date,12.003,ins_tunis_retail
+Dégela,Kg,2023,11,ok,bms_juillet-2024.pdf,202407,5,2023-11-01,date,11.679,ins_tunis_retail
+Dégela,Kg,2023,12,ok,bms_decembre-2024.pdf,202412,6,2023-12-01,date,11.669,ins_tunis_retail
+Dégela,Kg,2024,1,ok,bms_decembre-2024.pdf,202412,5,2024-01-01,date,11.847,ins_tunis_retail
+Dégela,Kg,2024,2,ok,bms_decembre-2024.pdf,202412,5,2024-02-01,date,12.06,ins_tunis_retail
+Dégela,Kg,2024,3,ok,bms_mars-2025.pdf,202501,5,2024-03-01,date,11.95,ins_tunis_retail
+Dégela,Kg,2024,4,ok,bms_avril-2025.pdf,202504,5,2024-04-01,date,12.02,ins_tunis_retail
+Dégela,Kg,2024,5,ok,bms_mai-2025.pdf,202505,5,2024-05-01,date,11.868,ins_tunis_retail
+Dégela,Kg,2024,6,ok,bms_juin-2025.pdf,202506,6,2024-06-01,date,11.5,ins_tunis_retail
+Dégela,Kg,2024,7,ok,bms_juillet-2025.pdf,202506,7,2024-07-01,date,11.55,ins_tunis_retail
+Dégela,Kg,2024,8,ok,bms_aout-2025.pdf,202508,7,2024-08-01,date,11.99,ins_tunis_retail
+Dégela,Kg,2024,9,ok,bms_septembre-2025.pdf,202509,8,2024-09-01,date,12.791,ins_tunis_retail
+Dégela,Kg,2024,10,ok,bms_octobre-2025.pdf,202509,9,2024-10-01,date,12.2,ins_tunis_retail
+Dégela,Kg,2024,11,ok,bms_novembre-2025.pdf,202509,10,2024-11-01,date,11.58,ins_tunis_retail
+Dégela,Kg,2024,12,ok,bms_decembre-2025.pdf,202509,11,2024-12-01,date,11.8,ins_tunis_retail
+Dégela,Kg,2025,1,ok,bms_decembre-2025.pdf,202509,11,2025-01-01,date,12.58,ins_tunis_retail
+Dégela,Kg,2025,2,ok,bms_fevrier-2026.pdf,202602,12,2025-02-01,date,12.43,ins_tunis_retail
+Dégela,Kg,2025,3,ok,bms_mars-2026.pdf,202603,13,2025-03-01,date,12.63,ins_tunis_retail
+Dégela,Kg,2025,4,ok,bms_avril-2026.pdf,202603,13,2025-04-01,date,12.693,ins_tunis_retail
+Dégela,Kg,2025,5,ok,bms_mai-2026.pdf,202605,13,2025-05-01,date,12.88,ins_tunis_retail
+Dégela,Kg,2025,6,ok,bms_juin-2026.pdf,202606,13,2025-06-01,date,12.328,ins_tunis_retail
+Dégela,Kg,2025,7,ok,bms_juillet-2026.pdf,202607,13,2025-07-01,date,13.05,ins_tunis_retail
+Dégela,Kg,2025,8,ok,bms_juillet-2026.pdf,202607,12,2025-08-01,date,13.206,ins_tunis_retail
+Dégela,Kg,2025,9,ok,bms_juillet-2026.pdf,202607,11,2025-09-01,date,12.51,ins_tunis_retail
+Dégela,Kg,2025,10,ok,bms_juillet-2026.pdf,202607,10,2025-10-01,date,10.717,ins_tunis_retail
+Dégela,Kg,2025,11,ok,bms_juillet-2026.pdf,202607,9,2025-11-01,date,10.368,ins_tunis_retail
+Dégela,Kg,2025,12,ok,bms_juillet-2026.pdf,202607,8,2025-12-01,date,10.716,ins_tunis_retail
+Dégela,Kg,2026,1,ok,bms_juillet-2026.pdf,202607,7,2026-01-01,date,11.369,ins_tunis_retail
+Dégela,Kg,2026,2,ok,bms_juillet-2026.pdf,202607,6,2026-02-01,date,11.92,ins_tunis_retail
+Dégela,Kg,2026,3,ok,bms_juillet-2026.pdf,202607,5,2026-03-01,date,11.97,ins_tunis_retail
+Dégela,Kg,2026,4,ok,bms_juillet-2026.pdf,202607,4,2026-04-01,date,11.17,ins_tunis_retail
+Dégela,Kg,2026,5,ok,bms_juillet-2026.pdf,202607,3,2026-05-01,date,11.32,ins_tunis_retail
+Dégela,Kg,2026,6,ok,bms_juillet-2026.pdf,202607,2,2026-06-01,date,11.02,ins_tunis_retail
+Dégela,Kg,2026,7,ok,bms_juillet-2026.pdf,202607,1,2026-07-01,date,10.77,ins_tunis_retail
+Fenouils,Kg,2021,7,no_arrivals,bms_juillet-2022.pdf,202202,1,2021-07-01,fennel,,ins_tunis_retail
+Fenouils,Kg,2021,8,no_arrivals,bms_juillet-2022.pdf,202202,1,2021-08-01,fennel,,ins_tunis_retail
+Fenouils,Kg,2021,9,no_arrivals,bms_juillet-2022.pdf,202202,1,2021-09-01,fennel,,ins_tunis_retail
+Fenouils,Kg,2021,10,ok,bms_juillet-2022.pdf,202202,1,2021-10-01,fennel,1.866,ins_tunis_retail
+Fenouils,Kg,2021,11,ok,bms_juillet-2022.pdf,202202,1,2021-11-01,fennel,1.696,ins_tunis_retail
+Fenouils,Kg,2021,12,ok,bms_decembre-2022.pdf,202211,2,2021-12-01,fennel,1.413,ins_tunis_retail
+Fenouils,Kg,2022,1,ok,bms_decembre-2022.pdf,202211,2,2022-01-01,fennel,1.629,ins_tunis_retail
+Fenouils,Kg,2022,2,ok,bms_decembre-2022.pdf,202211,2,2022-02-01,fennel,1.992,ins_tunis_retail
+Fenouils,Kg,2022,3,ok,bms_decembre-2022.pdf,202211,2,2022-03-01,fennel,1.896,ins_tunis_retail
+Fenouils,Kg,2022,4,ok,bms_decembre-2022.pdf,202211,2,2022-04-01,fennel,2.017,ins_tunis_retail
+Fenouils,Kg,2022,5,ok,bms_decembre-2022.pdf,202211,2,2022-05-01,fennel,2.1,ins_tunis_retail
+Fenouils,Kg,2022,6,no_arrivals,bms_decembre-2022.pdf,202211,2,2022-06-01,fennel,,ins_tunis_retail
+Fenouils,Kg,2022,7,no_arrivals,bms_juillet-2023.pdf,202307,3,2022-07-01,fennel,,ins_tunis_retail
+Fenouils,Kg,2022,8,no_arrivals,bms_juillet-2023.pdf,202307,2,2022-08-01,fennel,,ins_tunis_retail
+Fenouils,Kg,2022,9,no_arrivals,bms_juillet-2023.pdf,202307,2,2022-09-01,fennel,,ins_tunis_retail
+Fenouils,Kg,2022,10,ok,bms_juillet-2023.pdf,202307,2,2022-10-01,fennel,3.357,ins_tunis_retail
+Fenouils,Kg,2022,11,ok,bms_juillet-2023.pdf,202307,2,2022-11-01,fennel,2.142,ins_tunis_retail
+Fenouils,Kg,2022,12,ok,bms_decembre-2023.pdf,202310,3,2022-12-01,fennel,2.105,ins_tunis_retail
+Fenouils,Kg,2023,1,ok,bms_decembre-2023.pdf,202310,2,2023-01-01,fennel,1.721,ins_tunis_retail
+Fenouils,Kg,2023,2,ok,bms_fevrier-2024.pdf,202402,3,2023-02-01,fennel,1.898,ins_tunis_retail
+Fenouils,Kg,2023,3,ok,bms_mars-2024.pdf,202403,4,2023-03-01,fennel,1.986,ins_tunis_retail
+Fenouils,Kg,2023,4,ok,bms_avril-2024.pdf,202404,5,2023-04-01,fennel,2.308,ins_tunis_retail
+Fenouils,Kg,2023,5,ok,bms_avril-2024.pdf,202404,5,2023-05-01,fennel,2.84,ins_tunis_retail
+Fenouils,Kg,2023,6,no_arrivals,bms_avril-2024.pdf,202404,5,2023-06-01,fennel,,ins_tunis_retail
+Fenouils,Kg,2023,7,no_arrivals,bms_juillet-2024.pdf,202407,6,2023-07-01,fennel,,ins_tunis_retail
+Fenouils,Kg,2023,8,no_arrivals,bms_juillet-2024.pdf,202407,5,2023-08-01,fennel,,ins_tunis_retail
+Fenouils,Kg,2023,9,no_arrivals,bms_juillet-2024.pdf,202407,5,2023-09-01,fennel,,ins_tunis_retail
+Fenouils,Kg,2023,10,ok,bms_juillet-2024.pdf,202407,5,2023-10-01,fennel,2.049,ins_tunis_retail
+Fenouils,Kg,2023,11,ok,bms_juillet-2024.pdf,202407,5,2023-11-01,fennel,2.346,ins_tunis_retail
+Fenouils,Kg,2023,12,ok,bms_decembre-2024.pdf,202412,6,2023-12-01,fennel,2.403,ins_tunis_retail
+Fenouils,Kg,2024,1,ok,bms_decembre-2024.pdf,202412,5,2024-01-01,fennel,2.104,ins_tunis_retail
+Fenouils,Kg,2024,2,ok,bms_decembre-2024.pdf,202412,5,2024-02-01,fennel,1.913,ins_tunis_retail
+Fenouils,Kg,2024,3,ok,bms_mars-2025.pdf,202501,5,2024-03-01,fennel,2.213,ins_tunis_retail
+Fenouils,Kg,2024,4,ok,bms_avril-2025.pdf,202504,5,2024-04-01,fennel,2.146,ins_tunis_retail
+Fenouils,Kg,2024,5,ok,bms_mai-2025.pdf,202505,5,2024-05-01,fennel,2.252,ins_tunis_retail
+Fenouils,Kg,2024,6,no_arrivals,bms_juin-2025.pdf,202506,6,2024-06-01,fennel,,ins_tunis_retail
+Fenouils,Kg,2024,7,no_arrivals,bms_juillet-2025.pdf,202506,7,2024-07-01,fennel,,ins_tunis_retail
+Fenouils,Kg,2024,8,no_arrivals,bms_aout-2025.pdf,202508,7,2024-08-01,fennel,,ins_tunis_retail
+Fenouils,Kg,2024,9,no_arrivals,bms_septembre-2025.pdf,202509,8,2024-09-01,fennel,,ins_tunis_retail
+Fenouils,Kg,2024,10,ok,bms_octobre-2025.pdf,202509,9,2024-10-01,fennel,2.62,ins_tunis_retail
+Fenouils,Kg,2024,11,ok,bms_novembre-2025.pdf,202509,10,2024-11-01,fennel,2.186,ins_tunis_retail
+Fenouils,Kg,2024,12,ok,bms_decembre-2025.pdf,202509,11,2024-12-01,fennel,1.996,ins_tunis_retail
+Fenouils,Kg,2025,1,ok,bms_decembre-2025.pdf,202509,11,2025-01-01,fennel,1.892,ins_tunis_retail
+Fenouils,Kg,2025,2,ok,bms_fevrier-2026.pdf,202602,12,2025-02-01,fennel,2.054,ins_tunis_retail
+Fenouils,Kg,2025,3,ok,bms_mars-2026.pdf,202603,13,2025-03-01,fennel,2.925,ins_tunis_retail
+Fenouils,Kg,2025,4,ok,bms_avril-2026.pdf,202603,13,2025-04-01,fennel,3.49,ins_tunis_retail
+Fenouils,Kg,2025,5,ok,bms_mai-2026.pdf,202605,13,2025-05-01,fennel,3.517,ins_tunis_retail
+Fenouils,Kg,2025,6,no_arrivals,bms_juin-2026.pdf,202606,13,2025-06-01,fennel,,ins_tunis_retail
+Fenouils,Kg,2025,7,no_arrivals,bms_juillet-2026.pdf,202607,13,2025-07-01,fennel,,ins_tunis_retail
+Fenouils,Kg,2025,8,no_arrivals,bms_juillet-2026.pdf,202607,12,2025-08-01,fennel,,ins_tunis_retail
+Fenouils,Kg,2025,9,no_arrivals,bms_juillet-2026.pdf,202607,11,2025-09-01,fennel,,ins_tunis_retail
+Fenouils,Kg,2025,10,ok,bms_juillet-2026.pdf,202607,10,2025-10-01,fennel,4.003,ins_tunis_retail
+Fenouils,Kg,2025,11,ok,bms_juillet-2026.pdf,202607,9,2025-11-01,fennel,2.404,ins_tunis_retail
+Fenouils,Kg,2025,12,ok,bms_juillet-2026.pdf,202607,8,2025-12-01,fennel,2.308,ins_tunis_retail
+Fenouils,Kg,2026,1,ok,bms_juillet-2026.pdf,202607,7,2026-01-01,fennel,2.346,ins_tunis_retail
+Fenouils,Kg,2026,2,ok,bms_juillet-2026.pdf,202607,6,2026-02-01,fennel,2.135,ins_tunis_retail
+Fenouils,Kg,2026,3,ok,bms_juillet-2026.pdf,202607,5,2026-03-01,fennel,2.655,ins_tunis_retail
+Fenouils,Kg,2026,4,ok,bms_juillet-2026.pdf,202607,4,2026-04-01,fennel,3.083,ins_tunis_retail
+Fenouils,Kg,2026,5,ok,bms_juillet-2026.pdf,202607,3,2026-05-01,fennel,2.901,ins_tunis_retail
+Fenouils,Kg,2026,6,no_arrivals,bms_juillet-2026.pdf,202607,2,2026-06-01,fennel,,ins_tunis_retail
+Fenouils,Kg,2026,7,no_arrivals,bms_juillet-2026.pdf,202607,1,2026-07-01,fennel,,ins_tunis_retail
+Fèves vertes,Kg,2021,7,no_arrivals,bms_juillet-2022.pdf,202202,1,2021-07-01,faba_bean,,ins_tunis_retail
+Fèves vertes,Kg,2021,8,no_arrivals,bms_juillet-2022.pdf,202202,1,2021-08-01,faba_bean,,ins_tunis_retail
+Fèves vertes,Kg,2021,9,no_arrivals,bms_juillet-2022.pdf,202202,1,2021-09-01,faba_bean,,ins_tunis_retail
+Fèves vertes,Kg,2021,10,no_arrivals,bms_juillet-2022.pdf,202202,1,2021-10-01,faba_bean,,ins_tunis_retail
+Fèves vertes,Kg,2021,11,no_arrivals,bms_juillet-2022.pdf,202202,1,2021-11-01,faba_bean,,ins_tunis_retail
+Fèves vertes,Kg,2021,12,ok,bms_decembre-2022.pdf,202211,2,2021-12-01,faba_bean,3.0,ins_tunis_retail
+Fèves vertes,Kg,2022,1,ok,bms_decembre-2022.pdf,202211,2,2022-01-01,faba_bean,2.558,ins_tunis_retail
+Fèves vertes,Kg,2022,2,ok,bms_decembre-2022.pdf,202211,2,2022-02-01,faba_bean,1.923,ins_tunis_retail
+Fèves vertes,Kg,2022,3,ok,bms_decembre-2022.pdf,202211,2,2022-03-01,faba_bean,1.603,ins_tunis_retail
+Fèves vertes,Kg,2022,4,ok,bms_decembre-2022.pdf,202211,2,2022-04-01,faba_bean,1.51,ins_tunis_retail
+Fèves vertes,Kg,2022,5,ok,bms_decembre-2022.pdf,202211,2,2022-05-01,faba_bean,1.824,ins_tunis_retail
+Fèves vertes,Kg,2022,6,ok,bms_decembre-2022.pdf,202211,2,2022-06-01,faba_bean,2.233,ins_tunis_retail
+Fèves vertes,Kg,2022,7,no_arrivals,bms_juillet-2023.pdf,202307,3,2022-07-01,faba_bean,,ins_tunis_retail
+Fèves vertes,Kg,2022,8,no_arrivals,bms_juillet-2023.pdf,202307,2,2022-08-01,faba_bean,,ins_tunis_retail
+Fèves vertes,Kg,2022,9,no_arrivals,bms_juillet-2023.pdf,202307,2,2022-09-01,faba_bean,,ins_tunis_retail
+Fèves vertes,Kg,2022,10,no_arrivals,bms_juillet-2023.pdf,202307,2,2022-10-01,faba_bean,,ins_tunis_retail
+Fèves vertes,Kg,2022,11,no_arrivals,bms_juillet-2023.pdf,202307,2,2022-11-01,faba_bean,,ins_tunis_retail
+Fèves vertes,Kg,2022,12,ok,bms_decembre-2023.pdf,202310,3,2022-12-01,faba_bean,2.86,ins_tunis_retail
+Fèves vertes,Kg,2023,1,ok,bms_decembre-2023.pdf,202310,2,2023-01-01,faba_bean,2.451,ins_tunis_retail
+Fèves vertes,Kg,2023,2,ok,bms_fevrier-2024.pdf,202402,3,2023-02-01,faba_bean,2.447,ins_tunis_retail
+Fèves vertes,Kg,2023,3,ok,bms_mars-2024.pdf,202403,4,2023-03-01,faba_bean,2.383,ins_tunis_retail
+Fèves vertes,Kg,2023,4,ok,bms_avril-2024.pdf,202404,5,2023-04-01,faba_bean,2.218,ins_tunis_retail
+Fèves vertes,Kg,2023,5,ok,bms_avril-2024.pdf,202404,5,2023-05-01,faba_bean,2.084,ins_tunis_retail
+Fèves vertes,Kg,2023,6,ok,bms_avril-2024.pdf,202404,5,2023-06-01,faba_bean,2.41,ins_tunis_retail
+Fèves vertes,Kg,2023,7,no_arrivals,bms_juillet-2024.pdf,202407,6,2023-07-01,faba_bean,,ins_tunis_retail
+Fèves vertes,Kg,2023,8,no_arrivals,bms_juillet-2024.pdf,202407,5,2023-08-01,faba_bean,,ins_tunis_retail
+Fèves vertes,Kg,2023,9,no_arrivals,bms_juillet-2024.pdf,202407,5,2023-09-01,faba_bean,,ins_tunis_retail
+Fèves vertes,Kg,2023,10,no_arrivals,bms_juillet-2024.pdf,202407,5,2023-10-01,faba_bean,,ins_tunis_retail
+Fèves vertes,Kg,2023,11,no_arrivals,bms_juillet-2024.pdf,202407,5,2023-11-01,faba_bean,,ins_tunis_retail
+Fèves vertes,Kg,2023,12,no_arrivals,bms_decembre-2024.pdf,202412,6,2023-12-01,faba_bean,,ins_tunis_retail
+Fèves vertes,Kg,2024,1,ok,bms_decembre-2024.pdf,202412,5,2024-01-01,faba_bean,3.256,ins_tunis_retail
+Fèves vertes,Kg,2024,2,ok,bms_decembre-2024.pdf,202412,5,2024-02-01,faba_bean,2.842,ins_tunis_retail
+Fèves vertes,Kg,2024,3,ok,bms_mars-2025.pdf,202501,5,2024-03-01,faba_bean,2.084,ins_tunis_retail
+Fèves vertes,Kg,2024,4,ok,bms_avril-2025.pdf,202504,5,2024-04-01,faba_bean,2.309,ins_tunis_retail
+Fèves vertes,Kg,2024,5,ok,bms_mai-2025.pdf,202505,5,2024-05-01,faba_bean,2.197,ins_tunis_retail
+Fèves vertes,Kg,2024,6,ok,bms_juin-2025.pdf,202506,6,2024-06-01,faba_bean,2.625,ins_tunis_retail
+Fèves vertes,Kg,2024,7,no_arrivals,bms_juillet-2025.pdf,202506,7,2024-07-01,faba_bean,,ins_tunis_retail
+Fèves vertes,Kg,2024,8,no_arrivals,bms_aout-2025.pdf,202508,7,2024-08-01,faba_bean,,ins_tunis_retail
+Fèves vertes,Kg,2024,9,no_arrivals,bms_septembre-2025.pdf,202509,8,2024-09-01,faba_bean,,ins_tunis_retail
+Fèves vertes,Kg,2024,10,no_arrivals,bms_octobre-2025.pdf,202509,9,2024-10-01,faba_bean,,ins_tunis_retail
+Fèves vertes,Kg,2024,11,no_arrivals,bms_novembre-2025.pdf,202509,10,2024-11-01,faba_bean,,ins_tunis_retail
+Fèves vertes,Kg,2024,12,ok,bms_decembre-2025.pdf,202509,11,2024-12-01,faba_bean,3.49,ins_tunis_retail
+Fèves vertes,Kg,2025,1,ok,bms_decembre-2025.pdf,202509,11,2025-01-01,faba_bean,3.2,ins_tunis_retail
+Fèves vertes,Kg,2025,2,ok,bms_fevrier-2026.pdf,202602,12,2025-02-01,faba_bean,3.203,ins_tunis_retail
+Fèves vertes,Kg,2025,3,ok,bms_mars-2026.pdf,202603,13,2025-03-01,faba_bean,2.738,ins_tunis_retail
+Fèves vertes,Kg,2025,4,ok,bms_avril-2026.pdf,202603,13,2025-04-01,faba_bean,2.056,ins_tunis_retail
+Fèves vertes,Kg,2025,5,ok,bms_mai-2026.pdf,202605,13,2025-05-01,faba_bean,2.043,ins_tunis_retail
+Fèves vertes,Kg,2025,6,ok,bms_juin-2026.pdf,202606,13,2025-06-01,faba_bean,2.24,ins_tunis_retail
+Fèves vertes,Kg,2025,7,no_arrivals,bms_juillet-2026.pdf,202607,13,2025-07-01,faba_bean,,ins_tunis_retail
+Fèves vertes,Kg,2025,8,no_arrivals,bms_juillet-2026.pdf,202607,12,2025-08-01,faba_bean,,ins_tunis_retail
+Fèves vertes,Kg,2025,9,no_arrivals,bms_juillet-2026.pdf,202607,11,2025-09-01,faba_bean,,ins_tunis_retail
+Fèves vertes,Kg,2025,10,no_arrivals,bms_juillet-2026.pdf,202607,10,2025-10-01,faba_bean,,ins_tunis_retail
+Fèves vertes,Kg,2025,11,no_arrivals,bms_juillet-2026.pdf,202607,9,2025-11-01,faba_bean,,ins_tunis_retail
+Fèves vertes,Kg,2025,12,ok,bms_juillet-2026.pdf,202607,8,2025-12-01,faba_bean,3.115,ins_tunis_retail
+Fèves vertes,Kg,2026,1,ok,bms_juillet-2026.pdf,202607,7,2026-01-01,faba_bean,4.073,ins_tunis_retail
+Fèves vertes,Kg,2026,2,ok,bms_juillet-2026.pdf,202607,6,2026-02-01,faba_bean,3.147,ins_tunis_retail
+Fèves vertes,Kg,2026,3,ok,bms_juillet-2026.pdf,202607,5,2026-03-01,faba_bean,3.041,ins_tunis_retail
+Fèves vertes,Kg,2026,4,ok,bms_juillet-2026.pdf,202607,4,2026-04-01,faba_bean,2.246,ins_tunis_retail
+Fèves vertes,Kg,2026,5,ok,bms_juillet-2026.pdf,202607,3,2026-05-01,faba_bean,1.75,ins_tunis_retail
+Fèves vertes,Kg,2026,6,no_arrivals,bms_juillet-2026.pdf,202607,2,2026-06-01,faba_bean,,ins_tunis_retail
+Fèves vertes,Kg,2026,7,no_arrivals,bms_juillet-2026.pdf,202607,1,2026-07-01,faba_bean,,ins_tunis_retail
+Melons,Kg,2021,7,ok,bms_juillet-2022.pdf,202202,1,2021-07-01,melon,1.403,ins_tunis_retail
+Melons,Kg,2021,8,ok,bms_juillet-2022.pdf,202202,1,2021-08-01,melon,1.348,ins_tunis_retail
+Melons,Kg,2021,9,ok,bms_juillet-2022.pdf,202202,1,2021-09-01,melon,1.401,ins_tunis_retail
+Melons,Kg,2021,10,ok,bms_juillet-2022.pdf,202202,1,2021-10-01,melon,1.693,ins_tunis_retail
+Melons,Kg,2021,11,no_arrivals,bms_juillet-2022.pdf,202202,1,2021-11-01,melon,,ins_tunis_retail
+Melons,Kg,2021,12,no_arrivals,bms_decembre-2022.pdf,202211,2,2021-12-01,melon,,ins_tunis_retail
+Melons,Kg,2022,1,no_arrivals,bms_decembre-2022.pdf,202211,2,2022-01-01,melon,,ins_tunis_retail
+Melons,Kg,2022,2,no_arrivals,bms_decembre-2022.pdf,202211,2,2022-02-01,melon,,ins_tunis_retail
+Melons,Kg,2022,3,no_arrivals,bms_decembre-2022.pdf,202211,2,2022-03-01,melon,,ins_tunis_retail
+Melons,Kg,2022,4,ok,bms_decembre-2022.pdf,202211,2,2022-04-01,melon,5.987,ins_tunis_retail
+Melons,Kg,2022,5,ok,bms_decembre-2022.pdf,202211,2,2022-05-01,melon,3.532,ins_tunis_retail
+Melons,Kg,2022,6,ok,bms_decembre-2022.pdf,202211,2,2022-06-01,melon,2.062,ins_tunis_retail
+Melons,Kg,2022,7,ok,bms_juillet-2023.pdf,202307,3,2022-07-01,melon,1.58,ins_tunis_retail
+Melons,Kg,2022,8,ok,bms_juillet-2023.pdf,202307,2,2022-08-01,melon,1.342,ins_tunis_retail
+Melons,Kg,2022,9,ok,bms_juillet-2023.pdf,202307,2,2022-09-01,melon,1.568,ins_tunis_retail
+Melons,Kg,2022,10,ok,bms_juillet-2023.pdf,202307,2,2022-10-01,melon,1.608,ins_tunis_retail
+Melons,Kg,2022,11,ok,bms_juillet-2023.pdf,202307,2,2022-11-01,melon,1.7,ins_tunis_retail
+Melons,Kg,2022,12,no_arrivals,bms_decembre-2023.pdf,202310,3,2022-12-01,melon,,ins_tunis_retail
+Melons,Kg,2023,1,no_arrivals,bms_decembre-2023.pdf,202310,2,2023-01-01,melon,,ins_tunis_retail
+Melons,Kg,2023,2,no_arrivals,bms_fevrier-2024.pdf,202402,3,2023-02-01,melon,,ins_tunis_retail
+Melons,Kg,2023,3,no_arrivals,bms_mars-2024.pdf,202403,4,2023-03-01,melon,,ins_tunis_retail
+Melons,Kg,2023,4,ok,bms_avril-2024.pdf,202404,5,2023-04-01,melon,2.49,ins_tunis_retail
+Melons,Kg,2023,5,ok,bms_avril-2024.pdf,202404,5,2023-05-01,melon,2.49,ins_tunis_retail
+Melons,Kg,2023,6,ok,bms_avril-2024.pdf,202404,5,2023-06-01,melon,2.393,ins_tunis_retail
+Melons,Kg,2023,7,ok,bms_juillet-2024.pdf,202407,6,2023-07-01,melon,2.531,ins_tunis_retail
+Melons,Kg,2023,8,ok,bms_juillet-2024.pdf,202407,5,2023-08-01,melon,2.532,ins_tunis_retail
+Melons,Kg,2023,9,ok,bms_juillet-2024.pdf,202407,5,2023-09-01,melon,2.33,ins_tunis_retail
+Melons,Kg,2023,10,ok,bms_juillet-2024.pdf,202407,5,2023-10-01,melon,2.21,ins_tunis_retail
+Melons,Kg,2023,11,ok,bms_juillet-2024.pdf,202407,5,2023-11-01,melon,2.26,ins_tunis_retail
+Melons,Kg,2023,12,ok,bms_decembre-2024.pdf,202412,6,2023-12-01,melon,2.151,ins_tunis_retail
+Melons,Kg,2024,1,no_arrivals,bms_decembre-2024.pdf,202412,5,2024-01-01,melon,,ins_tunis_retail
+Melons,Kg,2024,2,no_arrivals,bms_decembre-2024.pdf,202412,5,2024-02-01,melon,,ins_tunis_retail
+Melons,Kg,2024,3,no_arrivals,bms_mars-2025.pdf,202501,5,2024-03-01,melon,,ins_tunis_retail
+Melons,Kg,2024,4,ok,bms_avril-2025.pdf,202504,5,2024-04-01,melon,3.0,ins_tunis_retail
+Melons,Kg,2024,5,ok,bms_mai-2025.pdf,202505,5,2024-05-01,melon,2.848,ins_tunis_retail
+Melons,Kg,2024,6,ok,bms_juin-2025.pdf,202506,6,2024-06-01,melon,2.682,ins_tunis_retail
+Melons,Kg,2024,7,ok,bms_juillet-2025.pdf,202506,7,2024-07-01,melon,1.952,ins_tunis_retail
+Melons,Kg,2024,8,ok,bms_aout-2025.pdf,202508,7,2024-08-01,melon,1.779,ins_tunis_retail
+Melons,Kg,2024,9,ok,bms_septembre-2025.pdf,202509,8,2024-09-01,melon,2.086,ins_tunis_retail
+Melons,Kg,2024,10,ok,bms_octobre-2025.pdf,202509,9,2024-10-01,melon,2.251,ins_tunis_retail
+Melons,Kg,2024,11,no_arrivals,bms_novembre-2025.pdf,202509,10,2024-11-01,melon,,ins_tunis_retail
+Melons,Kg,2024,12,no_arrivals,bms_decembre-2025.pdf,202509,11,2024-12-01,melon,,ins_tunis_retail
+Melons,Kg,2025,1,no_arrivals,bms_decembre-2025.pdf,202509,11,2025-01-01,melon,,ins_tunis_retail
+Melons,Kg,2025,2,no_arrivals,bms_fevrier-2026.pdf,202602,12,2025-02-01,melon,,ins_tunis_retail
+Melons,Kg,2025,3,no_arrivals,bms_mars-2026.pdf,202603,13,2025-03-01,melon,,ins_tunis_retail
+Melons,Kg,2025,4,ok,bms_avril-2026.pdf,202603,13,2025-04-01,melon,5.9,ins_tunis_retail
+Melons,Kg,2025,5,ok,bms_mai-2026.pdf,202605,13,2025-05-01,melon,4.33,ins_tunis_retail
+Melons,Kg,2025,6,ok,bms_juin-2026.pdf,202606,13,2025-06-01,melon,2.555,ins_tunis_retail
+Melons,Kg,2025,7,ok,bms_juillet-2026.pdf,202607,13,2025-07-01,melon,1.834,ins_tunis_retail
+Melons,Kg,2025,8,ok,bms_juillet-2026.pdf,202607,12,2025-08-01,melon,2.09,ins_tunis_retail
+Melons,Kg,2025,9,ok,bms_juillet-2026.pdf,202607,11,2025-09-01,melon,2.172,ins_tunis_retail
+Melons,Kg,2025,10,ok,bms_juillet-2026.pdf,202607,10,2025-10-01,melon,2.233,ins_tunis_retail
+Melons,Kg,2025,11,no_arrivals,bms_juillet-2026.pdf,202607,9,2025-11-01,melon,,ins_tunis_retail
+Melons,Kg,2025,12,no_arrivals,bms_juillet-2026.pdf,202607,8,2025-12-01,melon,,ins_tunis_retail
+Melons,Kg,2026,1,no_arrivals,bms_juillet-2026.pdf,202607,7,2026-01-01,melon,,ins_tunis_retail
+Melons,Kg,2026,2,no_arrivals,bms_juillet-2026.pdf,202607,6,2026-02-01,melon,,ins_tunis_retail
+Melons,Kg,2026,3,no_arrivals,bms_juillet-2026.pdf,202607,5,2026-03-01,melon,,ins_tunis_retail
+Melons,Kg,2026,4,ok,bms_juillet-2026.pdf,202607,4,2026-04-01,melon,5.98,ins_tunis_retail
+Melons,Kg,2026,5,ok,bms_juillet-2026.pdf,202607,3,2026-05-01,melon,5.413,ins_tunis_retail
+Melons,Kg,2026,6,ok,bms_juillet-2026.pdf,202607,2,2026-06-01,melon,2.247,ins_tunis_retail
+Melons,Kg,2026,7,ok,bms_juillet-2026.pdf,202607,1,2026-07-01,melon,1.695,ins_tunis_retail
+Navets,Kg,2021,7,ok,bms_juillet-2022.pdf,202202,1,2021-07-01,turnip,1.968,ins_tunis_retail
+Navets,Kg,2021,8,ok,bms_juillet-2022.pdf,202202,1,2021-08-01,turnip,2.382,ins_tunis_retail
+Navets,Kg,2021,9,ok,bms_juillet-2022.pdf,202202,1,2021-09-01,turnip,2.283,ins_tunis_retail
+Navets,Kg,2021,10,ok,bms_juillet-2022.pdf,202202,1,2021-10-01,turnip,2.308,ins_tunis_retail
+Navets,Kg,2021,11,ok,bms_juillet-2022.pdf,202202,1,2021-11-01,turnip,1.792,ins_tunis_retail
+Navets,Kg,2021,12,ok,bms_decembre-2022.pdf,202211,2,2021-12-01,turnip,1.489,ins_tunis_retail
+Navets,Kg,2022,1,ok,bms_decembre-2022.pdf,202211,2,2022-01-01,turnip,1.528,ins_tunis_retail
+Navets,Kg,2022,2,ok,bms_decembre-2022.pdf,202211,2,2022-02-01,turnip,1.397,ins_tunis_retail
+Navets,Kg,2022,3,ok,bms_decembre-2022.pdf,202211,2,2022-03-01,turnip,1.363,ins_tunis_retail
+Navets,Kg,2022,4,ok,bms_decembre-2022.pdf,202211,2,2022-04-01,turnip,1.59,ins_tunis_retail
+Navets,Kg,2022,5,ok,bms_decembre-2022.pdf,202211,2,2022-05-01,turnip,1.525,ins_tunis_retail
+Navets,Kg,2022,6,ok,bms_decembre-2022.pdf,202211,2,2022-06-01,turnip,1.638,ins_tunis_retail
+Navets,Kg,2022,7,ok,bms_juillet-2023.pdf,202307,3,2022-07-01,turnip,2.131,ins_tunis_retail
+Navets,Kg,2022,8,ok,bms_juillet-2023.pdf,202307,2,2022-08-01,turnip,2.197,ins_tunis_retail
+Navets,Kg,2022,9,ok,bms_juillet-2023.pdf,202307,2,2022-09-01,turnip,2.383,ins_tunis_retail
+Navets,Kg,2022,10,ok,bms_juillet-2023.pdf,202307,2,2022-10-01,turnip,2.133,ins_tunis_retail
+Navets,Kg,2022,11,ok,bms_juillet-2023.pdf,202307,2,2022-11-01,turnip,1.808,ins_tunis_retail
+Navets,Kg,2022,12,ok,bms_decembre-2023.pdf,202310,3,2022-12-01,turnip,1.732,ins_tunis_retail
+Navets,Kg,2023,1,ok,bms_decembre-2023.pdf,202310,2,2023-01-01,turnip,1.71,ins_tunis_retail
+Navets,Kg,2023,2,ok,bms_fevrier-2024.pdf,202402,3,2023-02-01,turnip,1.81,ins_tunis_retail
+Navets,Kg,2023,3,ok,bms_mars-2024.pdf,202403,4,2023-03-01,turnip,1.857,ins_tunis_retail
+Navets,Kg,2023,4,ok,bms_avril-2024.pdf,202404,5,2023-04-01,turnip,2.313,ins_tunis_retail
+Navets,Kg,2023,5,ok,bms_avril-2024.pdf,202404,5,2023-05-01,turnip,2.483,ins_tunis_retail
+Navets,Kg,2023,6,ok,bms_avril-2024.pdf,202404,5,2023-06-01,turnip,2.56,ins_tunis_retail
+Navets,Kg,2023,7,ok,bms_juillet-2024.pdf,202407,6,2023-07-01,turnip,2.429,ins_tunis_retail
+Navets,Kg,2023,8,ok,bms_juillet-2024.pdf,202407,5,2023-08-01,turnip,2.586,ins_tunis_retail
+Navets,Kg,2023,9,ok,bms_juillet-2024.pdf,202407,5,2023-09-01,turnip,2.527,ins_tunis_retail
+Navets,Kg,2023,10,ok,bms_juillet-2024.pdf,202407,5,2023-10-01,turnip,2.427,ins_tunis_retail
+Navets,Kg,2023,11,ok,bms_juillet-2024.pdf,202407,5,2023-11-01,turnip,2.307,ins_tunis_retail
+Navets,Kg,2023,12,ok,bms_decembre-2024.pdf,202412,6,2023-12-01,turnip,2.218,ins_tunis_retail
+Navets,Kg,2024,1,ok,bms_decembre-2024.pdf,202412,5,2024-01-01,turnip,2.205,ins_tunis_retail
+Navets,Kg,2024,2,ok,bms_decembre-2024.pdf,202412,5,2024-02-01,turnip,2.043,ins_tunis_retail
+Navets,Kg,2024,3,ok,bms_mars-2025.pdf,202501,5,2024-03-01,turnip,2.273,ins_tunis_retail
+Navets,Kg,2024,4,ok,bms_avril-2025.pdf,202504,5,2024-04-01,turnip,2.445,ins_tunis_retail
+Navets,Kg,2024,5,ok,bms_mai-2025.pdf,202505,5,2024-05-01,turnip,2.764,ins_tunis_retail
+Navets,Kg,2024,6,ok,bms_juin-2025.pdf,202506,6,2024-06-01,turnip,2.855,ins_tunis_retail
+Navets,Kg,2024,7,ok,bms_juillet-2025.pdf,202506,7,2024-07-01,turnip,2.882,ins_tunis_retail
+Navets,Kg,2024,8,ok,bms_aout-2025.pdf,202508,7,2024-08-01,turnip,2.868,ins_tunis_retail
+Navets,Kg,2024,9,ok,bms_septembre-2025.pdf,202509,8,2024-09-01,turnip,2.927,ins_tunis_retail
+Navets,Kg,2024,10,ok,bms_octobre-2025.pdf,202509,9,2024-10-01,turnip,2.807,ins_tunis_retail
+Navets,Kg,2024,11,ok,bms_novembre-2025.pdf,202509,10,2024-11-01,turnip,2.463,ins_tunis_retail
+Navets,Kg,2024,12,ok,bms_decembre-2025.pdf,202509,11,2024-12-01,turnip,2.065,ins_tunis_retail
+Navets,Kg,2025,1,ok,bms_decembre-2025.pdf,202509,11,2025-01-01,turnip,2.045,ins_tunis_retail
+Navets,Kg,2025,2,ok,bms_fevrier-2026.pdf,202602,12,2025-02-01,turnip,2.149,ins_tunis_retail
+Navets,Kg,2025,3,ok,bms_mars-2026.pdf,202603,13,2025-03-01,turnip,2.462,ins_tunis_retail
+Navets,Kg,2025,4,ok,bms_avril-2026.pdf,202603,13,2025-04-01,turnip,2.664,ins_tunis_retail
+Navets,Kg,2025,5,ok,bms_mai-2026.pdf,202605,13,2025-05-01,turnip,2.5,ins_tunis_retail
+Navets,Kg,2025,6,ok,bms_juin-2026.pdf,202606,13,2025-06-01,turnip,2.482,ins_tunis_retail
+Navets,Kg,2025,7,ok,bms_juillet-2026.pdf,202607,13,2025-07-01,turnip,2.416,ins_tunis_retail
+Navets,Kg,2025,8,ok,bms_juillet-2026.pdf,202607,12,2025-08-01,turnip,2.576,ins_tunis_retail
+Navets,Kg,2025,9,ok,bms_juillet-2026.pdf,202607,11,2025-09-01,turnip,2.555,ins_tunis_retail
+Navets,Kg,2025,10,ok,bms_juillet-2026.pdf,202607,10,2025-10-01,turnip,2.536,ins_tunis_retail
+Navets,Kg,2025,11,ok,bms_juillet-2026.pdf,202607,9,2025-11-01,turnip,2.225,ins_tunis_retail
+Navets,Kg,2025,12,ok,bms_juillet-2026.pdf,202607,8,2025-12-01,turnip,2.011,ins_tunis_retail
+Navets,Kg,2026,1,ok,bms_juillet-2026.pdf,202607,7,2026-01-01,turnip,2.066,ins_tunis_retail
+Navets,Kg,2026,2,ok,bms_juillet-2026.pdf,202607,6,2026-02-01,turnip,2.283,ins_tunis_retail
+Navets,Kg,2026,3,ok,bms_juillet-2026.pdf,202607,5,2026-03-01,turnip,2.424,ins_tunis_retail
+Navets,Kg,2026,4,ok,bms_juillet-2026.pdf,202607,4,2026-04-01,turnip,2.9,ins_tunis_retail
+Navets,Kg,2026,5,ok,bms_juillet-2026.pdf,202607,3,2026-05-01,turnip,2.85,ins_tunis_retail
+Navets,Kg,2026,6,ok,bms_juillet-2026.pdf,202607,2,2026-06-01,turnip,2.532,ins_tunis_retail
+Navets,Kg,2026,7,ok,bms_juillet-2026.pdf,202607,1,2026-07-01,turnip,2.357,ins_tunis_retail
+Oignons secs,Kg,2021,7,ok,bms_juillet-2022.pdf,202202,1,2021-07-01,onion,0.933,ins_tunis_retail
+Oignons secs,Kg,2021,8,ok,bms_juillet-2022.pdf,202202,1,2021-08-01,onion,1.043,ins_tunis_retail
+Oignons secs,Kg,2021,9,ok,bms_juillet-2022.pdf,202202,1,2021-09-01,onion,1.041,ins_tunis_retail
+Oignons secs,Kg,2021,10,ok,bms_juillet-2022.pdf,202202,1,2021-10-01,onion,1.15,ins_tunis_retail
+Oignons secs,Kg,2021,11,ok,bms_juillet-2022.pdf,202202,1,2021-11-01,onion,1.258,ins_tunis_retail
+Oignons secs,Kg,2021,12,ok,bms_decembre-2022.pdf,202211,2,2021-12-01,onion,1.214,ins_tunis_retail
+Oignons secs,Kg,2022,1,ok,bms_decembre-2022.pdf,202211,2,2022-01-01,onion,1.271,ins_tunis_retail
+Oignons secs,Kg,2022,2,ok,bms_decembre-2022.pdf,202211,2,2022-02-01,onion,1.281,ins_tunis_retail
+Oignons secs,Kg,2022,3,ok,bms_decembre-2022.pdf,202211,2,2022-03-01,onion,1.273,ins_tunis_retail
+Oignons secs,Kg,2022,4,ok,bms_decembre-2022.pdf,202211,2,2022-04-01,onion,1.283,ins_tunis_retail
+Oignons secs,Kg,2022,5,ok,bms_decembre-2022.pdf,202211,2,2022-05-01,onion,1.414,ins_tunis_retail
+Oignons secs,Kg,2022,6,ok,bms_decembre-2022.pdf,202211,2,2022-06-01,onion,1.159,ins_tunis_retail
+Oignons secs,Kg,2022,7,ok,bms_juillet-2023.pdf,202307,3,2022-07-01,onion,1.468,ins_tunis_retail
+Oignons secs,Kg,2022,8,ok,bms_juillet-2023.pdf,202307,2,2022-08-01,onion,1.553,ins_tunis_retail
+Oignons secs,Kg,2022,9,ok,bms_juillet-2023.pdf,202307,2,2022-09-01,onion,1.448,ins_tunis_retail
+Oignons secs,Kg,2022,10,ok,bms_juillet-2023.pdf,202307,2,2022-10-01,onion,1.573,ins_tunis_retail
+Oignons secs,Kg,2022,11,ok,bms_juillet-2023.pdf,202307,2,2022-11-01,onion,2.238,ins_tunis_retail
+Oignons secs,Kg,2022,12,ok,bms_decembre-2023.pdf,202310,3,2022-12-01,onion,2.3,ins_tunis_retail
+Oignons secs,Kg,2023,1,ok,bms_decembre-2023.pdf,202310,2,2023-01-01,onion,2.766,ins_tunis_retail
+Oignons secs,Kg,2023,2,ok,bms_fevrier-2024.pdf,202402,3,2023-02-01,onion,2.804,ins_tunis_retail
+Oignons secs,Kg,2023,3,ok,bms_mars-2024.pdf,202403,4,2023-03-01,onion,3.033,ins_tunis_retail
+Oignons secs,Kg,2023,4,ok,bms_avril-2024.pdf,202404,5,2023-04-01,onion,2.883,ins_tunis_retail
+Oignons secs,Kg,2023,5,ok,bms_avril-2024.pdf,202404,5,2023-05-01,onion,1.347,ins_tunis_retail
+Oignons secs,Kg,2023,6,ok,bms_avril-2024.pdf,202404,5,2023-06-01,onion,1.214,ins_tunis_retail
+Oignons secs,Kg,2023,7,ok,bms_juillet-2024.pdf,202407,6,2023-07-01,onion,1.257,ins_tunis_retail
+Oignons secs,Kg,2023,8,ok,bms_juillet-2024.pdf,202407,5,2023-08-01,onion,1.198,ins_tunis_retail
+Oignons secs,Kg,2023,9,ok,bms_juillet-2024.pdf,202407,5,2023-09-01,onion,1.351,ins_tunis_retail
+Oignons secs,Kg,2023,10,ok,bms_juillet-2024.pdf,202407,5,2023-10-01,onion,1.835,ins_tunis_retail
+Oignons secs,Kg,2023,11,ok,bms_juillet-2024.pdf,202407,5,2023-11-01,onion,1.861,ins_tunis_retail
+Oignons secs,Kg,2023,12,ok,bms_decembre-2024.pdf,202412,6,2023-12-01,onion,1.888,ins_tunis_retail
+Oignons secs,Kg,2024,1,ok,bms_decembre-2024.pdf,202412,5,2024-01-01,onion,1.926,ins_tunis_retail
+Oignons secs,Kg,2024,2,ok,bms_decembre-2024.pdf,202412,5,2024-02-01,onion,2.087,ins_tunis_retail
+Oignons secs,Kg,2024,3,ok,bms_mars-2025.pdf,202501,5,2024-03-01,onion,2.172,ins_tunis_retail
+Oignons secs,Kg,2024,4,ok,bms_avril-2025.pdf,202504,5,2024-04-01,onion,1.956,ins_tunis_retail
+Oignons secs,Kg,2024,5,ok,bms_mai-2025.pdf,202505,5,2024-05-01,onion,1.813,ins_tunis_retail
+Oignons secs,Kg,2024,6,ok,bms_juin-2025.pdf,202506,6,2024-06-01,onion,1.86,ins_tunis_retail
+Oignons secs,Kg,2024,7,ok,bms_juillet-2025.pdf,202506,7,2024-07-01,onion,1.824,ins_tunis_retail
+Oignons secs,Kg,2024,8,ok,bms_aout-2025.pdf,202508,7,2024-08-01,onion,1.814,ins_tunis_retail
+Oignons secs,Kg,2024,9,ok,bms_septembre-2025.pdf,202509,8,2024-09-01,onion,1.961,ins_tunis_retail
+Oignons secs,Kg,2024,10,ok,bms_octobre-2025.pdf,202509,9,2024-10-01,onion,1.926,ins_tunis_retail
+Oignons secs,Kg,2024,11,ok,bms_novembre-2025.pdf,202509,10,2024-11-01,onion,1.898,ins_tunis_retail
+Oignons secs,Kg,2024,12,ok,bms_decembre-2025.pdf,202509,11,2024-12-01,onion,1.881,ins_tunis_retail
+Oignons secs,Kg,2025,1,ok,bms_decembre-2025.pdf,202509,11,2025-01-01,onion,2.029,ins_tunis_retail
+Oignons secs,Kg,2025,2,ok,bms_fevrier-2026.pdf,202602,12,2025-02-01,onion,2.424,ins_tunis_retail
+Oignons secs,Kg,2025,3,ok,bms_mars-2026.pdf,202603,13,2025-03-01,onion,2.85,ins_tunis_retail
+Oignons secs,Kg,2025,4,ok,bms_avril-2026.pdf,202603,13,2025-04-01,onion,2.49,ins_tunis_retail
+Oignons secs,Kg,2025,5,ok,bms_mai-2026.pdf,202605,13,2025-05-01,onion,2.364,ins_tunis_retail
+Oignons secs,Kg,2025,6,ok,bms_juin-2026.pdf,202606,13,2025-06-01,onion,2.176,ins_tunis_retail
+Oignons secs,Kg,2025,7,ok,bms_juillet-2026.pdf,202607,13,2025-07-01,onion,1.84,ins_tunis_retail
+Oignons secs,Kg,2025,8,ok,bms_juillet-2026.pdf,202607,12,2025-08-01,onion,1.551,ins_tunis_retail
+Oignons secs,Kg,2025,9,ok,bms_juillet-2026.pdf,202607,11,2025-09-01,onion,1.553,ins_tunis_retail
+Oignons secs,Kg,2025,10,ok,bms_juillet-2026.pdf,202607,10,2025-10-01,onion,1.633,ins_tunis_retail
+Oignons secs,Kg,2025,11,ok,bms_juillet-2026.pdf,202607,9,2025-11-01,onion,1.823,ins_tunis_retail
+Oignons secs,Kg,2025,12,ok,bms_juillet-2026.pdf,202607,8,2025-12-01,onion,1.965,ins_tunis_retail
+Oignons secs,Kg,2026,1,ok,bms_juillet-2026.pdf,202607,7,2026-01-01,onion,1.914,ins_tunis_retail
+Oignons secs,Kg,2026,2,ok,bms_juillet-2026.pdf,202607,6,2026-02-01,onion,1.896,ins_tunis_retail
+Oignons secs,Kg,2026,3,ok,bms_juillet-2026.pdf,202607,5,2026-03-01,onion,2.085,ins_tunis_retail
+Oignons secs,Kg,2026,4,ok,bms_juillet-2026.pdf,202607,4,2026-04-01,onion,2.365,ins_tunis_retail
+Oignons secs,Kg,2026,5,ok,bms_juillet-2026.pdf,202607,3,2026-05-01,onion,2.375,ins_tunis_retail
+Oignons secs,Kg,2026,6,ok,bms_juillet-2026.pdf,202607,2,2026-06-01,onion,1.879,ins_tunis_retail
+Oignons secs,Kg,2026,7,ok,bms_juillet-2026.pdf,202607,1,2026-07-01,onion,1.223,ins_tunis_retail
+Oranges douces,Kg,2021,7,no_arrivals,bms_juillet-2022.pdf,202202,1,2021-07-01,orange_sweet,,ins_tunis_retail
+Oranges douces,Kg,2021,8,no_arrivals,bms_juillet-2022.pdf,202202,1,2021-08-01,orange_sweet,,ins_tunis_retail
+Oranges douces,Kg,2021,9,no_arrivals,bms_juillet-2022.pdf,202202,1,2021-09-01,orange_sweet,,ins_tunis_retail
+Oranges douces,Kg,2021,10,no_arrivals,bms_juillet-2022.pdf,202202,1,2021-10-01,orange_sweet,,ins_tunis_retail
+Oranges douces,Kg,2021,11,ok,bms_juillet-2022.pdf,202202,1,2021-11-01,orange_sweet,3.1,ins_tunis_retail
+Oranges douces,Kg,2021,12,ok,bms_decembre-2022.pdf,202211,2,2021-12-01,orange_sweet,2.722,ins_tunis_retail
+Oranges douces,Kg,2022,1,ok,bms_decembre-2022.pdf,202211,2,2022-01-01,orange_sweet,2.565,ins_tunis_retail
+Oranges douces,Kg,2022,2,ok,bms_decembre-2022.pdf,202211,2,2022-02-01,orange_sweet,2.748,ins_tunis_retail
+Oranges douces,Kg,2022,3,ok,bms_decembre-2022.pdf,202211,2,2022-03-01,orange_sweet,2.663,ins_tunis_retail
+Oranges douces,Kg,2022,4,ok,bms_decembre-2022.pdf,202211,2,2022-04-01,orange_sweet,3.194,ins_tunis_retail
+Oranges douces,Kg,2022,5,ok,bms_decembre-2022.pdf,202211,2,2022-05-01,orange_sweet,3.2,ins_tunis_retail
+Oranges douces,Kg,2022,6,no_arrivals,bms_decembre-2022.pdf,202211,2,2022-06-01,orange_sweet,,ins_tunis_retail
+Oranges douces,Kg,2022,7,no_arrivals,bms_juillet-2023.pdf,202307,3,2022-07-01,orange_sweet,,ins_tunis_retail
+Oranges douces,Kg,2022,8,no_arrivals,bms_juillet-2023.pdf,202307,2,2022-08-01,orange_sweet,,ins_tunis_retail
+Oranges douces,Kg,2022,9,no_arrivals,bms_juillet-2023.pdf,202307,2,2022-09-01,orange_sweet,,ins_tunis_retail
+Oranges douces,Kg,2022,10,no_arrivals,bms_juillet-2023.pdf,202307,2,2022-10-01,orange_sweet,,ins_tunis_retail
+Oranges douces,Kg,2022,11,no_arrivals,bms_juillet-2023.pdf,202307,2,2022-11-01,orange_sweet,,ins_tunis_retail
+Oranges douces,Kg,2022,12,ok,bms_decembre-2023.pdf,202310,3,2022-12-01,orange_sweet,3.449,ins_tunis_retail
+Oranges douces,Kg,2023,1,ok,bms_decembre-2023.pdf,202310,2,2023-01-01,orange_sweet,3.274,ins_tunis_retail
+Oranges douces,Kg,2023,2,ok,bms_fevrier-2024.pdf,202402,3,2023-02-01,orange_sweet,3.632,ins_tunis_retail
+Oranges douces,Kg,2023,3,ok,bms_mars-2024.pdf,202403,4,2023-03-01,orange_sweet,4.041,ins_tunis_retail
+Oranges douces,Kg,2023,4,ok,bms_avril-2024.pdf,202404,5,2023-04-01,orange_sweet,4.71,ins_tunis_retail
+Oranges douces,Kg,2023,5,ok,bms_avril-2024.pdf,202404,5,2023-05-01,orange_sweet,6.28,ins_tunis_retail
+Oranges douces,Kg,2023,6,no_arrivals,bms_avril-2024.pdf,202404,5,2023-06-01,orange_sweet,,ins_tunis_retail
+Oranges douces,Kg,2023,7,no_arrivals,bms_juillet-2024.pdf,202407,6,2023-07-01,orange_sweet,,ins_tunis_retail
+Oranges douces,Kg,2023,8,no_arrivals,bms_juillet-2024.pdf,202407,5,2023-08-01,orange_sweet,,ins_tunis_retail
+Oranges douces,Kg,2023,9,no_arrivals,bms_juillet-2024.pdf,202407,5,2023-09-01,orange_sweet,,ins_tunis_retail
+Oranges douces,Kg,2023,10,no_arrivals,bms_juillet-2024.pdf,202407,5,2023-10-01,orange_sweet,,ins_tunis_retail
+Oranges douces,Kg,2023,11,ok,bms_juillet-2024.pdf,202407,5,2023-11-01,orange_sweet,3.327,ins_tunis_retail
+Oranges douces,Kg,2023,12,ok,bms_decembre-2024.pdf,202412,6,2023-12-01,orange_sweet,3.327,ins_tunis_retail
+Oranges douces,Kg,2024,1,ok,bms_decembre-2024.pdf,202412,5,2024-01-01,orange_sweet,3.36,ins_tunis_retail
+Oranges douces,Kg,2024,2,ok,bms_decembre-2024.pdf,202412,5,2024-02-01,orange_sweet,3.308,ins_tunis_retail
+Oranges douces,Kg,2024,3,ok,bms_mars-2025.pdf,202501,5,2024-03-01,orange_sweet,3.233,ins_tunis_retail
+Oranges douces,Kg,2024,4,ok,bms_avril-2025.pdf,202504,5,2024-04-01,orange_sweet,3.643,ins_tunis_retail
+Oranges douces,Kg,2024,5,ok,bms_mai-2025.pdf,202505,5,2024-05-01,orange_sweet,3.9,ins_tunis_retail
+Oranges douces,Kg,2024,6,no_arrivals,bms_juin-2025.pdf,202506,6,2024-06-01,orange_sweet,,ins_tunis_retail
+Oranges douces,Kg,2024,7,no_arrivals,bms_juillet-2025.pdf,202506,7,2024-07-01,orange_sweet,,ins_tunis_retail
+Oranges douces,Kg,2024,8,no_arrivals,bms_aout-2025.pdf,202508,7,2024-08-01,orange_sweet,,ins_tunis_retail
+Oranges douces,Kg,2024,9,no_arrivals,bms_septembre-2025.pdf,202509,8,2024-09-01,orange_sweet,,ins_tunis_retail
+Oranges douces,Kg,2024,10,no_arrivals,bms_octobre-2025.pdf,202509,9,2024-10-01,orange_sweet,,ins_tunis_retail
+Oranges douces,Kg,2024,11,ok,bms_novembre-2025.pdf,202509,10,2024-11-01,orange_sweet,3.103,ins_tunis_retail
+Oranges douces,Kg,2024,12,ok,bms_decembre-2025.pdf,202509,11,2024-12-01,orange_sweet,3.18,ins_tunis_retail
+Oranges douces,Kg,2025,1,ok,bms_decembre-2025.pdf,202509,11,2025-01-01,orange_sweet,3.04,ins_tunis_retail
+Oranges douces,Kg,2025,2,ok,bms_fevrier-2026.pdf,202602,12,2025-02-01,orange_sweet,3.288,ins_tunis_retail
+Oranges douces,Kg,2025,3,ok,bms_mars-2026.pdf,202603,13,2025-03-01,orange_sweet,3.83,ins_tunis_retail
+Oranges douces,Kg,2025,4,ok,bms_avril-2026.pdf,202603,13,2025-04-01,orange_sweet,4.464,ins_tunis_retail
+Oranges douces,Kg,2025,5,ok,bms_mai-2026.pdf,202605,13,2025-05-01,orange_sweet,4.92,ins_tunis_retail
+Oranges douces,Kg,2025,6,no_arrivals,bms_juin-2026.pdf,202606,13,2025-06-01,orange_sweet,,ins_tunis_retail
+Oranges douces,Kg,2025,7,no_arrivals,bms_juillet-2026.pdf,202607,13,2025-07-01,orange_sweet,,ins_tunis_retail
+Oranges douces,Kg,2025,8,no_arrivals,bms_juillet-2026.pdf,202607,12,2025-08-01,orange_sweet,,ins_tunis_retail
+Oranges douces,Kg,2025,9,no_arrivals,bms_juillet-2026.pdf,202607,11,2025-09-01,orange_sweet,,ins_tunis_retail
+Oranges douces,Kg,2025,10,no_arrivals,bms_juillet-2026.pdf,202607,10,2025-10-01,orange_sweet,,ins_tunis_retail
+Oranges douces,Kg,2025,11,ok,bms_juillet-2026.pdf,202607,9,2025-11-01,orange_sweet,3.569,ins_tunis_retail
+Oranges douces,Kg,2025,12,ok,bms_juillet-2026.pdf,202607,8,2025-12-01,orange_sweet,3.397,ins_tunis_retail
+Oranges douces,Kg,2026,1,ok,bms_juillet-2026.pdf,202607,7,2026-01-01,orange_sweet,3.98,ins_tunis_retail
+Oranges douces,Kg,2026,2,ok,bms_juillet-2026.pdf,202607,6,2026-02-01,orange_sweet,4.01,ins_tunis_retail
+Oranges douces,Kg,2026,3,ok,bms_juillet-2026.pdf,202607,5,2026-03-01,orange_sweet,4.523,ins_tunis_retail
+Oranges douces,Kg,2026,4,ok,bms_juillet-2026.pdf,202607,4,2026-04-01,orange_sweet,6.659,ins_tunis_retail
+Oranges douces,Kg,2026,5,ok,bms_juillet-2026.pdf,202607,3,2026-05-01,orange_sweet,6.8,ins_tunis_retail
+Oranges douces,Kg,2026,6,no_arrivals,bms_juillet-2026.pdf,202607,2,2026-06-01,orange_sweet,,ins_tunis_retail
+Oranges douces,Kg,2026,7,no_arrivals,bms_juillet-2026.pdf,202607,1,2026-07-01,orange_sweet,,ins_tunis_retail
+Oranges maltaises,Kg,2021,7,no_arrivals,bms_juillet-2022.pdf,202202,1,2021-07-01,orange_maltese,,ins_tunis_retail
+Oranges maltaises,Kg,2021,8,no_arrivals,bms_juillet-2022.pdf,202202,1,2021-08-01,orange_maltese,,ins_tunis_retail
+Oranges maltaises,Kg,2021,9,no_arrivals,bms_juillet-2022.pdf,202202,1,2021-09-01,orange_maltese,,ins_tunis_retail
+Oranges maltaises,Kg,2021,10,no_arrivals,bms_juillet-2022.pdf,202202,1,2021-10-01,orange_maltese,,ins_tunis_retail
+Oranges maltaises,Kg,2021,11,no_arrivals,bms_juillet-2022.pdf,202202,1,2021-11-01,orange_maltese,,ins_tunis_retail
+Oranges maltaises,Kg,2021,12,ok,bms_decembre-2022.pdf,202211,2,2021-12-01,orange_maltese,1.47,ins_tunis_retail
+Oranges maltaises,Kg,2022,1,ok,bms_decembre-2022.pdf,202211,2,2022-01-01,orange_maltese,1.43,ins_tunis_retail
+Oranges maltaises,Kg,2022,2,ok,bms_decembre-2022.pdf,202211,2,2022-02-01,orange_maltese,1.456,ins_tunis_retail
+Oranges maltaises,Kg,2022,3,ok,bms_decembre-2022.pdf,202211,2,2022-03-01,orange_maltese,1.445,ins_tunis_retail
+Oranges maltaises,Kg,2022,4,ok,bms_decembre-2022.pdf,202211,2,2022-04-01,orange_maltese,1.716,ins_tunis_retail
+Oranges maltaises,Kg,2022,5,ok,bms_decembre-2022.pdf,202211,2,2022-05-01,orange_maltese,1.96,ins_tunis_retail
+Oranges maltaises,Kg,2022,6,no_arrivals,bms_decembre-2022.pdf,202211,2,2022-06-01,orange_maltese,,ins_tunis_retail
+Oranges maltaises,Kg,2022,7,no_arrivals,bms_juillet-2023.pdf,202307,3,2022-07-01,orange_maltese,,ins_tunis_retail
+Oranges maltaises,Kg,2022,8,no_arrivals,bms_juillet-2023.pdf,202307,2,2022-08-01,orange_maltese,,ins_tunis_retail
+Oranges maltaises,Kg,2022,9,no_arrivals,bms_juillet-2023.pdf,202307,2,2022-09-01,orange_maltese,,ins_tunis_retail
+Oranges maltaises,Kg,2022,10,no_arrivals,bms_juillet-2023.pdf,202307,2,2022-10-01,orange_maltese,,ins_tunis_retail
+Oranges maltaises,Kg,2022,11,no_arrivals,bms_juillet-2023.pdf,202307,2,2022-11-01,orange_maltese,,ins_tunis_retail
+Oranges maltaises,Kg,2022,12,ok,bms_decembre-2023.pdf,202310,3,2022-12-01,orange_maltese,1.8,ins_tunis_retail
+Oranges maltaises,Kg,2023,1,ok,bms_decembre-2023.pdf,202310,2,2023-01-01,orange_maltese,1.729,ins_tunis_retail
+Oranges maltaises,Kg,2023,2,ok,bms_fevrier-2024.pdf,202402,3,2023-02-01,orange_maltese,2.103,ins_tunis_retail
+Oranges maltaises,Kg,2023,3,ok,bms_mars-2024.pdf,202403,4,2023-03-01,orange_maltese,2.557,ins_tunis_retail
+Oranges maltaises,Kg,2023,4,ok,bms_avril-2024.pdf,202404,5,2023-04-01,orange_maltese,2.717,ins_tunis_retail
+Oranges maltaises,Kg,2023,5,ok,bms_avril-2024.pdf,202404,5,2023-05-01,orange_maltese,3.735,ins_tunis_retail
+Oranges maltaises,Kg,2023,6,no_arrivals,bms_avril-2024.pdf,202404,5,2023-06-01,orange_maltese,,ins_tunis_retail
+Oranges maltaises,Kg,2023,7,no_arrivals,bms_juillet-2024.pdf,202407,6,2023-07-01,orange_maltese,,ins_tunis_retail
+Oranges maltaises,Kg,2023,8,no_arrivals,bms_juillet-2024.pdf,202407,5,2023-08-01,orange_maltese,,ins_tunis_retail
+Oranges maltaises,Kg,2023,9,no_arrivals,bms_juillet-2024.pdf,202407,5,2023-09-01,orange_maltese,,ins_tunis_retail
+Oranges maltaises,Kg,2023,10,no_arrivals,bms_juillet-2024.pdf,202407,5,2023-10-01,orange_maltese,,ins_tunis_retail
+Oranges maltaises,Kg,2023,11,no_arrivals,bms_juillet-2024.pdf,202407,5,2023-11-01,orange_maltese,,ins_tunis_retail
+Oranges maltaises,Kg,2023,12,ok,bms_decembre-2024.pdf,202412,6,2023-12-01,orange_maltese,1.9,ins_tunis_retail
+Oranges maltaises,Kg,2024,1,ok,bms_decembre-2024.pdf,202412,5,2024-01-01,orange_maltese,1.83,ins_tunis_retail
+Oranges maltaises,Kg,2024,2,ok,bms_decembre-2024.pdf,202412,5,2024-02-01,orange_maltese,1.695,ins_tunis_retail
+Oranges maltaises,Kg,2024,3,ok,bms_mars-2025.pdf,202501,5,2024-03-01,orange_maltese,1.704,ins_tunis_retail
+Oranges maltaises,Kg,2024,4,ok,bms_avril-2025.pdf,202504,5,2024-04-01,orange_maltese,1.719,ins_tunis_retail
+Oranges maltaises,Kg,2024,5,ok,bms_mai-2025.pdf,202505,5,2024-05-01,orange_maltese,1.957,ins_tunis_retail
+Oranges maltaises,Kg,2024,6,no_arrivals,bms_juin-2025.pdf,202506,6,2024-06-01,orange_maltese,,ins_tunis_retail
+Oranges maltaises,Kg,2024,7,no_arrivals,bms_juillet-2025.pdf,202506,7,2024-07-01,orange_maltese,,ins_tunis_retail
+Oranges maltaises,Kg,2024,8,no_arrivals,bms_aout-2025.pdf,202508,7,2024-08-01,orange_maltese,,ins_tunis_retail
+Oranges maltaises,Kg,2024,9,no_arrivals,bms_septembre-2025.pdf,202509,8,2024-09-01,orange_maltese,,ins_tunis_retail
+Oranges maltaises,Kg,2024,10,no_arrivals,bms_octobre-2025.pdf,202509,9,2024-10-01,orange_maltese,,ins_tunis_retail
+Oranges maltaises,Kg,2024,11,no_arrivals,bms_novembre-2025.pdf,202509,10,2024-11-01,orange_maltese,,ins_tunis_retail
+Oranges maltaises,Kg,2024,12,ok,bms_decembre-2025.pdf,202509,11,2024-12-01,orange_maltese,1.43,ins_tunis_retail
+Oranges maltaises,Kg,2025,1,ok,bms_decembre-2025.pdf,202509,11,2025-01-01,orange_maltese,1.46,ins_tunis_retail
+Oranges maltaises,Kg,2025,2,ok,bms_fevrier-2026.pdf,202602,12,2025-02-01,orange_maltese,1.462,ins_tunis_retail
+Oranges maltaises,Kg,2025,3,ok,bms_mars-2026.pdf,202603,13,2025-03-01,orange_maltese,1.895,ins_tunis_retail
+Oranges maltaises,Kg,2025,4,ok,bms_avril-2026.pdf,202603,13,2025-04-01,orange_maltese,2.337,ins_tunis_retail
+Oranges maltaises,Kg,2025,5,ok,bms_mai-2026.pdf,202605,13,2025-05-01,orange_maltese,2.616,ins_tunis_retail
+Oranges maltaises,Kg,2025,6,no_arrivals,bms_juin-2026.pdf,202606,13,2025-06-01,orange_maltese,,ins_tunis_retail
+Oranges maltaises,Kg,2025,7,no_arrivals,bms_juillet-2026.pdf,202607,13,2025-07-01,orange_maltese,,ins_tunis_retail
+Oranges maltaises,Kg,2025,8,no_arrivals,bms_juillet-2026.pdf,202607,12,2025-08-01,orange_maltese,,ins_tunis_retail
+Oranges maltaises,Kg,2025,9,no_arrivals,bms_juillet-2026.pdf,202607,11,2025-09-01,orange_maltese,,ins_tunis_retail
+Oranges maltaises,Kg,2025,10,no_arrivals,bms_juillet-2026.pdf,202607,10,2025-10-01,orange_maltese,,ins_tunis_retail
+Oranges maltaises,Kg,2025,11,ok,bms_juillet-2026.pdf,202607,9,2025-11-01,orange_maltese,1.898,ins_tunis_retail
+Oranges maltaises,Kg,2025,12,ok,bms_juillet-2026.pdf,202607,8,2025-12-01,orange_maltese,1.881,ins_tunis_retail
+Oranges maltaises,Kg,2026,1,ok,bms_juillet-2026.pdf,202607,7,2026-01-01,orange_maltese,1.882,ins_tunis_retail
+Oranges maltaises,Kg,2026,2,ok,bms_juillet-2026.pdf,202607,6,2026-02-01,orange_maltese,1.883,ins_tunis_retail
+Oranges maltaises,Kg,2026,3,ok,bms_juillet-2026.pdf,202607,5,2026-03-01,orange_maltese,1.884,ins_tunis_retail
+Oranges maltaises,Kg,2026,4,ok,bms_juillet-2026.pdf,202607,4,2026-04-01,orange_maltese,1.885,ins_tunis_retail
+Oranges maltaises,Kg,2026,5,ok,bms_juillet-2026.pdf,202607,3,2026-05-01,orange_maltese,1.886,ins_tunis_retail
+Oranges maltaises,Kg,2026,6,no_arrivals,bms_juillet-2026.pdf,202607,2,2026-06-01,orange_maltese,,ins_tunis_retail
+Oranges maltaises,Kg,2026,7,no_arrivals,bms_juillet-2026.pdf,202607,1,2026-07-01,orange_maltese,,ins_tunis_retail
+Pastèques,Kg,2021,7,ok,bms_juillet-2022.pdf,202202,1,2021-07-01,watermelon,0.708,ins_tunis_retail
+Pastèques,Kg,2021,8,ok,bms_juillet-2022.pdf,202202,1,2021-08-01,watermelon,0.941,ins_tunis_retail
+Pastèques,Kg,2021,9,ok,bms_juillet-2022.pdf,202202,1,2021-09-01,watermelon,1.056,ins_tunis_retail
+Pastèques,Kg,2021,10,no_arrivals,bms_juillet-2022.pdf,202202,1,2021-10-01,watermelon,,ins_tunis_retail
+Pastèques,Kg,2021,11,no_arrivals,bms_juillet-2022.pdf,202202,1,2021-11-01,watermelon,,ins_tunis_retail
+Pastèques,Kg,2021,12,no_arrivals,bms_decembre-2022.pdf,202211,2,2021-12-01,watermelon,,ins_tunis_retail
+Pastèques,Kg,2022,1,no_arrivals,bms_decembre-2022.pdf,202211,2,2022-01-01,watermelon,,ins_tunis_retail
+Pastèques,Kg,2022,2,no_arrivals,bms_decembre-2022.pdf,202211,2,2022-02-01,watermelon,,ins_tunis_retail
+Pastèques,Kg,2022,3,no_arrivals,bms_decembre-2022.pdf,202211,2,2022-03-01,watermelon,,ins_tunis_retail
+Pastèques,Kg,2022,4,no_arrivals,bms_decembre-2022.pdf,202211,2,2022-04-01,watermelon,,ins_tunis_retail
+Pastèques,Kg,2022,5,ok,bms_decembre-2022.pdf,202211,2,2022-05-01,watermelon,2.148,ins_tunis_retail
+Pastèques,Kg,2022,6,ok,bms_decembre-2022.pdf,202211,2,2022-06-01,watermelon,1.195,ins_tunis_retail
+Pastèques,Kg,2022,7,ok,bms_juillet-2023.pdf,202307,3,2022-07-01,watermelon,0.746,ins_tunis_retail
+Pastèques,Kg,2022,8,ok,bms_juillet-2023.pdf,202307,2,2022-08-01,watermelon,0.706,ins_tunis_retail
+Pastèques,Kg,2022,9,ok,bms_juillet-2023.pdf,202307,2,2022-09-01,watermelon,1.028,ins_tunis_retail
+Pastèques,Kg,2022,10,ok,bms_juillet-2023.pdf,202307,2,2022-10-01,watermelon,1.4,ins_tunis_retail
+Pastèques,Kg,2022,11,no_arrivals,bms_juillet-2023.pdf,202307,2,2022-11-01,watermelon,,ins_tunis_retail
+Pastèques,Kg,2022,12,no_arrivals,bms_decembre-2023.pdf,202310,3,2022-12-01,watermelon,,ins_tunis_retail
+Pastèques,Kg,2023,1,no_arrivals,bms_decembre-2023.pdf,202310,2,2023-01-01,watermelon,,ins_tunis_retail
+Pastèques,Kg,2023,2,no_arrivals,bms_fevrier-2024.pdf,202402,3,2023-02-01,watermelon,,ins_tunis_retail
+Pastèques,Kg,2023,3,no_arrivals,bms_mars-2024.pdf,202403,4,2023-03-01,watermelon,,ins_tunis_retail
+Pastèques,Kg,2023,4,ok,bms_avril-2024.pdf,202404,5,2023-04-01,watermelon,1.747,ins_tunis_retail
+Pastèques,Kg,2023,5,ok,bms_avril-2024.pdf,202404,5,2023-05-01,watermelon,2.472,ins_tunis_retail
+Pastèques,Kg,2023,6,ok,bms_avril-2024.pdf,202404,5,2023-06-01,watermelon,1.372,ins_tunis_retail
+Pastèques,Kg,2023,7,ok,bms_juillet-2024.pdf,202407,6,2023-07-01,watermelon,1.428,ins_tunis_retail
+Pastèques,Kg,2023,8,ok,bms_juillet-2024.pdf,202407,5,2023-08-01,watermelon,1.727,ins_tunis_retail
+Pastèques,Kg,2023,9,ok,bms_juillet-2024.pdf,202407,5,2023-09-01,watermelon,1.483,ins_tunis_retail
+Pastèques,Kg,2023,10,ok,bms_juillet-2024.pdf,202407,5,2023-10-01,watermelon,1.39,ins_tunis_retail
+Pastèques,Kg,2023,11,ok,bms_juillet-2024.pdf,202407,5,2023-11-01,watermelon,1.422,ins_tunis_retail
+Pastèques,Kg,2023,12,ok,bms_decembre-2024.pdf,202412,6,2023-12-01,watermelon,1.348,ins_tunis_retail
+Pastèques,Kg,2024,1,no_arrivals,bms_decembre-2024.pdf,202412,5,2024-01-01,watermelon,,ins_tunis_retail
+Pastèques,Kg,2024,2,no_arrivals,bms_decembre-2024.pdf,202412,5,2024-02-01,watermelon,,ins_tunis_retail
+Pastèques,Kg,2024,3,no_arrivals,bms_mars-2025.pdf,202501,5,2024-03-01,watermelon,,ins_tunis_retail
+Pastèques,Kg,2024,4,no_arrivals,bms_avril-2025.pdf,202504,5,2024-04-01,watermelon,,ins_tunis_retail
+Pastèques,Kg,2024,5,ok,bms_mai-2025.pdf,202505,5,2024-05-01,watermelon,1.767,ins_tunis_retail
+Pastèques,Kg,2024,6,ok,bms_juin-2025.pdf,202506,6,2024-06-01,watermelon,1.678,ins_tunis_retail
+Pastèques,Kg,2024,7,ok,bms_juillet-2025.pdf,202506,7,2024-07-01,watermelon,1.28,ins_tunis_retail
+Pastèques,Kg,2024,8,ok,bms_aout-2025.pdf,202508,7,2024-08-01,watermelon,0.965,ins_tunis_retail
+Pastèques,Kg,2024,9,ok,bms_septembre-2025.pdf,202509,8,2024-09-01,watermelon,1.205,ins_tunis_retail
+Pastèques,Kg,2024,10,ok,bms_octobre-2025.pdf,202509,9,2024-10-01,watermelon,1.295,ins_tunis_retail
+Pastèques,Kg,2024,11,no_arrivals,bms_novembre-2025.pdf,202509,10,2024-11-01,watermelon,,ins_tunis_retail
+Pastèques,Kg,2024,12,no_arrivals,bms_decembre-2025.pdf,202509,11,2024-12-01,watermelon,,ins_tunis_retail
+Pastèques,Kg,2025,1,no_arrivals,bms_decembre-2025.pdf,202509,11,2025-01-01,watermelon,,ins_tunis_retail
+Pastèques,Kg,2025,2,no_arrivals,bms_fevrier-2026.pdf,202602,12,2025-02-01,watermelon,,ins_tunis_retail
+Pastèques,Kg,2025,3,no_arrivals,bms_mars-2026.pdf,202603,13,2025-03-01,watermelon,,ins_tunis_retail
+Pastèques,Kg,2025,4,no_arrivals,bms_avril-2026.pdf,202603,13,2025-04-01,watermelon,,ins_tunis_retail
+Pastèques,Kg,2025,5,ok,bms_mai-2026.pdf,202605,13,2025-05-01,watermelon,2.681,ins_tunis_retail
+Pastèques,Kg,2025,6,ok,bms_juin-2026.pdf,202606,13,2025-06-01,watermelon,1.695,ins_tunis_retail
+Pastèques,Kg,2025,7,ok,bms_juillet-2026.pdf,202607,13,2025-07-01,watermelon,1.098,ins_tunis_retail
+Pastèques,Kg,2025,8,ok,bms_juillet-2026.pdf,202607,12,2025-08-01,watermelon,1.467,ins_tunis_retail
+Pastèques,Kg,2025,9,ok,bms_juillet-2026.pdf,202607,11,2025-09-01,watermelon,1.655,ins_tunis_retail
+Pastèques,Kg,2025,10,ok,bms_juillet-2026.pdf,202607,10,2025-10-01,watermelon,1.66,ins_tunis_retail
+Pastèques,Kg,2025,11,no_arrivals,bms_juillet-2026.pdf,202607,9,2025-11-01,watermelon,,ins_tunis_retail
+Pastèques,Kg,2025,12,no_arrivals,bms_juillet-2026.pdf,202607,8,2025-12-01,watermelon,,ins_tunis_retail
+Pastèques,Kg,2026,1,no_arrivals,bms_juillet-2026.pdf,202607,7,2026-01-01,watermelon,,ins_tunis_retail
+Pastèques,Kg,2026,2,no_arrivals,bms_juillet-2026.pdf,202607,6,2026-02-01,watermelon,,ins_tunis_retail
+Pastèques,Kg,2026,3,no_arrivals,bms_juillet-2026.pdf,202607,5,2026-03-01,watermelon,,ins_tunis_retail
+Pastèques,Kg,2026,4,no_arrivals,bms_juillet-2026.pdf,202607,4,2026-04-01,watermelon,,ins_tunis_retail
+Pastèques,Kg,2026,5,ok,bms_juillet-2026.pdf,202607,3,2026-05-01,watermelon,5.278,ins_tunis_retail
+Pastèques,Kg,2026,6,ok,bms_juillet-2026.pdf,202607,2,2026-06-01,watermelon,2.089,ins_tunis_retail
+Pastèques,Kg,2026,7,ok,bms_juillet-2026.pdf,202607,1,2026-07-01,watermelon,1.612,ins_tunis_retail
+Petits pois frais,Kg,2021,7,no_arrivals,bms_juillet-2022.pdf,202202,1,2021-07-01,pea,,ins_tunis_retail
+Petits pois frais,Kg,2021,8,no_arrivals,bms_juillet-2022.pdf,202202,1,2021-08-01,pea,,ins_tunis_retail
+Petits pois frais,Kg,2021,9,no_arrivals,bms_juillet-2022.pdf,202202,1,2021-09-01,pea,,ins_tunis_retail
+Petits pois frais,Kg,2021,10,no_arrivals,bms_juillet-2022.pdf,202202,1,2021-10-01,pea,,ins_tunis_retail
+Petits pois frais,Kg,2021,11,ok,bms_juillet-2022.pdf,202202,1,2021-11-01,pea,4.323,ins_tunis_retail
+Petits pois frais,Kg,2021,12,ok,bms_decembre-2022.pdf,202211,2,2021-12-01,pea,3.931,ins_tunis_retail
+Petits pois frais,Kg,2022,1,ok,bms_decembre-2022.pdf,202211,2,2022-01-01,pea,3.786,ins_tunis_retail
+Petits pois frais,Kg,2022,2,ok,bms_decembre-2022.pdf,202211,2,2022-02-01,pea,3.497,ins_tunis_retail
+Petits pois frais,Kg,2022,3,ok,bms_decembre-2022.pdf,202211,2,2022-03-01,pea,3.2,ins_tunis_retail
+Petits pois frais,Kg,2022,4,ok,bms_decembre-2022.pdf,202211,2,2022-04-01,pea,2.0,ins_tunis_retail
+Petits pois frais,Kg,2022,5,ok,bms_decembre-2022.pdf,202211,2,2022-05-01,pea,1.905,ins_tunis_retail
+Petits pois frais,Kg,2022,6,no_arrivals,bms_decembre-2022.pdf,202211,2,2022-06-01,pea,,ins_tunis_retail
+Petits pois frais,Kg,2022,7,no_arrivals,bms_juillet-2023.pdf,202307,3,2022-07-01,pea,,ins_tunis_retail
+Petits pois frais,Kg,2022,8,no_arrivals,bms_juillet-2023.pdf,202307,2,2022-08-01,pea,,ins_tunis_retail
+Petits pois frais,Kg,2022,9,no_arrivals,bms_juillet-2023.pdf,202307,2,2022-09-01,pea,,ins_tunis_retail
+Petits pois frais,Kg,2022,10,ok,bms_juillet-2023.pdf,202307,2,2022-10-01,pea,4.45,ins_tunis_retail
+Petits pois frais,Kg,2022,11,ok,bms_juillet-2023.pdf,202307,2,2022-11-01,pea,3.563,ins_tunis_retail
+Petits pois frais,Kg,2022,12,ok,bms_decembre-2023.pdf,202310,3,2022-12-01,pea,3.571,ins_tunis_retail
+Petits pois frais,Kg,2023,1,ok,bms_decembre-2023.pdf,202310,2,2023-01-01,pea,3.183,ins_tunis_retail
+Petits pois frais,Kg,2023,2,ok,bms_fevrier-2024.pdf,202402,3,2023-02-01,pea,4.746,ins_tunis_retail
+Petits pois frais,Kg,2023,3,ok,bms_mars-2024.pdf,202403,4,2023-03-01,pea,4.869,ins_tunis_retail
+Petits pois frais,Kg,2023,4,ok,bms_avril-2024.pdf,202404,5,2023-04-01,pea,4.643,ins_tunis_retail
+Petits pois frais,Kg,2023,5,ok,bms_avril-2024.pdf,202404,5,2023-05-01,pea,4.784,ins_tunis_retail
+Petits pois frais,Kg,2023,6,ok,bms_avril-2024.pdf,202404,5,2023-06-01,pea,6.0,ins_tunis_retail
+Petits pois frais,Kg,2023,7,no_arrivals,bms_juillet-2024.pdf,202407,6,2023-07-01,pea,,ins_tunis_retail
+Petits pois frais,Kg,2023,8,no_arrivals,bms_juillet-2024.pdf,202407,5,2023-08-01,pea,,ins_tunis_retail
+Petits pois frais,Kg,2023,9,no_arrivals,bms_juillet-2024.pdf,202407,5,2023-09-01,pea,,ins_tunis_retail
+Petits pois frais,Kg,2023,10,no_arrivals,bms_juillet-2024.pdf,202407,5,2023-10-01,pea,,ins_tunis_retail
+Petits pois frais,Kg,2023,11,ok,bms_juillet-2024.pdf,202407,5,2023-11-01,pea,6.06,ins_tunis_retail
+Petits pois frais,Kg,2023,12,ok,bms_decembre-2024.pdf,202412,6,2023-12-01,pea,6.414,ins_tunis_retail
+Petits pois frais,Kg,2024,1,ok,bms_decembre-2024.pdf,202412,5,2024-01-01,pea,6.501,ins_tunis_retail
+Petits pois frais,Kg,2024,2,ok,bms_decembre-2024.pdf,202412,5,2024-02-01,pea,5.5,ins_tunis_retail
+Petits pois frais,Kg,2024,3,ok,bms_mars-2025.pdf,202501,5,2024-03-01,pea,4.517,ins_tunis_retail
+Petits pois frais,Kg,2024,4,ok,bms_avril-2025.pdf,202504,5,2024-04-01,pea,3.554,ins_tunis_retail
+Petits pois frais,Kg,2024,5,ok,bms_mai-2025.pdf,202505,5,2024-05-01,pea,4.378,ins_tunis_retail
+Petits pois frais,Kg,2024,6,no_arrivals,bms_juin-2025.pdf,202506,6,2024-06-01,pea,,ins_tunis_retail
+Petits pois frais,Kg,2024,7,no_arrivals,bms_juillet-2025.pdf,202506,7,2024-07-01,pea,,ins_tunis_retail
+Petits pois frais,Kg,2024,8,no_arrivals,bms_aout-2025.pdf,202508,7,2024-08-01,pea,,ins_tunis_retail
+Petits pois frais,Kg,2024,9,no_arrivals,bms_septembre-2025.pdf,202509,8,2024-09-01,pea,,ins_tunis_retail
+Petits pois frais,Kg,2024,10,ok,bms_octobre-2025.pdf,202509,9,2024-10-01,pea,6.4,ins_tunis_retail
+Petits pois frais,Kg,2024,11,ok,bms_novembre-2025.pdf,202509,10,2024-11-01,pea,5.475,ins_tunis_retail
+Petits pois frais,Kg,2024,12,ok,bms_decembre-2025.pdf,202509,11,2024-12-01,pea,6.169,ins_tunis_retail
+Petits pois frais,Kg,2025,1,ok,bms_decembre-2025.pdf,202509,11,2025-01-01,pea,5.888,ins_tunis_retail
+Petits pois frais,Kg,2025,2,ok,bms_fevrier-2026.pdf,202602,12,2025-02-01,pea,4.093,ins_tunis_retail
+Petits pois frais,Kg,2025,3,ok,bms_mars-2026.pdf,202603,13,2025-03-01,pea,3.303,ins_tunis_retail
+Petits pois frais,Kg,2025,4,ok,bms_avril-2026.pdf,202603,13,2025-04-01,pea,3.453,ins_tunis_retail
+Petits pois frais,Kg,2025,5,ok,bms_mai-2026.pdf,202605,13,2025-05-01,pea,3.576,ins_tunis_retail
+Petits pois frais,Kg,2025,6,no_arrivals,bms_juin-2026.pdf,202606,13,2025-06-01,pea,,ins_tunis_retail
+Petits pois frais,Kg,2025,7,no_arrivals,bms_juillet-2026.pdf,202607,13,2025-07-01,pea,,ins_tunis_retail
+Petits pois frais,Kg,2025,8,no_arrivals,bms_juillet-2026.pdf,202607,12,2025-08-01,pea,,ins_tunis_retail
+Petits pois frais,Kg,2025,9,no_arrivals,bms_juillet-2026.pdf,202607,11,2025-09-01,pea,,ins_tunis_retail
+Petits pois frais,Kg,2025,10,ok,bms_juillet-2026.pdf,202607,10,2025-10-01,pea,4.076,ins_tunis_retail
+Petits pois frais,Kg,2025,11,ok,bms_juillet-2026.pdf,202607,9,2025-11-01,pea,5.639,ins_tunis_retail
+Petits pois frais,Kg,2025,12,ok,bms_juillet-2026.pdf,202607,8,2025-12-01,pea,5.638,ins_tunis_retail
+Petits pois frais,Kg,2026,1,ok,bms_juillet-2026.pdf,202607,7,2026-01-01,pea,6.113,ins_tunis_retail
+Petits pois frais,Kg,2026,2,ok,bms_juillet-2026.pdf,202607,6,2026-02-01,pea,5.977,ins_tunis_retail
+Petits pois frais,Kg,2026,3,ok,bms_juillet-2026.pdf,202607,5,2026-03-01,pea,5.998,ins_tunis_retail
+Petits pois frais,Kg,2026,4,ok,bms_juillet-2026.pdf,202607,4,2026-04-01,pea,5.158,ins_tunis_retail
+Petits pois frais,Kg,2026,5,ok,bms_juillet-2026.pdf,202607,3,2026-05-01,pea,5.03,ins_tunis_retail
+Petits pois frais,Kg,2026,6,no_arrivals,bms_juillet-2026.pdf,202607,2,2026-06-01,pea,,ins_tunis_retail
+Petits pois frais,Kg,2026,7,no_arrivals,bms_juillet-2026.pdf,202607,1,2026-07-01,pea,,ins_tunis_retail
+Poivrons doux frais,Kg,2021,7,ok,bms_juillet-2022.pdf,202202,1,2021-07-01,sweet_pepper,2.745,ins_tunis_retail
+Poivrons doux frais,Kg,2021,8,ok,bms_juillet-2022.pdf,202202,1,2021-08-01,sweet_pepper,2.521,ins_tunis_retail
+Poivrons doux frais,Kg,2021,9,ok,bms_juillet-2022.pdf,202202,1,2021-09-01,sweet_pepper,2.488,ins_tunis_retail
+Poivrons doux frais,Kg,2021,10,ok,bms_juillet-2022.pdf,202202,1,2021-10-01,sweet_pepper,2.589,ins_tunis_retail
+Poivrons doux frais,Kg,2021,11,ok,bms_juillet-2022.pdf,202202,1,2021-11-01,sweet_pepper,2.347,ins_tunis_retail
+Poivrons doux frais,Kg,2021,12,ok,bms_decembre-2022.pdf,202211,2,2021-12-01,sweet_pepper,2.85,ins_tunis_retail
+Poivrons doux frais,Kg,2022,1,ok,bms_decembre-2022.pdf,202211,2,2022-01-01,sweet_pepper,3.754,ins_tunis_retail
+Poivrons doux frais,Kg,2022,2,ok,bms_decembre-2022.pdf,202211,2,2022-02-01,sweet_pepper,3.888,ins_tunis_retail
+Poivrons doux frais,Kg,2022,3,ok,bms_decembre-2022.pdf,202211,2,2022-03-01,sweet_pepper,3.972,ins_tunis_retail
+Poivrons doux frais,Kg,2022,4,ok,bms_decembre-2022.pdf,202211,2,2022-04-01,sweet_pepper,5.785,ins_tunis_retail
+Poivrons doux frais,Kg,2022,5,ok,bms_decembre-2022.pdf,202211,2,2022-05-01,sweet_pepper,2.995,ins_tunis_retail
+Poivrons doux frais,Kg,2022,6,ok,bms_decembre-2022.pdf,202211,2,2022-06-01,sweet_pepper,3.611,ins_tunis_retail
+Poivrons doux frais,Kg,2022,7,ok,bms_juillet-2023.pdf,202307,3,2022-07-01,sweet_pepper,3.637,ins_tunis_retail
+Poivrons doux frais,Kg,2022,8,ok,bms_juillet-2023.pdf,202307,2,2022-08-01,sweet_pepper,2.98,ins_tunis_retail
+Poivrons doux frais,Kg,2022,9,ok,bms_juillet-2023.pdf,202307,2,2022-09-01,sweet_pepper,2.982,ins_tunis_retail
+Poivrons doux frais,Kg,2022,10,ok,bms_juillet-2023.pdf,202307,2,2022-10-01,sweet_pepper,2.998,ins_tunis_retail
+Poivrons doux frais,Kg,2022,11,ok,bms_juillet-2023.pdf,202307,2,2022-11-01,sweet_pepper,3.206,ins_tunis_retail
+Poivrons doux frais,Kg,2022,12,ok,bms_decembre-2023.pdf,202310,3,2022-12-01,sweet_pepper,3.4,ins_tunis_retail
+Poivrons doux frais,Kg,2023,1,ok,bms_decembre-2023.pdf,202310,2,2023-01-01,sweet_pepper,3.177,ins_tunis_retail
+Poivrons doux frais,Kg,2023,2,ok,bms_fevrier-2024.pdf,202402,3,2023-02-01,sweet_pepper,3.482,ins_tunis_retail
+Poivrons doux frais,Kg,2023,3,ok,bms_mars-2024.pdf,202403,4,2023-03-01,sweet_pepper,3.767,ins_tunis_retail
+Poivrons doux frais,Kg,2023,4,ok,bms_avril-2024.pdf,202404,5,2023-04-01,sweet_pepper,4.693,ins_tunis_retail
+Poivrons doux frais,Kg,2023,5,ok,bms_avril-2024.pdf,202404,5,2023-05-01,sweet_pepper,3.799,ins_tunis_retail
+Poivrons doux frais,Kg,2023,6,ok,bms_avril-2024.pdf,202404,5,2023-06-01,sweet_pepper,3.038,ins_tunis_retail
+Poivrons doux frais,Kg,2023,7,ok,bms_juillet-2024.pdf,202407,6,2023-07-01,sweet_pepper,3.256,ins_tunis_retail
+Poivrons doux frais,Kg,2023,8,ok,bms_juillet-2024.pdf,202407,5,2023-08-01,sweet_pepper,3.971,ins_tunis_retail
+Poivrons doux frais,Kg,2023,9,ok,bms_juillet-2024.pdf,202407,5,2023-09-01,sweet_pepper,3.379,ins_tunis_retail
+Poivrons doux frais,Kg,2023,10,ok,bms_juillet-2024.pdf,202407,5,2023-10-01,sweet_pepper,2.931,ins_tunis_retail
+Poivrons doux frais,Kg,2023,11,ok,bms_juillet-2024.pdf,202407,5,2023-11-01,sweet_pepper,3.1,ins_tunis_retail
+Poivrons doux frais,Kg,2023,12,ok,bms_decembre-2024.pdf,202412,6,2023-12-01,sweet_pepper,4.1,ins_tunis_retail
+Poivrons doux frais,Kg,2024,1,ok,bms_decembre-2024.pdf,202412,5,2024-01-01,sweet_pepper,4.5,ins_tunis_retail
+Poivrons doux frais,Kg,2024,2,ok,bms_decembre-2024.pdf,202412,5,2024-02-01,sweet_pepper,4.398,ins_tunis_retail
+Poivrons doux frais,Kg,2024,3,ok,bms_mars-2025.pdf,202501,5,2024-03-01,sweet_pepper,6.267,ins_tunis_retail
+Poivrons doux frais,Kg,2024,4,ok,bms_avril-2025.pdf,202504,5,2024-04-01,sweet_pepper,5.907,ins_tunis_retail
+Poivrons doux frais,Kg,2024,5,ok,bms_mai-2025.pdf,202505,5,2024-05-01,sweet_pepper,3.935,ins_tunis_retail
+Poivrons doux frais,Kg,2024,6,ok,bms_juin-2025.pdf,202506,6,2024-06-01,sweet_pepper,4.014,ins_tunis_retail
+Poivrons doux frais,Kg,2024,7,ok,bms_juillet-2025.pdf,202506,7,2024-07-01,sweet_pepper,3.467,ins_tunis_retail
+Poivrons doux frais,Kg,2024,8,ok,bms_aout-2025.pdf,202508,7,2024-08-01,sweet_pepper,3.15,ins_tunis_retail
+Poivrons doux frais,Kg,2024,9,ok,bms_septembre-2025.pdf,202509,8,2024-09-01,sweet_pepper,3.155,ins_tunis_retail
+Poivrons doux frais,Kg,2024,10,ok,bms_octobre-2025.pdf,202509,9,2024-10-01,sweet_pepper,2.948,ins_tunis_retail
+Poivrons doux frais,Kg,2024,11,ok,bms_novembre-2025.pdf,202509,10,2024-11-01,sweet_pepper,3.655,ins_tunis_retail
+Poivrons doux frais,Kg,2024,12,ok,bms_decembre-2025.pdf,202509,11,2024-12-01,sweet_pepper,3.753,ins_tunis_retail
+Poivrons doux frais,Kg,2025,1,ok,bms_decembre-2025.pdf,202509,11,2025-01-01,sweet_pepper,4.384,ins_tunis_retail
+Poivrons doux frais,Kg,2025,2,ok,bms_fevrier-2026.pdf,202602,12,2025-02-01,sweet_pepper,3.879,ins_tunis_retail
+Poivrons doux frais,Kg,2025,3,ok,bms_mars-2026.pdf,202603,13,2025-03-01,sweet_pepper,4.126,ins_tunis_retail
+Poivrons doux frais,Kg,2025,4,ok,bms_avril-2026.pdf,202603,13,2025-04-01,sweet_pepper,3.87,ins_tunis_retail
+Poivrons doux frais,Kg,2025,5,ok,bms_mai-2026.pdf,202605,13,2025-05-01,sweet_pepper,3.467,ins_tunis_retail
+Poivrons doux frais,Kg,2025,6,ok,bms_juin-2026.pdf,202606,13,2025-06-01,sweet_pepper,3.75,ins_tunis_retail
+Poivrons doux frais,Kg,2025,7,ok,bms_juillet-2026.pdf,202607,13,2025-07-01,sweet_pepper,3.148,ins_tunis_retail
+Poivrons doux frais,Kg,2025,8,ok,bms_juillet-2026.pdf,202607,12,2025-08-01,sweet_pepper,3.124,ins_tunis_retail
+Poivrons doux frais,Kg,2025,9,ok,bms_juillet-2026.pdf,202607,11,2025-09-01,sweet_pepper,3.0,ins_tunis_retail
+Poivrons doux frais,Kg,2025,10,ok,bms_juillet-2026.pdf,202607,10,2025-10-01,sweet_pepper,3.225,ins_tunis_retail
+Poivrons doux frais,Kg,2025,11,ok,bms_juillet-2026.pdf,202607,9,2025-11-01,sweet_pepper,4.327,ins_tunis_retail
+Poivrons doux frais,Kg,2025,12,ok,bms_juillet-2026.pdf,202607,8,2025-12-01,sweet_pepper,3.979,ins_tunis_retail
+Poivrons doux frais,Kg,2026,1,ok,bms_juillet-2026.pdf,202607,7,2026-01-01,sweet_pepper,4.047,ins_tunis_retail
+Poivrons doux frais,Kg,2026,2,ok,bms_juillet-2026.pdf,202607,6,2026-02-01,sweet_pepper,4.0,ins_tunis_retail
+Poivrons doux frais,Kg,2026,3,ok,bms_juillet-2026.pdf,202607,5,2026-03-01,sweet_pepper,4.617,ins_tunis_retail
+Poivrons doux frais,Kg,2026,4,ok,bms_juillet-2026.pdf,202607,4,2026-04-01,sweet_pepper,4.76,ins_tunis_retail
+Poivrons doux frais,Kg,2026,5,ok,bms_juillet-2026.pdf,202607,3,2026-05-01,sweet_pepper,4.144,ins_tunis_retail
+Poivrons doux frais,Kg,2026,6,ok,bms_juillet-2026.pdf,202607,2,2026-06-01,sweet_pepper,3.734,ins_tunis_retail
+Poivrons doux frais,Kg,2026,7,ok,bms_juillet-2026.pdf,202607,1,2026-07-01,sweet_pepper,3.37,ins_tunis_retail
+Poivrons piquants frais,Kg,2021,7,ok,bms_juillet-2022.pdf,202202,1,2021-07-01,hot_pepper,2.246,ins_tunis_retail
+Poivrons piquants frais,Kg,2021,8,ok,bms_juillet-2022.pdf,202202,1,2021-08-01,hot_pepper,2.284,ins_tunis_retail
+Poivrons piquants frais,Kg,2021,9,ok,bms_juillet-2022.pdf,202202,1,2021-09-01,hot_pepper,2.228,ins_tunis_retail
+Poivrons piquants frais,Kg,2021,10,ok,bms_juillet-2022.pdf,202202,1,2021-10-01,hot_pepper,2.254,ins_tunis_retail
+Poivrons piquants frais,Kg,2021,11,ok,bms_juillet-2022.pdf,202202,1,2021-11-01,hot_pepper,1.975,ins_tunis_retail
+Poivrons piquants frais,Kg,2021,12,ok,bms_decembre-2022.pdf,202211,2,2021-12-01,hot_pepper,2.45,ins_tunis_retail
+Poivrons piquants frais,Kg,2022,1,ok,bms_decembre-2022.pdf,202211,2,2022-01-01,hot_pepper,3.549,ins_tunis_retail
+Poivrons piquants frais,Kg,2022,2,ok,bms_decembre-2022.pdf,202211,2,2022-02-01,hot_pepper,3.58,ins_tunis_retail
+Poivrons piquants frais,Kg,2022,3,ok,bms_decembre-2022.pdf,202211,2,2022-03-01,hot_pepper,3.694,ins_tunis_retail
+Poivrons piquants frais,Kg,2022,4,ok,bms_decembre-2022.pdf,202211,2,2022-04-01,hot_pepper,5.025,ins_tunis_retail
+Poivrons piquants frais,Kg,2022,5,ok,bms_decembre-2022.pdf,202211,2,2022-05-01,hot_pepper,2.505,ins_tunis_retail
+Poivrons piquants frais,Kg,2022,6,ok,bms_decembre-2022.pdf,202211,2,2022-06-01,hot_pepper,3.474,ins_tunis_retail
+Poivrons piquants frais,Kg,2022,7,ok,bms_juillet-2023.pdf,202307,3,2022-07-01,hot_pepper,3.225,ins_tunis_retail
+Poivrons piquants frais,Kg,2022,8,ok,bms_juillet-2023.pdf,202307,2,2022-08-01,hot_pepper,2.78,ins_tunis_retail
+Poivrons piquants frais,Kg,2022,9,ok,bms_juillet-2023.pdf,202307,2,2022-09-01,hot_pepper,2.56,ins_tunis_retail
+Poivrons piquants frais,Kg,2022,10,ok,bms_juillet-2023.pdf,202307,2,2022-10-01,hot_pepper,2.6,ins_tunis_retail
+Poivrons piquants frais,Kg,2022,11,ok,bms_juillet-2023.pdf,202307,2,2022-11-01,hot_pepper,2.935,ins_tunis_retail
+Poivrons piquants frais,Kg,2022,12,ok,bms_decembre-2023.pdf,202310,3,2022-12-01,hot_pepper,3.1,ins_tunis_retail
+Poivrons piquants frais,Kg,2023,1,ok,bms_decembre-2023.pdf,202310,2,2023-01-01,hot_pepper,3.597,ins_tunis_retail
+Poivrons piquants frais,Kg,2023,2,ok,bms_fevrier-2024.pdf,202402,3,2023-02-01,hot_pepper,3.838,ins_tunis_retail
+Poivrons piquants frais,Kg,2023,3,ok,bms_mars-2024.pdf,202403,4,2023-03-01,hot_pepper,4.026,ins_tunis_retail
+Poivrons piquants frais,Kg,2023,4,ok,bms_avril-2024.pdf,202404,5,2023-04-01,hot_pepper,4.526,ins_tunis_retail
+Poivrons piquants frais,Kg,2023,5,ok,bms_avril-2024.pdf,202404,5,2023-05-01,hot_pepper,3.163,ins_tunis_retail
+Poivrons piquants frais,Kg,2023,6,ok,bms_avril-2024.pdf,202404,5,2023-06-01,hot_pepper,2.55,ins_tunis_retail
+Poivrons piquants frais,Kg,2023,7,ok,bms_juillet-2024.pdf,202407,6,2023-07-01,hot_pepper,3.313,ins_tunis_retail
+Poivrons piquants frais,Kg,2023,8,ok,bms_juillet-2024.pdf,202407,5,2023-08-01,hot_pepper,3.768,ins_tunis_retail
+Poivrons piquants frais,Kg,2023,9,ok,bms_juillet-2024.pdf,202407,5,2023-09-01,hot_pepper,3.034,ins_tunis_retail
+Poivrons piquants frais,Kg,2023,10,ok,bms_juillet-2024.pdf,202407,5,2023-10-01,hot_pepper,2.724,ins_tunis_retail
+Poivrons piquants frais,Kg,2023,11,ok,bms_juillet-2024.pdf,202407,5,2023-11-01,hot_pepper,2.908,ins_tunis_retail
+Poivrons piquants frais,Kg,2023,12,ok,bms_decembre-2024.pdf,202412,6,2023-12-01,hot_pepper,3.701,ins_tunis_retail
+Poivrons piquants frais,Kg,2024,1,ok,bms_decembre-2024.pdf,202412,5,2024-01-01,hot_pepper,3.933,ins_tunis_retail
+Poivrons piquants frais,Kg,2024,2,ok,bms_decembre-2024.pdf,202412,5,2024-02-01,hot_pepper,4.1,ins_tunis_retail
+Poivrons piquants frais,Kg,2024,3,ok,bms_mars-2025.pdf,202501,5,2024-03-01,hot_pepper,5.255,ins_tunis_retail
+Poivrons piquants frais,Kg,2024,4,ok,bms_avril-2025.pdf,202504,5,2024-04-01,hot_pepper,5.3,ins_tunis_retail
+Poivrons piquants frais,Kg,2024,5,ok,bms_mai-2025.pdf,202505,5,2024-05-01,hot_pepper,3.662,ins_tunis_retail
+Poivrons piquants frais,Kg,2024,6,ok,bms_juin-2025.pdf,202506,6,2024-06-01,hot_pepper,3.822,ins_tunis_retail
+Poivrons piquants frais,Kg,2024,7,ok,bms_juillet-2025.pdf,202506,7,2024-07-01,hot_pepper,2.716,ins_tunis_retail
+Poivrons piquants frais,Kg,2024,8,ok,bms_aout-2025.pdf,202508,7,2024-08-01,hot_pepper,2.6,ins_tunis_retail
+Poivrons piquants frais,Kg,2024,9,ok,bms_septembre-2025.pdf,202509,8,2024-09-01,hot_pepper,2.495,ins_tunis_retail
+Poivrons piquants frais,Kg,2024,10,ok,bms_octobre-2025.pdf,202509,9,2024-10-01,hot_pepper,2.436,ins_tunis_retail
+Poivrons piquants frais,Kg,2024,11,ok,bms_novembre-2025.pdf,202509,10,2024-11-01,hot_pepper,3.159,ins_tunis_retail
+Poivrons piquants frais,Kg,2024,12,ok,bms_decembre-2025.pdf,202509,11,2024-12-01,hot_pepper,3.68,ins_tunis_retail
+Poivrons piquants frais,Kg,2025,1,ok,bms_decembre-2025.pdf,202509,11,2025-01-01,hot_pepper,4.375,ins_tunis_retail
+Poivrons piquants frais,Kg,2025,2,ok,bms_fevrier-2026.pdf,202602,12,2025-02-01,hot_pepper,4.195,ins_tunis_retail
+Poivrons piquants frais,Kg,2025,3,ok,bms_mars-2026.pdf,202603,13,2025-03-01,hot_pepper,4.214,ins_tunis_retail
+Poivrons piquants frais,Kg,2025,4,ok,bms_avril-2026.pdf,202603,13,2025-04-01,hot_pepper,3.747,ins_tunis_retail
+Poivrons piquants frais,Kg,2025,5,ok,bms_mai-2026.pdf,202605,13,2025-05-01,hot_pepper,3.258,ins_tunis_retail
+Poivrons piquants frais,Kg,2025,6,ok,bms_juin-2026.pdf,202606,13,2025-06-01,hot_pepper,3.621,ins_tunis_retail
+Poivrons piquants frais,Kg,2025,7,ok,bms_juillet-2026.pdf,202607,13,2025-07-01,hot_pepper,2.876,ins_tunis_retail
+Poivrons piquants frais,Kg,2025,8,ok,bms_juillet-2026.pdf,202607,12,2025-08-01,hot_pepper,2.811,ins_tunis_retail
+Poivrons piquants frais,Kg,2025,9,ok,bms_juillet-2026.pdf,202607,11,2025-09-01,hot_pepper,2.75,ins_tunis_retail
+Poivrons piquants frais,Kg,2025,10,ok,bms_juillet-2026.pdf,202607,10,2025-10-01,hot_pepper,3.051,ins_tunis_retail
+Poivrons piquants frais,Kg,2025,11,ok,bms_juillet-2026.pdf,202607,9,2025-11-01,hot_pepper,3.25,ins_tunis_retail
+Poivrons piquants frais,Kg,2025,12,ok,bms_juillet-2026.pdf,202607,8,2025-12-01,hot_pepper,3.295,ins_tunis_retail
+Poivrons piquants frais,Kg,2026,1,ok,bms_juillet-2026.pdf,202607,7,2026-01-01,hot_pepper,3.412,ins_tunis_retail
+Poivrons piquants frais,Kg,2026,2,ok,bms_juillet-2026.pdf,202607,6,2026-02-01,hot_pepper,3.749,ins_tunis_retail
+Poivrons piquants frais,Kg,2026,3,ok,bms_juillet-2026.pdf,202607,5,2026-03-01,hot_pepper,3.932,ins_tunis_retail
+Poivrons piquants frais,Kg,2026,4,ok,bms_juillet-2026.pdf,202607,4,2026-04-01,hot_pepper,4.412,ins_tunis_retail
+Poivrons piquants frais,Kg,2026,5,ok,bms_juillet-2026.pdf,202607,3,2026-05-01,hot_pepper,3.883,ins_tunis_retail
+Poivrons piquants frais,Kg,2026,6,ok,bms_juillet-2026.pdf,202607,2,2026-06-01,hot_pepper,3.303,ins_tunis_retail
+Poivrons piquants frais,Kg,2026,7,ok,bms_juillet-2026.pdf,202607,1,2026-07-01,hot_pepper,2.811,ins_tunis_retail
+Pommes de terre,Kg,2021,7,ok,bms_juillet-2022.pdf,202202,1,2021-07-01,potato,1.353,ins_tunis_retail
+Pommes de terre,Kg,2021,8,ok,bms_juillet-2022.pdf,202202,1,2021-08-01,potato,1.441,ins_tunis_retail
+Pommes de terre,Kg,2021,9,ok,bms_juillet-2022.pdf,202202,1,2021-09-01,potato,1.425,ins_tunis_retail
+Pommes de terre,Kg,2021,10,ok,bms_juillet-2022.pdf,202202,1,2021-10-01,potato,1.62,ins_tunis_retail
+Pommes de terre,Kg,2021,11,ok,bms_juillet-2022.pdf,202202,1,2021-11-01,potato,1.519,ins_tunis_retail
+Pommes de terre,Kg,2021,12,ok,bms_decembre-2022.pdf,202211,2,2021-12-01,potato,1.491,ins_tunis_retail
+Pommes de terre,Kg,2022,1,ok,bms_decembre-2022.pdf,202211,2,2022-01-01,potato,1.448,ins_tunis_retail
+Pommes de terre,Kg,2022,2,ok,bms_decembre-2022.pdf,202211,2,2022-02-01,potato,1.457,ins_tunis_retail
+Pommes de terre,Kg,2022,3,ok,bms_decembre-2022.pdf,202211,2,2022-03-01,potato,1.641,ins_tunis_retail
+Pommes de terre,Kg,2022,4,ok,bms_decembre-2022.pdf,202211,2,2022-04-01,potato,1.953,ins_tunis_retail
+Pommes de terre,Kg,2022,5,ok,bms_decembre-2022.pdf,202211,2,2022-05-01,potato,1.583,ins_tunis_retail
+Pommes de terre,Kg,2022,6,ok,bms_decembre-2022.pdf,202211,2,2022-06-01,potato,1.416,ins_tunis_retail
+Pommes de terre,Kg,2022,7,ok,bms_juillet-2023.pdf,202307,3,2022-07-01,potato,1.528,ins_tunis_retail
+Pommes de terre,Kg,2022,8,ok,bms_juillet-2023.pdf,202307,2,2022-08-01,potato,1.634,ins_tunis_retail
+Pommes de terre,Kg,2022,9,ok,bms_juillet-2023.pdf,202307,2,2022-09-01,potato,1.667,ins_tunis_retail
+Pommes de terre,Kg,2022,10,ok,bms_juillet-2023.pdf,202307,2,2022-10-01,potato,1.804,ins_tunis_retail
+Pommes de terre,Kg,2022,11,ok,bms_juillet-2023.pdf,202307,2,2022-11-01,potato,2.337,ins_tunis_retail
+Pommes de terre,Kg,2022,12,ok,bms_decembre-2023.pdf,202310,3,2022-12-01,potato,2.0,ins_tunis_retail
+Pommes de terre,Kg,2023,1,ok,bms_decembre-2023.pdf,202310,2,2023-01-01,potato,1.8,ins_tunis_retail
+Pommes de terre,Kg,2023,2,ok,bms_fevrier-2024.pdf,202402,3,2023-02-01,potato,2.102,ins_tunis_retail
+Pommes de terre,Kg,2023,3,ok,bms_mars-2024.pdf,202403,4,2023-03-01,potato,1.932,ins_tunis_retail
+Pommes de terre,Kg,2023,4,ok,bms_avril-2024.pdf,202404,5,2023-04-01,potato,1.934,ins_tunis_retail
+Pommes de terre,Kg,2023,5,ok,bms_avril-2024.pdf,202404,5,2023-05-01,potato,1.712,ins_tunis_retail
+Pommes de terre,Kg,2023,6,ok,bms_avril-2024.pdf,202404,5,2023-06-01,potato,1.606,ins_tunis_retail
+Pommes de terre,Kg,2023,7,ok,bms_juillet-2024.pdf,202407,6,2023-07-01,potato,1.667,ins_tunis_retail
+Pommes de terre,Kg,2023,8,ok,bms_juillet-2024.pdf,202407,5,2023-08-01,potato,1.886,ins_tunis_retail
+Pommes de terre,Kg,2023,9,ok,bms_juillet-2024.pdf,202407,5,2023-09-01,potato,2.038,ins_tunis_retail
+Pommes de terre,Kg,2023,10,ok,bms_juillet-2024.pdf,202407,5,2023-10-01,potato,1.975,ins_tunis_retail
+Pommes de terre,Kg,2023,11,ok,bms_juillet-2024.pdf,202407,5,2023-11-01,potato,2.082,ins_tunis_retail
+Pommes de terre,Kg,2023,12,ok,bms_decembre-2024.pdf,202412,6,2023-12-01,potato,2.144,ins_tunis_retail
+Pommes de terre,Kg,2024,1,ok,bms_decembre-2024.pdf,202412,5,2024-01-01,potato,1.782,ins_tunis_retail
+Pommes de terre,Kg,2024,2,ok,bms_decembre-2024.pdf,202412,5,2024-02-01,potato,1.64,ins_tunis_retail
+Pommes de terre,Kg,2024,3,ok,bms_mars-2025.pdf,202501,5,2024-03-01,potato,1.587,ins_tunis_retail
+Pommes de terre,Kg,2024,4,ok,bms_avril-2025.pdf,202504,5,2024-04-01,potato,1.59,ins_tunis_retail
+Pommes de terre,Kg,2024,5,ok,bms_mai-2025.pdf,202505,5,2024-05-01,potato,1.59,ins_tunis_retail
+Pommes de terre,Kg,2024,6,ok,bms_juin-2025.pdf,202506,6,2024-06-01,potato,1.617,ins_tunis_retail
+Pommes de terre,Kg,2024,7,ok,bms_juillet-2025.pdf,202506,7,2024-07-01,potato,1.782,ins_tunis_retail
+Pommes de terre,Kg,2024,8,ok,bms_aout-2025.pdf,202508,7,2024-08-01,potato,1.985,ins_tunis_retail
+Pommes de terre,Kg,2024,9,ok,bms_septembre-2025.pdf,202509,8,2024-09-01,potato,2.288,ins_tunis_retail
+Pommes de terre,Kg,2024,10,ok,bms_octobre-2025.pdf,202509,9,2024-10-01,potato,2.363,ins_tunis_retail
+Pommes de terre,Kg,2024,11,ok,bms_novembre-2025.pdf,202509,10,2024-11-01,potato,2.51,ins_tunis_retail
+Pommes de terre,Kg,2024,12,ok,bms_decembre-2025.pdf,202509,11,2024-12-01,potato,2.283,ins_tunis_retail
+Pommes de terre,Kg,2025,1,ok,bms_decembre-2025.pdf,202509,11,2025-01-01,potato,2.212,ins_tunis_retail
+Pommes de terre,Kg,2025,2,ok,bms_fevrier-2026.pdf,202602,12,2025-02-01,potato,2.213,ins_tunis_retail
+Pommes de terre,Kg,2025,3,ok,bms_mars-2026.pdf,202603,13,2025-03-01,potato,2.475,ins_tunis_retail
+Pommes de terre,Kg,2025,4,ok,bms_avril-2026.pdf,202603,13,2025-04-01,potato,2.678,ins_tunis_retail
+Pommes de terre,Kg,2025,5,ok,bms_mai-2026.pdf,202605,13,2025-05-01,potato,2.463,ins_tunis_retail
+Pommes de terre,Kg,2025,6,ok,bms_juin-2026.pdf,202606,13,2025-06-01,potato,2.331,ins_tunis_retail
+Pommes de terre,Kg,2025,7,ok,bms_juillet-2026.pdf,202607,13,2025-07-01,potato,2.462,ins_tunis_retail
+Pommes de terre,Kg,2025,8,ok,bms_juillet-2026.pdf,202607,12,2025-08-01,potato,2.497,ins_tunis_retail
+Pommes de terre,Kg,2025,9,ok,bms_juillet-2026.pdf,202607,11,2025-09-01,potato,2.54,ins_tunis_retail
+Pommes de terre,Kg,2025,10,ok,bms_juillet-2026.pdf,202607,10,2025-10-01,potato,2.514,ins_tunis_retail
+Pommes de terre,Kg,2025,11,ok,bms_juillet-2026.pdf,202607,9,2025-11-01,potato,2.466,ins_tunis_retail
+Pommes de terre,Kg,2025,12,ok,bms_juillet-2026.pdf,202607,8,2025-12-01,potato,2.49,ins_tunis_retail
+Pommes de terre,Kg,2026,1,ok,bms_juillet-2026.pdf,202607,7,2026-01-01,potato,2.16,ins_tunis_retail
+Pommes de terre,Kg,2026,2,ok,bms_juillet-2026.pdf,202607,6,2026-02-01,potato,1.938,ins_tunis_retail
+Pommes de terre,Kg,2026,3,ok,bms_juillet-2026.pdf,202607,5,2026-03-01,potato,2.083,ins_tunis_retail
+Pommes de terre,Kg,2026,4,ok,bms_juillet-2026.pdf,202607,4,2026-04-01,potato,2.378,ins_tunis_retail
+Pommes de terre,Kg,2026,5,ok,bms_juillet-2026.pdf,202607,3,2026-05-01,potato,2.347,ins_tunis_retail
+Pommes de terre,Kg,2026,6,ok,bms_juillet-2026.pdf,202607,2,2026-06-01,potato,2.315,ins_tunis_retail
+Pommes de terre,Kg,2026,7,ok,bms_juillet-2026.pdf,202607,1,2026-07-01,potato,2.356,ins_tunis_retail
+Raisins ordinaires,Kg,2021,7,ok,bms_juillet-2022.pdf,202202,1,2021-07-01,grape,2.706,ins_tunis_retail
+Raisins ordinaires,Kg,2021,8,ok,bms_juillet-2022.pdf,202202,1,2021-08-01,grape,2.307,ins_tunis_retail
+Raisins ordinaires,Kg,2021,9,ok,bms_juillet-2022.pdf,202202,1,2021-09-01,grape,2.413,ins_tunis_retail
+Raisins ordinaires,Kg,2021,10,no_arrivals,bms_juillet-2022.pdf,202202,1,2021-10-01,grape,,ins_tunis_retail
+Raisins ordinaires,Kg,2021,11,no_arrivals,bms_juillet-2022.pdf,202202,1,2021-11-01,grape,,ins_tunis_retail
+Raisins ordinaires,Kg,2021,12,no_arrivals,bms_decembre-2022.pdf,202211,2,2021-12-01,grape,,ins_tunis_retail
+Raisins ordinaires,Kg,2022,1,no_arrivals,bms_decembre-2022.pdf,202211,2,2022-01-01,grape,,ins_tunis_retail
+Raisins ordinaires,Kg,2022,2,no_arrivals,bms_decembre-2022.pdf,202211,2,2022-02-01,grape,,ins_tunis_retail
+Raisins ordinaires,Kg,2022,3,no_arrivals,bms_decembre-2022.pdf,202211,2,2022-03-01,grape,,ins_tunis_retail
+Raisins ordinaires,Kg,2022,4,no_arrivals,bms_decembre-2022.pdf,202211,2,2022-04-01,grape,,ins_tunis_retail
+Raisins ordinaires,Kg,2022,5,no_arrivals,bms_decembre-2022.pdf,202211,2,2022-05-01,grape,,ins_tunis_retail
+Raisins ordinaires,Kg,2022,6,no_arrivals,bms_decembre-2022.pdf,202211,2,2022-06-01,grape,,ins_tunis_retail
+Raisins ordinaires,Kg,2022,7,ok,bms_juillet-2023.pdf,202307,3,2022-07-01,grape,3.617,ins_tunis_retail
+Raisins ordinaires,Kg,2022,8,ok,bms_juillet-2023.pdf,202307,2,2022-08-01,grape,2.75,ins_tunis_retail
+Raisins ordinaires,Kg,2022,9,ok,bms_juillet-2023.pdf,202307,2,2022-09-01,grape,2.542,ins_tunis_retail
+Raisins ordinaires,Kg,2022,10,ok,bms_juillet-2023.pdf,202307,2,2022-10-01,grape,2.476,ins_tunis_retail
+Raisins ordinaires,Kg,2022,11,ok,bms_juillet-2023.pdf,202307,2,2022-11-01,grape,3.626,ins_tunis_retail
+Raisins ordinaires,Kg,2022,12,no_arrivals,bms_decembre-2023.pdf,202310,3,2022-12-01,grape,,ins_tunis_retail
+Raisins ordinaires,Kg,2023,1,no_arrivals,bms_decembre-2023.pdf,202310,2,2023-01-01,grape,,ins_tunis_retail
+Raisins ordinaires,Kg,2023,2,no_arrivals,bms_fevrier-2024.pdf,202402,3,2023-02-01,grape,,ins_tunis_retail
+Raisins ordinaires,Kg,2023,3,no_arrivals,bms_mars-2024.pdf,202403,4,2023-03-01,grape,,ins_tunis_retail
+Raisins ordinaires,Kg,2023,4,ok,bms_avril-2024.pdf,202404,5,2023-04-01,grape,4.484,ins_tunis_retail
+Raisins ordinaires,Kg,2023,5,no_arrivals,bms_avril-2024.pdf,202404,5,2023-05-01,grape,,ins_tunis_retail
+Raisins ordinaires,Kg,2023,6,no_arrivals,bms_avril-2024.pdf,202404,5,2023-06-01,grape,,ins_tunis_retail
+Raisins ordinaires,Kg,2023,7,ok,bms_juillet-2024.pdf,202407,6,2023-07-01,grape,4.529,ins_tunis_retail
+Raisins ordinaires,Kg,2023,8,ok,bms_juillet-2024.pdf,202407,5,2023-08-01,grape,4.107,ins_tunis_retail
+Raisins ordinaires,Kg,2023,9,ok,bms_juillet-2024.pdf,202407,5,2023-09-01,grape,4.353,ins_tunis_retail
+Raisins ordinaires,Kg,2023,10,ok,bms_juillet-2024.pdf,202407,5,2023-10-01,grape,4.083,ins_tunis_retail
+Raisins ordinaires,Kg,2023,11,ok,bms_juillet-2024.pdf,202407,5,2023-11-01,grape,4.161,ins_tunis_retail
+Raisins ordinaires,Kg,2023,12,ok,bms_decembre-2024.pdf,202412,6,2023-12-01,grape,3.954,ins_tunis_retail
+Raisins ordinaires,Kg,2024,1,no_arrivals,bms_decembre-2024.pdf,202412,5,2024-01-01,grape,,ins_tunis_retail
+Raisins ordinaires,Kg,2024,2,no_arrivals,bms_decembre-2024.pdf,202412,5,2024-02-01,grape,,ins_tunis_retail
+Raisins ordinaires,Kg,2024,3,no_arrivals,bms_mars-2025.pdf,202501,5,2024-03-01,grape,,ins_tunis_retail
+Raisins ordinaires,Kg,2024,4,no_arrivals,bms_avril-2025.pdf,202504,5,2024-04-01,grape,,ins_tunis_retail
+Raisins ordinaires,Kg,2024,5,no_arrivals,bms_avril-2025.pdf,202504,4,2024-05-01,grape,,ins_tunis_retail
+Raisins ordinaires,Kg,2024,6,ok,bms_juin-2025.pdf,202506,5,2024-06-01,grape,6.317,ins_tunis_retail
+Raisins ordinaires,Kg,2024,7,ok,bms_juillet-2025.pdf,202506,6,2024-07-01,grape,5.6,ins_tunis_retail
+Raisins ordinaires,Kg,2024,8,ok,bms_aout-2025.pdf,202508,6,2024-08-01,grape,4.886,ins_tunis_retail
+Raisins ordinaires,Kg,2024,9,ok,bms_septembre-2025.pdf,202509,7,2024-09-01,grape,4.47,ins_tunis_retail
+Raisins ordinaires,Kg,2024,10,ok,bms_octobre-2025.pdf,202509,8,2024-10-01,grape,4.297,ins_tunis_retail
+Raisins ordinaires,Kg,2024,11,no_arrivals,bms_novembre-2025.pdf,202509,9,2024-11-01,grape,,ins_tunis_retail
+Raisins ordinaires,Kg,2024,12,no_arrivals,bms_decembre-2025.pdf,202509,10,2024-12-01,grape,,ins_tunis_retail
+Raisins ordinaires,Kg,2025,1,no_arrivals,bms_decembre-2025.pdf,202509,10,2025-01-01,grape,,ins_tunis_retail
+Raisins ordinaires,Kg,2025,2,no_arrivals,bms_fevrier-2026.pdf,202602,11,2025-02-01,grape,,ins_tunis_retail
+Raisins ordinaires,Kg,2025,3,no_arrivals,bms_mars-2026.pdf,202603,12,2025-03-01,grape,,ins_tunis_retail
+Raisins ordinaires,Kg,2025,4,no_arrivals,bms_avril-2026.pdf,202603,12,2025-04-01,grape,,ins_tunis_retail
+Raisins ordinaires,Kg,2025,5,no_arrivals,bms_mai-2026.pdf,202605,12,2025-05-01,grape,,ins_tunis_retail
+Raisins ordinaires,Kg,2025,6,ok,bms_juin-2026.pdf,202606,13,2025-06-01,grape,4.322,ins_tunis_retail
+Raisins ordinaires,Kg,2025,7,ok,bms_juillet-2026.pdf,202607,13,2025-07-01,grape,4.951,ins_tunis_retail
+Raisins ordinaires,Kg,2025,8,ok,bms_juillet-2026.pdf,202607,12,2025-08-01,grape,4.59,ins_tunis_retail
+Raisins ordinaires,Kg,2025,9,ok,bms_juillet-2026.pdf,202607,11,2025-09-01,grape,4.04,ins_tunis_retail
+Raisins ordinaires,Kg,2025,10,ok,bms_juillet-2026.pdf,202607,10,2025-10-01,grape,4.138,ins_tunis_retail
+Raisins ordinaires,Kg,2025,11,no_arrivals,bms_juillet-2026.pdf,202607,9,2025-11-01,grape,,ins_tunis_retail
+Raisins ordinaires,Kg,2025,12,no_arrivals,bms_juillet-2026.pdf,202607,8,2025-12-01,grape,,ins_tunis_retail
+Raisins ordinaires,Kg,2026,1,no_arrivals,bms_juillet-2026.pdf,202607,7,2026-01-01,grape,,ins_tunis_retail
+Raisins ordinaires,Kg,2026,2,no_arrivals,bms_juillet-2026.pdf,202607,6,2026-02-01,grape,,ins_tunis_retail
+Raisins ordinaires,Kg,2026,3,no_arrivals,bms_juillet-2026.pdf,202607,5,2026-03-01,grape,,ins_tunis_retail
+Raisins ordinaires,Kg,2026,4,no_arrivals,bms_juillet-2026.pdf,202607,4,2026-04-01,grape,,ins_tunis_retail
+Raisins ordinaires,Kg,2026,5,no_arrivals,bms_juillet-2026.pdf,202607,3,2026-05-01,grape,,ins_tunis_retail
+Raisins ordinaires,Kg,2026,6,no_arrivals,bms_juillet-2026.pdf,202607,2,2026-06-01,grape,,ins_tunis_retail
+Raisins ordinaires,Kg,2026,7,ok,bms_juillet-2026.pdf,202607,1,2026-07-01,grape,4.557,ins_tunis_retail
+Tomates,Kg,2021,7,ok,bms_juillet-2022.pdf,202202,1,2021-07-01,tomato,1.156,ins_tunis_retail
+Tomates,Kg,2021,8,ok,bms_juillet-2022.pdf,202202,1,2021-08-01,tomato,1.285,ins_tunis_retail
+Tomates,Kg,2021,9,ok,bms_juillet-2022.pdf,202202,1,2021-09-01,tomato,1.594,ins_tunis_retail
+Tomates,Kg,2021,10,ok,bms_juillet-2022.pdf,202202,1,2021-10-01,tomato,2.104,ins_tunis_retail
+Tomates,Kg,2021,11,ok,bms_juillet-2022.pdf,202202,1,2021-11-01,tomato,1.287,ins_tunis_retail
+Tomates,Kg,2021,12,ok,bms_decembre-2022.pdf,202211,2,2021-12-01,tomato,1.561,ins_tunis_retail
+Tomates,Kg,2022,1,ok,bms_decembre-2022.pdf,202211,2,2022-01-01,tomato,1.64,ins_tunis_retail
+Tomates,Kg,2022,2,ok,bms_decembre-2022.pdf,202211,2,2022-02-01,tomato,1.645,ins_tunis_retail
+Tomates,Kg,2022,3,ok,bms_decembre-2022.pdf,202211,2,2022-03-01,tomato,1.726,ins_tunis_retail
+Tomates,Kg,2022,4,ok,bms_decembre-2022.pdf,202211,2,2022-04-01,tomato,1.898,ins_tunis_retail
+Tomates,Kg,2022,5,ok,bms_decembre-2022.pdf,202211,2,2022-05-01,tomato,1.968,ins_tunis_retail
+Tomates,Kg,2022,6,ok,bms_decembre-2022.pdf,202211,2,2022-06-01,tomato,1.659,ins_tunis_retail
+Tomates,Kg,2022,7,ok,bms_juillet-2023.pdf,202307,3,2022-07-01,tomato,1.455,ins_tunis_retail
+Tomates,Kg,2022,8,ok,bms_juillet-2023.pdf,202307,2,2022-08-01,tomato,1.5,ins_tunis_retail
+Tomates,Kg,2022,9,ok,bms_juillet-2023.pdf,202307,2,2022-09-01,tomato,1.439,ins_tunis_retail
+Tomates,Kg,2022,10,ok,bms_juillet-2023.pdf,202307,2,2022-10-01,tomato,1.831,ins_tunis_retail
+Tomates,Kg,2022,11,ok,bms_juillet-2023.pdf,202307,2,2022-11-01,tomato,3.395,ins_tunis_retail
+Tomates,Kg,2022,12,ok,bms_decembre-2023.pdf,202310,3,2022-12-01,tomato,1.9,ins_tunis_retail
+Tomates,Kg,2023,1,ok,bms_decembre-2023.pdf,202310,2,2023-01-01,tomato,1.3,ins_tunis_retail
+Tomates,Kg,2023,2,ok,bms_fevrier-2024.pdf,202402,3,2023-02-01,tomato,2.178,ins_tunis_retail
+Tomates,Kg,2023,3,ok,bms_mars-2024.pdf,202403,4,2023-03-01,tomato,2.405,ins_tunis_retail
+Tomates,Kg,2023,4,ok,bms_avril-2024.pdf,202404,5,2023-04-01,tomato,3.043,ins_tunis_retail
+Tomates,Kg,2023,5,ok,bms_avril-2024.pdf,202404,5,2023-05-01,tomato,3.141,ins_tunis_retail
+Tomates,Kg,2023,6,ok,bms_avril-2024.pdf,202404,5,2023-06-01,tomato,1.704,ins_tunis_retail
+Tomates,Kg,2023,7,ok,bms_juillet-2024.pdf,202407,6,2023-07-01,tomato,1.336,ins_tunis_retail
+Tomates,Kg,2023,8,ok,bms_juillet-2024.pdf,202407,5,2023-08-01,tomato,1.569,ins_tunis_retail
+Tomates,Kg,2023,9,ok,bms_juillet-2024.pdf,202407,5,2023-09-01,tomato,2.0,ins_tunis_retail
+Tomates,Kg,2023,10,ok,bms_juillet-2024.pdf,202407,5,2023-10-01,tomato,1.438,ins_tunis_retail
+Tomates,Kg,2023,11,ok,bms_juillet-2024.pdf,202407,5,2023-11-01,tomato,1.367,ins_tunis_retail
+Tomates,Kg,2023,12,ok,bms_decembre-2024.pdf,202412,6,2023-12-01,tomato,1.717,ins_tunis_retail
+Tomates,Kg,2024,1,ok,bms_decembre-2024.pdf,202412,5,2024-01-01,tomato,1.817,ins_tunis_retail
+Tomates,Kg,2024,2,ok,bms_decembre-2024.pdf,202412,5,2024-02-01,tomato,1.9,ins_tunis_retail
+Tomates,Kg,2024,3,ok,bms_mars-2025.pdf,202501,5,2024-03-01,tomato,3.433,ins_tunis_retail
+Tomates,Kg,2024,4,ok,bms_avril-2025.pdf,202504,5,2024-04-01,tomato,3.3,ins_tunis_retail
+Tomates,Kg,2024,5,ok,bms_mai-2025.pdf,202505,5,2024-05-01,tomato,2.869,ins_tunis_retail
+Tomates,Kg,2024,6,ok,bms_juin-2025.pdf,202506,6,2024-06-01,tomato,1.748,ins_tunis_retail
+Tomates,Kg,2024,7,ok,bms_juillet-2025.pdf,202506,7,2024-07-01,tomato,1.387,ins_tunis_retail
+Tomates,Kg,2024,8,ok,bms_aout-2025.pdf,202508,7,2024-08-01,tomato,1.43,ins_tunis_retail
+Tomates,Kg,2024,9,ok,bms_septembre-2025.pdf,202509,8,2024-09-01,tomato,1.548,ins_tunis_retail
+Tomates,Kg,2024,10,ok,bms_octobre-2025.pdf,202509,9,2024-10-01,tomato,1.918,ins_tunis_retail
+Tomates,Kg,2024,11,ok,bms_novembre-2025.pdf,202509,10,2024-11-01,tomato,2.285,ins_tunis_retail
+Tomates,Kg,2024,12,ok,bms_decembre-2025.pdf,202509,11,2024-12-01,tomato,1.8,ins_tunis_retail
+Tomates,Kg,2025,1,ok,bms_decembre-2025.pdf,202509,11,2025-01-01,tomato,2.206,ins_tunis_retail
+Tomates,Kg,2025,2,ok,bms_fevrier-2026.pdf,202602,12,2025-02-01,tomato,2.173,ins_tunis_retail
+Tomates,Kg,2025,3,ok,bms_mars-2026.pdf,202603,13,2025-03-01,tomato,2.474,ins_tunis_retail
+Tomates,Kg,2025,4,ok,bms_avril-2026.pdf,202603,13,2025-04-01,tomato,2.335,ins_tunis_retail
+Tomates,Kg,2025,5,ok,bms_mai-2026.pdf,202605,13,2025-05-01,tomato,2.252,ins_tunis_retail
+Tomates,Kg,2025,6,ok,bms_juin-2026.pdf,202606,13,2025-06-01,tomato,1.8,ins_tunis_retail
+Tomates,Kg,2025,7,ok,bms_juillet-2026.pdf,202607,13,2025-07-01,tomato,1.533,ins_tunis_retail
+Tomates,Kg,2025,8,ok,bms_juillet-2026.pdf,202607,12,2025-08-01,tomato,1.533,ins_tunis_retail
+Tomates,Kg,2025,9,ok,bms_juillet-2026.pdf,202607,11,2025-09-01,tomato,1.58,ins_tunis_retail
+Tomates,Kg,2025,10,ok,bms_juillet-2026.pdf,202607,10,2025-10-01,tomato,1.336,ins_tunis_retail
+Tomates,Kg,2025,11,ok,bms_juillet-2026.pdf,202607,9,2025-11-01,tomato,1.894,ins_tunis_retail
+Tomates,Kg,2025,12,ok,bms_juillet-2026.pdf,202607,8,2025-12-01,tomato,1.859,ins_tunis_retail
+Tomates,Kg,2026,1,ok,bms_juillet-2026.pdf,202607,7,2026-01-01,tomato,1.828,ins_tunis_retail
+Tomates,Kg,2026,2,ok,bms_juillet-2026.pdf,202607,6,2026-02-01,tomato,1.9,ins_tunis_retail
+Tomates,Kg,2026,3,ok,bms_juillet-2026.pdf,202607,5,2026-03-01,tomato,2.564,ins_tunis_retail
+Tomates,Kg,2026,4,ok,bms_juillet-2026.pdf,202607,4,2026-04-01,tomato,4.103,ins_tunis_retail
+Tomates,Kg,2026,5,ok,bms_juillet-2026.pdf,202607,3,2026-05-01,tomato,3.735,ins_tunis_retail
+Tomates,Kg,2026,6,ok,bms_juillet-2026.pdf,202607,2,2026-06-01,tomato,2.237,ins_tunis_retail
+Tomates,Kg,2026,7,ok,bms_juillet-2026.pdf,202607,1,2026-07-01,tomato,1.288,ins_tunis_retail

@@ -13,6 +13,9 @@ const CRITICAL = 20;
 
 type Tone = "good" | "warn" | "bad" | "muted";
 
+// Text colours of the light (white card) variant.
+const LIGHT_TEXT: Record<Tone, string> = { good: "text-[#2e7d32]", warn: "text-[#b45309]", bad: "text-[#c62828]", muted: "text-[#5d6b58]" };
+
 const TONE: Record<Tone, { text: string; ring: string; bg: string; bar: string }> = {
   good: { text: "text-[#c6f04a]", ring: "border-[#c6f04a]/35", bg: "bg-[#c6f04a]/[0.07]", bar: "bg-[#c6f04a]" },
   warn: { text: "text-amber-300", ring: "border-amber-400/35", bg: "bg-amber-400/[0.08]", bar: "bg-amber-400" },
@@ -20,8 +23,11 @@ const TONE: Record<Tone, { text: string; ring: string; bg: string; bar: string }
   muted: { text: "text-neutral-300", ring: "border-white/10", bg: "bg-white/[0.03]", bar: "bg-neutral-500" },
 };
 
-/** The field unit's live readings, in plain words: the dashboard home screen. */
-export function FieldSensors() {
+/**
+ * The field unit's live readings, in plain words. `cards` renders the same block as white cards, to sit with
+ * the other cards of the dashboard home; the data and its source are unchanged.
+ */
+export function FieldSensors({ cards = false }: { cards?: boolean }) {
   const { m, locale } = useI18n();
   const t = m.sensors;
   const [snap, setSnap] = useState<SensorSnapshot | null>(null);
@@ -79,8 +85,8 @@ export function FieldSensors() {
   return (
     <section aria-labelledby="field-title" className="space-y-4">
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <h2 id="field-title" className="text-lg font-semibold text-white">{t.title}</h2>
-        <p className={`inline-flex items-center gap-2 text-sm ${TONE[link.tone].text}`} role="status" aria-live="polite">
+        <h2 id="field-title" className={cards ? "text-xl font-bold text-white [text-shadow:0_2px_10px_rgba(0,0,0,.6)]" : "text-lg font-semibold text-white"}>{t.title}</h2>
+        <p className={`inline-flex items-center gap-2 text-sm ${cards ? "rounded-full bg-[#173a1f]/90 px-3 py-1.5 text-white" : TONE[link.tone].text}`} role="status" aria-live="polite">
           <span className="relative flex w-2.5 h-2.5">
             {link.pulse && <span className={`absolute inline-flex h-full w-full rounded-full opacity-60 animate-ping ${TONE[link.tone].bar}`} />}
             <span className={`relative inline-flex w-2.5 h-2.5 rounded-full ${TONE[link.tone].bar}`} />
@@ -90,14 +96,15 @@ export function FieldSensors() {
       </div>
 
       {/* The answer, before any number */}
-      <div className={`rounded-2xl border p-5 sm:p-6 ${TONE[headline.tone].ring} ${TONE[headline.tone].bg}`}>
-        <p className={`text-xl sm:text-2xl font-bold ${TONE[headline.tone].text}`}>{headline.title}</p>
-        <p className="text-sm sm:text-base text-neutral-300 mt-1">{headline.text}</p>
+      <div className={cards ? "rounded-3xl bg-white/[0.96] p-5 shadow-[0_10px_30px_rgba(0,0,0,0.18)]" : `rounded-2xl border p-5 sm:p-6 ${TONE[headline.tone].ring} ${TONE[headline.tone].bg}`}>
+        <p className={`text-xl sm:text-2xl font-bold ${cards ? LIGHT_TEXT[headline.tone] : TONE[headline.tone].text}`}>{headline.title}</p>
+        <p className={`text-sm sm:text-base mt-1 ${cards ? "text-[#3c4a37]" : "text-neutral-300"}`}>{headline.text}</p>
       </div>
 
       {/* Four readings */}
       <div className={`grid grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-4 ${stale && r ? "opacity-70" : ""}`}>
         <Tile
+          cards={cards}
           icon={<IconSoil />}
           label={t.soil}
           value={soil == null ? null : `${soil}`}
@@ -110,6 +117,7 @@ export function FieldSensors() {
           {soil != null && <SoilBar value={soil} tone={soilTone} />}
         </Tile>
         <Tile
+          cards={cards}
           icon={<IconThermo />}
           label={t.temp}
           value={r?.air_temp == null ? null : fmt.format(r.air_temp)}
@@ -119,6 +127,7 @@ export function FieldSensors() {
           noData={t.noValue}
         />
         <Tile
+          cards={cards}
           icon={<IconDropAir />}
           label={t.humidity}
           value={r?.air_humidity == null ? null : fmt.format(Math.round(r.air_humidity))}
@@ -128,6 +137,7 @@ export function FieldSensors() {
           noData={t.noValue}
         />
         <Tile
+          cards={cards}
           icon={<IconSun />}
           label={t.light}
           value={light == null ? null : `${light}`}
@@ -148,6 +158,7 @@ function ago(seconds: number, t: { secondsAgo: string; minutesAgo: string; hours
 }
 
 type TileProps = {
+  cards?: boolean;
   icon: React.ReactNode;
   label: string;
   value: string | null;
@@ -159,28 +170,28 @@ type TileProps = {
   children?: React.ReactNode;
 };
 
-function Tile({ icon, label, value, unit, hint, tone = "muted", trend, noData, children }: TileProps) {
+function Tile({ cards = false, icon, label, value, unit, hint, tone = "muted", trend, noData, children }: TileProps) {
   const { m } = useI18n();
-  const accent = value == null ? "text-neutral-500" : tone === "muted" ? "text-white" : TONE[tone].text;
+  const accent = value == null ? (cards ? "text-[#9aa595]" : "text-neutral-500") : tone === "muted" ? (cards ? "text-[#17220f]" : "text-white") : cards ? LIGHT_TEXT[tone] : TONE[tone].text;
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 sm:p-5 flex flex-col gap-2 min-w-0">
-      <div className="flex items-start gap-2 text-neutral-400 min-h-[2.5rem] sm:min-h-0">
-        <span className="text-xl text-neutral-300">{icon}</span>
+    <div className={cards ? "rounded-3xl bg-white/[0.96] p-4 sm:p-5 flex flex-col gap-2 min-w-0 shadow-[0_10px_30px_rgba(0,0,0,0.18)] text-[#17220f]" : "rounded-2xl border border-white/10 bg-white/[0.03] p-4 sm:p-5 flex flex-col gap-2 min-w-0"}>
+      <div className={`flex items-start gap-2 min-h-[2.5rem] sm:min-h-0 ${cards ? "text-[#33402f]" : "text-neutral-400"}`}>
+        <span className={`text-xl ${cards ? "text-[#2e7d32]" : "text-neutral-300"}`}>{icon}</span>
         <span className="text-sm font-medium leading-tight">{label}</span>
       </div>
       <div className="flex items-end gap-1.5">
         {value == null ? (
-          <span className="text-2xl font-semibold text-neutral-500">{noData}</span>
+          <span className={`text-2xl font-semibold ${cards ? "text-[#9aa595]" : "text-neutral-500"}`}>{noData}</span>
         ) : (
           <>
             <span className={`text-4xl sm:text-5xl font-bold tabular-nums leading-none ${accent}`}>{value}</span>
-            <span className="text-lg text-neutral-400 mb-0.5">{unit}</span>
+            <span className={`text-lg mb-0.5 ${cards ? "text-[#5d6b58]" : "text-neutral-400"}`}>{unit}</span>
             <TrendArrow delta={trend} label={m.sensors.trendLabel} />
           </>
         )}
       </div>
       {children}
-      <p className="text-[13px] text-neutral-400 leading-snug">{hint}</p>
+      <p className={`text-[13px] leading-snug ${cards ? "text-[#5d6b58]" : "text-neutral-400"}`}>{hint}</p>
     </div>
   );
 }

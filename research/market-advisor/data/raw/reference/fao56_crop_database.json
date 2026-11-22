@@ -1,0 +1,4062 @@
+{
+ "meta": {
+  "schema_version": "1.0",
+  "generated_utc": "2026-11-21T18:50:24.803995Z",
+  "n_crops": 39,
+  "n_irrigation_ready": 37,
+  "retrieval_note": "Values transcribed from FAO-56 via a text-extraction service on 2026-11-21; Kc_ini per crop often unavailable (image column) -> group default used where flagged; re-verify against the PDF before operational use."
+ },
+ "crops": [
+  {
+   "id": "tomato",
+   "names": {
+    "en": "Tomato",
+    "scientific": "Solanum lycopersicum",
+    "fr": "Tomate",
+    "ar": "طماطم",
+    "synonyms": [
+     "tomatoes",
+     "tomate",
+     "tamatem",
+     "طماطم",
+     "banadoura"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Solanaceae",
+   "category": "vegetable",
+   "perennial": false,
+   "variety": null,
+   "kc": {
+    "ini": 0.6,
+    "ini_source": "FAO56_TABLE12_GROUP_DEFAULT",
+    "mid": 1.15,
+    "end": 0.8,
+    "end_low": 0.7,
+    "end_high": 0.9,
+    "variants": [],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 0.6,
+   "root_depth": {
+    "zr_min_m": 0.7,
+    "zr_max_m": 1.5,
+    "default_for_scheduling_m": 0.7,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": false
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.4,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": {
+    "ini": 30,
+    "dev": 40,
+    "mid": 45,
+    "late": 30,
+    "total": 145,
+    "region": "Mediterranean",
+    "plant_date": "April/May",
+    "note": "",
+    "source": "FAO56_T11"
+   },
+   "stage_length_variants": [
+    {
+     "ini": 35,
+     "dev": 45,
+     "mid": 70,
+     "late": 30,
+     "total": 180,
+     "region": "Arid region",
+     "plant_date": "Oct/Nov",
+     "note": ""
+    },
+    {
+     "ini": 30,
+     "dev": 40,
+     "mid": 40,
+     "late": 25,
+     "total": 135,
+     "region": "Arid region",
+     "plant_date": "January",
+     "note": ""
+    }
+   ],
+   "typical_duration_days": 145,
+   "planting_calendar": {
+    "as_published": "April/May",
+    "region": "Mediterranean",
+    "note": "Plant date of the FAO-56 example row, not a Tunisian calendar."
+   },
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [
+    "Table 12 footnote 2: tomatoes on stakes (1.5-2 m) may need Kc mid ~1.20 and higher h.",
+    "Greenhouse tomatoes need indoor ETo; outdoor weather does not apply directly."
+   ],
+   "approximations": [
+    "Kc end is the midpoint of the published range 0.70-0.90."
+   ],
+   "missing": [
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "derived_from_published_reference",
+    "zr": "directly_documented",
+    "p": "directly_documented",
+    "stage_lengths": "derived_from_published_reference",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "sweet_pepper",
+   "names": {
+    "en": "Sweet pepper",
+    "scientific": "Capsicum annuum",
+    "fr": "Poivron",
+    "ar": "فلفل",
+    "synonyms": [
+     "pepper",
+     "bell pepper",
+     "peppers",
+     "piment doux",
+     "poivron",
+     "فلفل حلو",
+     "felfel"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Solanaceae",
+   "category": "vegetable",
+   "perennial": false,
+   "variety": null,
+   "kc": {
+    "ini": 0.6,
+    "ini_source": "FAO56_TABLE12_GROUP_DEFAULT",
+    "mid": 1.05,
+    "end": 0.9,
+    "end_low": 0.9,
+    "end_high": 0.9,
+    "variants": [],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 0.7,
+   "root_depth": {
+    "zr_min_m": 0.5,
+    "zr_max_m": 1.0,
+    "default_for_scheduling_m": 0.5,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": false
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.3,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": {
+    "ini": 30,
+    "dev": 35,
+    "mid": 40,
+    "late": 20,
+    "total": 125,
+    "region": "Europe and Mediterranean",
+    "plant_date": "April/June",
+    "note": "printed Linit '25/30'; 30 used (sum matches printed 125)",
+    "source": "FAO56_T11"
+   },
+   "stage_length_variants": [
+    {
+     "ini": 30,
+     "dev": 40,
+     "mid": 110,
+     "late": 30,
+     "total": 210,
+     "region": "Arid region",
+     "plant_date": "October",
+     "note": ""
+    }
+   ],
+   "typical_duration_days": 125,
+   "planting_calendar": {
+    "as_published": "April/June",
+    "region": "Europe and Mediterranean",
+    "note": "Plant date of the FAO-56 example row, not a Tunisian calendar."
+   },
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [
+    "Table 12 footnote 2: crops grown on stalks may need higher Kc."
+   ],
+   "approximations": [],
+   "missing": [
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "derived_from_published_reference",
+    "zr": "directly_documented",
+    "p": "directly_documented",
+    "stage_lengths": "derived_from_published_reference",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "eggplant",
+   "names": {
+    "en": "Eggplant",
+    "scientific": "Solanum melongena",
+    "fr": "Aubergine",
+    "ar": "باذنجان",
+    "synonyms": [
+     "aubergine",
+     "brinjal",
+     "aubergines",
+     "badhinjan"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Solanaceae",
+   "category": "vegetable",
+   "perennial": false,
+   "variety": null,
+   "kc": {
+    "ini": 0.6,
+    "ini_source": "FAO56_TABLE12_GROUP_DEFAULT",
+    "mid": 1.05,
+    "end": 0.9,
+    "end_low": 0.9,
+    "end_high": 0.9,
+    "variants": [],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 0.8,
+   "root_depth": {
+    "zr_min_m": 0.7,
+    "zr_max_m": 1.2,
+    "default_for_scheduling_m": 0.7,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": false
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.45,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": {
+    "ini": 30,
+    "dev": 45,
+    "mid": 40,
+    "late": 25,
+    "total": 140,
+    "region": "Mediterranean",
+    "plant_date": "May/June",
+    "note": "source prints total '40*' but stages sum to 140; stages used",
+    "source": "FAO56_T11"
+   },
+   "stage_length_variants": [
+    {
+     "ini": 30,
+     "dev": 40,
+     "mid": 40,
+     "late": 20,
+     "total": 130,
+     "region": "Arid region",
+     "plant_date": "October",
+     "note": ""
+    }
+   ],
+   "typical_duration_days": 140,
+   "planting_calendar": {
+    "as_published": "May/June",
+    "region": "Mediterranean",
+    "note": "Plant date of the FAO-56 example row, not a Tunisian calendar."
+   },
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [],
+   "approximations": [
+    "Stage-length row has a printed inconsistency (see note)."
+   ],
+   "missing": [
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "derived_from_published_reference",
+    "zr": "directly_documented",
+    "p": "directly_documented",
+    "stage_lengths": "derived_from_published_reference",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "potato",
+   "names": {
+    "en": "Potato",
+    "scientific": "Solanum tuberosum",
+    "fr": "Pomme de terre",
+    "ar": "بطاطا",
+    "synonyms": [
+     "potatoes",
+     "patate",
+     "pomme de terre",
+     "batata",
+     "بطاطس"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Solanaceae",
+   "category": "vegetable",
+   "perennial": false,
+   "variety": null,
+   "kc": {
+    "ini": 0.5,
+    "ini_source": "FAO56_TABLE12_GROUP_DEFAULT",
+    "mid": 1.15,
+    "end": 0.75,
+    "end_low": 0.75,
+    "end_high": 0.75,
+    "variants": [],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 0.6,
+   "root_depth": {
+    "zr_min_m": 0.4,
+    "zr_max_m": 0.6,
+    "default_for_scheduling_m": 0.4,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": false
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.35,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": {
+    "ini": 25,
+    "dev": 30,
+    "mid": 45,
+    "late": 30,
+    "total": 130,
+    "region": "(Semi) arid climate",
+    "plant_date": "Jan/Nov",
+    "note": "printed mid '30/45' and total '115/130'; the 45 / 130 variant is used",
+    "source": "FAO56_T11"
+   },
+   "stage_length_variants": [
+    {
+     "ini": 30,
+     "dev": 35,
+     "mid": 50,
+     "late": 30,
+     "total": 145,
+     "region": "Europe",
+     "plant_date": "April",
+     "note": ""
+    },
+    {
+     "ini": 25,
+     "dev": 30,
+     "mid": 45,
+     "late": 30,
+     "total": 130,
+     "region": "Continental",
+     "plant_date": "May",
+     "note": ""
+    }
+   ],
+   "typical_duration_days": 130,
+   "planting_calendar": {
+    "as_published": "Jan/Nov",
+    "region": "(Semi) arid climate",
+    "note": "Plant date of the FAO-56 example row, not a Tunisian calendar."
+   },
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [
+    "Table 12 footnote 4: Kc end ~0.40 for long-season potatoes with vine kill."
+   ],
+   "approximations": [
+    "Shallow Zr (0.4-0.6 m) makes TAW small: irrigation is frequent."
+   ],
+   "missing": [
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "derived_from_published_reference",
+    "zr": "directly_documented",
+    "p": "directly_documented",
+    "stage_lengths": "derived_from_published_reference",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "onion_dry",
+   "names": {
+    "en": "Onion (dry)",
+    "scientific": "Allium cepa",
+    "fr": "Oignon sec",
+    "ar": "بصل",
+    "synonyms": [
+     "onion",
+     "onions",
+     "oignon",
+     "basal"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Amaryllidaceae",
+   "category": "vegetable",
+   "perennial": false,
+   "variety": null,
+   "kc": {
+    "ini": 0.7,
+    "ini_source": "FAO56_TABLE12_GROUP_DEFAULT",
+    "mid": 1.05,
+    "end": 0.75,
+    "end_low": 0.75,
+    "end_high": 0.75,
+    "variants": [],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 0.4,
+   "root_depth": {
+    "zr_min_m": 0.3,
+    "zr_max_m": 0.6,
+    "default_for_scheduling_m": 0.3,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": false
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.3,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": {
+    "ini": 15,
+    "dev": 25,
+    "mid": 70,
+    "late": 40,
+    "total": 150,
+    "region": "Mediterranean",
+    "plant_date": "April",
+    "note": "",
+    "source": "FAO56_T11"
+   },
+   "stage_length_variants": [
+    {
+     "ini": 20,
+     "dev": 35,
+     "mid": 110,
+     "late": 45,
+     "total": 210,
+     "region": "Arid region / California",
+     "plant_date": "Oct; Jan",
+     "note": ""
+    }
+   ],
+   "typical_duration_days": 150,
+   "planting_calendar": {
+    "as_published": "April",
+    "region": "Mediterranean",
+    "note": "Plant date of the FAO-56 example row, not a Tunisian calendar."
+   },
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [],
+   "approximations": [],
+   "missing": [
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "derived_from_published_reference",
+    "zr": "directly_documented",
+    "p": "directly_documented",
+    "stage_lengths": "derived_from_published_reference",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "garlic",
+   "names": {
+    "en": "Garlic",
+    "scientific": "Allium sativum",
+    "fr": "Ail",
+    "ar": "ثوم",
+    "synonyms": [
+     "ail",
+     "thoum"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Amaryllidaceae",
+   "category": "vegetable",
+   "perennial": false,
+   "variety": null,
+   "kc": {
+    "ini": 0.7,
+    "ini_source": "FAO56_TABLE12_GROUP_DEFAULT",
+    "mid": 1.0,
+    "end": 0.7,
+    "end_low": 0.7,
+    "end_high": 0.7,
+    "variants": [],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 0.3,
+   "root_depth": {
+    "zr_min_m": 0.3,
+    "zr_max_m": 0.5,
+    "default_for_scheduling_m": 0.3,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": false
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.3,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": null,
+   "stage_length_variants": [],
+   "typical_duration_days": null,
+   "planting_calendar": null,
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [],
+   "approximations": [],
+   "missing": [
+    "stage_lengths",
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "derived_from_published_reference",
+    "zr": "directly_documented",
+    "p": "directly_documented",
+    "stage_lengths": "missing",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "carrot",
+   "names": {
+    "en": "Carrot",
+    "scientific": "Daucus carota",
+    "fr": "Carotte",
+    "ar": "جزر",
+    "synonyms": [
+     "carrots",
+     "carotte",
+     "jazar"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Apiaceae",
+   "category": "vegetable",
+   "perennial": false,
+   "variety": null,
+   "kc": {
+    "ini": 0.7,
+    "ini_source": "FAO56_TABLE12_GROUP_DEFAULT",
+    "mid": 1.05,
+    "end": 0.95,
+    "end_low": 0.95,
+    "end_high": 0.95,
+    "variants": [],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 0.3,
+   "root_depth": {
+    "zr_min_m": 0.5,
+    "zr_max_m": 1.0,
+    "default_for_scheduling_m": 0.5,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": false
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.35,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": null,
+   "stage_length_variants": [],
+   "typical_duration_days": null,
+   "planting_calendar": null,
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [],
+   "approximations": [],
+   "missing": [
+    "stage_lengths",
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "derived_from_published_reference",
+    "zr": "directly_documented",
+    "p": "directly_documented",
+    "stage_lengths": "missing",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "cabbage",
+   "names": {
+    "en": "Cabbage",
+    "scientific": "Brassica oleracea var. capitata",
+    "fr": "Chou",
+    "ar": "ملفوف",
+    "synonyms": [
+     "chou",
+     "kronb",
+     "كرنب"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Brassicaceae",
+   "category": "vegetable",
+   "perennial": false,
+   "variety": null,
+   "kc": {
+    "ini": 0.7,
+    "ini_source": "FAO56_TABLE12_GROUP_DEFAULT",
+    "mid": 1.05,
+    "end": 0.95,
+    "end_low": 0.95,
+    "end_high": 0.95,
+    "variants": [],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 0.4,
+   "root_depth": {
+    "zr_min_m": 0.5,
+    "zr_max_m": 0.8,
+    "default_for_scheduling_m": 0.5,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": false
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.45,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": null,
+   "stage_length_variants": [],
+   "typical_duration_days": null,
+   "planting_calendar": null,
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [],
+   "approximations": [],
+   "missing": [
+    "stage_lengths",
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "derived_from_published_reference",
+    "zr": "directly_documented",
+    "p": "directly_documented",
+    "stage_lengths": "missing",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "cauliflower",
+   "names": {
+    "en": "Cauliflower",
+    "scientific": "Brassica oleracea var. botrytis",
+    "fr": "Chou-fleur",
+    "ar": "قرنبيط",
+    "synonyms": [
+     "chou-fleur",
+     "karnabit"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Brassicaceae",
+   "category": "vegetable",
+   "perennial": false,
+   "variety": null,
+   "kc": {
+    "ini": 0.7,
+    "ini_source": "FAO56_TABLE12_GROUP_DEFAULT",
+    "mid": 1.05,
+    "end": 0.95,
+    "end_low": 0.95,
+    "end_high": 0.95,
+    "variants": [],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 0.4,
+   "root_depth": {
+    "zr_min_m": 0.4,
+    "zr_max_m": 0.7,
+    "default_for_scheduling_m": 0.4,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": false
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.45,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": null,
+   "stage_length_variants": [],
+   "typical_duration_days": null,
+   "planting_calendar": null,
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [],
+   "approximations": [],
+   "missing": [
+    "stage_lengths",
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "derived_from_published_reference",
+    "zr": "directly_documented",
+    "p": "directly_documented",
+    "stage_lengths": "missing",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "lettuce",
+   "names": {
+    "en": "Lettuce",
+    "scientific": "Lactuca sativa",
+    "fr": "Laitue",
+    "ar": "خس",
+    "synonyms": [
+     "laitue",
+     "khass"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Asteraceae",
+   "category": "vegetable",
+   "perennial": false,
+   "variety": null,
+   "kc": {
+    "ini": 0.7,
+    "ini_source": "FAO56_TABLE12_GROUP_DEFAULT",
+    "mid": 1.0,
+    "end": 0.95,
+    "end_low": 0.95,
+    "end_high": 0.95,
+    "variants": [],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 0.3,
+   "root_depth": {
+    "zr_min_m": 0.3,
+    "zr_max_m": 0.5,
+    "default_for_scheduling_m": 0.3,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": false
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.3,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": null,
+   "stage_length_variants": [],
+   "typical_duration_days": null,
+   "planting_calendar": null,
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [],
+   "approximations": [],
+   "missing": [
+    "stage_lengths",
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "derived_from_published_reference",
+    "zr": "directly_documented",
+    "p": "directly_documented",
+    "stage_lengths": "missing",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "spinach",
+   "names": {
+    "en": "Spinach",
+    "scientific": "Spinacia oleracea",
+    "fr": "Épinard",
+    "ar": "سبانخ",
+    "synonyms": [
+     "epinard",
+     "spinaches",
+     "sabanekh"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Amaranthaceae",
+   "category": "vegetable",
+   "perennial": false,
+   "variety": null,
+   "kc": {
+    "ini": 0.7,
+    "ini_source": "FAO56_TABLE12_GROUP_DEFAULT",
+    "mid": 1.0,
+    "end": 0.95,
+    "end_low": 0.95,
+    "end_high": 0.95,
+    "variants": [],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 0.3,
+   "root_depth": {
+    "zr_min_m": 0.3,
+    "zr_max_m": 0.5,
+    "default_for_scheduling_m": 0.3,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": false
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.2,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": null,
+   "stage_length_variants": [],
+   "typical_duration_days": null,
+   "planting_calendar": null,
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [],
+   "approximations": [],
+   "missing": [
+    "stage_lengths",
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "derived_from_published_reference",
+    "zr": "directly_documented",
+    "p": "directly_documented",
+    "stage_lengths": "missing",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "cucumber",
+   "names": {
+    "en": "Cucumber",
+    "scientific": "Cucumis sativus",
+    "fr": "Concombre",
+    "ar": "خيار",
+    "synonyms": [
+     "cucumbers",
+     "concombre",
+     "khyar"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Cucurbitaceae",
+   "category": "vegetable",
+   "perennial": false,
+   "variety": null,
+   "kc": {
+    "ini": 0.6,
+    "ini_source": "FAO56_TABLE12",
+    "mid": 1.0,
+    "end": 0.75,
+    "end_low": 0.75,
+    "end_high": 0.75,
+    "variants": [],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 0.3,
+   "root_depth": {
+    "zr_min_m": 0.7,
+    "zr_max_m": 1.2,
+    "default_for_scheduling_m": 0.7,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": false
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.5,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": {
+    "ini": 25,
+    "dev": 35,
+    "mid": 50,
+    "late": 20,
+    "total": 130,
+    "region": "Arid region",
+    "plant_date": "Nov; Feb",
+    "note": "",
+    "source": "FAO56_T11"
+   },
+   "stage_length_variants": [
+    {
+     "ini": 20,
+     "dev": 30,
+     "mid": 40,
+     "late": 15,
+     "total": 105,
+     "region": "Arid region",
+     "plant_date": "June/Aug",
+     "note": ""
+    }
+   ],
+   "typical_duration_days": 130,
+   "planting_calendar": {
+    "as_published": "Nov; Feb",
+    "region": "Arid region",
+    "note": "Plant date of the FAO-56 example row, not a Tunisian calendar."
+   },
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [
+    "Fresh-market values; machine-harvest: Kc ini 0.5, end 0.90."
+   ],
+   "approximations": [],
+   "missing": [
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "directly_documented",
+    "zr": "directly_documented",
+    "p": "directly_documented",
+    "stage_lengths": "derived_from_published_reference",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "melon",
+   "names": {
+    "en": "Melon (sweet)",
+    "scientific": "Cucumis melo",
+    "fr": "Melon",
+    "ar": "شمام",
+    "synonyms": [
+     "melons",
+     "cantaloupe",
+     "sweet melon",
+     "bettikh asfar",
+     "بطيخ أصفر"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Cucurbitaceae",
+   "category": "vegetable",
+   "perennial": false,
+   "variety": null,
+   "kc": {
+    "ini": 0.5,
+    "ini_source": "FAO56_TABLE12_GROUP_DEFAULT",
+    "mid": 1.05,
+    "end": 0.75,
+    "end_low": 0.75,
+    "end_high": 0.75,
+    "variants": [],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 0.4,
+   "root_depth": {
+    "zr_min_m": 0.8,
+    "zr_max_m": 1.5,
+    "default_for_scheduling_m": 0.8,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": false
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.4,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": {
+    "ini": 25,
+    "dev": 35,
+    "mid": 40,
+    "late": 20,
+    "total": 120,
+    "region": "Mediterranean",
+    "plant_date": "May",
+    "note": "",
+    "source": "FAO56_T11"
+   },
+   "stage_length_variants": [
+    {
+     "ini": 30,
+     "dev": 45,
+     "mid": 65,
+     "late": 20,
+     "total": 160,
+     "region": "Arid region",
+     "plant_date": "Dec/Jan",
+     "note": ""
+    }
+   ],
+   "typical_duration_days": 120,
+   "planting_calendar": {
+    "as_published": "May",
+    "region": "Mediterranean",
+    "note": "Plant date of the FAO-56 example row, not a Tunisian calendar."
+   },
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [
+    "Cantaloupe has different values (Kc mid 0.85)."
+   ],
+   "approximations": [],
+   "missing": [
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "derived_from_published_reference",
+    "zr": "directly_documented",
+    "p": "directly_documented",
+    "stage_lengths": "derived_from_published_reference",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "watermelon",
+   "names": {
+    "en": "Watermelon",
+    "scientific": "Citrullus lanatus",
+    "fr": "Pastèque",
+    "ar": "دلاع",
+    "synonyms": [
+     "watermelons",
+     "pasteque",
+     "dellaa",
+     "بطيخ"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Cucurbitaceae",
+   "category": "vegetable",
+   "perennial": false,
+   "variety": null,
+   "kc": {
+    "ini": 0.4,
+    "ini_source": "FAO56_TABLE12",
+    "mid": 1.0,
+    "end": 0.75,
+    "end_low": 0.75,
+    "end_high": 0.75,
+    "variants": [],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 0.4,
+   "root_depth": {
+    "zr_min_m": 0.8,
+    "zr_max_m": 1.5,
+    "default_for_scheduling_m": 0.8,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": false
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.4,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": {
+    "ini": 20,
+    "dev": 30,
+    "mid": 30,
+    "late": 30,
+    "total": 110,
+    "region": "Italy",
+    "plant_date": "April",
+    "note": "",
+    "source": "FAO56_T11"
+   },
+   "stage_length_variants": [
+    {
+     "ini": 10,
+     "dev": 20,
+     "mid": 20,
+     "late": 30,
+     "total": 80,
+     "region": "Near East (desert)",
+     "plant_date": "Mar/Aug",
+     "note": ""
+    }
+   ],
+   "typical_duration_days": 110,
+   "planting_calendar": {
+    "as_published": "April",
+    "region": "Italy",
+    "note": "Plant date of the FAO-56 example row, not a Tunisian calendar."
+   },
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [],
+   "approximations": [],
+   "missing": [
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "directly_documented",
+    "zr": "directly_documented",
+    "p": "directly_documented",
+    "stage_lengths": "derived_from_published_reference",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "zucchini",
+   "names": {
+    "en": "Zucchini",
+    "scientific": "Cucurbita pepo",
+    "fr": "Courgette",
+    "ar": "كوسة",
+    "synonyms": [
+     "squash",
+     "courgette",
+     "kousa"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Cucurbitaceae",
+   "category": "vegetable",
+   "perennial": false,
+   "variety": null,
+   "kc": {
+    "ini": 0.5,
+    "ini_source": "FAO56_TABLE12_GROUP_DEFAULT",
+    "mid": 0.95,
+    "end": 0.75,
+    "end_low": 0.75,
+    "end_high": 0.75,
+    "variants": [],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 0.3,
+   "root_depth": {
+    "zr_min_m": 0.6,
+    "zr_max_m": 1.0,
+    "default_for_scheduling_m": 0.6,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": false
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.5,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": null,
+   "stage_length_variants": [],
+   "typical_duration_days": null,
+   "planting_calendar": null,
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [],
+   "approximations": [],
+   "missing": [
+    "stage_lengths",
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "derived_from_published_reference",
+    "zr": "directly_documented",
+    "p": "directly_documented",
+    "stage_lengths": "missing",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "artichoke",
+   "names": {
+    "en": "Artichoke",
+    "scientific": "Cynara cardunculus var. scolymus",
+    "fr": "Artichaut",
+    "ar": "قنارية",
+    "synonyms": [
+     "artichaut",
+     "guenarya"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Asteraceae",
+   "category": "vegetable",
+   "perennial": true,
+   "variety": null,
+   "kc": {
+    "ini": 0.5,
+    "ini_source": "FAO56_TABLE12",
+    "mid": 1.0,
+    "end": 0.95,
+    "end_low": 0.95,
+    "end_high": 0.95,
+    "variants": [],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 0.7,
+   "root_depth": {
+    "zr_min_m": 0.6,
+    "zr_max_m": 0.9,
+    "default_for_scheduling_m": 0.6,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": true
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.45,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": null,
+   "stage_length_variants": [],
+   "typical_duration_days": null,
+   "planting_calendar": null,
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [],
+   "approximations": [],
+   "missing": [
+    "stage_lengths",
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "directly_documented",
+    "zr": "directly_documented",
+    "p": "directly_documented",
+    "stage_lengths": "missing",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "green_bean",
+   "names": {
+    "en": "Green bean",
+    "scientific": "Phaseolus vulgaris",
+    "fr": "Haricot vert",
+    "ar": "لوبيا خضراء",
+    "synonyms": [
+     "beans",
+     "haricot",
+     "string bean",
+     "loubia"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Fabaceae",
+   "category": "legume",
+   "perennial": false,
+   "variety": null,
+   "kc": {
+    "ini": 0.5,
+    "ini_source": "FAO56_TABLE12",
+    "mid": 1.05,
+    "end": 0.9,
+    "end_low": 0.9,
+    "end_high": 0.9,
+    "variants": [],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 0.4,
+   "root_depth": {
+    "zr_min_m": 0.5,
+    "zr_max_m": 0.7,
+    "default_for_scheduling_m": 0.5,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": false
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.45,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": {
+    "ini": 20,
+    "dev": 30,
+    "mid": 30,
+    "late": 10,
+    "total": 90,
+    "region": "California / Mediterranean",
+    "plant_date": "Feb/Mar",
+    "note": "",
+    "source": "FAO56_T11"
+   },
+   "stage_length_variants": [
+    {
+     "ini": 15,
+     "dev": 25,
+     "mid": 25,
+     "late": 10,
+     "total": 75,
+     "region": "California / Egypt / Lebanon",
+     "plant_date": "Aug/Sep",
+     "note": ""
+    }
+   ],
+   "typical_duration_days": 90,
+   "planting_calendar": {
+    "as_published": "Feb/Mar",
+    "region": "California / Mediterranean",
+    "note": "Plant date of the FAO-56 example row, not a Tunisian calendar."
+   },
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [],
+   "approximations": [],
+   "missing": [
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "directly_documented",
+    "zr": "directly_documented",
+    "p": "directly_documented",
+    "stage_lengths": "derived_from_published_reference",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "faba_bean",
+   "names": {
+    "en": "Faba (broad) bean, dry",
+    "scientific": "Vicia faba",
+    "fr": "Fève (sèche)",
+    "ar": "فول",
+    "synonyms": [
+     "broad bean",
+     "fava",
+     "feve",
+     "foul",
+     "fèves"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Fabaceae",
+   "category": "legume",
+   "perennial": false,
+   "variety": null,
+   "kc": {
+    "ini": 0.5,
+    "ini_source": "FAO56_TABLE12",
+    "mid": 1.15,
+    "end": 0.3,
+    "end_low": 0.3,
+    "end_high": 0.3,
+    "variants": [],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 0.8,
+   "root_depth": {
+    "zr_min_m": 0.5,
+    "zr_max_m": 0.7,
+    "default_for_scheduling_m": 0.5,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": false
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.45,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": {
+    "ini": 90,
+    "dev": 45,
+    "mid": 40,
+    "late": 60,
+    "total": 235,
+    "region": "Europe (autumn sowing)",
+    "plant_date": "November",
+    "note": "region = Europe, not Tunisia; autumn sowing assumed typical -> regionally_estimated",
+    "source": "FAO56_T11"
+   },
+   "stage_length_variants": [
+    {
+     "ini": 20,
+     "dev": 30,
+     "mid": 35,
+     "late": 15,
+     "total": 100,
+     "region": "Mediterranean",
+     "plant_date": "Mar/Apr",
+     "note": ""
+    }
+   ],
+   "typical_duration_days": 235,
+   "planting_calendar": {
+    "as_published": "November",
+    "region": "Europe (autumn sowing)",
+    "note": "Plant date of the FAO-56 example row, not a Tunisian calendar."
+   },
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [
+    "Fresh-harvest variant: Kc end 1.10."
+   ],
+   "approximations": [
+    "Stage lengths come from a European row."
+   ],
+   "missing": [
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "directly_documented",
+    "zr": "directly_documented",
+    "p": "directly_documented",
+    "stage_lengths": "regionally_estimated",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "chickpea",
+   "names": {
+    "en": "Chickpea",
+    "scientific": "Cicer arietinum",
+    "fr": "Pois chiche",
+    "ar": "حمص",
+    "synonyms": [
+     "pois chiche",
+     "hummus",
+     "chick pea"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Fabaceae",
+   "category": "legume",
+   "perennial": false,
+   "variety": null,
+   "kc": {
+    "ini": 0.4,
+    "ini_source": "FAO56_TABLE12_GROUP_DEFAULT",
+    "mid": 1.0,
+    "end": 0.35,
+    "end_low": 0.35,
+    "end_high": 0.35,
+    "variants": [],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 0.4,
+   "root_depth": {
+    "zr_min_m": 0.6,
+    "zr_max_m": 1.0,
+    "default_for_scheduling_m": 0.6,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": false
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.5,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": null,
+   "stage_length_variants": [],
+   "typical_duration_days": null,
+   "planting_calendar": null,
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [],
+   "approximations": [],
+   "missing": [
+    "stage_lengths",
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "derived_from_published_reference",
+    "zr": "directly_documented",
+    "p": "directly_documented",
+    "stage_lengths": "missing",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "lentil",
+   "names": {
+    "en": "Lentil",
+    "scientific": "Lens culinaris",
+    "fr": "Lentille",
+    "ar": "عدس",
+    "synonyms": [
+     "lentilles",
+     "adas"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Fabaceae",
+   "category": "legume",
+   "perennial": false,
+   "variety": null,
+   "kc": {
+    "ini": 0.4,
+    "ini_source": "FAO56_TABLE12_GROUP_DEFAULT",
+    "mid": 1.1,
+    "end": 0.3,
+    "end_low": 0.3,
+    "end_high": 0.3,
+    "variants": [],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 0.5,
+   "root_depth": {
+    "zr_min_m": 0.6,
+    "zr_max_m": 0.8,
+    "default_for_scheduling_m": 0.6,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": false
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.5,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": null,
+   "stage_length_variants": [],
+   "typical_duration_days": null,
+   "planting_calendar": null,
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [],
+   "approximations": [],
+   "missing": [
+    "stage_lengths",
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "derived_from_published_reference",
+    "zr": "directly_documented",
+    "p": "directly_documented",
+    "stage_lengths": "missing",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "durum_wheat",
+   "names": {
+    "en": "Durum wheat",
+    "scientific": "Triticum turgidum subsp. durum",
+    "fr": "Blé dur",
+    "ar": "قمح صلب",
+    "synonyms": [
+     "wheat",
+     "durum",
+     "ble dur",
+     "blé",
+     "قمح",
+     "qamh"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Poaceae",
+   "category": "cereal",
+   "perennial": false,
+   "variety": null,
+   "kc": {
+    "ini": 0.7,
+    "ini_source": "FAO56_TABLE12",
+    "mid": 1.15,
+    "end": 0.325,
+    "end_low": 0.25,
+    "end_high": 0.4,
+    "variants": [],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 1.0,
+   "root_depth": {
+    "zr_min_m": 1.5,
+    "zr_max_m": 1.8,
+    "default_for_scheduling_m": 1.5,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": false
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.55,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": {
+    "ini": 30,
+    "dev": 140,
+    "mid": 40,
+    "late": 30,
+    "total": 240,
+    "region": "Mediterranean",
+    "plant_date": "November",
+    "note": "",
+    "source": "FAO56_T11"
+   },
+   "stage_length_variants": [
+    {
+     "ini": 20,
+     "dev": 60,
+     "mid": 70,
+     "late": 30,
+     "total": 180,
+     "region": "California",
+     "plant_date": "December",
+     "note": ""
+    }
+   ],
+   "typical_duration_days": 240,
+   "planting_calendar": {
+    "as_published": "November",
+    "region": "Mediterranean",
+    "note": "Plant date of the FAO-56 example row, not a Tunisian calendar."
+   },
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [
+    "FAO-56 has NO durum-specific row: generic WINTER WHEAT (non-frozen soils) values are used.",
+    "Kc ini 0.7 is wetting-frequency dependent (Table 12 note); likely high for dry, infrequently wetted soil.",
+    "In Tunisia durum wheat is mostly rainfed with supplementary irrigation."
+   ],
+   "approximations": [
+    "Generic winter-wheat parameters, not durum-specific.",
+    "Zr 1.5-1.8 m is the winter-wheat range; spring wheat 1.0-1.5 m."
+   ],
+   "missing": [
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "generic_crop_approximation",
+    "zr": "generic_crop_approximation",
+    "p": "generic_crop_approximation",
+    "stage_lengths": "generic_crop_approximation",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "barley",
+   "names": {
+    "en": "Barley",
+    "scientific": "Hordeum vulgare",
+    "fr": "Orge",
+    "ar": "شعير",
+    "synonyms": [
+     "orge",
+     "chaair"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Poaceae",
+   "category": "cereal",
+   "perennial": false,
+   "variety": null,
+   "kc": {
+    "ini": 0.3,
+    "ini_source": "FAO56_TABLE12_GROUP_DEFAULT",
+    "mid": 1.15,
+    "end": 0.25,
+    "end_low": 0.25,
+    "end_high": 0.25,
+    "variants": [],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 1.0,
+   "root_depth": {
+    "zr_min_m": 1.0,
+    "zr_max_m": 1.5,
+    "default_for_scheduling_m": 1.0,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": false
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.55,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": {
+    "ini": 40,
+    "dev": 60,
+    "mid": 60,
+    "late": 40,
+    "total": 200,
+    "region": "(region unspecified in table)",
+    "plant_date": "November",
+    "note": "",
+    "source": "FAO56_T11"
+   },
+   "stage_length_variants": [],
+   "typical_duration_days": 200,
+   "planting_calendar": {
+    "as_published": "November",
+    "region": "(region unspecified in table)",
+    "note": "Plant date of the FAO-56 example row, not a Tunisian calendar."
+   },
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [],
+   "approximations": [
+    "Stage lengths from the grouped 'Barley/Oats/Wheat' row, region unspecified."
+   ],
+   "missing": [
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "derived_from_published_reference",
+    "zr": "directly_documented",
+    "p": "directly_documented",
+    "stage_lengths": "derived_from_published_reference",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "maize_grain",
+   "names": {
+    "en": "Maize (grain)",
+    "scientific": "Zea mays",
+    "fr": "Maïs grain",
+    "ar": "ذرة",
+    "synonyms": [
+     "corn",
+     "maize",
+     "mais",
+     "dhoura"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Poaceae",
+   "category": "cereal",
+   "perennial": false,
+   "variety": null,
+   "kc": {
+    "ini": 0.3,
+    "ini_source": "FAO56_TABLE12_GROUP_DEFAULT",
+    "mid": 1.2,
+    "end": 0.475,
+    "end_low": 0.35,
+    "end_high": 0.6,
+    "variants": [],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 2.0,
+   "root_depth": {
+    "zr_min_m": 1.0,
+    "zr_max_m": 1.7,
+    "default_for_scheduling_m": 1.0,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": false
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.55,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": {
+    "ini": 30,
+    "dev": 40,
+    "mid": 50,
+    "late": 30,
+    "total": 150,
+    "region": "Spain / California",
+    "plant_date": "April",
+    "note": "",
+    "source": "FAO56_T11"
+   },
+   "stage_length_variants": [
+    {
+     "ini": 25,
+     "dev": 40,
+     "mid": 45,
+     "late": 30,
+     "total": 140,
+     "region": "Arid climate",
+     "plant_date": "Dec/Jan",
+     "note": ""
+    }
+   ],
+   "typical_duration_days": 150,
+   "planting_calendar": {
+    "as_published": "April",
+    "region": "Spain / California",
+    "note": "Plant date of the FAO-56 example row, not a Tunisian calendar."
+   },
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [
+    "Kc end: 0.60 (high grain moisture) to 0.35 (field-dried)."
+   ],
+   "approximations": [],
+   "missing": [
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "derived_from_published_reference",
+    "zr": "directly_documented",
+    "p": "directly_documented",
+    "stage_lengths": "derived_from_published_reference",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "sunflower",
+   "names": {
+    "en": "Sunflower",
+    "scientific": "Helianthus annuus",
+    "fr": "Tournesol",
+    "ar": "دوار الشمس",
+    "synonyms": [
+     "tournesol",
+     "ain echams"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Asteraceae",
+   "category": "oilseed",
+   "perennial": false,
+   "variety": null,
+   "kc": {
+    "ini": 0.35,
+    "ini_source": "FAO56_TABLE12_GROUP_DEFAULT",
+    "mid": 1.075,
+    "end": 0.35,
+    "end_low": 0.35,
+    "end_high": 0.35,
+    "variants": [],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 2.0,
+   "root_depth": {
+    "zr_min_m": 0.8,
+    "zr_max_m": 1.5,
+    "default_for_scheduling_m": 0.8,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": false
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.45,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": {
+    "ini": 25,
+    "dev": 35,
+    "mid": 45,
+    "late": 25,
+    "total": 130,
+    "region": "Mediterranean / California",
+    "plant_date": "April/May",
+    "note": "",
+    "source": "FAO56_T11"
+   },
+   "stage_length_variants": [],
+   "typical_duration_days": 130,
+   "planting_calendar": {
+    "as_published": "April/May",
+    "region": "Mediterranean / California",
+    "note": "Plant date of the FAO-56 example row, not a Tunisian calendar."
+   },
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [
+    "Kc mid printed as 1.0-1.15; midpoint used (kc_mid_range stored)."
+   ],
+   "approximations": [
+    "Kc mid is a range midpoint."
+   ],
+   "missing": [
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "derived_from_published_reference",
+    "zr": "directly_documented",
+    "p": "directly_documented",
+    "stage_lengths": "derived_from_published_reference",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "alfalfa",
+   "names": {
+    "en": "Alfalfa (hay)",
+    "scientific": "Medicago sativa",
+    "fr": "Luzerne",
+    "ar": "برسيم حجازي",
+    "synonyms": [
+     "lucerne",
+     "luzerne",
+     "fessa"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Fabaceae",
+   "category": "forage",
+   "perennial": true,
+   "variety": null,
+   "kc": {
+    "ini": 0.4,
+    "ini_source": "FAO56_TABLE12",
+    "mid": 0.95,
+    "end": 0.9,
+    "end_low": 0.9,
+    "end_high": 0.9,
+    "variants": [],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 0.7,
+   "root_depth": {
+    "zr_min_m": 1.0,
+    "zr_max_m": 2.0,
+    "default_for_scheduling_m": 1.0,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": true
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.55,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": null,
+   "stage_length_variants": [],
+   "typical_duration_days": null,
+   "planting_calendar": null,
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [
+    "Stage lengths are per cutting cycle (not a planting-date calendar)."
+   ],
+   "approximations": [],
+   "missing": [
+    "stage_lengths",
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "directly_documented",
+    "zr": "directly_documented",
+    "p": "directly_documented",
+    "stage_lengths": "missing",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "sugar_beet",
+   "names": {
+    "en": "Sugar beet",
+    "scientific": "Beta vulgaris",
+    "fr": "Betterave sucrière",
+    "ar": "شمندر سكري",
+    "synonyms": [
+     "betterave",
+     "sugarbeet",
+     "chamandar"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Amaranthaceae",
+   "category": "industrial",
+   "perennial": false,
+   "variety": null,
+   "kc": {
+    "ini": 0.35,
+    "ini_source": "FAO56_TABLE12",
+    "mid": 1.2,
+    "end": 0.7,
+    "end_low": 0.7,
+    "end_high": 0.7,
+    "variants": [],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 0.5,
+   "root_depth": {
+    "zr_min_m": 0.7,
+    "zr_max_m": 1.2,
+    "default_for_scheduling_m": 0.7,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": false
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.55,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": null,
+   "stage_length_variants": [],
+   "typical_duration_days": null,
+   "planting_calendar": null,
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [
+    "Footnote 5: Kc end can rise to 1.0 with irrigation/rain in the last month."
+   ],
+   "approximations": [],
+   "missing": [
+    "stage_lengths",
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "directly_documented",
+    "zr": "directly_documented",
+    "p": "directly_documented",
+    "stage_lengths": "missing",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "strawberry",
+   "names": {
+    "en": "Strawberry",
+    "scientific": "Fragaria x ananassa",
+    "fr": "Fraise",
+    "ar": "فراولة",
+    "synonyms": [
+     "fraise",
+     "fraises",
+     "farawla"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Rosaceae",
+   "category": "fruit",
+   "perennial": false,
+   "variety": null,
+   "kc": {
+    "ini": 0.4,
+    "ini_source": "FAO56_TABLE12",
+    "mid": 0.85,
+    "end": 0.75,
+    "end_low": 0.75,
+    "end_high": 0.75,
+    "variants": [],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 0.2,
+   "root_depth": {
+    "zr_min_m": 0.2,
+    "zr_max_m": 0.3,
+    "default_for_scheduling_m": 0.2,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": false
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.2,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": null,
+   "stage_length_variants": [],
+   "typical_duration_days": null,
+   "planting_calendar": null,
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [],
+   "approximations": [],
+   "missing": [
+    "stage_lengths",
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "directly_documented",
+    "zr": "directly_documented",
+    "p": "directly_documented",
+    "stage_lengths": "missing",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "olive",
+   "names": {
+    "en": "Olive",
+    "scientific": "Olea europaea",
+    "fr": "Olivier (olive)",
+    "ar": "زيتون",
+    "synonyms": [
+     "olives",
+     "olivier",
+     "olea",
+     "zitoun",
+     "zitouna"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Oleaceae",
+   "category": "tree",
+   "perennial": true,
+   "variety": null,
+   "kc": {
+    "ini": 0.65,
+    "ini_source": "FAO56_TABLE12",
+    "mid": 0.7,
+    "end": 0.7,
+    "end_low": 0.7,
+    "end_high": 0.7,
+    "variants": [],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 4.0,
+   "root_depth": {
+    "zr_min_m": 1.2,
+    "zr_max_m": 1.7,
+    "default_for_scheduling_m": 1.2,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": true
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.65,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": {
+    "ini": 30,
+    "dev": 90,
+    "mid": 60,
+    "late": 90,
+    "total": 270,
+    "region": "Mediterranean",
+    "plant_date": "March",
+    "note": "stage lengths describe a first-year planting example; mature orchards are phenological",
+    "source": "FAO56_T11"
+   },
+   "stage_length_variants": [],
+   "typical_duration_days": 270,
+   "planting_calendar": {
+    "as_published": "March",
+    "region": "Mediterranean",
+    "note": "Plant date of the FAO-56 example row, not a Tunisian calendar."
+   },
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [
+    "Table 12 footnote 24: values represent 40-60 % ground cover; a Spanish monthly set also exists.",
+    "Evergreen: 'stages' are phenological phases with weak Kc contrast; deficit irrigation is common."
+   ],
+   "approximations": [
+    "Canopy-cover dependent: sparse groves need a cover-based reduction not applied here."
+   ],
+   "missing": [
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "directly_documented",
+    "zr": "directly_documented",
+    "p": "directly_documented",
+    "stage_lengths": "derived_from_published_reference",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "almond",
+   "names": {
+    "en": "Almond",
+    "scientific": "Prunus dulcis",
+    "fr": "Amandier",
+    "ar": "لوز",
+    "synonyms": [
+     "almonds",
+     "amande",
+     "amandier",
+     "louz"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Rosaceae",
+   "category": "tree",
+   "perennial": true,
+   "variety": null,
+   "kc": {
+    "ini": 0.4,
+    "ini_source": "FAO56_TABLE12",
+    "mid": 0.9,
+    "end": 0.65,
+    "end_low": 0.65,
+    "end_high": 0.65,
+    "variants": [],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 5.0,
+   "root_depth": {
+    "zr_min_m": 1.0,
+    "zr_max_m": 2.0,
+    "default_for_scheduling_m": 1.0,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": true
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.4,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": null,
+   "stage_length_variants": [],
+   "typical_duration_days": null,
+   "planting_calendar": null,
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [
+    "Footnote 18: Kc end applies before leaf drop; no ground cover assumed."
+   ],
+   "approximations": [],
+   "missing": [
+    "stage_lengths",
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "directly_documented",
+    "zr": "directly_documented",
+    "p": "directly_documented",
+    "stage_lengths": "missing",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "pistachio",
+   "names": {
+    "en": "Pistachio",
+    "scientific": "Pistacia vera",
+    "fr": "Pistachier",
+    "ar": "فستق",
+    "synonyms": [
+     "pistachios",
+     "pistache",
+     "fostok"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Anacardiaceae",
+   "category": "tree",
+   "perennial": true,
+   "variety": null,
+   "kc": {
+    "ini": 0.4,
+    "ini_source": "FAO56_TABLE12",
+    "mid": 1.1,
+    "end": 0.45,
+    "end_low": 0.45,
+    "end_high": 0.45,
+    "variants": [],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 4.0,
+   "root_depth": {
+    "zr_min_m": 1.0,
+    "zr_max_m": 1.5,
+    "default_for_scheduling_m": 1.0,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": true
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.4,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": null,
+   "stage_length_variants": [],
+   "typical_duration_days": null,
+   "planting_calendar": null,
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [],
+   "approximations": [],
+   "missing": [
+    "stage_lengths",
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "directly_documented",
+    "zr": "directly_documented",
+    "p": "directly_documented",
+    "stage_lengths": "missing",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "walnut",
+   "names": {
+    "en": "Walnut",
+    "scientific": "Juglans regia",
+    "fr": "Noyer",
+    "ar": "جوز",
+    "synonyms": [
+     "noix",
+     "noyer",
+     "walnuts"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Juglandaceae",
+   "category": "tree",
+   "perennial": true,
+   "variety": null,
+   "kc": {
+    "ini": 0.5,
+    "ini_source": "FAO56_TABLE12",
+    "mid": 1.1,
+    "end": 0.65,
+    "end_low": 0.65,
+    "end_high": 0.65,
+    "variants": [],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 4.5,
+   "root_depth": {
+    "zr_min_m": 1.7,
+    "zr_max_m": 2.4,
+    "default_for_scheduling_m": 1.7,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": true
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.5,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": null,
+   "stage_length_variants": [],
+   "typical_duration_days": null,
+   "planting_calendar": null,
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [],
+   "approximations": [],
+   "missing": [
+    "stage_lengths",
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "directly_documented",
+    "zr": "directly_documented",
+    "p": "directly_documented",
+    "stage_lengths": "missing",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "apple",
+   "names": {
+    "en": "Apple / Pear / Cherry",
+    "scientific": "Malus domestica",
+    "fr": "Pommier (pommes/poires/cerises)",
+    "ar": "تفاح",
+    "synonyms": [
+     "apples",
+     "pomme",
+     "pommier",
+     "pear",
+     "cherry",
+     "tofah"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Rosaceae",
+   "category": "tree",
+   "perennial": true,
+   "variety": null,
+   "kc": {
+    "ini": 0.6,
+    "ini_source": "FAO56_TABLE12",
+    "mid": 0.95,
+    "end": 0.75,
+    "end_low": 0.75,
+    "end_high": 0.75,
+    "variants": [
+     {
+      "label": "killing frost",
+      "ini": 0.45,
+      "mid": 0.95,
+      "end": 0.7
+     }
+    ],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 4.0,
+   "root_depth": {
+    "zr_min_m": 1.0,
+    "zr_max_m": 2.0,
+    "default_for_scheduling_m": 1.0,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": true
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.5,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": null,
+   "stage_length_variants": [],
+   "typical_duration_days": null,
+   "planting_calendar": null,
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [
+    "Variant 'no killing frost' used; 'killing frost' variant: 0.45/0.95/0.70."
+   ],
+   "approximations": [
+    "Frost regime of the orchard decides the variant."
+   ],
+   "missing": [
+    "stage_lengths",
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "directly_documented",
+    "zr": "directly_documented",
+    "p": "directly_documented",
+    "stage_lengths": "missing",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "stone_fruit",
+   "names": {
+    "en": "Stone fruit (peach, apricot, plum)",
+    "scientific": "Prunus persica",
+    "fr": "Arbres à noyau (pêcher, abricotier, prunier)",
+    "ar": "فواكه ذات نواة",
+    "synonyms": [
+     "peach",
+     "apricot",
+     "plum",
+     "peche",
+     "abricot",
+     "prunier",
+     "khokh",
+     "مشمش",
+     "خوخ"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Rosaceae",
+   "category": "tree",
+   "perennial": true,
+   "variety": null,
+   "kc": {
+    "ini": 0.55,
+    "ini_source": "FAO56_TABLE12",
+    "mid": 0.9,
+    "end": 0.65,
+    "end_low": 0.65,
+    "end_high": 0.65,
+    "variants": [
+     {
+      "label": "killing frost",
+      "ini": 0.45,
+      "mid": 0.9,
+      "end": 0.65
+     }
+    ],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 3.0,
+   "root_depth": {
+    "zr_min_m": 1.0,
+    "zr_max_m": 2.0,
+    "default_for_scheduling_m": 1.0,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": true
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.5,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": null,
+   "stage_length_variants": [],
+   "typical_duration_days": null,
+   "planting_calendar": null,
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [
+    "Variant 'no killing frost' used; frost variant 0.45/0.90/0.65."
+   ],
+   "approximations": [
+    "Table 22 lists peaches/apricots; plums are not listed separately."
+   ],
+   "missing": [
+    "stage_lengths",
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "directly_documented",
+    "zr": "directly_documented",
+    "p": "directly_documented",
+    "stage_lengths": "missing",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "citrus",
+   "names": {
+    "en": "Citrus (orange, lemon, mandarin)",
+    "scientific": "Citrus x sinensis",
+    "fr": "Agrumes (oranger, citronnier, mandarinier)",
+    "ar": "حمضيات",
+    "synonyms": [
+     "orange",
+     "lemon",
+     "mandarin",
+     "clementine",
+     "agrumes",
+     "orange tree",
+     "citron",
+     "limoun",
+     "bortokal",
+     "برتقال",
+     "ليمون"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Rutaceae",
+   "category": "tree",
+   "perennial": true,
+   "variety": null,
+   "kc": {
+    "ini": 0.65,
+    "ini_source": "FAO56_TABLE12",
+    "mid": 0.6,
+    "end": 0.65,
+    "end_low": 0.65,
+    "end_high": 0.65,
+    "variants": [
+     {
+      "label": "70% canopy",
+      "ini": 0.7,
+      "mid": 0.65,
+      "end": 0.7
+     },
+     {
+      "label": "20% canopy",
+      "ini": 0.5,
+      "mid": 0.45,
+      "end": 0.55
+     }
+    ],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 3.0,
+   "root_depth": {
+    "zr_min_m": 1.1,
+    "zr_max_m": 1.5,
+    "default_for_scheduling_m": 1.1,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": true
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.5,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": {
+    "ini": 60,
+    "dev": 90,
+    "mid": 120,
+    "late": 95,
+    "total": 365,
+    "region": "Mediterranean",
+    "plant_date": "January",
+    "note": "365-day annual cycle example",
+    "source": "FAO56_T11"
+   },
+   "stage_length_variants": [],
+   "typical_duration_days": 365,
+   "planting_calendar": {
+    "as_published": "January",
+    "region": "Mediterranean",
+    "note": "Plant date of the FAO-56 example row, not a Tunisian calendar."
+   },
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [
+    "Table 12 lists citrus by canopy cover (70 %: 0.70/0.65/0.70; 50 %: 0.65/0.60/0.65; 20 %: 0.50/0.45/0.55), not by species. 50 % canopy is the default here.",
+    "With active ground cover Kc is higher (footnote 22)."
+   ],
+   "approximations": [
+    "Canopy fraction of the grove is unknown -> 50 % variant assumed."
+   ],
+   "missing": [
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "directly_documented",
+    "zr": "directly_documented",
+    "p": "directly_documented",
+    "stage_lengths": "derived_from_published_reference",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "grape_wine",
+   "names": {
+    "en": "Grape (wine)",
+    "scientific": "Vitis vinifera",
+    "fr": "Vigne (raisin de cuve)",
+    "ar": "عنب",
+    "synonyms": [
+     "grapes",
+     "vigne",
+     "raisin",
+     "vine",
+     "dalia"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Vitaceae",
+   "category": "fruit",
+   "perennial": true,
+   "variety": null,
+   "kc": {
+    "ini": 0.3,
+    "ini_source": "FAO56_TABLE12",
+    "mid": 0.7,
+    "end": 0.45,
+    "end_low": 0.45,
+    "end_high": 0.45,
+    "variants": [],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 1.75,
+   "root_depth": {
+    "zr_min_m": 1.0,
+    "zr_max_m": 2.0,
+    "default_for_scheduling_m": 1.0,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": true
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.45,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": {
+    "ini": 30,
+    "dev": 60,
+    "mid": 40,
+    "late": 80,
+    "total": 210,
+    "region": "Mid latitudes (wine)",
+    "plant_date": "April",
+    "note": "",
+    "source": "FAO56_T11"
+   },
+   "stage_length_variants": [],
+   "typical_duration_days": 210,
+   "planting_calendar": {
+    "as_published": "April",
+    "region": "Mid latitudes (wine)",
+    "note": "Plant date of the FAO-56 example row, not a Tunisian calendar."
+   },
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [],
+   "approximations": [],
+   "missing": [
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "directly_documented",
+    "zr": "directly_documented",
+    "p": "directly_documented",
+    "stage_lengths": "derived_from_published_reference",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "grape_table",
+   "names": {
+    "en": "Grape (table/raisin)",
+    "scientific": "Vitis vinifera",
+    "fr": "Raisin de table",
+    "ar": "عنب مائدة",
+    "synonyms": [
+     "table grapes",
+     "raisin de table"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Vitaceae",
+   "category": "fruit",
+   "perennial": true,
+   "variety": null,
+   "kc": {
+    "ini": 0.3,
+    "ini_source": "FAO56_TABLE12",
+    "mid": 0.85,
+    "end": 0.45,
+    "end_low": 0.45,
+    "end_high": 0.45,
+    "variants": [],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 2.0,
+   "root_depth": {
+    "zr_min_m": 1.0,
+    "zr_max_m": 2.0,
+    "default_for_scheduling_m": 1.0,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": true
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.35,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": {
+    "ini": 20,
+    "dev": 50,
+    "mid": 75,
+    "late": 60,
+    "total": 205,
+    "region": "California (proxy)",
+    "plant_date": "March",
+    "note": "California row used as proxy",
+    "source": "FAO56_T11"
+   },
+   "stage_length_variants": [],
+   "typical_duration_days": 205,
+   "planting_calendar": {
+    "as_published": "March",
+    "region": "California (proxy)",
+    "note": "Plant date of the FAO-56 example row, not a Tunisian calendar."
+   },
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [],
+   "approximations": [
+    "Stage lengths borrowed from a California row."
+   ],
+   "missing": [
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "directly_documented",
+    "zr": "directly_documented",
+    "p": "directly_documented",
+    "stage_lengths": "derived_from_published_reference",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "date_palm",
+   "names": {
+    "en": "Date palm",
+    "scientific": "Phoenix dactylifera",
+    "fr": "Palmier dattier",
+    "ar": "نخيل التمر",
+    "synonyms": [
+     "dates",
+     "datte",
+     "palmier",
+     "nakhl",
+     "deglet nour"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Arecaceae",
+   "category": "tree",
+   "perennial": true,
+   "variety": null,
+   "kc": {
+    "ini": 0.9,
+    "ini_source": "FAO56_TABLE12",
+    "mid": 0.95,
+    "end": 0.95,
+    "end_low": 0.95,
+    "end_high": 0.95,
+    "variants": [],
+    "source": "FAO56_T12"
+   },
+   "max_plant_height_m": 8.0,
+   "root_depth": {
+    "zr_min_m": 1.5,
+    "zr_max_m": 2.5,
+    "default_for_scheduling_m": 1.5,
+    "source": "FAO56_T22",
+    "development": {
+     "model": "linear_from_initial_to_zr_max_over_initial_plus_development_stages",
+     "initial_zr_m_assumption": 0.3,
+     "initial_zr_source": "FAO56_EX38 (single worked example; ASSUMPTION for all crops, capped at zr_min)",
+     "perennial_constant": true
+    }
+   },
+   "depletion_fraction_p": {
+    "value": 0.5,
+    "reference_etc_mm_day": 5.0,
+    "adjustment": "p = p + 0.04 (5 - ETc), clamp 0.1-0.8",
+    "source": "FAO56_T22"
+   },
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": null,
+   "stage_length_variants": [],
+   "typical_duration_days": null,
+   "planting_calendar": null,
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [],
+   "approximations": [],
+   "missing": [
+    "stage_lengths",
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "directly_documented",
+    "zr": "directly_documented",
+    "p": "directly_documented",
+    "stage_lengths": "missing",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "FAO56_T12",
+    "FAO56_T11",
+    "FAO56_T22",
+    "FAO56_EX38",
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": true
+  },
+  {
+   "id": "fig",
+   "names": {
+    "en": "Fig",
+    "scientific": "Ficus carica",
+    "fr": "Figuier",
+    "ar": "تين",
+    "synonyms": [
+     "figs",
+     "figue",
+     "karmous"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Moraceae",
+   "category": "tree",
+   "perennial": true,
+   "variety": null,
+   "kc": null,
+   "max_plant_height_m": null,
+   "root_depth": null,
+   "depletion_fraction_p": null,
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": null,
+   "stage_length_variants": [],
+   "typical_duration_days": null,
+   "planting_calendar": null,
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [
+    "Not listed in FAO-56 Tables 12/22: all irrigation parameters unavailable from this source."
+   ],
+   "approximations": [],
+   "missing": [
+    "kc",
+    "zr",
+    "p",
+    "stage_lengths",
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "missing",
+    "zr": "missing",
+    "p": "missing",
+    "stage_lengths": "missing",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": false
+  },
+  {
+   "id": "pomegranate",
+   "names": {
+    "en": "Pomegranate",
+    "scientific": "Punica granatum",
+    "fr": "Grenadier",
+    "ar": "رمان",
+    "synonyms": [
+     "grenade",
+     "rommane",
+     "grenadier"
+    ],
+    "names_source": "CURATED_NAMES"
+   },
+   "family": "Lythraceae",
+   "category": "tree",
+   "perennial": true,
+   "variety": null,
+   "kc": null,
+   "max_plant_height_m": null,
+   "root_depth": null,
+   "depletion_fraction_p": null,
+   "growth_stages": [
+    "initial",
+    "development",
+    "mid_season",
+    "late_season"
+   ],
+   "stage_lengths_days": null,
+   "stage_length_variants": [],
+   "typical_duration_days": null,
+   "planting_calendar": null,
+   "harvest_calendar": null,
+   "climate_requirements": null,
+   "temperature_requirements": null,
+   "soil_requirements": null,
+   "water_sensitivity": null,
+   "ecocrop": {
+    "retrieved": false,
+    "reason": "build environment had no outbound network access"
+   },
+   "irrigation_notes": [
+    "Not listed in FAO-56 Tables 12/22 (appears only in the salinity table)."
+   ],
+   "approximations": [],
+   "missing": [
+    "kc",
+    "zr",
+    "p",
+    "stage_lengths",
+    "water_sensitivity_ky",
+    "ecocrop_environmental_requirements",
+    "planting_calendar_tunisia",
+    "harvest_calendar_tunisia",
+    "arabic_name_verification"
+   ],
+   "confidence": {
+    "kc": "missing",
+    "zr": "missing",
+    "p": "missing",
+    "stage_lengths": "missing",
+    "names": "curated_unverified"
+   },
+   "sources": [
+    "CURATED_NAMES"
+   ],
+   "irrigation_ready": false
+  }
+ ]
+}

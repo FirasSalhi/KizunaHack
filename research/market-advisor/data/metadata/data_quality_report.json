@@ -1,0 +1,873 @@
+{
+ "generated_at": "2026-11-22T05:09:10+00:00",
+ "tables": {
+  "national_vegetables": {
+   "records": 154,
+   "columns": [
+    "year",
+    "crop_id",
+    "production_kt",
+    "production_kt_source",
+    "yield_t_ha",
+    "yield_t_ha_source",
+    "area_kha",
+    "area_kha_source",
+    "producer_price_dt_t",
+    "producer_price_dt_t_source",
+    "production_t",
+    "area_ha"
+   ],
+   "years": [
+    2004,
+    2025
+   ],
+   "crops": [
+    "artichoke",
+    "onion",
+    "other_vegetables",
+    "pepper",
+    "potato",
+    "tomato",
+    "watermelon_melon"
+   ],
+   "missing_pct": {
+    "yield_t_ha": 14.3,
+    "yield_t_ha_source": 14.3
+   },
+   "duplicates": 0
+  },
+  "tunis_wholesale_arrivals": {
+   "records": 2687,
+   "columns": [
+    "item_raw",
+    "section",
+    "year",
+    "month",
+    "arrivals_t",
+    "status",
+    "bulletin",
+    "bulletin_end",
+    "n_bulletins",
+    "date",
+    "crop_id",
+    "source_id"
+   ],
+   "years": [
+    2021,
+    2026
+   ],
+   "dates": [
+    "2021-02-01",
+    "2026-07-01"
+   ],
+   "crops": [
+    "apple",
+    "apricot",
+    "cabbage",
+    "carrot",
+    "cauliflower",
+    "chard",
+    "clementine",
+    "cucumber",
+    "date",
+    "faba_bean",
+    "fennel",
+    "fig",
+    "grape",
+    "green_almond",
+    "hot_pepper",
+    "lemon",
+    "lettuce",
+    "loquat",
+    "melon",
+    "onion",
+    "orange_maltese",
+    "orange_sweet",
+    "other_fruits",
+    "other_vegetables",
+    "parsley",
+    "pea",
+    "peach",
+    "pear",
+    "plum",
+    "pomegranate",
+    "potato",
+    "spinach",
+    "squash",
+    "strawberry",
+    "sweet_pepper",
+    "tomato",
+    "total_fruits",
+    "total_vegetables",
+    "turnip",
+    "watermelon",
+    "zucchini"
+   ],
+   "missing_pct": {
+    "arrivals_t": 36.6
+   },
+   "duplicates": 0
+  },
+  "tunis_retail_prices": {
+   "records": 1220,
+   "columns": [
+    "item_raw",
+    "unit",
+    "year",
+    "month",
+    "status",
+    "bulletin",
+    "bulletin_end",
+    "n_bulletins",
+    "date",
+    "crop_id",
+    "retail_price_dt_kg",
+    "source_id"
+   ],
+   "years": [
+    2021,
+    2026
+   ],
+   "dates": [
+    "2021-07-01",
+    "2026-07-01"
+   ],
+   "crops": [
+    "cabbage",
+    "carrot",
+    "date",
+    "faba_bean",
+    "fennel",
+    "garlic",
+    "grape",
+    "hot_pepper",
+    "lemon",
+    "melon",
+    "onion",
+    "orange_maltese",
+    "orange_sweet",
+    "pea",
+    "potato",
+    "squash",
+    "sweet_pepper",
+    "tomato",
+    "turnip",
+    "watermelon"
+   ],
+   "missing_pct": {
+    "retail_price_dt_kg": 17.5
+   },
+   "duplicates": 0
+  },
+  "faostat_tunisia": {
+   "records": 6336,
+   "columns": [
+    "faostat_item",
+    "element",
+    "year",
+    "value",
+    "flag",
+    "crop_id",
+    "flag_meaning",
+    "source_id"
+   ],
+   "years": [
+    1961,
+    2024
+   ],
+   "crops": [
+    "apple",
+    "apricot",
+    "artichoke",
+    "cabbage",
+    "carrot",
+    "cauliflower",
+    "clementine",
+    "cucumber",
+    "date",
+    "faba_bean",
+    "fig",
+    "garlic",
+    "grape",
+    "lemon",
+    "lettuce",
+    "melon",
+    "olive",
+    "onion",
+    "orange",
+    "pea",
+    "peach",
+    "pear",
+    "pepper",
+    "plum",
+    "potato",
+    "spinach",
+    "squash",
+    "strawberry",
+    "tomato",
+    "watermelon"
+   ],
+   "missing_pct": {},
+   "duplicates": 0
+  },
+  "sidi_bouzid_market": {
+   "records": 4312,
+   "columns": [
+    "date",
+    "item_raw",
+    "arrivals_t",
+    "wholesale_min_dt_kg",
+    "wholesale_max_dt_kg",
+    "retail_min_dt_kg",
+    "retail_max_dt_kg",
+    "crop_id",
+    "source_id"
+   ],
+   "dates": [
+    "2018-01-24",
+    "2022-10-21"
+   ],
+   "crops": [
+    "apple",
+    "clementine",
+    "hot_pepper",
+    "onion",
+    "orange_maltese",
+    "orange_sweet",
+    "potato",
+    "sweet_pepper"
+   ],
+   "missing_pct": {
+    "wholesale_min_dt_kg": 21.8,
+    "wholesale_max_dt_kg": 21.8,
+    "retail_min_dt_kg": 21.8,
+    "retail_max_dt_kg": 21.8
+   },
+   "duplicates": 0
+  },
+  "national_fruits": {
+   "records": 264,
+   "columns": [
+    "crop_id",
+    "year",
+    "production_t",
+    "source_id"
+   ],
+   "years": [
+    1993,
+    2026
+   ],
+   "crops": [
+    "almond_dry",
+    "apple",
+    "apricot",
+    "citrus_total",
+    "clementine",
+    "date",
+    "fig",
+    "grape",
+    "grape_wine",
+    "lemon",
+    "loquat_cherry",
+    "mandarin",
+    "olive_oil_olive",
+    "orange_maltese",
+    "orange_navel",
+    "other_fruits",
+    "peach",
+    "pear",
+    "pistachio",
+    "plum",
+    "pomegranate",
+    "quince",
+    "table_olive"
+   ],
+   "missing_pct": {},
+   "duplicates": 0
+  },
+  "climate_governorates": {
+   "records": 288,
+   "columns": [
+    "governorate",
+    "lat",
+    "lon",
+    "month",
+    "tmax",
+    "tmin",
+    "tmean",
+    "rain_mm",
+    "eff_rain_mm",
+    "eto_mm",
+    "source_id"
+   ],
+   "missing_pct": {},
+   "duplicates": 0
+  },
+  "cpi": {
+   "records": 43,
+   "columns": [
+    "year",
+    "cpi",
+    "source_id"
+   ],
+   "years": [
+    1983,
+    2025
+   ],
+   "missing_pct": {},
+   "duplicates": 0
+  },
+  "smag": {
+   "records": 9,
+   "columns": [
+    "year",
+    "smag_dt_day",
+    "source_id"
+   ],
+   "years": [
+    2018,
+    2026
+   ],
+   "missing_pct": {},
+   "duplicates": 0
+  },
+  "water_tariff_secadenord": {
+   "records": 263,
+   "columns": [
+    "year",
+    "client",
+    "zone",
+    "tariff_millime_m3",
+    "tariff_dt_m3",
+    "agricultural_client",
+    "source_id"
+   ],
+   "years": [
+    2014,
+    2025
+   ],
+   "missing_pct": {
+    "zone": 4.6
+   },
+   "duplicates": 0
+  },
+  "fertiliser_prices": {
+   "records": 30,
+   "columns": [
+    "campagne",
+    "product",
+    "price_dt_t",
+    "source_id"
+   ],
+   "missing_pct": {},
+   "duplicates": 0
+  }
+ },
+ "issues": [
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Abricots 2024-05: bulletins disagree (4417 to 4419); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Allaches Sardines 2023-02: bulletins disagree (89 to 115); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Allaches Sardines 2023-04: bulletins disagree (63 to 82); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Allaches Sardines 2023-07: bulletins disagree (87 to 112); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Allaches Sardines 2024-04: bulletins disagree (59 to 63); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Allaches Sardines 2025-05: bulletins disagree (219 to 225); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Allaches Sardines 2025-06: bulletins disagree (117 to 125); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Allaches Sardines 2025-07: bulletins disagree (210 to 222); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Autres Fruits 2022-07: bulletins disagree (554 to 1483); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Autres Fruits 2022-10: bulletins disagree (734 to 1029); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Autres Fruits 2023-03: bulletins disagree (2076 to 2228); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Autres Fruits 2023-04: bulletins disagree (963 to 1149); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Autres Fruits 2023-07: bulletins disagree (150 to 390); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Autres Fruits 2024-01: bulletins disagree (3868 to 4089); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Autres Fruits 2024-04: bulletins disagree (2532 to 2996); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Autres Fruits 2024-05: bulletins disagree (216 to 722); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Autres Fruits 2025-06: bulletins disagree (528 to 854); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Autres Fruits 2025-07: bulletins disagree (372 to 2074); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Autres légumes 2022-10: bulletins disagree (1979 to 3171); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Autres légumes 2023-02: bulletins disagree (3581 to 4260); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Autres légumes 2023-03: bulletins disagree (3482 to 7100); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Autres légumes 2023-04: bulletins disagree (2589 to 3973); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Autres légumes 2023-07: bulletins disagree (989 to 1393); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Autres légumes 2024-01: bulletins disagree (2071 to 3971); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Autres légumes 2024-04: bulletins disagree (415 to 1940); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Autres légumes 2024-05: bulletins disagree (1776 to 2673); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Autres légumes 2024-06: bulletins disagree (1463 to 1715); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Autres légumes 2025-05: bulletins disagree (1773 to 4167); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Autres légumes 2025-06: bulletins disagree (1457 to 1520); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Autres légumes 2025-07: bulletins disagree (1300 to 3400); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Autres poissons 2022-10: bulletins disagree (414 to 469); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Autres poissons 2023-02: bulletins disagree (364 to 433); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Autres poissons 2023-03: bulletins disagree (391 to 428); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Autres poissons 2023-04: bulletins disagree (418 to 437); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Autres poissons 2023-07: bulletins disagree (202 to 211); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Autres poissons 2024-04: bulletins disagree (221 to 225); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Autres poissons 2025-05: bulletins disagree (289 to 295); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Autres poissons 2025-06: bulletins disagree (205 to 213); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Autres poissons 2025-07: bulletins disagree (195 to 207); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Concombre 2025-07: bulletins disagree (214 to 2314); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Dattes 2021-11: bulletins disagree (1075 to 1092); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Fraises 2023-04: bulletins disagree (1736 to 1763); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Oranges douces 2023-03: bulletins disagree (435 to 443); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Petit- pois 2024-04: bulletins disagree (334 to 2673); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Poivron doux 2022-10: bulletins disagree (651 to 669); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Poivron doux 2023-02: bulletins disagree (238 to 952); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Poivron doux 2023-03: bulletins disagree (146 to 231); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Poivron doux 2023-04: bulletins disagree (59 to 100); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Poivron doux 2023-07: bulletins disagree (340 to 363); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Poivron doux 2024-01: bulletins disagree (192 to 213); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Poivron piquant 2022-10: bulletins disagree (2628 to 2666); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Poivron piquant 2023-02: bulletins disagree (952 to 1046); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Poivron piquant 2023-03: bulletins disagree (1112 to 1219); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Poivron piquant 2023-04: bulletins disagree (1397 to 1520); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Poivron piquant 2023-07: bulletins disagree (2338 to 2433); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Poivron piquant 2024-01: bulletins disagree (947 to 966); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Pomme de terre 2024-01: bulletins disagree (2951 to 2954); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Pomme de terre 2025-05: bulletins disagree (1908 to 2979); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Total 2021-11: bulletins disagree (11593 to 11610); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Total 2023-03: bulletins disagree (6568 to 6628); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "warning",
+   "message": "Total 2024-05: bulletins disagree (16708 to 16710); the most recent bulletin is kept."
+  },
+  {
+   "dataset": "ins_tunis_arrivals",
+   "severity": "info",
+   "message": "61 item-months reported with different values in two bulletins."
+  },
+  {
+   "dataset": "ins_tunis_retail",
+   "severity": "info",
+   "message": "0 item-months reported with different values in two bulletins."
+  },
+  {
+   "dataset": "moa_veg_area_kha",
+   "severity": "info",
+   "message": "Area column is labelled 'Superficie_ha' but production(kt) ≈ area × yield holds for 95% of 132 crop-years only if area is in 1000 ha; treated as 1000 ha."
+  },
+  {
+   "dataset": "moa_veg",
+   "severity": "warning",
+   "message": "artichoke 2007: production 19.0 kt ≠ area 3.0 kha × yield 8.0 t/ha (ratio 0.79)"
+  },
+  {
+   "dataset": "moa_veg",
+   "severity": "warning",
+   "message": "onion 2006: production 355.0 kt ≠ area 13.6 kha × yield 16.6 t/ha (ratio 1.57)"
+  },
+  {
+   "dataset": "moa_veg",
+   "severity": "warning",
+   "message": "tomato 2012: production 1357.0 kt ≠ area 28.9 kha × yield 38.06 t/ha (ratio 1.23)"
+  },
+  {
+   "dataset": "moa_veg",
+   "severity": "warning",
+   "message": "watermelon_melon 2004: production 450.0 kt ≠ area 22.8 kha × yield 28.0 t/ha (ratio 0.70)"
+  },
+  {
+   "dataset": "moa_veg",
+   "severity": "warning",
+   "message": "watermelon_melon 2005: production 446.0 kt ≠ area 21.3 kha × yield 26.9 t/ha (ratio 0.78)"
+  },
+  {
+   "dataset": "moa_veg",
+   "severity": "warning",
+   "message": "watermelon_melon 2006: production 467.0 kt ≠ area 21.4 kha × yield 34.3 t/ha (ratio 0.64)"
+  },
+  {
+   "dataset": "moa_veg_production_kt",
+   "severity": "info",
+   "message": "Cross-check with the Arabic file 'evolution_cultures_maraichere' (2010-2021): 37/60 crop-years identical."
+  },
+  {
+   "dataset": "moa_veg_production_kt",
+   "severity": "warning",
+   "message": "potato 2019: 435.0 kt vs 445 kt in the Arabic copy"
+  },
+  {
+   "dataset": "moa_veg_production_kt",
+   "severity": "warning",
+   "message": "tomato 2012: 1357.0 kt vs 1375 kt in the Arabic copy"
+  },
+  {
+   "dataset": "moa_veg_production_kt",
+   "severity": "warning",
+   "message": "tomato 2014: 1288.0 kt vs 1250 kt in the Arabic copy"
+  },
+  {
+   "dataset": "moa_veg_production_kt",
+   "severity": "warning",
+   "message": "tomato 2015: 1600.0 kt vs 1350 kt in the Arabic copy"
+  },
+  {
+   "dataset": "moa_veg_production_kt",
+   "severity": "warning",
+   "message": "tomato 2019: 1534.0 kt vs 1468 kt in the Arabic copy"
+  },
+  {
+   "dataset": "moa_veg_production_kt",
+   "severity": "warning",
+   "message": "tomato 2020: 1574.0 kt vs 1474 kt in the Arabic copy"
+  },
+  {
+   "dataset": "moa_veg_production_kt",
+   "severity": "warning",
+   "message": "tomato 2021: 1462.0 kt vs 1461 kt in the Arabic copy"
+  },
+  {
+   "dataset": "moa_veg_production_kt",
+   "severity": "warning",
+   "message": "artichoke 2012: 18.0 kt vs 17 kt in the Arabic copy"
+  },
+  {
+   "dataset": "moa_veg_production_kt",
+   "severity": "warning",
+   "message": "pepper 2012: 315.0 kt vs 270 kt in the Arabic copy"
+  },
+  {
+   "dataset": "moa_veg_production_kt",
+   "severity": "warning",
+   "message": "pepper 2015: 511.0 kt vs 380 kt in the Arabic copy"
+  },
+  {
+   "dataset": "moa_veg_production_kt",
+   "severity": "warning",
+   "message": "pepper 2019: 435.0 kt vs 476 kt in the Arabic copy"
+  },
+  {
+   "dataset": "moa_veg_production_kt",
+   "severity": "warning",
+   "message": "pepper 2020: 476.0 kt vs 449 kt in the Arabic copy"
+  },
+  {
+   "dataset": "moa_veg_production_kt",
+   "severity": "warning",
+   "message": "onion 2010: 362.0 kt vs 498 kt in the Arabic copy"
+  },
+  {
+   "dataset": "moa_veg_production_kt",
+   "severity": "warning",
+   "message": "onion 2011: 350.0 kt vs 470 kt in the Arabic copy"
+  },
+  {
+   "dataset": "moa_veg_production_kt",
+   "severity": "warning",
+   "message": "onion 2012: 378.0 kt vs 508 kt in the Arabic copy"
+  },
+  {
+   "dataset": "moa_veg_production_kt",
+   "severity": "warning",
+   "message": "onion 2013: 389.0 kt vs 490 kt in the Arabic copy"
+  },
+  {
+   "dataset": "moa_veg_production_kt",
+   "severity": "warning",
+   "message": "onion 2014: 375.0 kt vs 510 kt in the Arabic copy"
+  },
+  {
+   "dataset": "moa_veg_production_kt",
+   "severity": "warning",
+   "message": "onion 2015: 471.0 kt vs 520 kt in the Arabic copy"
+  },
+  {
+   "dataset": "moa_veg_production_kt",
+   "severity": "warning",
+   "message": "onion 2016: 478.0 kt vs 543 kt in the Arabic copy"
+  },
+  {
+   "dataset": "moa_veg_production_kt",
+   "severity": "warning",
+   "message": "onion 2017: 466.0 kt vs 571 kt in the Arabic copy"
+  },
+  {
+   "dataset": "moa_veg_production_kt",
+   "severity": "warning",
+   "message": "onion 2018: 487.0 kt vs 529 kt in the Arabic copy"
+  },
+  {
+   "dataset": "moa_veg_production_kt",
+   "severity": "warning",
+   "message": "onion 2019: 414.0 kt vs 419 kt in the Arabic copy"
+  },
+  {
+   "dataset": "moa_veg_production_kt",
+   "severity": "warning",
+   "message": "onion 2021: 347.0 kt vs 346 kt in the Arabic copy"
+  },
+  {
+   "dataset": "faostat",
+   "severity": "info",
+   "message": "55% of FAOSTAT Tunisia values used are official (flag A); the rest are FAO estimates or imputations and are labelled as such."
+  },
+  {
+   "dataset": "sidi_bouzid_prices",
+   "severity": "info",
+   "message": "938 rows with all prices = 0 treated as 'not on sale' (NaN)."
+  },
+  {
+   "dataset": "moa_citrus_total",
+   "severity": "warning",
+   "message": "citrus 2009: 296.9 kt vs 300.0 kt in two Ministry files"
+  },
+  {
+   "dataset": "moa_citrus_total",
+   "severity": "warning",
+   "message": "citrus 2010: 307.9 kt vs 308.0 kt in two Ministry files"
+  },
+  {
+   "dataset": "moa_citrus_total",
+   "severity": "warning",
+   "message": "citrus 2015: 400.0 kt vs 430.0 kt in two Ministry files"
+  },
+  {
+   "dataset": "moa_fruit",
+   "severity": "info",
+   "message": "Regional fruit files (Kasserine 2022-2023, 'production arboricole' of an unnamed governorate, dates by governorate) are kept in raw data but not used as national data."
+  },
+  {
+   "dataset": "secadenord_tariff",
+   "severity": "info",
+   "message": "SECADENORD sells bulk water to CRDAs (agricultural) and SONEDE in the north; farm-gate irrigation prices in public irrigated areas (GDA) are different and not in this dataset."
+  }
+ ]
+}

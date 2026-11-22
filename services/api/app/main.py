@@ -10,7 +10,7 @@ from app.core.database import engine
 from app.core.logging import logger, setup_logging
 from app.models.base import Base
 from app.plants import engine as plant_engine
-from app.routers import irrigation, plants, sensors
+from app.routers import assistant, irrigation, plants, sensors, weather
 from app.sensors.feed import feed as sensor_feed
 
 
@@ -67,6 +67,8 @@ app.include_router(api_router, prefix=settings.API_V1_PREFIX)
 app.include_router(irrigation.router)
 app.include_router(plants.router)
 app.include_router(sensors.router)
+app.include_router(weather.router)
+app.include_router(assistant.router)
 
 
 # Backward-compatible root health check

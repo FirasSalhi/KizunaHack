@@ -15,6 +15,10 @@ const PAGES: Record<string, string[]> = {
   "post-harvest": ["post-harvest-model", "dashboard", "farmer_dashboard.html"],
   // Dashboard > 3D Irrigation: the farmer's 3D farm with per-field irrigation decisions (branch fatma)
   "irrigation-3d": ["irrigation-notebook", "html", "ferme_3d.html"],
+  // Dashboard > Market: top produce at the Tunis wholesale market, best month to sell, what to plant (branch fatma)
+  "market": ["market-advisor", "html", "marche_simple.html"],
+  // Dashboard > Solar energy: 3D simulation of a STEG outage, with the solar kit keeping the irrigation pump running
+  "solar": ["solar-pump", "html", "solaire_3d.html"],
 };
 
 // The 3D farm sends a fixed demo location to the irrigation engine; use the plan's parcel instead.

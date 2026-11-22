@@ -16,3 +16,5 @@ ignore = [
 "migrations/**" = ["E501", "F401", "UP007", "W291"]
 "app/core/config.py" = ["S105"]
 "app/schemas/auth.py" = ["S105"]
+# Spoken answers in four languages: one sentence per line reads better than wrapped strings.
+"app/routers/assistant.py" = ["E501"]

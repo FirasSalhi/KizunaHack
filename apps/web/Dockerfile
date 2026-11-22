@@ -17,6 +17,8 @@ COPY packages/contracts ./packages/contracts
 # Dashboard sections that show research pages: app/embed/[page] serves these files from the repo
 COPY research/post-harvest-model/dashboard/farmer_dashboard.html ./research/post-harvest-model/dashboard/
 COPY research/irrigation-notebook/html/ferme_3d.html ./research/irrigation-notebook/html/
+COPY research/market-advisor/html/marche_simple.html ./research/market-advisor/html/
+COPY research/solar-pump/html/solaire_3d.html ./research/solar-pump/html/
 
 WORKDIR /app/apps/web
 RUN pnpm build

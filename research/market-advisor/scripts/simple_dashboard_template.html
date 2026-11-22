@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FARMLINK · Le marché en un coup d'œil</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&family=Cairo:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--g:#2E7D32;--dg:#1B4332;--bg:#F7F9F7;--card:#fff;--line:#E1E8E1;--txt:#1f2a1f;--mut:#5d6b5d;--up:#2E7D32;--down:#C62828;--sun:#F9A825}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);font-family:Nunito,system-ui,sans-serif;font-size:18px}
+.ar{font-family:Cairo,'Segoe UI',sans-serif;direction:rtl;unicode-bidi:isolate}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px 40px}
+header{background:var(--dg);color:#fff;padding:22px 0 26px}
+header .wrap{padding-bottom:0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-end}
+header h1{margin:0;font-size:clamp(26px,4vw,40px);font-weight:900;letter-spacing:-.5px}
+header h1 .ar{display:block;font-size:.72em;opacity:.9;margin-top:2px}
+header .season{background:rgba(255,255,255,.12);border-radius:14px;padding:10px 16px;font-weight:800}
+header .season small{display:block;font-weight:600;opacity:.8;font-size:14px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:-14px 0 22px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 14px;display:flex;gap:12px;align-items:center;text-decoration:none;color:inherit;box-shadow:0 2px 8px rgba(27,67,50,.06)}
+.step b{display:grid;place-items:center;min-width:38px;height:38px;border-radius:50%;background:var(--g);color:#fff;font-size:20px}
+.step span{font-weight:800;line-height:1.15}.step .ar{display:block;font-weight:600;color:var(--mut);font-size:15px}
+section{margin-top:26px}
+h2{font-size:clamp(22px,3vw,30px);margin:0 0 4px;color:var(--dg);font-weight:900;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+h2 .ar{font-size:.75em;color:var(--mut)}
+.lead{color:var(--mut);margin:0 0 14px;font-size:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:0 2px 10px rgba(27,67,50,.05)}
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.kpi{padding:16px 18px;display:flex;gap:14px;align-items:center}
+.kpi img{width:74px;height:74px}
+.kpi .v{font-size:clamp(28px,4vw,40px);font-weight:900;color:var(--dg);line-height:1}
+.kpi .l{font-weight:800}.kpi .l .ar{display:block;color:var(--mut);font-size:15px}
+.trend{display:inline-flex;align-items:center;gap:4px;font-weight:900;border-radius:999px;padding:2px 10px;font-size:16px}
+.trend.up{background:#E8F5E9;color:var(--up)}.trend.down{background:#FFEBEE;color:var(--down)}.trend.flat{background:#EEF1EE;color:var(--mut)}
+.stall{display:grid;grid-template-columns:1.5fr 1fr;gap:14px}
+#scene{position:relative;height:420px;overflow:hidden;cursor:grab;background:linear-gradient(#E8F3EA,#F7F9F7 70%)}
+#scene canvas{display:block}
+.tag{position:absolute;transform:translate(-50%,-100%);pointer-events:none;background:#fff;border:2px solid var(--g);border-radius:12px;padding:3px 9px;font-weight:900;font-size:15px;white-space:nowrap;box-shadow:0 2px 6px rgba(0,0,0,.12)}
+.tag .n{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--g);color:#fff;font-size:13px;margin-inline-end:5px}
+.toggle{display:flex;gap:8px;margin-bottom:10px}
+.toggle button,.water button{font:inherit;font-weight:800;border:2px solid var(--g);background:#fff;color:var(--g);border-radius:999px;padding:8px 16px;cursor:pointer;display:inline-flex;gap:8px;align-items:center}
+.toggle button.on,.water button.on{background:var(--g);color:#fff}
+.list{padding:8px 12px}
+.row{display:grid;grid-template-columns:34px 56px 1fr auto;align-items:center;gap:10px;padding:8px 4px;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:0}
+.rank{width:32px;height:32px;border-radius:50%;background:var(--dg);color:#fff;display:grid;place-items:center;font-weight:900}
+.row img{width:56px;height:56px}
+.row .nm{font-weight:900;line-height:1.1}.row .nm .ar{display:block;color:var(--mut);font-size:15px}
+.row .t{text-align:end;font-weight:900;color:var(--dg)}.row .t small{display:block;font-weight:700;color:var(--mut);font-size:13px}
+.bar{height:8px;border-radius:5px;background:#E8F5E9;margin-top:4px;overflow:hidden}.bar i{display:block;height:100%;background:var(--g);border-radius:5px}
+.picker{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pick{border:2px solid var(--line);background:#fff;border-radius:14px;padding:4px 10px 4px 4px;display:flex;align-items:center;gap:6px;font:inherit;font-weight:800;cursor:pointer}
+.pick img{width:40px;height:40px}.pick.on{border-color:var(--g);background:#E8F5E9}
+.months{display:grid;grid-template-columns:repeat(12,1fr);gap:6px;padding:16px;align-items:end}
+.m{display:flex;flex-direction:column;align-items:center;gap:6px}
+.m .col{width:100%;border-radius:8px 8px 4px 4px;min-height:8px;position:relative}
+.m .col span{position:absolute;top:-22px;left:50%;transform:translateX(-50%);font-size:13px;font-weight:800;white-space:nowrap;color:var(--mut)}
+.m b{font-size:14px}.m.best b{color:var(--up)}.m.worst b{color:var(--down)}
+.verdict{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 16px 16px}
+.verdict div{border-radius:14px;padding:12px 14px;font-weight:800}
+.verdict .good{background:#E8F5E9;color:var(--dg)}.verdict .bad{background:#FFEBEE;color:#8E1B1B}
+.verdict big{display:block;font-size:24px;font-weight:900}
+.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.price{padding:12px 14px;display:flex;gap:12px;align-items:center}
+.price img{width:64px;height:64px}.price .v{font-size:26px;font-weight:900;color:var(--dg)}.price .v small{font-size:15px;color:var(--mut)}
+.controls{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+select{font:inherit;font-weight:800;padding:8px 12px;border-radius:12px;border:2px solid var(--g);background:#fff;color:var(--dg)}
+.advice{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.adv{padding:14px;position:relative}
+.adv .top{display:flex;gap:10px;align-items:center}
+.adv img{width:84px;height:84px}
+.adv .r{position:absolute;top:10px;inset-inline-end:12px;font-weight:900;color:#fff;background:var(--dg);border-radius:10px;padding:2px 9px}
+.adv.first{border:3px solid var(--g)}.adv.first .r{background:var(--g)}
+.adv h3{margin:0;font-size:22px;font-weight:900;line-height:1.1}.adv h3 .ar{display:block;font-size:16px;color:var(--mut)}
+.facts{margin-top:10px;display:grid;gap:7px}
+.fact{display:flex;justify-content:space-between;gap:8px;align-items:center;font-weight:800;font-size:16px}
+.fact .k{color:var(--mut);font-weight:700}
+.icons{display:inline-flex;gap:2px}
+.note{font-size:14px;color:var(--mut);margin-top:10px}
+footer{margin-top:30px;font-size:14px;color:var(--mut);border-top:1px solid var(--line);padding-top:12px}
+footer li{margin:2px 0}
+@media (max-width:860px){.tag{padding:2px}.tag .w{display:none}.tag .n{margin:0}.stall,.advice,.prices{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.kpis{grid-template-columns:1fr}#scene{height:330px}
+ .months{gap:3px;padding:12px 8px}.m b{font-size:11px}.m .col span{font-size:10px;top:-17px}.verdict{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <h1>Le marché en un coup d'œil <span class="ar">السوق في لمحة</span></h1>
+  <div class="season" id="season"></div>
+</div></header>
+<div class="wrap">
+  <div class="steps">
+    <a class="step" href="#s1"><b>1</b><span>Ce qui arrive au marché<span class="ar">شنوة يدخل للسوق</span></span></a>
+    <a class="step" href="#s2"><b>2</b><span>Quand le prix est haut<span class="ar">وقتاش السوم غالي</span></span></a>
+    <a class="step" href="#s3"><b>3</b><span>Que planter cette saison<span class="ar">شنوة تزرع</span></span></a>
+  </div>
+
+  <div class="kpis" id="kpis"></div>
+
+  <section id="s1">
+    <h2>1. Les produits les plus présents au marché <span class="ar">أكثر المنتوجات في السوق</span></h2>
+    <p class="lead" id="lead1"></p>
+    <div class="toggle"><button class="on" data-cat="vegetable">Légumes · <span class="ar">خضر</span></button><button data-cat="fruit">Fruits · <span class="ar">غلال</span></button></div>
+    <div class="stall">
+      <div class="card" id="scene"></div>
+      <div class="card list" id="toplist"></div>
+    </div>
+    <p class="note">Plus la pile est haute, plus il est arrivé de tonnes. Faites tourner l'étal avec la souris ou le doigt.</p>
+  </section>
+
+  <section id="s2">
+    <h2>2. Quand vendre ? <span class="ar">وقتاش تبيع ؟</span></h2>
+    <p class="lead">Prix au détail à Tunis, mois par mois : une colonne haute veut dire un prix plus cher que d'habitude.</p>
+    <div class="picker" id="picker"></div>
+    <div class="card"><div class="months" id="months"></div><div class="verdict" id="verdict"></div></div>
+    <p class="note" id="note2"></p>
+  </section>
+
+  <section>
+    <h2>Prix payé au producteur <span class="ar">سوم المنتج</span></h2>
+    <p class="lead" id="lead3"></p>
+    <div class="prices" id="prices"></div>
+  </section>
+
+  <section id="s3">
+    <h2>3. Que planter cette saison ? <span class="ar">شنوة تزرع هالموسم ؟</span></h2>
+    <p class="lead">Choisissez votre région et l'eau dont vous disposez. Les cultures sont classées selon le prix, le rendement, le revenu et l'eau.</p>
+    <div class="controls">
+      <select id="gov" aria-label="Gouvernorat"></select>
+      <div class="water" id="water"></div>
+    </div>
+    <div class="advice" id="advice"></div>
+    <p class="note" id="note3"></p>
+  </section>
+
+  <footer><b>Sources</b><ul id="src"></ul></footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+const D = __DATA__;
+const MONTHS = ["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc."];
+const MONTHS_LONG = ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"];
+const fmt = n => n == null ? "–" : Math.round(n).toLocaleString("fr-FR").replace(/ /g," ");
+const $ = s => document.querySelector(s);
+
+// ------------------------------------------------------------------ procedural 3D produce
+const col = h => new THREE.Color(h);
+function blob(o){ // deformed sphere with vertex colours
+  const g = new THREE.SphereGeometry(1, 48, 32), p = g.attributes.position, c = [], v = new THREE.Vector3();
+  for (let i=0;i<p.count;i++){
+    v.fromBufferAttribute(p,i);
+    const th = Math.atan2(v.z,v.x), y=v.y; let r=1;
+    if (o.lobes) r += o.lobeAmp*Math.cos(o.lobes*th)*(1-Math.abs(y));
+    if (o.noise) r += o.noise*(Math.sin(5.1*v.x+1.3)*Math.sin(4.3*v.y+.7)*Math.sin(3.7*v.z+2.1));
+    if (o.crease) r -= o.crease*Math.exp(-Math.pow(v.z*6,2))*(1-Math.abs(y)*.6);
+    if (o.dimple) r -= o.dimple*Math.exp(-Math.pow((1-Math.abs(y))*6,2));
+    v.multiplyScalar(r);
+    if (o.taper) { const t = Math.min(1,Math.max(0,(v.y+1)/2)); v.x *= 1 - o.taper*Math.pow(t,1.6); v.z *= 1 - o.taper*Math.pow(t,1.6); }
+    if (o.tip) { const t = Math.max(0,v.y); v.y += o.tip*Math.pow(t,3); }
+    if (o.points) { v.y += o.points*Math.sign(v.y)*Math.pow(Math.abs(v.y),6); }
+    v.x*=o.sx||1; v.y*=o.sy||1; v.z*=o.sz||1;
+    p.setXYZ(i,v.x,v.y,v.z);
+    const k = o.color(v.clone(), th, y); c.push(k.r,k.g,k.b);
+  }
+  g.setAttribute("color", new THREE.Float32BufferAttribute(c,3)); g.computeVertexNormals();
+  return new THREE.Mesh(g, new THREE.MeshStandardMaterial({vertexColors:true, roughness:o.rough??.45, metalness:0}));
+}
+const mat = (h,r=.6)=>new THREE.MeshStandardMaterial({color:h,roughness:r});
+function stem(h=.35,r=.05,c="#4E6B2E"){ const m=new THREE.Mesh(new THREE.CylinderGeometry(r*.7,r,h,10),mat(c,.8)); m.position.y=h/2; return m; }
+function leaf(len=.6,w=.25,c="#4C9A2A"){ const s=new THREE.Shape(); s.moveTo(0,0); s.quadraticCurveTo(w,len*.5,0,len); s.quadraticCurveTo(-w,len*.5,0,0);
+  const m=new THREE.Mesh(new THREE.ShapeGeometry(s,12),new THREE.MeshStandardMaterial({color:c,side:THREE.DoubleSide,roughness:.6})); return m; }
+function calyx(n=6,len=.35,c="#3F7D2A"){ const g=new THREE.Group(); for(let i=0;i<n;i++){ const l=leaf(len,.09,c); l.rotation.x=-Math.PI/2+.35; const h=new THREE.Group(); h.add(l); h.rotation.y=i/n*Math.PI*2; g.add(h);} return g; }
+const lerp=(a,b,t)=>a.clone().lerp(b,Math.min(1,Math.max(0,t)));
+function tube(points, radius, color, rough=.4){ const curve=new THREE.CatmullRomCurve3(points.map(p=>new THREE.Vector3(...p)));
+  const g=new THREE.TubeGeometry(curve,64,1,20,false), p=g.attributes.position;
+  // taper: scale radius along curve
+  const n=65, seg=21; for(let i=0;i<n;i++){ const t=i/(n-1), c=curve.getPointAt(t), rr=radius(t);
+    for(let j=0;j<seg;j++){ const k=i*seg+j; const v=new THREE.Vector3().fromBufferAttribute(p,k).sub(c).multiplyScalar(rr).add(c); p.setXYZ(k,v.x,v.y,v.z);} }
+  g.computeVertexNormals(); return new THREE.Mesh(g,mat(color,rough)); }
+
+const MAKERS = {
+  tomato(){ const g=new THREE.Group(); const b=blob({sy:.8,lobes:5,lobeAmp:.05,dimple:.12,color:(v)=>lerp(col("#E53935"),col("#B71C1C"),(1-v.y)/2.4),rough:.3});
+    g.add(b); const c=calyx(6,.38); c.position.y=.74; g.add(c); const s=stem(.22,.05); s.position.y=.72; g.add(s); return g; },
+  onion(){ const g=new THREE.Group(); g.add(blob({sy:.95,taper:.55,tip:.5,noise:.01,color:(v,th)=>lerp(col("#C77D2E"),col("#8D4E17"),.5+.5*Math.sin(th*9)*.4+(v.y<0?.2:0)),rough:.5}));
+    const t=tube([[0,.95,0],[0,1.25,0],[.05,1.45,0]],t=>.08*(1-t)+.02,"#A9792E"); g.add(t); return g; },
+  potato(){ const g=new THREE.Group(); g.add(blob({sx:1.25,sy:.78,sz:.92,noise:.07,color:v=>lerp(col("#C9A26B"),col("#9C7442"),.5+.5*Math.sin(v.x*7+v.z*5)),rough:.9}));
+    for(let i=0;i<7;i++){ const e=new THREE.Mesh(new THREE.SphereGeometry(.035,8,6),mat("#6D4C2A",.9)); const a=i*2.3, h=Math.sin(i*1.7)*.5; e.position.set(Math.cos(a)*1.2*Math.sqrt(1-h*h), h*.74, Math.sin(a)*.9*Math.sqrt(1-h*h)); g.add(e);} return g; },
+  hot_pepper(){ const g=new THREE.Group(); const t=tube([[0,1.1,0],[.18,.4,0],[.12,-.4,0],[-.25,-1.05,0]],t=>.3*Math.pow(1-t,.6)+.02,"#D32F2F",.25); g.add(t);
+    const c=new THREE.Mesh(new THREE.CylinderGeometry(.3,.22,.14,14),mat("#3E7B27")); c.position.y=1.12; g.add(c); const s=tube([[0,1.15,0],[0,1.4,0],[-.12,1.55,0]],t=>.05,"#4E7A2A"); g.add(s); return g; },
+  sweet_pepper(){ const g=new THREE.Group(); g.add(blob({sy:1.05,lobes:4,lobeAmp:.12,dimple:.1,color:(v)=>lerp(col("#43A047"),col("#2E7D32"),(1-v.y)/2),rough:.2}));
+    const s=tube([[0,.85,0],[0,1.2,0],[.12,1.35,0]],t=>.07,"#3B6E22"); g.add(s); return g; },
+  pepper(){ const g=new THREE.Group(); const a=MAKERS.sweet_pepper(); a.position.x=-.55; a.scale.setScalar(.85); const b=MAKERS.hot_pepper(); b.position.x=.65; b.rotation.z=-.3; b.scale.setScalar(.8); g.add(a,b); return g; },
+  carrot(){ const g=new THREE.Group(); const t=tube([[0,.9,0],[0,.2,0],[.05,-.5,0],[.12,-1.2,0]],t=>.36*Math.pow(1-t,.9)+.015,"#EF6C00",.5); g.add(t);
+    for(let i=0;i<5;i++){ const l=leaf(.9,.12,"#43A047"); l.position.y=.88; l.rotation.z=(i-2)*.3; l.rotation.y=i*.6; g.add(l);} return g; },
+  peach(){ const g=new THREE.Group(); g.add(blob({crease:.06,dimple:.08,color:v=>lerp(col("#FFB74D"),col("#E53935"),(v.x+v.y+.6)/2.2),rough:.75}));
+    const s=stem(.18,.04); s.position.y=.9; g.add(s); const l=leaf(.6,.18); l.position.set(0,1,0); l.rotation.z=-1.1; g.add(l); return g; },
+  apple(){ const g=new THREE.Group(); g.add(blob({sy:.92,dimple:.16,color:v=>lerp(col("#C62828"),col("#FFCA28"),(-v.x-v.y+1.2)/3.2),rough:.35}));
+    const s=tube([[0,.75,0],[.02,1.05,0],[.1,1.2,0]],t=>.04,"#5D4037"); g.add(s); const l=leaf(.55,.17); l.position.set(.08,1.05,0); l.rotation.z=-1.2; g.add(l); return g; },
+  grape(){ const g=new THREE.Group(); const m=mat("#6A1B9A",.25); let k=0;
+    for(let row=0;row<6;row++){ const n=Math.max(1,5-row), r=.62-row*.1; for(let i=0;i<n;i++){ const s=new THREE.Mesh(new THREE.SphereGeometry(.23,20,14),m); const a=i/n*Math.PI*2+row; s.position.set(Math.cos(a)*r*(n>1?1:0), .8-row*.34, Math.sin(a)*r*(n>1?1:0)); g.add(s); k++; } }
+    g.add(tube([[0,1.0,0],[0,1.35,0],[.15,1.5,0]],t=>.04,"#6D4C2A")); const l=leaf(.7,.3,"#558B2F"); l.position.set(.05,1.25,0); l.rotation.z=-1.3; g.add(l); return g; },
+  melon(){ const g=new THREE.Group(); g.add(blob({sx:1.15,sy:.95,color:(v,th)=>lerp(col("#D4B85A"),col("#9E8F3C"),Math.abs(Math.sin(th*10))>.92?1:.15),rough:.8})); return g; },
+  watermelon(){ const g=new THREE.Group(); g.add(blob({sx:1.35,sy:1,sz:1,color:(v,th)=>Math.sin(Math.atan2(v.z,v.y)*9+Math.sin(v.x*6)*.8)>.35?col("#1B5E20"):col("#66BB6A"),rough:.35}));
+    const st=stem(.15,.04); st.position.set(1.32,0,0); st.rotation.z=-Math.PI/2; g.add(st); return g; },
+  watermelon_melon(){ const g=new THREE.Group(); const a=MAKERS.watermelon(); a.position.x=-.55; a.scale.setScalar(.8); const b=MAKERS.melon(); b.position.set(.85,-.2,.2); b.scale.setScalar(.6); g.add(a,b); return g; },
+  lemon(){ const g=new THREE.Group(); g.add(blob({sx:1.25,sy:.9,sz:.9,points:.25,noise:.012,color:v=>lerp(col("#FFEB3B"),col("#F9A825"),(1-v.y)/3),rough:.5})); g.rotation.z=.3;
+    const l=leaf(.6,.18); l.position.set(-1.25,.1,0); l.rotation.z=1.8; g.add(l); return g; },
+  artichoke(){ const g=new THREE.Group(); const m1=mat("#7CA45A",.6), m2=mat("#7B5E8C",.6);
+    for(let row=0;row<7;row++){ const n=8, r=.75-row*.08-(row>4?(row-4)*.12:0), y=-.6+row*.24; for(let i=0;i<n;i++){ const s=new THREE.Mesh(new THREE.SphereGeometry(.28,12,8),row%2?m1:m2); s.scale.set(1,.7,.45); const a=i/n*Math.PI*2+row*.4; s.position.set(Math.cos(a)*r,y,Math.sin(a)*r); s.lookAt(0,y+.6,0); g.add(s);} }
+    const s=tube([[0,-.7,0],[0,-1.2,0]],t=>.12,"#6B8E3D"); g.add(s); return g; },
+  cabbage(){ const g=new THREE.Group(); g.add(blob({noise:.03,color:v=>lerp(col("#C5E1A5"),col("#7CB342"),Math.abs(v.x)*.6+.2),rough:.6}));
+    for(let i=0;i<5;i++){ const l=blob({sx:.9,sy:.55,sz:.2,color:()=>col("#8BC34A"),rough:.6}); const a=i/5*Math.PI*2; l.position.set(Math.cos(a)*.55,-.25,Math.sin(a)*.55); l.lookAt(0,-.25,0); g.add(l);} return g; },
+  garlic(){ const g=new THREE.Group(); g.add(blob({sy:.85,lobes:8,lobeAmp:.06,taper:.6,tip:.4,color:(v,th)=>lerp(col("#F5F0E6"),col("#D7C4D8"),.5+.5*Math.sin(th*8)),rough:.6})); return g; },
+  squash(){ const g=new THREE.Group(); g.add(blob({sy:.7,sx:1.1,sz:1.1,lobes:10,lobeAmp:.06,dimple:.15,color:(v,th)=>lerp(col("#EF8F2B"),col("#C25E12"),.5+.5*Math.cos(th*10)),rough:.5})); const s=stem(.3,.09,"#6D5A2B"); s.position.y=.55; g.add(s); return g; },
+  turnip(){ const g=new THREE.Group(); g.add(blob({taper:-.2,tip:-.4,color:v=>v.y>.2?col("#8E3D8E"):col("#F1ECE6"),rough:.5})); g.rotation.x=Math.PI; for(let i=0;i<4;i++){ const l=leaf(.8,.18); l.position.y=-1; l.rotation.z=Math.PI+(i-1.5)*.35; g.add(l);} return g; },
+  date(){ const g=new THREE.Group(); for(let i=0;i<5;i++){ const d=blob({sx:.42,sy:.9,sz:.42,noise:.02,color:v=>lerp(col("#8D5524"),col("#5D3412"),(1-v.y)/2),rough:.35}); d.position.set((i%3-1)*.55,(i<3?-.35:.5),(i%2)*.2); d.rotation.z=(i-2)*.12; g.add(d);} return g; },
+  lemon_alt(){ return MAKERS.lemon(); },
+};
+MAKERS.orange_maltese = () => { const g=new THREE.Group(); g.add(blob({noise:.015,color:()=>col("#FB8C00"),rough:.55})); return g; };
+MAKERS.clementine = MAKERS.orange_maltese; MAKERS.orange_sweet = MAKERS.orange_maltese;
+MAKERS.pomegranate = () => { const g=new THREE.Group(); g.add(blob({noise:.02,color:v=>lerp(col("#B71C1C"),col("#E57373"),(v.x+1)/3),rough:.4})); const c=new THREE.Mesh(new THREE.CylinderGeometry(.18,.26,.3,6),mat("#8E2424")); c.position.y=1.05; g.add(c); return g; };
+MAKERS.fennel = () => { const g=new THREE.Group(); g.add(blob({sy:.8,color:()=>col("#E9F1D8"),rough:.5})); for(let i=0;i<3;i++){ g.add(tube([[(i-1)*.2,.6,0],[(i-1)*.3,1.6,0]],t=>.08,"#A5C46A")); } return g; };
+function fallback(){ const g=new THREE.Group(); g.add(blob({color:()=>col("#7CB342")})); return g; }
+const makeProduce = id => (MAKERS[id]||fallback)();
+
+// one hidden renderer draws every icon once
+const iconR = new THREE.WebGLRenderer({antialias:true,alpha:true,preserveDrawingBuffer:true}); iconR.setSize(160,160); iconR.setPixelRatio(1);
+const iconCache = {};
+function lights(scene){ scene.add(new THREE.HemisphereLight(0xffffff,0x9aa58f,.9)); const d=new THREE.DirectionalLight(0xffffff,.9); d.position.set(2,4,3); scene.add(d); }
+function icon(id){
+  if (iconCache[id]) return iconCache[id];
+  const s=new THREE.Scene(); lights(s); const m=makeProduce(id); m.rotation.y=-.5; m.rotation.x=.15;
+  const box=new THREE.Box3().setFromObject(m), c=box.getCenter(new THREE.Vector3()), sz=box.getSize(new THREE.Vector3()).length();
+  m.position.sub(c); s.add(m);
+  const cam=new THREE.PerspectiveCamera(30,1,.1,50); cam.position.set(0,.15,sz*1.3); cam.lookAt(0,0,0);
+  iconR.render(s,cam); return iconCache[id]=iconR.domElement.toDataURL();
+}
+const img = id => `<img src="${icon(id)}" alt="">`;
+
+function trend(p, invert){ if (p==null) return `<span class="trend flat">n.d.</span>`;
+  const cls = Math.abs(p)<1 ? "flat" : (p>0) ? "up" : "down";
+  const arrow = Math.abs(p)<1 ? "=" : p>0 ? "▲" : "▼";
+  return `<span class="trend ${cls}">${arrow} ${p>0?"+":""}${p.toLocaleString("fr-FR",{maximumFractionDigits:1})} %</span>`; }
+
+// ------------------------------------------------------------------ header + KPIs
+$("#season").innerHTML = `Campagne ${D.season}<small>${D.season_months} · ${D.market}</small>`;
+const tv = D.totals.total_vegetables, tf = D.totals.total_fruits;
+$("#kpis").innerHTML = [
+  ["tomato","Légumes arrivés au marché de Tunis","خضر دخلت لسوق الجملة",tv],
+  ["peach","Fruits arrivés au marché de Tunis","غلال دخلت لسوق الجملة",tf]].map(([id,l,ar,t]) =>
+  `<div class="card kpi">${img(id)}<div><div class="l">${l}<span class="ar">${ar}</span></div>
+   <div class="v">${fmt(t.tonnes)} t</div><div>${trend(t.change_pct)} <span style="color:var(--mut);font-size:15px">par rapport à la campagne d'avant</span></div></div></div>`).join("");
+$("#lead1").textContent = `Tonnes arrivées au marché de gros de Tunis pendant la campagne ${D.season} (septembre à août). Ce ne sont pas des ventes aux consommateurs.`;
+
+// ------------------------------------------------------------------ 3D market stall
+const host = $("#scene");
+const R = new THREE.WebGLRenderer({antialias:true,alpha:true}); R.setPixelRatio(Math.min(2,devicePixelRatio)); host.appendChild(R.domElement);
+const scene = new THREE.Scene(); lights(scene); scene.fog = new THREE.Fog(0xF2F7F2, 18, 34);
+const sun = new THREE.DirectionalLight(0xfff3dc,.5); sun.position.set(-4,6,2); scene.add(sun);
+const cam = new THREE.PerspectiveCamera(38,1,.1,100);
+const stall = new THREE.Group(); scene.add(stall);
+const wood = mat("#B98A55",.85), woodDark = mat("#8B6239",.85);
+const table = new THREE.Mesh(new THREE.BoxGeometry(13,.35,4.4), wood); table.position.y=-.2; stall.add(table);
+for (const [x,z] of [[-6,-1.8],[6,-1.8],[-6,1.8],[6,1.8]]) { const l=new THREE.Mesh(new THREE.BoxGeometry(.3,2.2,.3),woodDark); l.position.set(x,-1.45,z); stall.add(l); }
+const awning = new THREE.Group(); for(let i=0;i<10;i++){ const s=new THREE.Mesh(new THREE.BoxGeometry(1.32,.06,3.2),mat(i%2?"#FFFFFF":"#2E7D32",.7)); s.position.set(-5.95+i*1.32,5.2,-.9); s.rotation.x=.32; awning.add(s);} stall.add(awning);
+for (const x of [-6.3,6.3]) { const p=new THREE.Mesh(new THREE.CylinderGeometry(.09,.09,5.6,10),woodDark); p.position.set(x,2.4,-2); stall.add(p); }
+const ground = new THREE.Mesh(new THREE.CircleGeometry(16,48), mat("#DDE8D5",1)); ground.rotation.x=-Math.PI/2; ground.position.y=-2.55; scene.add(ground);
+let items = [], tags = [];
+function crate(h){ const g=new THREE.Group(); const w=2.05, d=2.3;
+  for (let i=0;i<Math.max(1,Math.round(h/.45));i++){ for(const [x,z,sx,sz] of [[0,d/2,w,.12],[0,-d/2,w,.12],[w/2,0,.12,d],[-w/2,0,.12,d]]){
+      const b=new THREE.Mesh(new THREE.BoxGeometry(sx,.34,sz), i%2?wood:woodDark); b.position.set(x,.2+i*.45,z); g.add(b);} }
+  return g; }
+function buildStall(cat){
+  items.forEach(o=>stall.remove(o)); items=[]; tags.forEach(t=>t.remove()); tags=[];
+  const top = D.top[cat], max = Math.max(...top.map(t=>t.tonnes));
+  top.forEach((t,i)=>{
+    const g=new THREE.Group(); const x=(i-2)*2.45; g.position.set(x,0,0);
+    const h = .45 + 2.6*t.tonnes/max; g.add(crate(h));
+    // pile of produce on top, size proportional
+    const n = 1 + Math.round(4*t.tonnes/max);
+    for (let k=0;k<n;k++){ const m=makeProduce(t.id); const box=new THREE.Box3().setFromObject(m), sz=box.getSize(new THREE.Vector3());
+      const sc = 1.0/Math.max(sz.x,sz.y,sz.z)*(k? .85:1.45); m.scale.setScalar(sc);
+      const a = k*2.4; m.position.set(k?Math.cos(a)*.6:0, h+.3+(k?0:.55)+sz.y*sc*.4, k?Math.sin(a)*.62:0); m.rotation.y=k*1.3; g.add(m); }
+    g.userData = {t, h, rank:i+1}; stall.add(g); items.push(g);
+    const tag=document.createElement("div"); tag.className="tag"; tag.innerHTML=`<span class="n">${i+1}</span><span class="w">${fmt(t.tonnes)} t</span>`; host.appendChild(tag); tags.push(tag);
+  });
+  $("#toplist").innerHTML = top.map((t,i)=>`<div class="row"><div class="rank">${i+1}</div>${img(t.id)}
+    <div><div class="nm">${t.fr}<span class="ar">${t.ar}</span></div><div class="bar"><i style="width:${100*t.tonnes/max}%"></i></div></div>
+    <div class="t">${fmt(t.tonnes)} t<small>${trend(t.change_pct)}</small><small>pic : ${MONTHS_LONG[t.peak_month-1]}</small></div></div>`).join("");
+}
+document.querySelectorAll(".toggle button").forEach(b=>b.onclick=()=>{ document.querySelectorAll(".toggle button").forEach(x=>x.classList.toggle("on",x===b)); buildStall(b.dataset.cat); });
+let yaw=-.18, pitch=.32, drag=null, auto=true;
+host.addEventListener("pointerdown",e=>{drag={x:e.clientX,y:e.clientY,yaw,pitch}; auto=false; host.setPointerCapture(e.pointerId); host.style.cursor="grabbing";});
+host.addEventListener("pointermove",e=>{ if(!drag) return; yaw=drag.yaw+(e.clientX-drag.x)*.006; pitch=Math.min(.75,Math.max(.08,drag.pitch+(e.clientY-drag.y)*.004)); });
+host.addEventListener("pointerup",()=>{drag=null; host.style.cursor="grab";});
+function resize(){ const w=host.clientWidth, h=host.clientHeight; R.setSize(w,h); cam.aspect=w/h; cam.updateProjectionMatrix(); }
+new ResizeObserver(resize).observe(host);
+const v = new THREE.Vector3(); let t0=performance.now();
+function frame(t){
+  const dt=(t-t0)/1000; t0=t; if(auto) yaw = -.18 + Math.sin(t/4000)*.35;
+  const dist = 14*Math.max(1, 1.65/cam.aspect);
+  cam.position.set(Math.sin(yaw)*dist*Math.cos(pitch), 1.2+dist*Math.sin(pitch), Math.cos(yaw)*dist*Math.cos(pitch)); cam.lookAt(0,1.6,0);
+  scene.updateMatrixWorld(); cam.updateMatrixWorld();
+  items.forEach((g,i)=>{ g.children.slice(-1)[0].rotation.y += dt*.4;
+    v.set(0,g.userData.h+2.5,0).applyMatrix4(g.matrixWorld).project(cam);
+    tags[i].style.left=((v.x+1)/2*host.clientWidth)+"px"; tags[i].style.top=Math.max(34,(1-v.y)/2*host.clientHeight)+"px"; });
+  R.render(scene,cam); requestAnimationFrame(frame);
+}
+buildStall("vegetable"); resize(); requestAnimationFrame(frame);
+
+// ------------------------------------------------------------------ when to sell
+const order = ["tomato","potato","onion","hot_pepper","sweet_pepper","carrot","cabbage","squash","turnip","garlic","lemon","date"];
+const bm = order.filter(id=>D.best_months[id]).map(id=>D.best_months[id]);
+let cur = bm[0].id;
+function drawMonths(){
+  const b = D.best_months[cur]; const ix=b.price_index, maxI=Math.max(...ix.filter(x=>x!=null)), minI=Math.min(...ix.filter(x=>x!=null));
+  $("#picker").innerHTML = bm.map(x=>`<button class="pick ${x.id===cur?"on":""}" data-id="${x.id}">${img(x.id)}${x.fr}</button>`).join("");
+  document.querySelectorAll(".pick").forEach(p=>p.onclick=()=>{cur=p.dataset.id; drawMonths();});
+  $("#months").innerHTML = ix.map((v,i)=>{ if(v==null) return `<div class="m"><div class="col" style="height:8px;background:#eee"></div><b>${MONTHS[i]}</b></div>`;
+    const h = 30 + 150*(v-minI)/Math.max(1,maxI-minI), good = v>=105, bad = v<=95;
+    const c = good ? "#43A047" : bad ? "#EF9A9A" : "#C8D3C8";
+    return `<div class="m ${i+1===b.best_month?"best":""} ${i+1===b.worst_month?"worst":""}"><div class="col" style="height:${h}px;background:${c}"><span>${b.typical_price[i]!=null?b.typical_price[i].toLocaleString("fr-FR",{minimumFractionDigits:2,maximumFractionDigits:2}):""}</span></div><b>${MONTHS[i]}</b></div>`; }).join("");
+  const pct = x => `${x>100?"+":""}${Math.round(x-100)} %`;
+  $("#verdict").innerHTML = `<div class="good">Le plus cher · <span class="ar">أغلى شهر</span><big>${MONTHS_LONG[b.best_month-1]}</big>${pct(ix[b.best_month-1])} par rapport à la moyenne de l'année</div>
+    <div class="bad">Le moins cher · <span class="ar">أرخص شهر</span><big>${MONTHS_LONG[b.worst_month-1]}</big>${pct(ix[b.worst_month-1])} par rapport à la moyenne de l'année</div>`;
+  $("#note2").textContent = `${b.fr} : moyenne de ${b.seasons} campagnes, prix au détail à Tunis (DT/kg, niveau des 12 derniers mois). Le prix payé au producteur est plus bas, mais il suit en général les mêmes saisons.`;
+}
+drawMonths();
+
+// ------------------------------------------------------------------ producer prices
+$("#lead3").textContent = `Prix moyen payé au producteur en ${D.producer_prices[0].year} (national). La flèche montre l'évolution par an depuis ${D.producer_prices[0].years.slice(0,4)}, inflation déduite.`;
+$("#prices").innerHTML = D.producer_prices.map(p=>`<div class="card price">${img(p.id)}<div><div style="font-weight:900">${p.fr} <span class="ar" style="color:var(--mut);font-size:15px">${p.ar}</span></div>
+  <div class="v">${p.price_dt_kg.toLocaleString("fr-FR",{minimumFractionDigits:2})} <small>DT/kg</small></div>${trend(p.real_trend_pct_yr)} <span style="color:var(--mut);font-size:14px">par an</span></div></div>`).join("");
+
+// ------------------------------------------------------------------ what to plant
+const govs = Object.keys(D.advice); const gsel=$("#gov");
+gsel.innerHTML = govs.map(g=>`<option ${g==="Nabeul"?"selected":""}>${g}</option>`).join("");
+const W = {limited:["Peu d'eau","مية قليلة",1],moderate:["Eau moyenne","مية متوسطة",2],abundant:["Beaucoup d'eau","مية برشا",3]};
+const drop = (on=true) => `<svg width="18" height="22" viewBox="0 0 18 22"><path d="M9 1C9 1 2 9.5 2 14a7 7 0 0 0 14 0C16 9.5 9 1 9 1z" fill="${on?"#1E88E5":"#D6E4F0"}"/></svg>`;
+const star = (on=true) => `<svg width="22" height="22" viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.3 5.8 21l1.6-7L2 9.3l7.1-.7z" fill="${on?"#F9A825":"#E3E6E3"}"/></svg>`;
+let water="moderate";
+$("#water").innerHTML = Object.entries(W).map(([k,[fr,ar,n]])=>`<button data-w="${k}" class="${k===water?"on":""}">${Array.from({length:n},()=>drop(true)).join("")}${fr} · <span class="ar">${ar}</span></button>`).join("");
+document.querySelectorAll(".water button").forEach(b=>b.onclick=()=>{ water=b.dataset.w; document.querySelectorAll(".water button").forEach(x=>x.classList.toggle("on",x===b)); drawAdvice(); });
+gsel.onchange = drawAdvice;
+function drawAdvice(){
+  const list = D.advice[gsel.value][water]; const ws = list.map(x=>x.water_m3_ha).filter(Boolean), wmin=Math.min(...ws), wmax=Math.max(...ws);
+  $("#advice").innerHTML = list.map((c,i)=>{
+    const stars = Math.max(1, Math.round(c.score/20));
+    const drops = c.water_m3_ha==null ? null : 1 + Math.round(2*(c.water_m3_ha-wmin)/Math.max(1,wmax-wmin));
+    return `<div class="card adv ${i===0?"first":""}"><div class="r">${i+1}</div><div class="top">${img(c.id)}<h3>${c.fr}<span class="ar">${c.ar}</span></h3></div>
+      <div class="facts">
+        <div class="fact"><span class="k">Note globale</span><span class="icons">${Array.from({length:5},(_, k)=>star(k<stars)).join("")}</span></div>
+        <div class="fact"><span class="k">Besoin en eau</span><span>${drops==null?"non calculé":`<span class="icons">${[0,1,2].map(k=>drop(k<drops)).join("")}</span> ${fmt(c.water_m3_ha)} m³/ha`}</span></div>
+        <div class="fact"><span class="k">Revenu habituel / ha</span><span>${fmt(c.revenue_ha.pessimistic)} – ${fmt(c.revenue_ha.optimistic)} DT</span></div>
+        <div class="fact"><span class="k">Prix producteur</span>${trend(c.price_trend_pct_yr)}</div>
+        ${c.planting_month?`<div class="fact"><span class="k">Semis pris pour le calcul</span><span>${MONTHS_LONG[c.planting_month-1]}</span></div>`:""}
+      </div></div>`; }).join("");
+  $("#note3").innerHTML = D.notes.join(" ") + " Revenu sans les coûts (semences, engrais, main-d'œuvre) : ce n'est pas un bénéfice.";
+}
+drawAdvice();
+$("#src").innerHTML = Object.values(D.sources).map(s=>`<li>${s}</li>`).join("");
+</script>
+</body>
+</html>

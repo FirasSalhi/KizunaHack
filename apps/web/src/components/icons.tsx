@@ -96,6 +96,29 @@ export function IconFields3D(props: IconProps) {
   );
 }
 
+/** Market stall with an awning and a rising price line: the market overview. */
+export function IconMarketStall(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <path d="M3 9 5 4h14l2 5M3 9h18M3 9c0 1.4 1.3 2.5 3 2.5S9 10.4 9 9c0 1.4 1.3 2.5 3 2.5s3-1.1 3-2.5c0 1.4 1.3 2.5 3 2.5S21 10.4 21 9" />
+      <path d="M5 11.5V20h14v-8.5" />
+      <path d="m8 17 3-3 2 2 3-3" />
+    </Icon>
+  );
+}
+
+/** A solar panel under the sun: the solar pump simulation. */
+export function IconSolarPanel(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <path d="M4 20 7 11h13l-3 9H4Z" />
+      <path d="M5.5 15.5h13M10.5 11l-2 9M15.5 11l-2 9" />
+      <circle cx="7" cy="5" r="2" />
+      <path d="M7 1.5v.5M3.5 5H3M10.5 5h.5M4.6 2.6l.4.4M9.4 2.6 9 3" />
+    </Icon>
+  );
+}
+
 /** Scan frame around a leaf: the plant scanner. */
 export function IconScanLeaf(props: IconProps) {
   return (

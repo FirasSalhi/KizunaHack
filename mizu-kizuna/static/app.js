@@ -100,6 +100,8 @@ map.on("pm:create", e => {
   farm = e.layer;
   farm.on("pm:edit", () => updateFarm(false));
   updateFarm();
+  const c = farm.getBounds().getCenter();
+  sendPlace(c.lat, c.lng);
 });
 $("#editBtn").onclick = () => {
   if (!farm) return;
@@ -165,16 +167,18 @@ function pick(s) {
   const [s1, n1, w1, e1] = s.bbox;
   map.fitBounds([[s1, w1], [n1, e1]], {maxZoom: 15});
   setStep(2, [1]);
+  sendPlace((s1 + n1) / 2, (w1 + e1) / 2, $("#q").value);
 }
 $$("[data-fly]").forEach(b => b.onclick = () => {
   const [la, lo, z] = b.dataset.fly.split(",").map(Number);
   map.flyTo([la, lo], z, {duration: 1.2});
   setStep(2, [1]);
+  sendPlace(la, lo, b.textContent.trim());
 });
 $("#locate").onclick = () => {
   if (!navigator.geolocation) return toast(T("tGeoNone"));
   navigator.geolocation.getCurrentPosition(
-    p => { map.flyTo([p.coords.latitude, p.coords.longitude], 16); setStep(2, [1]); },
+    p => { map.flyTo([p.coords.latitude, p.coords.longitude], 16); setStep(2, [1]); sendPlace(p.coords.latitude, p.coords.longitude, ""); },
     () => toast(T("tGeoFail")), {timeout: 10000});
 };
 
@@ -240,6 +244,15 @@ const badgeClass = lv => ({tres: "b-tres", adapte: "b-ad", possible: "b-pos"}[lv
 const monthName = m => LX().months[m - 1];
 const whenTxt = (perennial, m, kind = "meta") => T(perennial ? (kind === "meta" ? "metaPlant" : "planting") : (kind === "meta" ? "metaSow" : "sowing"), {m: monthName(m)});
 
+/** Inside FARMLINK: tell the dashboard where the farm is, so every page uses this place. */
+let lastPlaceName = "";
+function sendPlace(lat, lon, name) {
+  if (!EMBEDDED || !Number.isFinite(lat) || !Number.isFinite(lon)) return;
+  if (name !== undefined) lastPlaceName = name;
+  let target = "*";
+  try { if (document.referrer) target = new URL(document.referrer).origin; } catch {}
+  window.parent.postMessage({type: "mizu:place", place: {lat, lon, name: lastPlaceName}}, target);
+}
 /** Send the validated plan to FARMLINK (the page around this one) so its other sections reuse it. */
 function sendPlan(d) {
   const soil = (d.land && d.land.soil) || {};
@@ -368,6 +381,7 @@ function renderResults(d) {
   const planCats = d.ranking.filter(r => planIds.has(r.crop)).map(r => r.category);
   const firstCat = planCats[0] || ["legumes", "grandes_cultures", "arbres", "aromatiques"].find(k => d.ranking.some(r => r.category === k)) || "legumes";
   res.querySelector(`.tabs button[data-cat="${firstCat}"]`).click();
+  if (EMBEDDED) renderStrip(d);
 }
 
 function renderCrops(cat) {
@@ -463,6 +477,79 @@ function calendarTable(cal, colors) {
       const m = i + 1; return `<td><div class="${m === c.sowing_month ? "sow" : months.has(m) ? "on" : ""}">&nbsp;</div></td>`; }).join("")}</tr>`;
   }).join("")}</table><p class="src">${T("calCap")}</p>`;
 }
+
+/* ------------------------------------------------------------------ FARMLINK layout (embedded only)
+   Presentation only: the search moves into step 1, the map gets a strip of recommended crops under it, and the
+   dashboard's tabs scroll to the matching part. Calculations and the wizard are unchanged. */
+const CROP_ICON = {tomato: "🍅", potato: "🥔", pepper: "🫑", onion: "🧅", garlic: "🧄", carrot: "🥕", wheat: "🌾", durum_wheat: "🌾",
+  barley: "🌾", olive: "🌳", orange: "🍊", mandarin_jp: "🍊", grape: "🍇", watermelon: "🍉", melon: "🍈", strawberry: "🍓",
+  date_palm: "🌴", almond: "🌰", pistachio: "🌰", lettuce: "🥬", cabbage: "🥬", cucumber: "🥒", eggplant: "🍆", apricot: "🍑",
+  fig: "🌳", pomegranate: "🍎", chickpea: "🫘", faba_bean: "🫘", pea: "🌱", alfalfa: "🌿", maize: "🌽"};
+function setupEmbeddedLayout() {
+  if (!EMBEDDED) return;
+  const s1 = document.querySelector('.step[data-step="1"] .step-body');
+  const finder = document.createElement("div");
+  finder.className = "finder";
+  finder.append($(".search"), $("#locate"));
+  s1.insertBefore(finder, s1.querySelector(".quick"));
+  const left = document.createElement("div");
+  left.className = "left";
+  $("#map").before(left);
+  const strip = document.createElement("section");
+  strip.id = "strip";
+  strip.hidden = true;
+  left.append($("#map"), strip);
+  setTimeout(() => map.invalidateSize(), 60);
+}
+function renderStrip(d) {
+  const strip = $("#strip");
+  const rank = Object.fromEntries(d.ranking.map(r => [r.crop, r]));
+  const rainfed = d.farm.water_source === "pluie";
+  const items = d.plan.allocation.slice(0, 4);
+  if (!items.length) { strip.hidden = true; return; }
+  const colors = Object.fromEntries(d.plan.map.legend.filter(x => x.crop).map(x => [x.crop, x.color]));
+  const top = rank[items[0].crop] || {};
+  const why = (top.pros || []).slice(0, 4);
+  const cards = items.map((a, i) => {
+    const r = rank[a.crop] || {};
+    const water = a.irrigated && !rainfed && r.water_m3_ha_typical ? fmt(r.water_m3_ha_typical) + " m³/ha" : T("stripNoWater");
+    const sc = r.score ?? 0, tone = sc >= 80 ? "good" : sc >= 60 ? "mid" : "low";
+    return '<article class="rc' + (i === 0 ? " first" : "") + '">' +
+      '<div class="rc-band" style="--c:' + (colors[a.crop] || "#2e7d32") + '"><span class="rc-n">' + (i + 1) + '</span><span class="rc-ic">' +
+      (CROP_ICON[a.crop] || "🌱") + '</span>' + (i === 0 ? '<span class="rc-badge">' + esc(T("stripRec")) + '</span>' : "") + '</div>' +
+      '<h4>' + esc(a.name) + '</h4>' +
+      '<ul><li>💧 ' + esc(water) + '</li><li>📅 ' + esc(whenTxt(a.perennial, a.sowing_month)) + '</li><li>📐 ' +
+      esc(T("stripInPlan", {x: haTxt(a.area_ha)})) + '</li></ul>' +
+      '<div class="rc-score"><span>' + esc(T("stripScore")) + '</span><b>' + sc + '%</b></div>' +
+      '<div class="rc-bar ' + tone + '"><i style="width:' + sc + '%"></i></div></article>';
+  }).join("");
+  strip.innerHTML = '<h3>' + esc(T("stripTitle", {x: haTxt(d.farm.area_ha)})) + '</h3><div class="strip-row" style="--n:' + items.length + '">' + cards +
+    '<aside class="why"><h4>' + esc(T("stripWhy")) + '</h4><ul>' + why.map(x => '<li>' + esc(x) + '</li>').join("") + '</ul>' +
+    '<button class="ghost" id="stripDetail">' + esc(T("stripDetail")) + '</button></aside></div>';
+  strip.hidden = false;
+  $("#stripDetail").onclick = () => showView("compare");
+  setTimeout(() => map.invalidateSize(), 60);
+  let target = "*";
+  try { if (document.referrer) target = new URL(document.referrer).origin; } catch {}
+  window.parent.postMessage({type: "mizu:results", ready: true}, target);
+}
+function openDetails() {
+  const box = $("#details"), btn = $("#detailsBtn");
+  if (box && box.hidden) { box.hidden = false; if (btn) btn.textContent = T("hideDetails"); }
+}
+function showView(view) {
+  const panel = $("#panel");
+  if (view === "farm") { panel.scrollTop = 0; if (farm) map.fitBounds(farm.getBounds(), {padding: [40, 40], maxZoom: 17}); return; }
+  if (!DATA || $("#results").hidden) { toast(T("stripNeedResults"), 3500); return; }
+  let target = $(".simple-plan") || $("#results");
+  if (view === "compare") { openDetails(); target = ($("#cropList") && $("#cropList").closest(".block")) || target; }
+  if (view === "details") { openDetails(); target = $$("#details .block").at(-2) || target; }
+  target.scrollIntoView({behavior: "smooth", block: "start"});
+}
+window.addEventListener("message", e => {
+  if (e.data && e.data.type === "mizu:view" && typeof e.data.view === "string") showView(e.data.view);
+});
+setupEmbeddedLayout();
 
 applyLang();
 volumeHint();

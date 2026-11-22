@@ -1,0 +1,15 @@
+{
+ "files": [
+  "Prices_E_Africa.zip",
+  "Production_Crops_Livestock_E_Africa.zip"
+ ],
+ "urls": [
+  "https://bulks-faostat.fao.org/production/Prices_E_Africa.zip",
+  "https://bulks-faostat.fao.org/production/Production_Crops_Livestock_E_Africa.zip"
+ ],
+ "retrieved_at": "2026-11-22T05:36:00+00:00",
+ "sha256": {
+  "Prices_E_Africa.zip": "d16d7a98bedb7317d52ef4f8c3ce0265682b674a1722ab9a0fb84f3ebad06fe5",
+  "Production_Crops_Livestock_E_Africa.zip": "4d8e2e50fbae5458db6bc150a192e4a88d528aedfa56ec4bb0b758478be9a0ec"
+ }
+}

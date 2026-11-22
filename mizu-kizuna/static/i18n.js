@@ -3,6 +3,7 @@ window.I18N = {
 fr: {
   yourPlan: "Votre plan", sowIn: "Semer en {m}", plantIn: "Planter en {m}", waterYear: "≈ {w} m³ d'eau par an",
   waterTotal: "Eau pour tout le plan : ≈ {a} m³ par an ({b} m³ en année sèche).", togetherTitle: "À planter ensemble",
+  stripTitle: "Cultures recommandées pour votre parcelle ({x})", stripRec: "Recommandée", stripScore: "Score global", stripWhy: "Pourquoi ces choix ?", stripDetail: "Voir le détail", stripInPlan: "{x} dans le plan", stripNoWater: "sans irrigation", stripNeedResults: "Lancez d'abord « Voir mes recommandations ».",
   validatePlan: "Valider ce plan", planValidated: "Plan validé ✓", planValidatedHint: "Vos cultures sont enregistrées : Irrigation 3D et Après-récolte les utilisent directement.",
   showDetails: "Voir les détails", hideDetails: "Masquer les détails",
   oldServer: "Le serveur n'est pas à jour : fermez la fenêtre noire et relancez lancer.bat.",
@@ -59,6 +60,7 @@ fr: {
 tn: {
   yourPlan: "البرنامج متاعك", sowIn: "ازرع في {m}", plantIn: "اغرس في {m}", waterYear: "≈ {w} م³ ماء في العام",
   waterTotal: "الماء للبرنامج الكل: ≈ {a} م³ في العام ({b} م³ في عام شايح).", togetherTitle: "ازرعهم مع بعضهم",
+  stripTitle: "الزرايع المقترحة لأرضك ({x})", stripRec: "الأحسن", stripScore: "النتيجة العامة", stripWhy: "علاش الاختيارات هاذي؟", stripDetail: "شوف التفاصيل", stripInPlan: "{x} في البلان", stripNoWater: "بلا سقي", stripNeedResults: "اضغط قبل على «وريني شنوّة نزرع».",
   validatePlan: "أكّد البلان هذا", planValidated: "البلان تأكّد ✓", planValidatedHint: "الزرايع متاعك تسجّلو: السقي 3D وبعد الحصاد يستعملوهم طول.",
   showDetails: "شوف التفاصيل", hideDetails: "خبّي التفاصيل",
   oldServer: "السيرفر موش محدّث: سكّر الشاشة الكحلة وعاود شغّل lancer.bat.",
@@ -115,6 +117,7 @@ tn: {
 ja: {
   yourPlan: "あなたの作付け計画", sowIn: "{m}に播種", plantIn: "{m}に植え付け", waterYear: "年間 約{w} m³の水",
   waterTotal: "計画全体の水：年間 約{a} m³（干ばつ年は{b} m³）。", togetherTitle: "一緒に植える組み合わせ",
+  stripTitle: "あなたの圃場へのおすすめ作物（{x}）", stripRec: "おすすめ", stripScore: "総合スコア", stripWhy: "選んだ理由", stripDetail: "詳細を見る", stripInPlan: "計画内 {x}", stripNoWater: "灌漑なし", stripNeedResults: "先に「おすすめを見る」を押してください。",
   validatePlan: "この計画で確定", planValidated: "計画を確定しました ✓", planValidatedHint: "作物を保存しました。3D灌漑と収穫後管理でそのまま使われます。",
   showDetails: "詳細を見る", hideDetails: "詳細を隠す",
   oldServer: "サーバーが古いままです。黒いウィンドウを閉じて lancer.bat を再起動してください。",

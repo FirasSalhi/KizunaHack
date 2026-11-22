@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FARMLINK · Pompe solaire et coupure STEG</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&family=Cairo:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#090b08;--panel:rgba(13,16,13,.86);--line:rgba(255,255,255,.1);--txt:#eef3ea;--mut:#9aa596;--lime:#c6f04a;--sun:#ffc83d;--grid:#7fb4ff;--bat:#4ade80;--water:#38bdf8;--red:#ff5a4e}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--txt);font-family:Inter,system-ui,sans-serif;font-size:14px}
+.ar{font-family:Cairo,sans-serif;direction:rtl;unicode-bidi:isolate;color:var(--mut);font-size:.92em}
+#app{position:relative;height:100vh;overflow:hidden}
+#view{position:absolute;inset:0}
+#view canvas{display:block;touch-action:none;cursor:grab}
+.panel{position:absolute;background:var(--panel);border:1px solid var(--line);border-radius:14px;backdrop-filter:blur(8px);box-shadow:0 8px 30px rgba(0,0,0,.35)}
+#title{top:12px;left:12px;padding:10px 14px;width:290px}
+#title h1{margin:0;font-size:17px;font-weight:800;letter-spacing:-.2px;line-height:1.2}
+#title p{margin:4px 0 0;color:var(--mut);font-size:12.5px}
+#controls{top:118px;left:12px;width:290px;padding:12px;max-height:calc(100vh - 330px);overflow:auto}
+#kpis{top:12px;right:12px;width:310px;padding:12px;max-height:calc(100vh - 210px);overflow:auto}
+#bottom{left:12px;right:12px;bottom:12px;padding:10px 12px}
+.h{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--mut);font-weight:700;margin:12px 0 6px}
+label{display:flex;justify-content:space-between;gap:8px;align-items:center;margin:6px 0 2px;color:#d6ddd2}
+label b{font-family:'JetBrains Mono',monospace;color:var(--lime);font-weight:700}
+input[type=range]{width:100%;accent-color:var(--lime)}
+select{background:#141914;color:var(--txt);border:1px solid var(--line);border-radius:8px;padding:6px 8px;font:inherit;width:100%}
+.btn{font:inherit;font-weight:800;border-radius:10px;border:1px solid var(--line);background:#161c15;color:var(--txt);padding:9px 12px;cursor:pointer;width:100%;display:flex;gap:8px;align-items:center;justify-content:center}
+.btn:hover{border-color:rgba(198,240,74,.5)}
+.btn.red{background:#3a0f0c;border-color:#7a2a22;color:#ffd5d0}
+.btn.red.on{background:#7a1d16;box-shadow:0 0 0 2px var(--red) inset}
+.btn.lime{background:var(--lime);color:#0d0f0c;border-color:var(--lime)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:4px;background:#111511;border-radius:10px;padding:3px;border:1px solid var(--line)}
+.seg button{font:inherit;font-weight:700;border:0;background:transparent;color:var(--mut);padding:7px;border-radius:8px;cursor:pointer}
+.seg button.on{background:#232b21;color:var(--txt)}
+.mode{display:flex;align-items:center;gap:10px;padding:10px;border-radius:12px;background:#121712;border:1px solid var(--line);margin-bottom:8px}
+.mode .dot{width:12px;height:12px;border-radius:50%;flex:none}
+.mode .t{font-weight:800;font-size:14.5px;line-height:1.2}
+.grid4{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.k{background:#121712;border:1px solid var(--line);border-radius:10px;padding:8px}
+.k .l{color:var(--mut);font-size:11.5px}
+.k .v{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:17px;margin-top:2px}
+.k .v small{font-size:11px;color:var(--mut);font-weight:500}
+.bar{height:6px;background:#222a20;border-radius:4px;overflow:hidden;margin-top:5px}.bar i{display:block;height:100%;border-radius:4px;transition:width .3s}
+#schema{width:100%;height:150px;margin-top:8px}
+.legend{display:flex;gap:12px;flex-wrap:wrap;color:var(--mut);font-size:12px;margin-top:4px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:-1px}
+#timebar{display:flex;align-items:center;gap:10px}
+#clock{font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:700;min-width:72px}
+#chart{width:100%;height:105px;display:block;margin-top:6px}
+.speed{display:flex;gap:4px}.speed button{font:inherit;font-weight:700;background:#141914;color:var(--mut);border:1px solid var(--line);border-radius:8px;padding:5px 8px;cursor:pointer}.speed button.on{color:#0d0f0c;background:var(--lime)}
+#caption{position:absolute;left:50%;top:14px;transform:translateX(-50%);width:min(560px,calc(100% - 660px));min-width:260px;text-align:center;padding:12px 16px;font-weight:700;font-size:15.5px;line-height:1.35;display:none;border-left:4px solid var(--lime)}
+#alert{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);padding:14px 18px;font-weight:800;font-size:17px;color:#ffd5d0;border:1px solid #7a2a22;display:none;text-align:center;background:rgba(58,15,12,.9)}
+.panel{z-index:5}
+.tag{position:absolute;z-index:2;pointer-events:none;transform:translate(-50%,-100%);background:rgba(9,11,8,.82);border:1px solid var(--line);border-radius:8px;padding:3px 8px;font-size:12px;font-weight:700;white-space:nowrap}
+.tag small{display:block;font-weight:500;color:var(--mut);font-family:'JetBrains Mono',monospace}
+.views{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}.views button{font:inherit;font-size:12px;font-weight:700;background:#141914;color:var(--mut);border:1px solid var(--line);border-radius:8px;padding:6px 2px;cursor:pointer}
+.note{color:var(--mut);font-size:11.5px;line-height:1.45;margin-top:8px}
+details summary{cursor:pointer;color:var(--mut);font-weight:700;margin:10px 0 4px}
+@media (max-width:1100px){
+  #app{height:auto;overflow:visible}
+  #view{position:relative;height:62vh}
+  .panel{position:relative;inset:auto!important;width:auto!important;max-height:none!important;margin:10px 12px}
+  #caption,#alert{position:absolute;width:calc(100% - 24px)}
+  #caption{top:8px}
+}
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="view"></div>
+  <div class="panel" id="caption"></div>
+  <div class="panel" id="alert"></div>
+
+  <div class="panel" id="title">
+    <h1>Coupure STEG : la pompe continue au solaire</h1>
+    <p>Irrigation souterraine ROOTLOOP alimentée par panneaux et batterie.<br><span class="ar">كي تقص الستاغ، المضخة تكمّل بالطاقة الشمسية</span></p>
+  </div>
+
+  <div class="panel" id="controls">
+    <button class="btn lime" id="jury">▶ Scénario pour le jury</button>
+    <div class="row2">
+      <button class="btn red" id="outage">⚡ Couper la STEG</button>
+      <button class="btn" id="reset">↺ Recommencer</button>
+    </div>
+    <div class="h">Installation</div>
+    <div class="seg" id="solarSeg"><button data-v="1" class="on">Avec solaire</button><button data-v="0">STEG seule</button></div>
+    <label>Panneaux <b id="kwpV"></b></label><input type="range" id="kwp" min="2" max="40" step="1" value="10">
+    <label>Batterie <b id="batV"></b></label><input type="range" id="bat" min="0" max="60" step="5" value="15">
+    <div class="h">Ferme et pompe</div>
+    <label>Gouvernorat</label><select id="gov"></select>
+    <label>Mois</label><select id="month"></select>
+    <label>Culture</label><select id="crop"></select>
+    <label>Surface irriguée <b id="areaV"></b></label><input type="range" id="area" min="0.5" max="10" step="0.5" value="2">
+    <label>Débit de la pompe <b id="qV"></b></label><input type="range" id="q" min="4" max="40" step="1" value="15">
+    <label>Hauteur à pomper <b id="hV"></b></label><input type="range" id="head" min="10" max="120" step="5" value="35">
+    <label>Ciel</label><select id="sky"><option value="avg">Moyenne du mois (NASA)</option><option value="clear">Ciel dégagé</option><option value="cloudy">Nuageux</option></select>
+    <details><summary>Hypothèses modifiables</summary>
+      <label>Tarif STEG <b id="tarV"></b></label><input type="range" id="tariff" min="0.10" max="0.60" step="0.01" value="0.25">
+      <label>Rendement pompe + moteur <b id="etaV"></b></label><input type="range" id="eta" min="0.30" max="0.70" step="0.01" value="0.45">
+      <label>Réserve batterie <b id="resV"></b></label><input type="range" id="reserve" min="10" max="50" step="5" value="20">
+    </details>
+    <div class="h">Vue</div>
+    <div class="views"><button data-view="all">Ensemble</button><button data-view="solar">Panneaux</button><button data-view="house">Local</button><button data-view="soil">Sous le sol</button></div>
+    <p class="note" id="assume"></p>
+  </div>
+
+  <div class="panel" id="kpis">
+    <div class="mode"><span class="dot" id="modeDot"></span><div><div class="t" id="modeT"></div><div class="ar" id="modeAr"></div></div></div>
+    <div class="grid4">
+      <div class="k"><div class="l">Production solaire</div><div class="v" id="kPv"></div></div>
+      <div class="k"><div class="l">Pompe</div><div class="v" id="kPump"></div></div>
+      <div class="k"><div class="l">Batterie</div><div class="v" id="kBat"></div><div class="bar"><i id="kBatBar" style="background:var(--bat)"></i></div></div>
+      <div class="k"><div class="l">Réseau STEG</div><div class="v" id="kGrid"></div></div>
+      <div class="k" style="grid-column:span 2"><div class="l">Eau envoyée aux racines aujourd'hui</div><div class="v" id="kWater"></div><div class="bar"><i id="kWaterBar" style="background:var(--water)"></i></div></div>
+      <div class="k"><div class="l">Économie STEG (jour)</div><div class="v" id="kSave"></div></div>
+      <div class="k"><div class="l">Autonomie batterie</div><div class="v" id="kAuto"></div></div>
+    </div>
+    <svg id="schema" viewBox="0 0 300 150"></svg>
+    <div class="note" id="plants"></div>
+  </div>
+
+  <div class="panel" id="bottom">
+    <div id="timebar">
+      <button class="btn" id="play" style="width:auto;padding:7px 12px">❚❚</button>
+      <div id="clock">06:00</div>
+      <input type="range" id="time" min="0" max="1439" value="360" style="flex:1" aria-label="Heure">
+      <div class="speed" id="speed"><button data-s="1">×1</button><button data-s="4" class="on">×4</button><button data-s="12">×12</button></div>
+    </div>
+    <canvas id="chart"></canvas>
+    <div class="legend"><span><i style="background:var(--sun)"></i>Solaire (kW)</span><span><i style="background:var(--water)"></i>Pompe (kW)</span><span><i style="background:var(--grid)"></i>STEG (kW)</span><span><i style="background:var(--bat)"></i>Batterie (%)</span><span><i style="background:rgba(255,90,78,.45)"></i>Coupure STEG</span><span>Courbes = journée entière simulée ; le trait blanc = l'heure affichée.</span></div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+
+const CLIMATE = {"governorates": {"Tunis": {"lat": 36.81, "lon": 10.18, "months": [{"ghi": 2.43, "ghi_clear": 3.24, "tmax": 24.3, "tmin": 1.5, "eto": 2.21, "eff_rain_day": 1.84}, {"ghi": 3.22, "ghi_clear": 4.29, "tmax": 25.6, "tmin": 1.9, "eto": 2.91, "eff_rain_day": 1.63}, {"ghi": 4.31, "ghi_clear": 5.59, "tmax": 35.1, "tmin": 3.4, "eto": 4.75, "eff_rain_day": 1.83}, {"ghi": 5.35, "ghi_clear": 6.74, "tmax": 31.9, "tmin": 5.8, "eto": 5.79, "eff_rain_day": 1.64}, {"ghi": 6.45, "ghi_clear": 7.62, "tmax": 39.6, "tmin": 8.8, "eto": 7.8, "eff_rain_day": 1.08}, {"ghi": 7.2, "ghi_clear": 7.94, "tmax": 43.2, "tmin": 12.3, "eto": 9.15, "eff_rain_day": 0.64}, {"ghi": 7.24, "ghi_clear": 7.6, "tmax": 44.0, "tmin": 16.7, "eto": 9.05, "eff_rain_day": 0.22}, {"ghi": 6.37, "ghi_clear": 6.86, "tmax": 44.0, "tmin": 17.9, "eto": 8.13, "eff_rain_day": 0.65}, {"ghi": 4.85, "ghi_clear": 5.78, "tmax": 41.8, "tmin": 15.2, "eto": 6.37, "eff_rain_day": 1.93}, {"ghi": 3.77, "ghi_clear": 4.51, "tmax": 38.8, "tmin": 9.2, "eto": 4.79, "eff_rain_day": 1.77}, {"ghi": 2.64, "ghi_clear": 3.38, "tmax": 29.9, "tmin": 5.1, "eto": 2.88, "eff_rain_day": 1.73}, {"ghi": 2.16, "ghi_clear": 2.88, "tmax": 26.2, "tmin": 2.7, "eto": 2.15, "eff_rain_day": 1.91}]}, "Ariana": {"lat": 36.86, "lon": 10.19, "months": [{"ghi": 2.43, "ghi_clear": 3.24, "tmax": 24.3, "tmin": 1.5, "eto": 2.21, "eff_rain_day": 1.84}, {"ghi": 3.22, "ghi_clear": 4.29, "tmax": 25.6, "tmin": 1.9, "eto": 2.9, "eff_rain_day": 1.63}, {"ghi": 4.31, "ghi_clear": 5.59, "tmax": 35.1, "tmin": 3.4, "eto": 4.75, "eff_rain_day": 1.83}, {"ghi": 5.35, "ghi_clear": 6.74, "tmax": 31.9, "tmin": 5.8, "eto": 5.79, "eff_rain_day": 1.64}, {"ghi": 6.45, "ghi_clear": 7.62, "tmax": 39.6, "tmin": 8.8, "eto": 7.8, "eff_rain_day": 1.08}, {"ghi": 7.2, "ghi_clear": 7.94, "tmax": 43.2, "tmin": 12.3, "eto": 9.15, "eff_rain_day": 0.64}, {"ghi": 7.24, "ghi_clear": 7.6, "tmax": 44.0, "tmin": 16.7, "eto": 9.05, "eff_rain_day": 0.22}, {"ghi": 6.37, "ghi_clear": 6.86, "tmax": 44.0, "tmin": 17.9, "eto": 8.13, "eff_rain_day": 0.65}, {"ghi": 4.85, "ghi_clear": 5.78, "tmax": 41.8, "tmin": 15.2, "eto": 6.37, "eff_rain_day": 1.93}, {"ghi": 3.77, "ghi_clear": 4.51, "tmax": 38.8, "tmin": 9.2, "eto": 4.79, "eff_rain_day": 1.77}, {"ghi": 2.64, "ghi_clear": 3.38, "tmax": 29.9, "tmin": 5.1, "eto": 2.87, "eff_rain_day": 1.73}, {"ghi": 2.16, "ghi_clear": 2.88, "tmax": 26.2, "tmin": 2.7, "eto": 2.14, "eff_rain_day": 1.91}]}, "Ben Arous": {"lat": 36.75, "lon": 10.22, "months": [{"ghi": 2.43, "ghi_clear": 3.24, "tmax": 24.3, "tmin": 1.5, "eto": 2.21, "eff_rain_day": 1.84}, {"ghi": 3.22, "ghi_clear": 4.29, "tmax": 25.6, "tmin": 1.9, "eto": 2.91, "eff_rain_day": 1.63}, {"ghi": 4.31, "ghi_clear": 5.59, "tmax": 35.1, "tmin": 3.4, "eto": 4.76, "eff_rain_day": 1.83}, {"ghi": 5.35, "ghi_clear": 6.74, "tmax": 31.9, "tmin": 5.8, "eto": 5.79, "eff_rain_day": 1.64}, {"ghi": 6.45, "ghi_clear": 7.62, "tmax": 39.6, "tmin": 8.8, "eto": 7.8, "eff_rain_day": 1.08}, {"ghi": 7.2, "ghi_clear": 7.94, "tmax": 43.2, "tmin": 12.3, "eto": 9.15, "eff_rain_day": 0.64}, {"ghi": 7.24, "ghi_clear": 7.6, "tmax": 44.0, "tmin": 16.7, "eto": 9.05, "eff_rain_day": 0.22}, {"ghi": 6.37, "ghi_clear": 6.86, "tmax": 44.0, "tmin": 17.9, "eto": 8.13, "eff_rain_day": 0.65}, {"ghi": 4.85, "ghi_clear": 5.78, "tmax": 41.8, "tmin": 15.2, "eto": 6.38, "eff_rain_day": 1.93}, {"ghi": 3.77, "ghi_clear": 4.51, "tmax": 38.8, "tmin": 9.2, "eto": 4.8, "eff_rain_day": 1.77}, {"ghi": 2.64, "ghi_clear": 3.38, "tmax": 29.9, "tmin": 5.1, "eto": 2.89, "eff_rain_day": 1.73}, {"ghi": 2.16, "ghi_clear": 2.88, "tmax": 26.2, "tmin": 2.7, "eto": 2.15, "eff_rain_day": 1.91}]}, "Manouba": {"lat": 36.81, "lon": 10.1, "months": [{"ghi": 2.43, "ghi_clear": 3.24, "tmax": 24.3, "tmin": 1.5, "eto": 2.21, "eff_rain_day": 1.84}, {"ghi": 3.22, "ghi_clear": 4.29, "tmax": 25.6, "tmin": 1.9, "eto": 2.91, "eff_rain_day": 1.63}, {"ghi": 4.31, "ghi_clear": 5.59, "tmax": 35.1, "tmin": 3.4, "eto": 4.75, "eff_rain_day": 1.83}, {"ghi": 5.35, "ghi_clear": 6.74, "tmax": 31.9, "tmin": 5.8, "eto": 5.79, "eff_rain_day": 1.64}, {"ghi": 6.45, "ghi_clear": 7.62, "tmax": 39.6, "tmin": 8.8, "eto": 7.8, "eff_rain_day": 1.08}, {"ghi": 7.2, "ghi_clear": 7.94, "tmax": 43.2, "tmin": 12.3, "eto": 9.15, "eff_rain_day": 0.64}, {"ghi": 7.24, "ghi_clear": 7.6, "tmax": 44.0, "tmin": 16.7, "eto": 9.05, "eff_rain_day": 0.22}, {"ghi": 6.37, "ghi_clear": 6.86, "tmax": 44.0, "tmin": 17.9, "eto": 8.13, "eff_rain_day": 0.65}, {"ghi": 4.85, "ghi_clear": 5.78, "tmax": 41.8, "tmin": 15.2, "eto": 6.37, "eff_rain_day": 1.93}, {"ghi": 3.77, "ghi_clear": 4.51, "tmax": 38.8, "tmin": 9.2, "eto": 4.79, "eff_rain_day": 1.77}, {"ghi": 2.64, "ghi_clear": 3.38, "tmax": 29.9, "tmin": 5.1, "eto": 2.88, "eff_rain_day": 1.73}, {"ghi": 2.16, "ghi_clear": 2.88, "tmax": 26.2, "tmin": 2.7, "eto": 2.15, "eff_rain_day": 1.91}]}, "Nabeul": {"lat": 36.45, "lon": 10.73, "months": [{"ghi": 2.43, "ghi_clear": 3.24, "tmax": 21.8, "tmin": 3.3, "eto": 2.05, "eff_rain_day": 1.33}, {"ghi": 3.22, "ghi_clear": 4.29, "tmax": 27.8, "tmin": 2.3, "eto": 3.09, "eff_rain_day": 1.18}, {"ghi": 4.31, "ghi_clear": 5.59, "tmax": 32.7, "tmin": 4.9, "eto": 4.51, "eff_rain_day": 1.5}, {"ghi": 5.35, "ghi_clear": 6.74, "tmax": 29.3, "tmin": 6.7, "eto": 5.41, "eff_rain_day": 1.17}, {"ghi": 6.45, "ghi_clear": 7.62, "tmax": 36.9, "tmin": 9.6, "eto": 7.31, "eff_rain_day": 0.76}, {"ghi": 7.2, "ghi_clear": 7.94, "tmax": 40.8, "tmin": 12.8, "eto": 8.62, "eff_rain_day": 0.53}, {"ghi": 7.24, "ghi_clear": 7.6, "tmax": 41.2, "tmin": 18.4, "eto": 8.25, "eff_rain_day": 0.16}, {"ghi": 6.37, "ghi_clear": 6.86, "tmax": 41.0, "tmin": 19.4, "eto": 7.4, "eff_rain_day": 0.68}, {"ghi": 4.85, "ghi_clear": 5.78, "tmax": 37.4, "tmin": 16.0, "eto": 5.77, "eff_rain_day": 2.0}, {"ghi": 3.77, "ghi_clear": 4.51, "tmax": 34.9, "tmin": 10.9, "eto": 4.39, "eff_rain_day": 1.83}, {"ghi": 2.64, "ghi_clear": 3.38, "tmax": 28.0, "tmin": 7.5, "eto": 2.71, "eff_rain_day": 1.35}, {"ghi": 2.16, "ghi_clear": 2.88, "tmax": 24.7, "tmin": 5.0, "eto": 2.03, "eff_rain_day": 1.53}]}, "Zaghouan": {"lat": 36.4, "lon": 10.14, "months": [{"ghi": 2.43, "ghi_clear": 3.24, "tmax": 25.7, "tmin": -0.9, "eto": 2.3, "eff_rain_day": 1.71}, {"ghi": 3.22, "ghi_clear": 4.29, "tmax": 29.3, "tmin": -1.3, "eto": 3.21, "eff_rain_day": 1.48}, {"ghi": 4.31, "ghi_clear": 5.59, "tmax": 36.3, "tmin": 0.4, "eto": 4.99, "eff_rain_day": 1.81}, {"ghi": 5.35, "ghi_clear": 6.74, "tmax": 33.6, "tmin": 3.4, "eto": 6.22, "eff_rain_day": 1.55}, {"ghi": 6.45, "ghi_clear": 7.62, "tmax": 41.8, "tmin": 5.9, "eto": 8.46, "eff_rain_day": 1.07}, {"ghi": 7.2, "ghi_clear": 7.94, "tmax": 45.2, "tmin": 9.5, "eto": 9.97, "eff_rain_day": 0.69}, {"ghi": 7.24, "ghi_clear": 7.6, "tmax": 46.2, "tmin": 15.0, "eto": 9.9, "eff_rain_day": 0.25}, {"ghi": 6.37, "ghi_clear": 6.86, "tmax": 45.6, "tmin": 16.5, "eto": 8.73, "eff_rain_day": 0.72}, {"ghi": 4.85, "ghi_clear": 5.78, "tmax": 42.5, "tmin": 12.1, "eto": 6.79, "eff_rain_day": 1.84}, {"ghi": 3.77, "ghi_clear": 4.51, "tmax": 39.5, "tmin": 6.6, "eto": 4.99, "eff_rain_day": 1.75}, {"ghi": 2.64, "ghi_clear": 3.38, "tmax": 30.6, "tmin": 2.4, "eto": 2.99, "eff_rain_day": 1.52}, {"ghi": 2.16, "ghi_clear": 2.88, "tmax": 28.0, "tmin": 0.6, "eto": 2.23, "eff_rain_day": 1.75}]}, "Bizerte": {"lat": 37.27, "lon": 9.87, "months": [{"ghi": 2.21, "ghi_clear": 3.11, "tmax": 19.0, "tmin": 7.3, "eto": 1.7, "eff_rain_day": 2.4}, {"ghi": 3.09, "ghi_clear": 4.18, "tmax": 19.6, "tmin": 8.4, "eto": 2.11, "eff_rain_day": 2.24}, {"ghi": 4.31, "ghi_clear": 5.54, "tmax": 25.9, "tmin": 8.8, "eto": 3.56, "eff_rain_day": 1.79}, {"ghi": 5.48, "ghi_clear": 6.75, "tmax": 23.8, "tmin": 9.9, "eto": 4.17, "eff_rain_day": 1.61}, {"ghi": 6.49, "ghi_clear": 7.63, "tmax": 25.3, "tmin": 13.4, "eto": 4.66, "eff_rain_day": 1.02}, {"ghi": 7.34, "ghi_clear": 7.99, "tmax": 35.5, "tmin": 16.4, "eto": 6.76, "eff_rain_day": 0.55}, {"ghi": 7.27, "ghi_clear": 7.67, "tmax": 34.5, "tmin": 19.6, "eto": 6.29, "eff_rain_day": 0.16}, {"ghi": 6.42, "ghi_clear": 6.9, "tmax": 33.7, "tmin": 21.8, "eto": 5.26, "eff_rain_day": 0.56}, {"ghi": 4.93, "ghi_clear": 5.74, "tmax": 33.8, "tmin": 18.7, "eto": 4.72, "eff_rain_day": 1.91}, {"ghi": 3.68, "ghi_clear": 4.42, "tmax": 29.1, "tmin": 15.3, "eto": 3.31, "eff_rain_day": 1.85}, {"ghi": 2.46, "ghi_clear": 3.29, "tmax": 24.8, "tmin": 11.6, "eto": 2.21, "eff_rain_day": 2.58}, {"ghi": 1.99, "ghi_clear": 2.76, "tmax": 20.8, "tmin": 8.5, "eto": 1.66, "eff_rain_day": 2.56}]}, "Béja": {"lat": 36.73, "lon": 9.18, "months": [{"ghi": 2.46, "ghi_clear": 3.3, "tmax": 24.3, "tmin": -2.6, "eto": 2.19, "eff_rain_day": 2.62}, {"ghi": 3.26, "ghi_clear": 4.39, "tmax": 27.3, "tmin": -2.6, "eto": 3.02, "eff_rain_day": 2.35}, {"ghi": 4.47, "ghi_clear": 5.76, "tmax": 34.6, "tmin": -0.4, "eto": 4.72, "eff_rain_day": 2.28}, {"ghi": 5.57, "ghi_clear": 6.98, "tmax": 34.1, "tmin": 1.6, "eto": 6.23, "eff_rain_day": 1.86}, {"ghi": 6.59, "ghi_clear": 7.85, "tmax": 40.0, "tmin": 5.0, "eto": 8.12, "eff_rain_day": 1.24}, {"ghi": 7.59, "ghi_clear": 8.26, "tmax": 43.8, "tmin": 8.2, "eto": 9.72, "eff_rain_day": 0.57}, {"ghi": 7.68, "ghi_clear": 8.01, "tmax": 44.8, "tmin": 13.2, "eto": 9.68, "eff_rain_day": 0.24}, {"ghi": 6.76, "ghi_clear": 7.23, "tmax": 44.7, "tmin": 14.4, "eto": 8.66, "eff_rain_day": 0.7}, {"ghi": 5.06, "ghi_clear": 5.96, "tmax": 42.0, "tmin": 10.6, "eto": 6.68, "eff_rain_day": 1.67}, {"ghi": 3.89, "ghi_clear": 4.64, "tmax": 38.3, "tmin": 5.8, "eto": 4.78, "eff_rain_day": 1.87}, {"ghi": 2.71, "ghi_clear": 3.48, "tmax": 29.5, "tmin": 0.9, "eto": 2.87, "eff_rain_day": 2.25}, {"ghi": 2.16, "ghi_clear": 2.94, "tmax": 25.6, "tmin": -1.0, "eto": 2.08, "eff_rain_day": 2.57}]}, "Jendouba": {"lat": 36.5, "lon": 8.78, "months": [{"ghi": 2.38, "ghi_clear": 3.31, "tmax": 24.5, "tmin": -1.9, "eto": 2.18, "eff_rain_day": 2.64}, {"ghi": 3.18, "ghi_clear": 4.4, "tmax": 27.1, "tmin": -2.5, "eto": 3.02, "eff_rain_day": 2.38}, {"ghi": 4.36, "ghi_clear": 5.76, "tmax": 34.2, "tmin": 0.5, "eto": 4.67, "eff_rain_day": 2.33}, {"ghi": 5.47, "ghi_clear": 6.97, "tmax": 33.5, "tmin": 1.7, "eto": 6.19, "eff_rain_day": 1.95}, {"ghi": 6.48, "ghi_clear": 7.84, "tmax": 40.8, "tmin": 5.2, "eto": 8.2, "eff_rain_day": 1.3}, {"ghi": 7.53, "ghi_clear": 8.25, "tmax": 43.6, "tmin": 8.3, "eto": 9.69, "eff_rain_day": 0.58}, {"ghi": 7.59, "ghi_clear": 8.0, "tmax": 44.6, "tmin": 13.6, "eto": 9.64, "eff_rain_day": 0.25}, {"ghi": 6.68, "ghi_clear": 7.23, "tmax": 45.0, "tmin": 14.3, "eto": 8.72, "eff_rain_day": 0.71}, {"ghi": 5.0, "ghi_clear": 5.96, "tmax": 42.2, "tmin": 10.4, "eto": 6.74, "eff_rain_day": 1.72}, {"ghi": 3.84, "ghi_clear": 4.65, "tmax": 38.4, "tmin": 5.9, "eto": 4.81, "eff_rain_day": 1.9}, {"ghi": 2.65, "ghi_clear": 3.49, "tmax": 29.7, "tmin": 0.7, "eto": 2.9, "eff_rain_day": 2.23}, {"ghi": 2.12, "ghi_clear": 2.95, "tmax": 25.1, "tmin": -1.5, "eto": 2.1, "eff_rain_day": 2.61}]}, "Le Kef": {"lat": 36.17, "lon": 8.71, "months": [{"ghi": 2.38, "ghi_clear": 3.31, "tmax": 23.3, "tmin": -3.8, "eto": 2.1, "eff_rain_day": 2.22}, {"ghi": 3.18, "ghi_clear": 4.4, "tmax": 30.1, "tmin": -4.0, "eto": 3.1, "eff_rain_day": 1.85}, {"ghi": 4.36, "ghi_clear": 5.76, "tmax": 33.1, "tmin": -2.6, "eto": 4.66, "eff_rain_day": 2.17}, {"ghi": 5.47, "ghi_clear": 6.97, "tmax": 33.8, "tmin": -1.1, "eto": 6.36, "eff_rain_day": 1.67}, {"ghi": 6.48, "ghi_clear": 7.84, "tmax": 39.7, "tmin": 4.5, "eto": 8.05, "eff_rain_day": 1.23}, {"ghi": 7.53, "ghi_clear": 8.25, "tmax": 41.8, "tmin": 6.0, "eto": 9.58, "eff_rain_day": 0.69}, {"ghi": 7.59, "ghi_clear": 8.0, "tmax": 43.3, "tmin": 11.8, "eto": 9.53, "eff_rain_day": 0.33}, {"ghi": 6.68, "ghi_clear": 7.23, "tmax": 43.0, "tmin": 12.4, "eto": 8.52, "eff_rain_day": 0.79}, {"ghi": 5.0, "ghi_clear": 5.96, "tmax": 39.9, "tmin": 7.5, "eto": 6.63, "eff_rain_day": 1.64}, {"ghi": 3.84, "ghi_clear": 4.65, "tmax": 36.4, "tmin": 4.7, "eto": 4.61, "eff_rain_day": 1.71}, {"ghi": 2.65, "ghi_clear": 3.49, "tmax": 28.6, "tmin": -2.1, "eto": 2.86, "eff_rain_day": 1.75}, {"ghi": 2.12, "ghi_clear": 2.95, "tmax": 25.4, "tmin": -2.7, "eto": 2.05, "eff_rain_day": 2.13}]}, "Siliana": {"lat": 36.08, "lon": 9.37, "months": [{"ghi": 2.46, "ghi_clear": 3.3, "tmax": 23.7, "tmin": -3.4, "eto": 2.14, "eff_rain_day": 2.2}, {"ghi": 3.26, "ghi_clear": 4.39, "tmax": 29.9, "tmin": -4.0, "eto": 3.13, "eff_rain_day": 1.87}, {"ghi": 4.47, "ghi_clear": 5.76, "tmax": 33.0, "tmin": -1.4, "eto": 4.6, "eff_rain_day": 2.14}, {"ghi": 5.57, "ghi_clear": 6.98, "tmax": 33.3, "tmin": -0.1, "eto": 6.23, "eff_rain_day": 1.69}, {"ghi": 6.59, "ghi_clear": 7.85, "tmax": 39.4, "tmin": 4.1, "eto": 8.04, "eff_rain_day": 1.25}, {"ghi": 7.59, "ghi_clear": 8.26, "tmax": 42.0, "tmin": 6.5, "eto": 9.5, "eff_rain_day": 0.68}, {"ghi": 7.68, "ghi_clear": 8.01, "tmax": 43.2, "tmin": 12.4, "eto": 9.37, "eff_rain_day": 0.31}, {"ghi": 6.76, "ghi_clear": 7.23, "tmax": 42.6, "tmin": 13.2, "eto": 8.36, "eff_rain_day": 0.8}, {"ghi": 5.06, "ghi_clear": 5.96, "tmax": 39.2, "tmin": 8.2, "eto": 6.52, "eff_rain_day": 1.67}, {"ghi": 3.89, "ghi_clear": 4.64, "tmax": 36.6, "tmin": 5.1, "eto": 4.62, "eff_rain_day": 1.7}, {"ghi": 2.71, "ghi_clear": 3.48, "tmax": 28.5, "tmin": -0.6, "eto": 2.83, "eff_rain_day": 1.79}, {"ghi": 2.16, "ghi_clear": 2.94, "tmax": 25.5, "tmin": -2.4, "eto": 2.08, "eff_rain_day": 2.14}]}, "Sousse": {"lat": 35.83, "lon": 10.64, "months": [{"ghi": 2.85, "ghi_clear": 3.42, "tmax": 22.1, "tmin": 3.7, "eto": 2.13, "eff_rain_day": 1.13}, {"ghi": 3.69, "ghi_clear": 4.48, "tmax": 28.4, "tmin": 3.5, "eto": 3.17, "eff_rain_day": 0.94}, {"ghi": 4.82, "ghi_clear": 5.79, "tmax": 30.5, "tmin": 5.9, "eto": 4.37, "eff_rain_day": 1.32}, {"ghi": 5.89, "ghi_clear": 6.96, "tmax": 28.4, "tmin": 8.2, "eto": 5.21, "eff_rain_day": 0.94}, {"ghi": 6.94, "ghi_clear": 7.81, "tmax": 35.4, "tmin": 10.8, "eto": 7.01, "eff_rain_day": 0.69}, {"ghi": 7.67, "ghi_clear": 8.19, "tmax": 40.4, "tmin": 14.3, "eto": 8.33, "eff_rain_day": 0.46}, {"ghi": 7.76, "ghi_clear": 7.97, "tmax": 40.6, "tmin": 19.4, "eto": 7.93, "eff_rain_day": 0.18}, {"ghi": 6.86, "ghi_clear": 7.21, "tmax": 38.6, "tmin": 20.7, "eto": 6.76, "eff_rain_day": 0.62}, {"ghi": 5.27, "ghi_clear": 5.98, "tmax": 36.2, "tmin": 17.2, "eto": 5.54, "eff_rain_day": 1.83}, {"ghi": 4.14, "ghi_clear": 4.69, "tmax": 34.5, "tmin": 12.0, "eto": 4.38, "eff_rain_day": 1.64}, {"ghi": 3.06, "ghi_clear": 3.58, "tmax": 27.3, "tmin": 8.5, "eto": 2.7, "eff_rain_day": 1.17}, {"ghi": 2.52, "ghi_clear": 3.06, "tmax": 24.6, "tmin": 5.7, "eto": 2.09, "eff_rain_day": 1.39}]}, "Monastir": {"lat": 35.78, "lon": 10.83, "months": [{"ghi": 2.85, "ghi_clear": 3.42, "tmax": 22.1, "tmin": 3.7, "eto": 2.14, "eff_rain_day": 1.13}, {"ghi": 3.69, "ghi_clear": 4.48, "tmax": 28.4, "tmin": 3.5, "eto": 3.18, "eff_rain_day": 0.94}, {"ghi": 4.82, "ghi_clear": 5.79, "tmax": 30.5, "tmin": 5.9, "eto": 4.37, "eff_rain_day": 1.32}, {"ghi": 5.89, "ghi_clear": 6.96, "tmax": 28.4, "tmin": 8.2, "eto": 5.21, "eff_rain_day": 0.94}, {"ghi": 6.94, "ghi_clear": 7.81, "tmax": 35.4, "tmin": 10.8, "eto": 7.01, "eff_rain_day": 0.69}, {"ghi": 7.67, "ghi_clear": 8.19, "tmax": 40.4, "tmin": 14.3, "eto": 8.33, "eff_rain_day": 0.46}, {"ghi": 7.76, "ghi_clear": 7.97, "tmax": 40.6, "tmin": 19.4, "eto": 7.93, "eff_rain_day": 0.18}, {"ghi": 6.86, "ghi_clear": 7.21, "tmax": 38.6, "tmin": 20.7, "eto": 6.76, "eff_rain_day": 0.62}, {"ghi": 5.27, "ghi_clear": 5.98, "tmax": 36.2, "tmin": 17.2, "eto": 5.55, "eff_rain_day": 1.83}, {"ghi": 4.14, "ghi_clear": 4.69, "tmax": 34.5, "tmin": 12.0, "eto": 4.38, "eff_rain_day": 1.64}, {"ghi": 3.06, "ghi_clear": 3.58, "tmax": 27.3, "tmin": 8.5, "eto": 2.7, "eff_rain_day": 1.17}, {"ghi": 2.52, "ghi_clear": 3.06, "tmax": 24.6, "tmin": 5.7, "eto": 2.09, "eff_rain_day": 1.39}]}, "Mahdia": {"lat": 35.5, "lon": 11.06, "months": [{"ghi": 2.66, "ghi_clear": 3.35, "tmax": 20.3, "tmin": 5.7, "eto": 2.0, "eff_rain_day": 1.1}, {"ghi": 3.53, "ghi_clear": 4.39, "tmax": 24.4, "tmin": 6.0, "eto": 2.83, "eff_rain_day": 0.95}, {"ghi": 4.7, "ghi_clear": 5.65, "tmax": 25.1, "tmin": 7.9, "eto": 3.71, "eff_rain_day": 1.07}, {"ghi": 5.8, "ghi_clear": 6.78, "tmax": 26.6, "tmin": 9.9, "eto": 4.74, "eff_rain_day": 0.7}, {"ghi": 6.77, "ghi_clear": 7.59, "tmax": 31.9, "tmin": 13.3, "eto": 6.04, "eff_rain_day": 0.59}, {"ghi": 7.41, "ghi_clear": 7.93, "tmax": 39.4, "tmin": 16.4, "eto": 7.66, "eff_rain_day": 0.28}, {"ghi": 7.41, "ghi_clear": 7.64, "tmax": 35.7, "tmin": 20.8, "eto": 6.5, "eff_rain_day": 0.16}, {"ghi": 6.58, "ghi_clear": 6.94, "tmax": 34.0, "tmin": 21.5, "eto": 5.58, "eff_rain_day": 0.45}, {"ghi": 5.07, "ghi_clear": 5.82, "tmax": 34.5, "tmin": 19.3, "eto": 5.01, "eff_rain_day": 1.78}, {"ghi": 3.88, "ghi_clear": 4.57, "tmax": 30.0, "tmin": 15.1, "eto": 3.67, "eff_rain_day": 1.67}, {"ghi": 2.88, "ghi_clear": 3.51, "tmax": 26.0, "tmin": 11.3, "eto": 2.5, "eff_rain_day": 1.18}, {"ghi": 2.34, "ghi_clear": 3.0, "tmax": 22.6, "tmin": 8.3, "eto": 1.91, "eff_rain_day": 1.48}]}, "Sfax": {"lat": 34.74, "lon": 10.76, "months": [{"ghi": 2.95, "ghi_clear": 3.52, "tmax": 20.1, "tmin": 4.8, "eto": 2.03, "eff_rain_day": 0.61}, {"ghi": 3.84, "ghi_clear": 4.56, "tmax": 25.9, "tmin": 5.0, "eto": 3.02, "eff_rain_day": 0.58}, {"ghi": 4.94, "ghi_clear": 5.82, "tmax": 28.7, "tmin": 6.3, "eto": 4.33, "eff_rain_day": 0.91}, {"ghi": 5.96, "ghi_clear": 6.9, "tmax": 29.0, "tmin": 9.4, "eto": 5.31, "eff_rain_day": 0.51}, {"ghi": 6.92, "ghi_clear": 7.7, "tmax": 33.9, "tmin": 13.0, "eto": 6.64, "eff_rain_day": 0.36}, {"ghi": 7.42, "ghi_clear": 7.98, "tmax": 39.1, "tmin": 15.5, "eto": 8.02, "eff_rain_day": 0.18}, {"ghi": 7.59, "ghi_clear": 7.8, "tmax": 39.6, "tmin": 20.7, "eto": 7.56, "eff_rain_day": 0.07}, {"ghi": 6.71, "ghi_clear": 7.05, "tmax": 40.0, "tmin": 21.9, "eto": 6.91, "eff_rain_day": 0.27}, {"ghi": 5.29, "ghi_clear": 5.98, "tmax": 36.9, "tmin": 18.5, "eto": 5.65, "eff_rain_day": 1.01}, {"ghi": 4.13, "ghi_clear": 4.74, "tmax": 33.4, "tmin": 14.5, "eto": 4.23, "eff_rain_day": 0.92}, {"ghi": 3.14, "ghi_clear": 3.67, "tmax": 28.9, "tmin": 10.2, "eto": 2.85, "eff_rain_day": 1.02}, {"ghi": 2.65, "ghi_clear": 3.17, "tmax": 24.2, "tmin": 6.2, "eto": 2.15, "eff_rain_day": 1.05}]}, "Kairouan": {"lat": 35.68, "lon": 10.1, "months": [{"ghi": 2.85, "ghi_clear": 3.42, "tmax": 25.9, "tmin": -2.1, "eto": 2.41, "eff_rain_day": 1.12}, {"ghi": 3.69, "ghi_clear": 4.48, "tmax": 34.8, "tmin": -2.9, "eto": 3.67, "eff_rain_day": 0.92}, {"ghi": 4.82, "ghi_clear": 5.79, "tmax": 37.5, "tmin": 0.8, "eto": 5.27, "eff_rain_day": 1.47}, {"ghi": 5.89, "ghi_clear": 6.96, "tmax": 38.0, "tmin": 3.8, "eto": 6.9, "eff_rain_day": 1.09}, {"ghi": 6.94, "ghi_clear": 7.81, "tmax": 43.7, "tmin": 6.9, "eto": 8.94, "eff_rain_day": 0.9}, {"ghi": 7.67, "ghi_clear": 8.19, "tmax": 45.9, "tmin": 9.9, "eto": 10.29, "eff_rain_day": 0.6}, {"ghi": 7.76, "ghi_clear": 7.97, "tmax": 47.4, "tmin": 15.6, "eto": 10.24, "eff_rain_day": 0.28}, {"ghi": 6.86, "ghi_clear": 7.21, "tmax": 45.7, "tmin": 16.0, "eto": 9.0, "eff_rain_day": 0.79}, {"ghi": 5.27, "ghi_clear": 5.98, "tmax": 42.6, "tmin": 12.0, "eto": 7.01, "eff_rain_day": 1.6}, {"ghi": 4.14, "ghi_clear": 4.69, "tmax": 39.3, "tmin": 6.6, "eto": 5.13, "eff_rain_day": 1.36}, {"ghi": 3.06, "ghi_clear": 3.58, "tmax": 31.7, "tmin": 2.2, "eto": 3.14, "eff_rain_day": 1.06}, {"ghi": 2.52, "ghi_clear": 3.06, "tmax": 29.5, "tmin": 0.1, "eto": 2.37, "eff_rain_day": 1.24}]}, "Kasserine": {"lat": 35.17, "lon": 8.83, "months": [{"ghi": 2.74, "ghi_clear": 3.54, "tmax": 22.4, "tmin": -4.9, "eto": 2.13, "eff_rain_day": 1.06}, {"ghi": 3.6, "ghi_clear": 4.62, "tmax": 28.5, "tmin": -5.1, "eto": 3.12, "eff_rain_day": 0.72}, {"ghi": 4.74, "ghi_clear": 5.95, "tmax": 31.4, "tmin": -2.3, "eto": 4.62, "eff_rain_day": 1.22}, {"ghi": 5.86, "ghi_clear": 7.13, "tmax": 33.5, "tmin": -0.5, "eto": 6.42, "eff_rain_day": 0.99}, {"ghi": 6.76, "ghi_clear": 7.95, "tmax": 39.2, "tmin": 3.9, "eto": 8.23, "eff_rain_day": 0.94}, {"ghi": 7.57, "ghi_clear": 8.32, "tmax": 40.4, "tmin": 5.6, "eto": 9.67, "eff_rain_day": 0.61}, {"ghi": 7.52, "ghi_clear": 8.08, "tmax": 42.7, "tmin": 12.3, "eto": 9.65, "eff_rain_day": 0.3}, {"ghi": 6.72, "ghi_clear": 7.35, "tmax": 42.0, "tmin": 13.1, "eto": 8.52, "eff_rain_day": 0.62}, {"ghi": 5.24, "ghi_clear": 6.11, "tmax": 38.0, "tmin": 7.6, "eto": 6.61, "eff_rain_day": 1.2}, {"ghi": 4.1, "ghi_clear": 4.82, "tmax": 34.9, "tmin": 3.1, "eto": 4.72, "eff_rain_day": 0.97}, {"ghi": 2.98, "ghi_clear": 3.7, "tmax": 29.5, "tmin": -2.5, "eto": 2.97, "eff_rain_day": 1.0}, {"ghi": 2.44, "ghi_clear": 3.17, "tmax": 26.4, "tmin": -3.5, "eto": 2.13, "eff_rain_day": 1.08}]}, "Sidi Bouzid": {"lat": 35.04, "lon": 9.48, "months": [{"ghi": 2.86, "ghi_clear": 3.49, "tmax": 24.3, "tmin": -3.6, "eto": 2.35, "eff_rain_day": 1.06}, {"ghi": 3.71, "ghi_clear": 4.56, "tmax": 31.5, "tmin": -3.8, "eto": 3.47, "eff_rain_day": 0.78}, {"ghi": 4.85, "ghi_clear": 5.88, "tmax": 34.8, "tmin": -0.8, "eto": 5.09, "eff_rain_day": 1.22}, {"ghi": 5.89, "ghi_clear": 7.05, "tmax": 36.6, "tmin": 1.8, "eto": 6.87, "eff_rain_day": 0.98}, {"ghi": 6.86, "ghi_clear": 7.87, "tmax": 42.4, "tmin": 6.2, "eto": 8.76, "eff_rain_day": 0.91}, {"ghi": 7.62, "ghi_clear": 8.24, "tmax": 43.4, "tmin": 7.8, "eto": 10.13, "eff_rain_day": 0.56}, {"ghi": 7.68, "ghi_clear": 8.0, "tmax": 45.2, "tmin": 14.6, "eto": 9.99, "eff_rain_day": 0.3}, {"ghi": 6.81, "ghi_clear": 7.26, "tmax": 44.0, "tmin": 14.4, "eto": 8.92, "eff_rain_day": 0.62}, {"ghi": 5.31, "ghi_clear": 6.04, "tmax": 40.9, "tmin": 10.4, "eto": 6.95, "eff_rain_day": 1.21}, {"ghi": 4.15, "ghi_clear": 4.76, "tmax": 37.7, "tmin": 5.6, "eto": 5.04, "eff_rain_day": 1.0}, {"ghi": 3.06, "ghi_clear": 3.65, "tmax": 31.9, "tmin": 0.3, "eto": 3.2, "eff_rain_day": 1.0}, {"ghi": 2.54, "ghi_clear": 3.12, "tmax": 29.4, "tmin": -1.3, "eto": 2.36, "eff_rain_day": 1.11}]}, "Gabès": {"lat": 33.88, "lon": 10.1, "months": [{"ghi": 3.14, "ghi_clear": 3.59, "tmax": 23.3, "tmin": 0.8, "eto": 2.41, "eff_rain_day": 0.42}, {"ghi": 4.03, "ghi_clear": 4.6, "tmax": 29.9, "tmin": 1.2, "eto": 3.54, "eff_rain_day": 0.45}, {"ghi": 5.15, "ghi_clear": 5.87, "tmax": 33.2, "tmin": 3.9, "eto": 5.08, "eff_rain_day": 0.61}, {"ghi": 6.2, "ghi_clear": 6.94, "tmax": 36.0, "tmin": 6.7, "eto": 6.75, "eff_rain_day": 0.48}, {"ghi": 7.0, "ghi_clear": 7.71, "tmax": 40.4, "tmin": 11.6, "eto": 8.14, "eff_rain_day": 0.31}, {"ghi": 7.65, "ghi_clear": 8.09, "tmax": 44.3, "tmin": 13.7, "eto": 9.51, "eff_rain_day": 0.1}, {"ghi": 7.74, "ghi_clear": 7.92, "tmax": 44.7, "tmin": 20.2, "eto": 8.89, "eff_rain_day": 0.03}, {"ghi": 6.97, "ghi_clear": 7.24, "tmax": 44.6, "tmin": 20.9, "eto": 8.15, "eff_rain_day": 0.16}, {"ghi": 5.52, "ghi_clear": 6.09, "tmax": 41.4, "tmin": 16.9, "eto": 6.71, "eff_rain_day": 0.76}, {"ghi": 4.39, "ghi_clear": 4.88, "tmax": 39.3, "tmin": 11.3, "eto": 5.23, "eff_rain_day": 0.65}, {"ghi": 3.34, "ghi_clear": 3.79, "tmax": 31.8, "tmin": 5.5, "eto": 3.36, "eff_rain_day": 0.74}, {"ghi": 2.82, "ghi_clear": 3.27, "tmax": 26.0, "tmin": 2.6, "eto": 2.39, "eff_rain_day": 0.78}]}, "Médenine": {"lat": 33.35, "lon": 10.5, "months": [{"ghi": 3.14, "ghi_clear": 3.59, "tmax": 23.5, "tmin": 0.4, "eto": 2.5, "eff_rain_day": 0.42}, {"ghi": 4.03, "ghi_clear": 4.6, "tmax": 32.4, "tmin": 1.4, "eto": 3.74, "eff_rain_day": 0.59}, {"ghi": 5.15, "ghi_clear": 5.87, "tmax": 35.1, "tmin": 4.4, "eto": 5.24, "eff_rain_day": 0.69}, {"ghi": 6.2, "ghi_clear": 6.94, "tmax": 37.4, "tmin": 6.8, "eto": 6.92, "eff_rain_day": 0.45}, {"ghi": 7.0, "ghi_clear": 7.71, "tmax": 42.2, "tmin": 12.0, "eto": 8.31, "eff_rain_day": 0.31}, {"ghi": 7.65, "ghi_clear": 8.09, "tmax": 44.6, "tmin": 14.5, "eto": 9.39, "eff_rain_day": 0.12}, {"ghi": 7.74, "ghi_clear": 7.92, "tmax": 45.0, "tmin": 19.3, "eto": 9.07, "eff_rain_day": 0.01}, {"ghi": 6.97, "ghi_clear": 7.24, "tmax": 44.9, "tmin": 20.9, "eto": 8.18, "eff_rain_day": 0.09}, {"ghi": 5.52, "ghi_clear": 6.09, "tmax": 42.7, "tmin": 18.1, "eto": 6.76, "eff_rain_day": 0.77}, {"ghi": 4.39, "ghi_clear": 4.88, "tmax": 39.5, "tmin": 12.0, "eto": 5.23, "eff_rain_day": 0.81}, {"ghi": 3.34, "ghi_clear": 3.79, "tmax": 33.8, "tmin": 5.2, "eto": 3.57, "eff_rain_day": 1.08}, {"ghi": 2.82, "ghi_clear": 3.27, "tmax": 27.4, "tmin": 3.1, "eto": 2.51, "eff_rain_day": 0.97}]}, "Tataouine": {"lat": 32.93, "lon": 10.45, "months": [{"ghi": 3.46, "ghi_clear": 3.8, "tmax": 24.2, "tmin": -2.0, "eto": 2.58, "eff_rain_day": 0.37}, {"ghi": 4.38, "ghi_clear": 4.82, "tmax": 34.1, "tmin": -1.4, "eto": 3.91, "eff_rain_day": 0.57}, {"ghi": 5.54, "ghi_clear": 6.09, "tmax": 36.7, "tmin": 1.9, "eto": 5.53, "eff_rain_day": 0.65}, {"ghi": 6.6, "ghi_clear": 7.16, "tmax": 40.8, "tmin": 5.1, "eto": 7.52, "eff_rain_day": 0.42}, {"ghi": 7.36, "ghi_clear": 7.91, "tmax": 45.0, "tmin": 9.7, "eto": 9.09, "eff_rain_day": 0.33}, {"ghi": 7.93, "ghi_clear": 8.26, "tmax": 46.1, "tmin": 12.3, "eto": 10.08, "eff_rain_day": 0.11}, {"ghi": 8.01, "ghi_clear": 8.1, "tmax": 48.0, "tmin": 16.9, "eto": 10.08, "eff_rain_day": 0.01}, {"ghi": 7.28, "ghi_clear": 7.43, "tmax": 46.3, "tmin": 18.5, "eto": 8.84, "eff_rain_day": 0.06}, {"ghi": 5.97, "ghi_clear": 6.31, "tmax": 44.2, "tmin": 14.7, "eto": 7.4, "eff_rain_day": 0.7}, {"ghi": 4.74, "ghi_clear": 5.1, "tmax": 41.0, "tmin": 9.1, "eto": 5.56, "eff_rain_day": 0.75}, {"ghi": 3.64, "ghi_clear": 4.0, "tmax": 34.7, "tmin": 2.7, "eto": 3.68, "eff_rain_day": 1.04}, {"ghi": 3.09, "ghi_clear": 3.47, "tmax": 28.4, "tmin": 0.4, "eto": 2.59, "eff_rain_day": 0.81}]}, "Gafsa": {"lat": 34.43, "lon": 8.78, "months": [{"ghi": 3.19, "ghi_clear": 3.66, "tmax": 24.0, "tmin": -4.5, "eto": 2.39, "eff_rain_day": 0.61}, {"ghi": 4.16, "ghi_clear": 4.74, "tmax": 29.4, "tmin": -3.1, "eto": 3.38, "eff_rain_day": 0.44}, {"ghi": 5.3, "ghi_clear": 6.05, "tmax": 32.2, "tmin": -0.4, "eto": 4.99, "eff_rain_day": 0.67}, {"ghi": 6.41, "ghi_clear": 7.21, "tmax": 35.0, "tmin": 2.6, "eto": 6.81, "eff_rain_day": 0.64}, {"ghi": 7.24, "ghi_clear": 7.99, "tmax": 42.0, "tmin": 7.1, "eto": 8.83, "eff_rain_day": 0.47}, {"ghi": 7.89, "ghi_clear": 8.35, "tmax": 43.3, "tmin": 7.5, "eto": 10.42, "eff_rain_day": 0.2}, {"ghi": 7.88, "ghi_clear": 8.11, "tmax": 45.1, "tmin": 16.0, "eto": 9.94, "eff_rain_day": 0.08}, {"ghi": 7.02, "ghi_clear": 7.37, "tmax": 44.1, "tmin": 16.6, "eto": 8.78, "eff_rain_day": 0.26}, {"ghi": 5.64, "ghi_clear": 6.19, "tmax": 40.6, "tmin": 11.6, "eto": 6.97, "eff_rain_day": 0.69}, {"ghi": 4.46, "ghi_clear": 4.92, "tmax": 36.9, "tmin": 5.9, "eto": 5.09, "eff_rain_day": 0.55}, {"ghi": 3.36, "ghi_clear": 3.82, "tmax": 30.9, "tmin": 0.1, "eto": 3.22, "eff_rain_day": 0.68}, {"ghi": 2.86, "ghi_clear": 3.3, "tmax": 24.9, "tmin": -2.2, "eto": 2.25, "eff_rain_day": 0.69}]}, "Tozeur": {"lat": 33.92, "lon": 8.13, "months": [{"ghi": 3.33, "ghi_clear": 3.72, "tmax": 23.7, "tmin": -3.4, "eto": 2.55, "eff_rain_day": 0.41}, {"ghi": 4.25, "ghi_clear": 4.76, "tmax": 30.7, "tmin": -1.9, "eto": 3.7, "eff_rain_day": 0.27}, {"ghi": 5.34, "ghi_clear": 6.01, "tmax": 34.4, "tmin": 2.1, "eto": 5.41, "eff_rain_day": 0.46}, {"ghi": 6.37, "ghi_clear": 7.12, "tmax": 38.2, "tmin": 5.1, "eto": 7.5, "eff_rain_day": 0.49}, {"ghi": 7.1, "ghi_clear": 7.9, "tmax": 44.9, "tmin": 8.7, "eto": 9.72, "eff_rain_day": 0.3}, {"ghi": 7.84, "ghi_clear": 8.22, "tmax": 46.1, "tmin": 11.0, "eto": 11.02, "eff_rain_day": 0.11}, {"ghi": 7.88, "ghi_clear": 8.04, "tmax": 47.4, "tmin": 20.0, "eto": 10.18, "eff_rain_day": 0.03}, {"ghi": 7.05, "ghi_clear": 7.34, "tmax": 46.8, "tmin": 21.2, "eto": 8.99, "eff_rain_day": 0.12}, {"ghi": 5.74, "ghi_clear": 6.21, "tmax": 43.7, "tmin": 14.2, "eto": 7.57, "eff_rain_day": 0.4}, {"ghi": 4.54, "ghi_clear": 4.98, "tmax": 39.4, "tmin": 8.9, "eto": 5.47, "eff_rain_day": 0.34}, {"ghi": 3.48, "ghi_clear": 3.89, "tmax": 31.2, "tmin": 3.5, "eto": 3.32, "eff_rain_day": 0.44}, {"ghi": 2.95, "ghi_clear": 3.38, "tmax": 25.8, "tmin": -0.2, "eto": 2.4, "eff_rain_day": 0.46}]}, "Kébili": {"lat": 33.7, "lon": 8.97, "months": [{"ghi": 3.33, "ghi_clear": 3.72, "tmax": 24.3, "tmin": -3.3, "eto": 2.57, "eff_rain_day": 0.25}, {"ghi": 4.25, "ghi_clear": 4.76, "tmax": 31.4, "tmin": -2.0, "eto": 3.77, "eff_rain_day": 0.26}, {"ghi": 5.34, "ghi_clear": 6.01, "tmax": 34.9, "tmin": 2.0, "eto": 5.5, "eff_rain_day": 0.34}, {"ghi": 6.37, "ghi_clear": 7.12, "tmax": 39.0, "tmin": 5.5, "eto": 7.58, "eff_rain_day": 0.36}, {"ghi": 7.1, "ghi_clear": 7.9, "tmax": 45.3, "tmin": 10.1, "eto": 9.6, "eff_rain_day": 0.24}, {"ghi": 7.84, "ghi_clear": 8.22, "tmax": 46.6, "tmin": 13.0, "eto": 10.72, "eff_rain_day": 0.07}, {"ghi": 7.88, "ghi_clear": 8.04, "tmax": 47.9, "tmin": 19.1, "eto": 10.37, "eff_rain_day": 0.02}, {"ghi": 7.05, "ghi_clear": 7.34, "tmax": 46.8, "tmin": 20.6, "eto": 9.07, "eff_rain_day": 0.06}, {"ghi": 5.74, "ghi_clear": 6.21, "tmax": 44.9, "tmin": 14.8, "eto": 7.7, "eff_rain_day": 0.39}, {"ghi": 4.54, "ghi_clear": 4.98, "tmax": 40.4, "tmin": 9.5, "eto": 5.55, "eff_rain_day": 0.32}, {"ghi": 3.48, "ghi_clear": 3.89, "tmax": 31.9, "tmin": 2.4, "eto": 3.47, "eff_rain_day": 0.35}, {"ghi": 2.95, "ghi_clear": 3.38, "tmax": 27.1, "tmin": -0.3, "eto": 2.49, "eff_rain_day": 0.46}]}}, "source": "NASA POWER climatology API (community AG)", "retrieved_at": "2026-11-22T06:03:48+00:00", "units": {"ghi": "kWh/m²/jour (rayonnement global horizontal, moyenne mensuelle)", "eto": "mm/jour (Hargreaves)", "eff_rain_day": "mm/jour (pluie efficace USDA-SCS)"}};
+const MONTHS = ["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"];
+// FAO-56 Table 12, Kc mid-season (single crop coefficient)
+const CROPS = {tomato:["Tomate",1.15], pepper:["Piment",1.05], potato:["Pomme de terre",1.15], watermelon:["Pastèque",1.0], olive:["Olivier",0.70], citrus:["Agrumes",0.65], date_palm:["Palmier dattier",0.95]};
+const $ = id => document.getElementById(id);
+const fmt = (x,d=1) => x.toLocaleString("fr-FR",{minimumFractionDigits:d,maximumFractionDigits:d});
+const hhmm = m => `${String(Math.floor(m/60)%24).padStart(2,"0")}:${String(Math.floor(m%60)).padStart(2,"0")}`;
+
+// ================================================================ physics model
+const P = {};
+let outages = []; // [{start,end}] in minutes of the day
+function readParams(){
+  Object.assign(P, {
+    solar: $("solarSeg").querySelector(".on").dataset.v === "1",
+    kwp: +$("kwp").value, bat: +$("bat").value, gov: $("gov").value, month: +$("month").value, crop: $("crop").value,
+    area: +$("area").value, q: +$("q").value, head: +$("head").value, sky: $("sky").value,
+    tariff: +$("tariff").value, eta: +$("eta").value, reserve: +$("reserve").value/100,
+  });
+  const g = CLIMATE.governorates[P.gov], m = g.months[P.month];
+  P.lat = g.lat; P.doy = Math.round(15 + 30.4*P.month);
+  P.ghi = P.sky==="clear" ? m.ghi_clear : P.sky==="cloudy" ? m.ghi*0.4 : m.ghi;
+  P.pumpKw = 9.81 * (P.q/3600) * P.head / P.eta;     // kW = ρ·g·Q·H / η (water: ρg = 9.81 kN/m³)
+  P.batKwh = P.solar ? P.bat : 0;                    // the battery belongs to the solar kit
+  P.needM3 = Math.max(0, m.eto*CROPS[P.crop][1] - m.eff_rain_day) * 10 * P.area / 0.95;
+  P.tmin = m.tmin; P.tmax = m.tmax; P.eto = m.eto;
+  P.batMaxKw = Math.max(0.5*P.batKwh, 0.001);
+  $("kwpV").textContent = `${P.kwp} kWc`; $("batV").textContent = P.bat ? `${P.bat} kWh` : "aucune";
+  $("areaV").textContent = `${fmt(P.area,1)} ha`; $("qV").textContent = `${P.q} m³/h`; $("hV").textContent = `${P.head} m`;
+  $("tarV").textContent = `${fmt(P.tariff,2)} DT/kWh`; $("etaV").textContent = `${Math.round(P.eta*100)} %`; $("resV").textContent = `${Math.round(P.reserve*100)} %`;
+  $("assume").innerHTML = `<b>Pompe</b> ${fmt(P.pumpKw,1)} kW pour ${P.q} m³/h sur ${P.head} m. <b>Besoin du jour</b> ${fmt(P.needM3,0)} m³ `+
+    `(ET₀ ${fmt(P.eto,1)} mm/j × Kc ${CROPS[P.crop][1]} FAO-56 − pluie, ${fmt(P.area,1)} ha, goutte-à-goutte enterré 95 %). `+
+    `<b>Soleil</b> ${fmt(P.ghi,2)} kWh/m²/jour (NASA POWER, ${P.gov}, ${MONTHS[P.month].toLowerCase()}). `+
+    `Le tarif STEG, les rendements et la batterie sont des hypothèses à ajuster.`;
+}
+function sunGeom(hour){ // solar time
+  const d = 23.44*Math.PI/180*Math.sin(2*Math.PI*(284+P.doy)/365), phi = P.lat*Math.PI/180, w = (hour-12)*15*Math.PI/180;
+  const up = Math.sin(phi)*Math.sin(d)+Math.cos(phi)*Math.cos(d)*Math.cos(w);
+  const east = -Math.cos(d)*Math.sin(w), north = Math.sin(d)*Math.cos(phi)-Math.cos(d)*Math.sin(phi)*Math.cos(w);
+  const half = Math.acos(Math.max(-1,Math.min(1,-Math.tan(phi)*Math.tan(d))))*180/Math.PI/15;
+  return {up, east, north, sunrise:12-half, sunset:12+half};
+}
+function irradiance(hour){ // kW/m² on the horizontal; the day's integral equals the monthly mean GHI
+  const s = sunGeom(hour), L = s.sunset - s.sunrise;
+  if (hour<=s.sunrise || hour>=s.sunset) return 0;
+  return P.ghi * Math.PI/(2*L) * Math.sin(Math.PI*(hour-s.sunrise)/L);
+}
+function airTemp(hour){ return (P.tmin+P.tmax)/2 + (P.tmax-P.tmin)/2*Math.cos((hour-15)/24*2*Math.PI); }
+function pvPower(hour){ // performance ratio 0.80, −0.4 %/°C above 25 °C cell temperature
+  const G = irradiance(hour), tc = airTemp(hour) + 25*G;
+  return P.solar ? P.kwp * G * 0.80 * (1 - 0.004*Math.max(0, tc-25)) : 0;
+}
+const gridOn = m => !outages.some(o => m>=o.start && m<o.end);
+let SIM = null;
+function simulate(){
+  const dt = 1/60, C = P.batKwh, R = [];
+  let soc = C>0 ? 0.6 : 0, pumped = 0, sched = 0; const e = {pv:0, bat:0, grid:0, lost:0, charge:0};
+  for (let i=0;i<1440;i++){
+    const h = i/60, g = gridOn(i), pv = pvPower(h + 0.5/60);
+    const remaining = P.needM3 - pumped, window = h>=6 && h<22;
+    const target = window && remaining>0.01 ? P.pumpKw : 0;
+    // solar first, then battery (above its reserve), then STEG
+    let usePv = Math.min(pv, target), rest = target - usePv;
+    let useBat = (C>0 && soc>P.reserve) ? Math.min(rest, P.batMaxKw, (soc-P.reserve)*C/dt*0.95) : 0; rest -= useBat;
+    let useGrid = g ? rest : 0; rest -= useGrid;
+    let delivered = target - rest;
+    if (target>0 && delivered < 0.3*P.pumpKw) { usePv = useBat = useGrid = 0; delivered = 0; } // variable-speed pump stops below 30 %
+    let flow = P.q*delivered/P.pumpKw;
+    if (flow*dt > remaining) { const f = Math.max(0,remaining)/(flow*dt); flow*=f; usePv*=f; useBat*=f; useGrid*=f; delivered*=f; }
+    pumped += flow*dt;
+    const surplus = pv - usePv, charge = C>0 ? Math.max(0, Math.min(surplus, P.batMaxKw, (1-soc)*C/dt/0.95)) : 0;
+    if (C>0) soc = Math.min(1, Math.max(0, soc + (charge*0.95 - useBat/0.95)*dt/C));
+    e.pv += usePv*dt; e.bat += useBat*dt; e.grid += useGrid*dt; e.lost += (surplus-charge)*dt; e.charge += charge*dt;
+    if (window) sched = Math.min(P.needM3, sched + P.q*dt);
+    R.push({pv, usePv, useBat, useGrid, charge, delivered, flow, soc, pumped, grid:g, sched, e:{...e}});
+  }
+  SIM = R;
+}
+
+// ================================================================ 3D scene
+const host = $("view");
+const R3 = new THREE.WebGLRenderer({antialias:true});
+R3.setPixelRatio(Math.min(devicePixelRatio,2)); R3.shadowMap.enabled = true; R3.shadowMap.type = THREE.PCFSoftShadowMap;
+R3.toneMapping = THREE.ACESFilmicToneMapping; R3.toneMappingExposure = 0.95; // linear output: hex colours and canvas textures display as authored
+host.appendChild(R3.domElement);
+const scene = new THREE.Scene();
+const cam = new THREE.PerspectiveCamera(42, 1, 0.1, 900);
+const hemi = new THREE.HemisphereLight(0xcfe6ff, 0x5b4a33, 0.55); scene.add(hemi);
+const sun = new THREE.DirectionalLight(0xffffff, 2.2); sun.castShadow = true; sun.shadow.mapSize.set(2048,2048);
+Object.assign(sun.shadow.camera, {left:-50,right:50,top:50,bottom:-50,near:1,far:260}); sun.shadow.bias = -0.0005; scene.add(sun, sun.target);
+scene.fog = new THREE.Fog(0xbfd8ef, 110, 330);
+const std = (c, r=.8, m=0, o={}) => new THREE.MeshStandardMaterial(Object.assign({color:c, roughness:r, metalness:m}, o));
+function mesh(geo, mat, x=0, y=0, z=0, parent=scene, shadow=true){ const o=new THREE.Mesh(geo,mat); o.position.set(x,y,z); o.castShadow=shadow; o.receiveShadow=true; parent.add(o); return o; }
+function canvasTex(w,h,draw,rep){ const c=document.createElement("canvas"); c.width=w; c.height=h; draw(c.getContext("2d"),w,h);
+  const t=new THREE.CanvasTexture(c); if(rep){t.wrapS=t.wrapT=THREE.RepeatWrapping; t.repeat.set(...rep);} t.anisotropy=8; return t; }
+function noise(ctx,w,h,base,vars,n=9000,s=2){ ctx.fillStyle=base; ctx.fillRect(0,0,w,h); for(let i=0;i<n;i++){ ctx.fillStyle=vars[i%vars.length]; ctx.globalAlpha=.25+Math.random()*.5; ctx.fillRect(Math.random()*w,Math.random()*h,s*Math.random()+1,s*Math.random()+1);} ctx.globalAlpha=1; }
+
+// sky dome, stars, sun disc
+const skyMat = new THREE.ShaderMaterial({side:THREE.BackSide, depthWrite:false, fog:false, uniforms:{top:{value:new THREE.Color()}, bottom:{value:new THREE.Color()}},
+  vertexShader:"varying vec3 p; void main(){ p=(modelMatrix*vec4(position,1.)).xyz; gl_Position=projectionMatrix*viewMatrix*vec4(p,1.);} ",
+  fragmentShader:"uniform vec3 top; uniform vec3 bottom; varying vec3 p; void main(){ float h=clamp(normalize(p).y*1.6,0.,1.); gl_FragColor=vec4(mix(bottom,top,pow(h,.7)),1.);} "});
+scene.add(new THREE.Mesh(new THREE.SphereGeometry(600,32,16), skyMat));
+const starPos = []; for (let i=0;i<1500;i++){ const a=Math.random()*Math.PI*2, b=.05+Math.random()*Math.PI*.45; starPos.push(Math.cos(a)*Math.cos(b)*560, Math.sin(b)*560, Math.sin(a)*Math.cos(b)*560); }
+const stars = new THREE.Points(new THREE.BufferGeometry().setAttribute("position", new THREE.Float32BufferAttribute(starPos,3)), new THREE.PointsMaterial({color:0xffffff,size:1.6,sizeAttenuation:false,transparent:true,opacity:0,fog:false}));
+scene.add(stars);
+const sunDisc = new THREE.Mesh(new THREE.SphereGeometry(9,24,16), new THREE.MeshBasicMaterial({color:0xfff1c1, fog:false, toneMapped:false})); scene.add(sunDisc);
+
+// ground and farm track
+const grassTex = canvasTex(512,512,(c,w,h)=>noise(c,w,h,"#7d9a4f",["#6f8c43","#8fae5e","#9a8a55","#5f7a39"],16000,3),[40,40]);
+// ground with an excavated pit in front of the field, so the cut-away soil face is visible
+const groundShape = new THREE.Shape([new THREE.Vector2(-350,-350), new THREE.Vector2(350,-350), new THREE.Vector2(350,350), new THREE.Vector2(-350,350)]);
+groundShape.holes.push(new THREE.Path([new THREE.Vector2(-2.6,-26.5), new THREE.Vector2(26.6,-26.5), new THREE.Vector2(26.6,-22), new THREE.Vector2(-2.6,-22)]));
+const groundGeo = new THREE.ShapeGeometry(groundShape); { const uv = groundGeo.attributes.uv; for (let i=0;i<uv.count;i++) uv.setXY(i, uv.getX(i)/700+.5, uv.getY(i)/700+.5); }
+const ground = mesh(groundGeo, std(0xffffff,1,0,{map:grassTex}), 0,0,0, scene, false); ground.rotation.x=-Math.PI/2;
+const pathTex = canvasTex(256,256,(c,w,h)=>noise(c,w,h,"#b59a6c",["#a58a5c","#c8ad7d","#8f7650"],6000,2),[10,1]);
+const track = mesh(new THREE.PlaneGeometry(70,4), std(0xffffff,1,0,{map:pathTex}), -6,0.02,-14.5, scene, false); track.rotation.x=-Math.PI/2;
+
+// ---------------- field: soil block with an x-ray strip at the front showing the buried drip lines
+const FIELD = {x0:-2, x1:26, z0:4, z1:22, depth:1.6};
+const fw = FIELD.x1-FIELD.x0, fd = FIELD.z1-FIELD.z0, cut = 3.2;
+const soilTop = canvasTex(512,512,(c,w,h)=>{ noise(c,w,h,"#6b4a2e",["#5a3d25","#7b5737","#4d3420"],14000,3); c.globalAlpha=.25; c.fillStyle="#3e2a18"; for(let y=0;y<h;y+=46) c.fillRect(0,y,w,14); },[4,4]);
+const soilSide = canvasTex(256,256,(c,w,h)=>{ const gr=c.createLinearGradient(0,0,0,h); gr.addColorStop(0,"#5a3c22"); gr.addColorStop(.35,"#7a5532"); gr.addColorStop(.7,"#9a7448"); gr.addColorStop(1,"#b49061"); c.fillStyle=gr; c.fillRect(0,0,w,h); for(let i=0;i<2500;i++){ c.fillStyle=["#3d2814","#c7a676","#6d4a2a"][i%3]; c.globalAlpha=.35; c.fillRect(Math.random()*w,Math.random()*h,2,2);} });
+const sideM = std(0xffffff,1,0,{map:soilSide});
+mesh(new THREE.BoxGeometry(fw, FIELD.depth, fd-cut), [sideM,sideM,std(0xffffff,1,0,{map:soilTop}),std(0x3a2815),sideM,sideM], FIELD.x0+fw/2, -FIELD.depth/2+0.12, FIELD.z0+(fd-cut)/2);
+const pitWall = std(0xffffff,1,0,{map:soilSide}), pitFloor = std(0x4e3620,1);
+{ const f = mesh(new THREE.PlaneGeometry(29.2,4.5), pitFloor, 12,-FIELD.depth+0.12,24.25, scene, false); f.rotation.x=-Math.PI/2;
+  const back = mesh(new THREE.PlaneGeometry(29.2,FIELD.depth), pitWall, 12,-FIELD.depth/2+0.06,26.5, scene, false); back.rotation.y=Math.PI;
+  for (const x of [-2.6,26.6]) { const w = mesh(new THREE.PlaneGeometry(4.5,FIELD.depth), pitWall, x,-FIELD.depth/2+0.06,24.25, scene, false); w.rotation.y = x<0 ? Math.PI/2 : -Math.PI/2; } }
+const glass = mesh(new THREE.BoxGeometry(fw, FIELD.depth, cut), new THREE.MeshPhysicalMaterial({color:0x8a6238, transparent:true, opacity:.42, roughness:.6, depthWrite:false}), FIELD.x0+fw/2, -FIELD.depth/2+0.12, FIELD.z1-cut/2, scene, false);
+const glassEdges = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(fw, FIELD.depth, cut)), new THREE.LineBasicMaterial({color:0xc6f04a, transparent:true, opacity:.55})); glassEdges.position.copy(glass.position); scene.add(glassEdges);
+// crops
+const ROWS = []; for (let z=FIELD.z0+1.2; z<FIELD.z1-0.5; z+=1.6) ROWS.push(z);
+const plantGeo = new THREE.IcosahedronGeometry(0.42, 1); plantGeo.translate(0,0.45,0);
+const plantMat = std(0x4f9a33, .7);
+const plants = new THREE.InstancedMesh(plantGeo, plantMat, 700); plants.castShadow = true; plants.receiveShadow = true;
+let pi = 0; const mtx = new THREE.Matrix4(), q = new THREE.Quaternion(), sc = new THREE.Vector3(), pos = new THREE.Vector3();
+for (const z of ROWS) for (let x=FIELD.x0+0.9; x<FIELD.x1-0.5 && pi<700; x+=1.25){ const s=.75+Math.random()*.5; sc.set(s, s*(.8+Math.random()*.5), s); pos.set(x+Math.random()*.2, 0.12, z); q.setFromEuler(new THREE.Euler(0,Math.random()*6,0)); mtx.compose(pos,q,sc); plants.setMatrixAt(pi++, mtx); }
+plants.count = pi; scene.add(plants);
+// buried drip lines, header, roots, wetting bulbs (visible in the x-ray strip)
+const dripDepth = -0.45, pipeMat = std(0x222222, .5, .1);
+for (const z of ROWS){ const p = mesh(new THREE.CylinderGeometry(.06,.06,fw-0.6,10), pipeMat, FIELD.x0+fw/2, dripDepth, z, scene, false); p.rotation.z = Math.PI/2; }
+const headerPipe = mesh(new THREE.CylinderGeometry(.11,.11,fd,12), std(0x1f5fa8,.4,.2), FIELD.x0+0.4, dripDepth, FIELD.z0+fd/2, scene, false); headerPipe.rotation.x = Math.PI/2;
+const zLat = ROWS.filter(z => z > FIELD.z1-cut);
+const rootMat = new THREE.LineBasicMaterial({color:0xe2cfa4, transparent:true, opacity:.85});
+const bulbs = [];
+for (const z of zLat) for (let x=FIELD.x0+1.5; x<FIELD.x1-0.5; x+=1.25){
+  const pts=[]; for(let k=0;k<6;k++){ const a=Math.random()*6.28; pts.push(new THREE.Vector3(x,0.1,z), new THREE.Vector3(x+Math.cos(a)*.38, -0.2-Math.random()*.45, z+Math.sin(a)*.3)); }
+  scene.add(new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints(pts), rootMat));
+  const b = mesh(new THREE.SphereGeometry(.42,16,12), new THREE.MeshStandardMaterial({color:0x46a8ff, emissive:0x0b4f8f, transparent:true, opacity:0, roughness:.2, depthWrite:false}), x, dripDepth, z, scene, false); bulbs.push(b);
+  mesh(new THREE.SphereGeometry(.07,10,8), new THREE.MeshBasicMaterial({color:0x7dd3fc}), x, dripDepth, z, scene, false);
+}
+
+// ---------------- pump house with inverter and battery rack (open on the south side)
+const SITE = {house:new THREE.Vector3(-14,0,-6), tank:new THREE.Vector3(-21,0,2), pump:new THREE.Vector3(-14,0,1.8)};
+const plaster = canvasTex(256,256,(c,w,h)=>noise(c,w,h,"#e7e1d3",["#d8d0bf","#f1ece2","#cfc6b3"],5000,2));
+const house = new THREE.Group(); house.position.copy(SITE.house); scene.add(house);
+const wallM = std(0xffffff,.95,0,{map:plaster});
+mesh(new THREE.BoxGeometry(8,.2,6), std(0x9e9a90,1), 0,.1,0, house);
+mesh(new THREE.BoxGeometry(8,3.4,.25), wallM, 0,1.8,-2.9, house); mesh(new THREE.BoxGeometry(.25,3.4,6), wallM, -3.9,1.8,0, house); mesh(new THREE.BoxGeometry(.25,3.4,6), wallM, 3.9,1.8,0, house);
+const roofTex = canvasTex(128,128,(c,w,h)=>{ c.fillStyle="#8c9496"; c.fillRect(0,0,w,h); for(let x=0;x<w;x+=8){ c.fillStyle=x%16?"#a3abad":"#737b7d"; c.fillRect(x,0,4,h);} },[4,1]);
+const roof = mesh(new THREE.BoxGeometry(9,.12,7.2), std(0xffffff,.55,.6,{map:roofTex}), 0,3.7,0.2, house); roof.rotation.x = .12;
+const scrCanvas = document.createElement("canvas"); scrCanvas.width=256; scrCanvas.height=128; const scrTex = new THREE.CanvasTexture(scrCanvas);
+mesh(new THREE.BoxGeometry(1.8,2.0,.35), std(0xb8c2c9,.4,.3), -1.6,2.0,-2.6, house);
+mesh(new THREE.PlaneGeometry(1.5,.75), new THREE.MeshBasicMaterial({map:scrTex, toneMapped:false}), -1.6,2.4,-2.42, house, false);
+const invLed = mesh(new THREE.SphereGeometry(.06,8,8), new THREE.MeshBasicMaterial({color:0x4ade80, toneMapped:false}), -2.3,1.3,-2.42, house, false);
+const rack = new THREE.Group(); rack.position.set(1.2,0.2,-2.2); house.add(rack);
+mesh(new THREE.BoxGeometry(2.2,2.4,.7), std(0x2b3137,.6,.4), 0,1.2,0, rack);
+const ledMat = [];
+for (let i=0;i<4;i++){ mesh(new THREE.BoxGeometry(1.9,.48,.08), std(0x3d464f,.5,.3), 0,.45+i*.55,.36, rack, false);
+  const lm = new THREE.MeshBasicMaterial({color:0x4ade80, toneMapped:false}); ledMat.push(lm); mesh(new THREE.BoxGeometry(1.4,.1,.02), lm, 0,.45+i*.55,.41, rack, false); }
+mesh(new THREE.BoxGeometry(.9,1.2,.3), std(0xd7dde3,.5,.2), -3.0,1.9,-3.15, house);
+const meterLamp = mesh(new THREE.SphereGeometry(.1,10,8), new THREE.MeshBasicMaterial({color:0x4ade80, toneMapped:false}), -3.0,2.35,-3.32, house, false);
+const lamp = new THREE.PointLight(0xffd59a, 0, 16); lamp.position.set(0,3.2,0); house.add(lamp);
+const bulbLamp = mesh(new THREE.SphereGeometry(.15,10,8), new THREE.MeshBasicMaterial({color:0xfff0c8, toneMapped:false}), 0,3.3,0, house, false);
+function drawScreen(r){
+  const c = scrCanvas.getContext("2d"); c.fillStyle="#041004"; c.fillRect(0,0,256,128);
+  const src = r.delivered<=0.01 ? "ARRÊT" : r.useGrid>0.02 && r.usePv<0.02 && r.useBat<0.02 ? "RÉSEAU" : r.useGrid>0.02 ? "MIXTE" : r.usePv>0.02 ? "SOLAIRE" : "BATTERIE";
+  c.fillStyle = src==="ARRÊT" ? "#ff5a4e" : src==="RÉSEAU" ? "#7fb4ff" : "#c6f04a"; c.font="bold 40px Inter, sans-serif"; c.fillText(src,14,50);
+  c.fillStyle="#cfe9c0"; c.font="24px 'JetBrains Mono', monospace"; c.fillText(`${fmt(r.delivered,1)} kW  ${P.batKwh?Math.round(r.soc*100)+"%":""}`,14,98);
+  scrTex.needsUpdate = true;
+}
+// ROOTLOOP tank
+const tankM = std(0xcfd6d8,.35,.6);
+mesh(new THREE.CylinderGeometry(2.6,2.6,4.2,32), tankM, SITE.tank.x, 2.1, SITE.tank.z);
+mesh(new THREE.CylinderGeometry(2.7,2.7,.2,32), std(0x8f989b,.4,.6), SITE.tank.x,4.25,SITE.tank.z);
+const tankLabel = canvasTex(512,128,(c,w,h)=>{ c.fillStyle="#1b4332"; c.fillRect(0,0,w,h); c.fillStyle="#c6f04a"; c.font="bold 64px Inter, sans-serif"; c.fillText("ROOTLOOP",40,88); });
+mesh(new THREE.CylinderGeometry(2.62,2.62,.9,32,1,true,-0.2,1.9), new THREE.MeshStandardMaterial({map:tankLabel,roughness:.5,side:THREE.DoubleSide}), SITE.tank.x,2.6,SITE.tank.z, scene, false);
+// pump on its pad, with a fan that spins with the power
+const pumpG = new THREE.Group(); pumpG.position.copy(SITE.pump); scene.add(pumpG);
+mesh(new THREE.BoxGeometry(2.6,.3,1.6), std(0xa6a29a,1), 0,.15,0, pumpG);
+mesh(new THREE.CylinderGeometry(.45,.45,1.2,24), std(0x1f5fa8,.35,.4), -.3,.8,0, pumpG).rotation.z = Math.PI/2;
+mesh(new THREE.CylinderGeometry(.55,.55,.45,24), std(0x9aa3a8,.3,.7), .55,.8,0, pumpG).rotation.z = Math.PI/2;
+const fan = new THREE.Group(); fan.position.set(-.95,.8,0); pumpG.add(fan);
+for (let i=0;i<4;i++){ const b=mesh(new THREE.BoxGeometry(.04,.75,.14), std(0x222222,.5), 0,0,0, fan, false); b.rotation.x = i*Math.PI/4; }
+// water pipes: tank -> pump -> buried main -> field header
+const blue = std(0x1f5fa8,.4,.2);
+function pipe(a,b,r=.14){ const d=new THREE.Vector3().subVectors(b,a), L=d.length(); const p=mesh(new THREE.CylinderGeometry(r,r,L,12), blue, 0,0,0, scene, false); p.position.copy(a).add(b).multiplyScalar(.5); p.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0), d.normalize()); }
+const WATER_PATH = [new THREE.Vector3(-18.4,.6,2), new THREE.Vector3(-14.9,.6,1.8), new THREE.Vector3(-13.2,.8,1.8), new THREE.Vector3(-11,.8,1.8), new THREE.Vector3(-11,dripDepth,1.8), new THREE.Vector3(FIELD.x0+0.4,dripDepth,1.8), new THREE.Vector3(FIELD.x0+0.4,dripDepth,FIELD.z1-0.3)];
+for (let i=0;i<WATER_PATH.length-1;i++) pipe(WATER_PATH[i], WATER_PATH[i+1]);
+mesh(new THREE.BoxGeometry(12.6,.03,.7), std(0x5c4128,1), (-11+FIELD.x0)/2, .03, 1.8, scene, false); // backfilled trench
+
+// ---------------- solar array (450 Wc modules, two modules high, 30° tilt facing south)
+const pvTex = canvasTex(256,512,(c,w,h)=>{ c.fillStyle="#0d1a3a"; c.fillRect(0,0,w,h); const cols=6, rows=12;
+  for(let i=0;i<cols;i++) for(let j=0;j<rows;j++){ const g=c.createLinearGradient(0,0,w/cols,h/rows); g.addColorStop(0,"#1d3f86"); g.addColorStop(1,"#0f2352"); c.fillStyle=g; c.fillRect(i*w/cols+3,j*h/rows+3,w/cols-6,h/rows-6); }
+  c.strokeStyle="rgba(210,225,255,.35)"; for(let i=0;i<cols;i++){ c.beginPath(); c.moveTo(i*w/cols+w/cols/2,0); c.lineTo(i*w/cols+w/cols/2,h); c.stroke(); } });
+const pvMat = new THREE.MeshStandardMaterial({map:pvTex, roughness:.15, metalness:.6});
+const frameMat = std(0xc7ccd1,.3,.8);
+const PVSITE = new THREE.Vector3(-2,0,-24);
+const pvGroup = new THREE.Group(); pvGroup.position.copy(PVSITE); scene.add(pvGroup);
+function buildPV(kwp){
+  while (pvGroup.children.length) pvGroup.remove(pvGroup.children[0]);
+  const n = Math.max(4, Math.round(kwp/0.45)), pairs = Math.ceil(n/2), perRow = Math.min(10, pairs), rows = Math.ceil(pairs/perRow);
+  let left = n;
+  for (let r=0;r<rows;r++){ const g = new THREE.Group(); g.position.set(0,0,-r*5.4); pvGroup.add(g);
+    const cnt = Math.min(perRow, Math.ceil(left/2));
+    for (let i=0;i<cnt;i++){ const x = (i-(cnt-1)/2)*1.2;
+      for (const [y,z] of [[1.25,0],[1.95,-1.2]]) { if (left-- <= 0) break;
+        const m = mesh(new THREE.BoxGeometry(1.13,.04,1.4), [frameMat,frameMat,pvMat,frameMat,frameMat,frameMat], x, y, z, g); m.rotation.x = 0.52; } }
+    const half = (cnt-1)/2*1.2+.7;
+    for (const x of [-half, 0, half]) { mesh(new THREE.BoxGeometry(.08,1.0,.08), frameMat, x,.5,.55, g); mesh(new THREE.BoxGeometry(.08,2.4,.08), frameMat, x,1.2,-1.75, g); }
+    mesh(new THREE.BoxGeometry(cnt*1.2+.3,.07,.07), frameMat, 0,.95,.55, g, false); mesh(new THREE.BoxGeometry(cnt*1.2+.3,.07,.07), frameMat, 0,2.35,-1.75, g, false);
+  }
+}
+const PV_PATH = [new THREE.Vector3(-2,.4,-23), new THREE.Vector3(-2,.06,-20), new THREE.Vector3(-9,.06,-12), new THREE.Vector3(-12.6,.4,-8.4), new THREE.Vector3(-16.2,2,-8.6)];
+
+// ---------------- STEG line: poles, transformer, catenary cables
+const woodPole = std(0x8a7a66,.9);
+const POLES = [new THREE.Vector3(-60,0,-30), new THREE.Vector3(-45,0,-22), new THREE.Vector3(-30,0,-14)];
+const cableMat = new THREE.MeshStandardMaterial({color:0x1a1a1a, roughness:.6});
+for (const p of POLES){ mesh(new THREE.CylinderGeometry(.18,.26,9,10), woodPole, p.x,4.5,p.z); const arm = mesh(new THREE.BoxGeometry(3,.18,.18), woodPole, p.x,8.4,p.z); arm.rotation.y = -0.42;
+  for (const s of [-1.2,0,1.2]) mesh(new THREE.CylinderGeometry(.07,.07,.3,8), std(0xe8e8e0,.3), p.x+s*Math.cos(.42),8.65,p.z+s*Math.sin(.42), scene, false); }
+mesh(new THREE.BoxGeometry(1.1,1.4,.9), std(0x8d979c,.5,.4), POLES[2].x+.6,6.2,POLES[2].z);
+const stegSign = canvasTex(256,96,(c,w,h)=>{ c.fillStyle="#e5effa"; c.fillRect(0,0,w,h); c.fillStyle="#0b4a8b"; c.font="bold 60px Inter, sans-serif"; c.fillText("STEG",48,70); });
+mesh(new THREE.PlaneGeometry(1.1,.42), new THREE.MeshBasicMaterial({map:stegSign}), POLES[2].x+.6,6.2,POLES[2].z+.46, scene, false);
+function catenary(a,b,sag=1.2,n=18){ const pts=[]; for(let i=0;i<=n;i++){ const t=i/n; const p=a.clone().lerp(b,t); p.y -= sag*4*t*(1-t); pts.push(p);} return pts; }
+const anchors = [...POLES.map(p=>new THREE.Vector3(p.x,8.65,p.z)), new THREE.Vector3(SITE.house.x-3,3.3,SITE.house.z-3.1)];
+const GRID_PATH = [], cables = [];
+for (let i=0;i<anchors.length-1;i++){ const pts = catenary(anchors[i], anchors[i+1], i===anchors.length-2 ? .6 : 1.4);
+  GRID_PATH.push(...(i ? pts.slice(1) : pts));
+  const offs = i < anchors.length-2 ? [-1.2,0,1.2] : [0];
+  for (const off of offs) { const sh = new THREE.Vector3(off*Math.cos(.42),0,off*Math.sin(.42));
+    const c = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts.map(p=>p.clone().add(sh))),40,.035,6), cableMat); scene.add(c); cables.push(c); } }
+
+// ---------------- energy and water particles
+function flow(points, color, count, size){
+  const curve = new THREE.CatmullRomCurve3(points, false, "centripetal");
+  const im = new THREE.InstancedMesh(new THREE.SphereGeometry(size,10,8), new THREE.MeshBasicMaterial({color, toneMapped:false}), count);
+  im.frustumCulled = false; scene.add(im);
+  return {curve, im, count, offset:Math.random(), level:0};
+}
+const fGrid = flow(GRID_PATH, 0x9cc3ff, 46, .13);
+const fPv = flow(PV_PATH, 0xffc83d, 28, .14);
+const fBat = flow([new THREE.Vector3(-16.2,1.9,-8.4), new THREE.Vector3(-14.5,1.4,-7.4), new THREE.Vector3(-12.8,1.6,-8.0)], 0x4ade80, 10, .1);
+const fPump = flow([new THREE.Vector3(-16.2,2,-8.6), new THREE.Vector3(-14,2.8,-5), new THREE.Vector3(-14,1.8,-1), new THREE.Vector3(-14.3,1.1,1.6)], 0xc6f04a, 16, .1);
+const fWater = flow(WATER_PATH, 0x38bdf8, 64, .13);
+const latFlows = zLat.map(z => flow([new THREE.Vector3(FIELD.x0+0.4,dripDepth,z), new THREE.Vector3(FIELD.x1-0.4,dripDepth,z)], 0x7dd3fc, 26, .09));
+const qI = new THREE.Quaternion();
+function updateFlow(f, level, dt, speed, reverse=false){
+  f.level += (level - f.level)*Math.min(1, dt*4);
+  f.offset = (f.offset + dt*speed*(0.3+Math.min(1.5,level))) % 1;
+  const s = f.level < .03 ? 0 : 0.5 + 0.7*Math.min(1,f.level);
+  for (let i=0;i<f.count;i++){ let t=(i/f.count + f.offset) % 1; if (reverse) t = 1-t; f.curve.getPointAt(t, pos); sc.setScalar(s); mtx.compose(pos, qI, sc); f.im.setMatrixAt(i, mtx); }
+  f.im.instanceMatrix.needsUpdate = true;
+}
+
+// ---------------- labels
+const tags = {};
+function tag(id, html, anchor){ const d=document.createElement("div"); d.className="tag"; d.innerHTML=html; $("app").appendChild(d); tags[id]={el:d, anchor}; }
+tag("steg","Réseau STEG<small id='tgGrid'></small>", new THREE.Vector3(POLES[1].x, 10.5, POLES[1].z));
+tag("pv","Panneaux solaires<small id='tgPv'></small>", new THREE.Vector3(PVSITE.x, 4.6, PVSITE.z-1));
+tag("house","<span id='tgHouse'>Onduleur + batterie</span><small id='tgBat'></small>", new THREE.Vector3(SITE.house.x, 5.2, SITE.house.z));
+tag("pump","Pompe<small id='tgPump'></small>", new THREE.Vector3(SITE.pump.x, 2.4, SITE.pump.z));
+tag("tank","Réservoir ROOTLOOP<small>eau récupérée</small>", new THREE.Vector3(SITE.tank.x, 5.6, SITE.tank.z));
+tag("soil","Irrigation souterraine<small id='tgSoil'></small>", new THREE.Vector3(FIELD.x0+fw*.55, .4, FIELD.z1+.3));
+
+// ================================================================ camera
+const VIEWS = {all:{t:new THREE.Vector3(-12,0,-6), r:72, yaw:-.42, pitch:.34}, solar:{t:new THREE.Vector3(-2,1.5,-27), r:26, yaw:-.35, pitch:.3},
+  house:{t:new THREE.Vector3(-15,1.6,-4), r:17, yaw:.18, pitch:.28}, soil:{t:new THREE.Vector3(8,-0.7,FIELD.z1), r:12, yaw:-.28, pitch:.2}};
+const camState = {...VIEWS.all, t:VIEWS.all.t.clone()}, camGoal = {...VIEWS.all, t:VIEWS.all.t.clone()};
+function setView(v){ const g=VIEWS[v]; camGoal.t.copy(g.t); camGoal.r=g.r; camGoal.yaw=g.yaw; camGoal.pitch=g.pitch; }
+document.querySelectorAll("[data-view]").forEach(b=>b.onclick=()=>setView(b.dataset.view));
+let drag=null;
+R3.domElement.addEventListener("pointerdown",e=>{ drag={x:e.clientX,y:e.clientY,yaw:camGoal.yaw,pitch:camGoal.pitch}; R3.domElement.setPointerCapture(e.pointerId); });
+R3.domElement.addEventListener("pointermove",e=>{ if(!drag) return; camGoal.yaw = drag.yaw-(e.clientX-drag.x)*.005; camGoal.pitch = Math.max(.05,Math.min(1.3,drag.pitch+(e.clientY-drag.y)*.004)); });
+R3.domElement.addEventListener("pointerup",()=>drag=null);
+R3.domElement.addEventListener("wheel",e=>{ e.preventDefault(); camGoal.r = Math.max(8, Math.min(160, camGoal.r*(1+Math.sign(e.deltaY)*.1))); },{passive:false});
+function updateCam(dt){
+  const k = Math.min(1, dt*3); camState.t.lerp(camGoal.t,k); for (const p of ["r","yaw","pitch"]) camState[p] += (camGoal[p]-camState[p])*k;
+  cam.position.set(camState.t.x+Math.sin(camState.yaw)*Math.cos(camState.pitch)*camState.r, camState.t.y+Math.sin(camState.pitch)*camState.r, camState.t.z+Math.cos(camState.yaw)*Math.cos(camState.pitch)*camState.r);
+  cam.lookAt(camState.t);
+}
+function resize(){ const w=host.clientWidth, h=host.clientHeight; R3.setSize(w,h); cam.aspect=w/h; cam.updateProjectionMatrix(); drawChart(); }
+new ResizeObserver(resize).observe(host);
+
+// ================================================================ controls
+$("gov").innerHTML = Object.keys(CLIMATE.governorates).map(g=>`<option ${g==="Nabeul"?"selected":""}>${g}</option>`).join("");
+$("month").innerHTML = MONTHS.map((m,i)=>`<option value="${i}" ${i===6?"selected":""}>${m}</option>`).join("");
+$("crop").innerHTML = Object.entries(CROPS).map(([k,[n]])=>`<option value="${k}">${n}</option>`).join("");
+let minute = 6*60, playing = true, speed = 4, holdUntil = 0; // speed ×1 = 20 simulated minutes per second
+function rebuild(){ readParams(); buildPV(P.kwp); pvGroup.visible = P.solar; simulate(); drawChart(); }
+["kwp","bat","area","q","head","tariff","eta","reserve"].forEach(id=>$(id).addEventListener("input", rebuild));
+["gov","month","crop","sky"].forEach(id=>$(id).addEventListener("change", rebuild));
+function setSolar(on){ $("solarSeg").querySelectorAll("button").forEach(x=>x.classList.toggle("on", x.dataset.v === (on?"1":"0"))); }
+$("solarSeg").querySelectorAll("button").forEach(b=>b.onclick=()=>{ setSolar(b.dataset.v==="1"); rebuild(); });
+$("outage").onclick = () => { const cur = outages.find(o=>minute>=o.start && minute<o.end);
+  if (cur) cur.end = Math.floor(minute); else outages.push({start:Math.floor(minute), end:1440});
+  simulate(); drawChart(); };
+$("reset").onclick = () => { outages = []; minute = 6*60; stopScript(); simulate(); drawChart(); };
+$("play").onclick = () => { playing = !playing; $("play").textContent = playing ? "❚❚" : "▶"; };
+$("time").oninput = e => { minute = +e.target.value; };
+function setSpeed(s){ speed = s; $("speed").querySelectorAll("button").forEach(x=>x.classList.toggle("on", +x.dataset.s===s)); }
+$("speed").querySelectorAll("button").forEach(b=>b.onclick=()=>setSpeed(+b.dataset.s));
+
+// ================================================================ jury scenario
+let script = null;
+const STEPS = [
+  {phase:1, at:7*60,     text:"1/2 · Ferme classique, sans solaire : la pompe tourne sur le réseau STEG. 7 h, l'irrigation commence."},
+  {phase:1, at:10*60,    outage:true, view:"soil", text:"10 h : coupure de la STEG. La pompe s'arrête : plus une goutte n'arrive aux racines."},
+  {phase:1, at:13*60,    text:"13 h, pleine chaleur, toujours pas de courant. Les plantes jaunissent : la récolte est en danger."},
+  {phase:1, at:15*60,    restore:true, view:"all", text:"15 h : retour du courant. Cinq heures d'irrigation perdues."},
+  {phase:1, at:16*60+30, replay:true, text:"2/2 · La même journée avec FARMLINK : panneaux solaires + batterie + onduleur automatique."},
+  {phase:2, at:7*60,     view:"solar", text:"7 h : le soleil se lève, les panneaux alimentent déjà la pompe. La STEG n'est presque pas utilisée."},
+  {phase:2, at:10*60,    outage:true, view:"house", text:"10 h : même coupure STEG. L'onduleur bascule tout seul : la pompe continue au solaire."},
+  {phase:2, at:12*60,    view:"soil", text:"Sous le sol, l'eau arrive toujours aux racines par le goutte-à-goutte enterré."},
+  {phase:2, at:14*60,    view:"all", text:"Le surplus de soleil recharge la batterie pour la fin de journée."},
+  {phase:2, at:15*60,    restore:true, text:"15 h : retour de la STEG. Aucune heure d'irrigation perdue, et la facture a baissé."},
+  {phase:2, at:20*60,    end:true, text:"Bilan à droite : eau livrée aux racines, énergie solaire utilisée et dinars économisés sur la journée."},
+];
+function stopScript(){ script = null; $("caption").style.display = "none"; }
+$("jury").onclick = () => {
+  outages = []; setSolar(false); rebuild(); minute = 6*60+40; playing = true; $("play").textContent="❚❚"; setSpeed(4);
+  script = {phase:1, i:0}; setView("all");
+};
+function runScript(now){
+  if (!script) return;
+  const s = STEPS[script.i]; if (!s || s.phase !== script.phase || minute < s.at) return;
+  $("caption").textContent = s.text; $("caption").style.display = "block"; holdUntil = now + 2600;
+  if (s.view) setView(s.view);
+  if (s.outage) { outages = [{start:s.at, end:1440}]; simulate(); drawChart(); }
+  if (s.restore) { outages = [{start:10*60, end:s.at}]; simulate(); drawChart(); }
+  script.i++;
+  if (s.replay) { script.phase = 2; outages = []; setSolar(true); rebuild(); minute = 6*60+40; holdUntil = now + 3200; setView("all"); }
+  if (s.end) { setTimeout(()=>{ playing = false; $("play").textContent = "▶"; }, 2600); }
+}
+
+// ================================================================ chart: whole simulated day + cursor
+const chart = $("chart"), cx = chart.getContext("2d");
+function drawChart(){
+  if (!SIM || !chart.clientWidth) return;
+  const dpr = devicePixelRatio||1, w = chart.clientWidth, h = chart.clientHeight; chart.width = w*dpr; chart.height = h*dpr; cx.setTransform(dpr,0,0,dpr,0,0);
+  const maxKw = Math.max(P.pumpKw*1.2, ...SIM.map(r=>r.pv), 1), X = i => i/1439*w, Y = v => h-4 - v/maxKw*(h-16);
+  for (const o of outages){ cx.fillStyle="rgba(255,90,78,.2)"; cx.fillRect(X(o.start),0,X(Math.min(o.end,1439))-X(o.start),h); }
+  cx.strokeStyle="rgba(255,255,255,.07)"; cx.fillStyle="#6b7568"; cx.font="10px 'JetBrains Mono', monospace"; cx.lineWidth=1;
+  for (let hh=0;hh<=24;hh+=3){ const x=X(hh*60); cx.beginPath(); cx.moveTo(x,0); cx.lineTo(x,h); cx.stroke(); cx.fillText(`${hh}h`, Math.min(x+2,w-20), 10); }
+  const line = (f,color,fill) => { cx.beginPath(); SIM.forEach((r,i)=>{ const y=f(r); i?cx.lineTo(X(i),y):cx.moveTo(X(i),y); });
+    if (fill){ cx.lineTo(w,h); cx.lineTo(0,h); cx.closePath(); cx.fillStyle=fill; cx.fill(); } else { cx.strokeStyle=color; cx.lineWidth=2; cx.stroke(); } };
+  line(r=>Y(r.pv), null, "rgba(255,200,61,.22)"); line(r=>Y(r.pv), "#ffc83d");
+  line(r=>Y(r.delivered), "#38bdf8"); line(r=>Y(r.useGrid), "#7fb4ff");
+  if (P.batKwh) line(r=>h-4-r.soc*(h-16), "#4ade80");
+  chart.dataset.cursor = "";
+}
+function drawCursor(){ // cheap overlay redraw: full redraw is fine at 8 Hz
+  drawChart(); const w = chart.clientWidth, h = chart.clientHeight, x = minute/1439*w;
+  cx.strokeStyle="#ffffff"; cx.lineWidth=1.5; cx.beginPath(); cx.moveTo(x,0); cx.lineTo(x,h); cx.stroke();
+}
+
+// ================================================================ simple energy schema
+function drawSchema(r){
+  const on = v => v > 0.05, w = v => 1.5 + Math.min(6, v*1.4);
+  const edge = (d,v,c) => `<path d="${d}" stroke="${on(v)?c:"#2a3328"}" stroke-width="${on(v)?w(v):1.5}" stroke-dasharray="${on(v)?"6 6":"0"}" fill="none">${on(v)?'<animate attributeName="stroke-dashoffset" from="24" to="0" dur="0.8s" repeatCount="indefinite"/>':""}</path>`;
+  const node = (x,y,label,sub,c,act) => `<g><rect x="${x-40}" y="${y-18}" width="80" height="36" rx="8" fill="#121712" stroke="${act?c:"#2a3328"}" stroke-width="${act?2:1}"/><text x="${x}" y="${y-3}" fill="#eef3ea" font-size="10.5" font-weight="700" text-anchor="middle" font-family="Inter">${label}</text><text x="${x}" y="${y+11}" fill="${act?c:"#6b7568"}" font-size="9.5" text-anchor="middle" font-family="JetBrains Mono">${sub}</text></g>`;
+  $("schema").innerHTML =
+    edge("M88 28 L110 75", r.usePv+r.charge, "#ffc83d") + edge("M88 122 L110 75", r.useGrid, "#7fb4ff") +
+    edge(r.charge>r.useBat ? "M190 75 L212 28" : "M212 28 L190 75", r.useBat+r.charge, "#4ade80") + edge("M190 75 L212 122", r.delivered, "#38bdf8") +
+    node(48,28,"☀ Panneaux",P.solar?`${fmt(r.pv,1)} kW`:"absents","#ffc83d",r.pv>0.05) + node(48,122,"STEG",r.grid?`${fmt(r.useGrid,1)} kW`:"COUPÉE","#7fb4ff",r.grid&&r.useGrid>0.05) +
+    node(150,75,"Onduleur",P.solar?"automatique":"—","#c6f04a",r.delivered>0.05) + node(252,28,"Batterie",P.batKwh?`${Math.round(r.soc*100)} %`:"absente","#4ade80",r.useBat>0.05||r.charge>0.05) +
+    node(252,122,"💧 Pompe",`${fmt(r.flow,1)} m³/h`,"#38bdf8",r.delivered>0.05);
+}
+
+// ================================================================ main loop
+const skyDay = new THREE.Color(0x7fb8ec), skyHorizon = new THREE.Color(0xd7e9f7), skyNightTop = new THREE.Color(0x050c18), skyNightBot = new THREE.Color(0x13213a), dusk = new THREE.Color(0xf3a35b);
+let last = performance.now(), uiTimer = 0;
+function frame(now){
+  requestAnimationFrame(frame);
+  const dt = Math.min(.1,(now-last)/1000); last = now;
+  if (playing && SIM && now > holdUntil) minute = Math.min(1439, minute + dt*speed*20);
+  runScript(now);
+  const r = SIM[Math.max(0,Math.min(1439,Math.floor(minute)))], hour = minute/60, k = P.pumpKw;
+  // sun, sky, lights
+  const s = sunGeom(hour), el = s.up, center = new THREE.Vector3(-6,0,-2);
+  sun.position.set(s.east*150, Math.max(el,-.2)*150, -s.north*150).add(center); sun.target.position.copy(center);
+  sunDisc.position.set(s.east*520, el*520, -s.north*520);
+  const day = THREE.MathUtils.smoothstep(el, -0.12, 0.25), twilight = Math.max(0, 1-Math.abs(el-0.03)/0.18);
+  sun.intensity = 2.4*THREE.MathUtils.smoothstep(el,-0.02,0.35) * (P.sky==="cloudy"?0.45:1);
+  sun.color.setHSL(0.09, 0.7*twilight, 0.6+0.38*day);
+  hemi.intensity = 0.1 + 0.5*day*(P.sky==="cloudy"?0.8:1);
+  skyMat.uniforms.top.value.copy(skyNightTop).lerp(skyDay, day); skyMat.uniforms.bottom.value.copy(skyNightBot).lerp(skyHorizon, day).lerp(dusk, twilight*.55);
+  if (P.sky==="cloudy") { skyMat.uniforms.top.value.lerp(new THREE.Color(0x9aa6b2), .5*day); }
+  scene.fog.color.copy(skyMat.uniforms.bottom.value); stars.material.opacity = 1-day;
+  sunDisc.visible = el > -0.05; lamp.intensity = 0.6 + (1-day)*(r.grid || r.delivered>0 ? 1.2 : -0.4); bulbLamp.visible = lamp.intensity > .3;
+  // energy and water flows
+  updateFlow(fGrid, r.useGrid/k, dt, .18); updateFlow(fPv, (r.usePv+r.charge)/k, dt, .3);
+  updateFlow(fBat, (r.useBat+r.charge)/k, dt, .45, r.charge > r.useBat); updateFlow(fPump, r.delivered/k, dt, .5);
+  updateFlow(fWater, r.flow/P.q, dt, .22); latFlows.forEach(f=>updateFlow(f, r.flow/P.q, dt, .16));
+  fan.rotation.x += dt * 40 * (r.delivered/k);
+  const wet = r.flow/P.q; bulbs.forEach((b,j)=>{ b.material.opacity += ((wet>0.05?0.42:0.05) - b.material.opacity)*dt*.7; const s2 = .55 + .55*b.material.opacity/0.42 + .04*Math.sin(now/420+j); b.scale.set(1.1*s2,.8*s2,1.1*s2); });
+  const ratio = r.sched>0 ? r.pumped/r.sched : 1, health = Math.max(0,Math.min(1,(ratio-.55)/.4));
+  plantMat.color.setRGB(0.31+0.32*(1-health), 0.6-0.16*(1-health), 0.2-0.06*(1-health));
+  cables.forEach(c=>c.material.color.setHex(r.grid?0x1a1a1a:0x4a0f0b));
+  meterLamp.material.color.setHex(r.grid?0x4ade80:0xff3b30);
+  invLed.material.color.setHex(r.delivered>0 ? (r.useGrid>0.02 && r.usePv<0.02 && r.useBat<0.02 ? 0x7fb4ff : 0x4ade80) : 0xff3b30);
+  ledMat.forEach((m,j)=>m.color.setHex(P.batKwh && r.soc > (j+0.5)/4 ? 0x4ade80 : 0x3a2a22));
+  // labels
+  for (const [id,t] of Object.entries(tags)){ pos.copy(t.anchor).project(cam);
+    const vis = pos.z<1 && Math.abs(pos.x)<1.05 && Math.abs(pos.y)<1.05 && !(id==="pv" && !P.solar);
+    t.el.style.display = vis ? "" : "none"; t.el.style.left = ((pos.x+1)/2*host.clientWidth)+"px"; t.el.style.top = ((1-pos.y)/2*host.clientHeight)+"px"; }
+  updateCam(dt); R3.render(scene, cam);
+  uiTimer += dt; if (uiTimer > .12) { uiTimer = 0; updateUI(r, ratio); }
+}
+function updateUI(r, ratio){
+  $("clock").textContent = hhmm(minute); $("time").value = Math.floor(minute);
+  let mode, ar, color; const h = minute/60;
+  if (r.delivered <= 0.01) {
+    if (P.needM3 - r.pumped < 0.05) { mode="Irrigation du jour terminée"; ar="السقي متاع اليوم كمل"; color="#c6f04a"; }
+    else if (h < 6 || h >= 22) { mode="Pompe en attente (nuit)"; ar="المضخة تستنّى"; color="#6b7568"; }
+    else { mode="POMPE ARRÊTÉE"; ar="المضخة وقفت"; color="#ff5a4e"; }
+  } else {
+    const src = [[r.usePv,"soleil"],[r.useBat,"batterie"],[r.useGrid,"STEG"]].filter(x=>x[0]>0.02).map(x=>x[1]);
+    const gridOnly = src.length===1 && src[0]==="STEG";
+    mode = "Pompe alimentée par : " + src.join(" + "); ar = gridOnly ? "المضخة خدّامة بالستاغ" : "المضخة خدّامة بالطاقة الشمسية";
+    color = gridOnly ? "#7fb4ff" : r.usePv>0.02 ? "#ffc83d" : "#4ade80";
+  }
+  $("modeT").textContent = mode; $("modeAr").textContent = ar; $("modeDot").style.background = color; $("modeDot").style.boxShadow = `0 0 12px ${color}`;
+  $("kPv").innerHTML = P.solar ? `${fmt(r.pv,1)} <small>kW</small>` : `<small>pas de panneaux</small>`;
+  $("kPump").innerHTML = `${fmt(r.delivered,1)} <small>kW · ${fmt(r.flow,1)} m³/h</small>`;
+  $("kBat").innerHTML = P.batKwh ? `${Math.round(r.soc*100)} <small>%</small>` : `<small>pas de batterie</small>`; $("kBatBar").style.width = `${P.batKwh ? r.soc*100 : 0}%`;
+  $("kGrid").innerHTML = r.grid ? `${fmt(r.useGrid,1)} <small>kW</small>` : `<span style="color:var(--red)">COUPÉE</span>`;
+  $("kWater").innerHTML = `${fmt(r.pumped,0)} / ${fmt(P.needM3,0)} <small>m³</small>`; $("kWaterBar").style.width = `${P.needM3 ? Math.min(100, r.pumped/P.needM3*100) : 100}%`;
+  $("kSave").innerHTML = `${fmt((r.e.pv + r.e.bat) * P.tariff, 2)} <small>DT</small>`;
+  const autoH = P.batKwh ? Math.max(0,(r.soc-P.reserve))*P.batKwh*0.95/k(): 0;
+  $("kAuto").innerHTML = P.batKwh ? `${fmt(autoH,1)} <small>h de pompe</small>` : `<small>—</small>`;
+  drawSchema(r); drawCursor(); drawScreen(r);
+  const alertOn = !r.grid && r.delivered <= 0.01 && P.needM3 - r.pumped > 0.05 && h>=6 && h<22;
+  $("alert").style.display = alertOn ? "block" : "none"; $("alert").innerHTML = "⚠ Coupure STEG : pompe arrêtée<br><span class='ar'>الستاغ مقصوصة : المضخة واقفة</span>";
+  $("outage").classList.toggle("on", !r.grid); $("outage").textContent = r.grid ? "⚡ Couper la STEG" : "⚡ Rétablir la STEG";
+  $("tgGrid").textContent = r.grid ? `${fmt(r.useGrid,1)} kW` : "coupé"; $("tgPv").textContent = `${P.kwp} kWc · ${fmt(r.pv,1)} kW`;
+  $("tgHouse").textContent = P.solar ? "Onduleur + batterie" : "Local technique"; $("tgBat").textContent = P.batKwh ? `batterie ${Math.round(r.soc*100)} %` : "pas de batterie"; $("tgPump").textContent = `${fmt(r.delivered,1)} kW · ${fmt(r.flow,1)} m³/h`;
+  $("tgSoil").textContent = `goutte-à-goutte enterré · ${fmt(r.pumped,0)} m³`;
+  const e = r.e;
+  $("plants").innerHTML = `<b>Plantes :</b> <b style="color:${ratio>.9?"#4ade80":ratio>.65?"#ffc83d":"#ff5a4e"}">${ratio>.9?"bien arrosées":ratio>.65?"en manque d'eau":"stress hydrique"}</b>. `+
+    `Énergie de la pompe aujourd'hui : solaire ${fmt(e.pv,1)} kWh, batterie ${fmt(e.bat,1)} kWh, STEG ${fmt(e.grid,1)} kWh. CO₂ évité ≈ ${fmt((e.pv+e.bat)*0.46,1)} kg (0,46 kg/kWh, hypothèse).`;
+}
+function k(){ return P.pumpKw; }
+rebuild(); resize(); requestAnimationFrame(frame);
+</script>
+</body>
+</html>

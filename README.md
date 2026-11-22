@@ -170,6 +170,18 @@ dashboard home shows soil moisture, air temperature, air humidity and light from
 `GET /api/v1/sensors/latest`. Only the device IDs in `SENSOR_DEVICE_IDS` are shown, since the public broker
 is open to anyone; see `services/api/.env.example` for a private HiveMQ Cloud cluster.
 
+### 9. Market at a glance (no extra server)
+Dashboard → **Marché** shows `research/market-advisor/html/marche_simple.html` (French and Tunisian Arabic):
+top produce at the Tunis wholesale market as a 3D stall, the best month to sell, producer price trends and which
+crops to plant by governorate and water. Data come from INS bulletins and the Ministry of Agriculture; see
+[research/market-advisor/README.md](research/market-advisor/README.md) to refresh them.
+
+### 10. Solar energy – STEG outage simulation (no extra server)
+Dashboard → **Énergie solaire** shows `research/solar-pump/html/solaire_3d.html`: a 3D day on the farm where a STEG
+outage hits and the solar panels, battery and automatic inverter keep the ROOTLOOP subsurface pump running. The
+**Scénario pour le jury** button plays the same day without and with solar. Sunlight comes from NASA POWER per
+governorate; see [research/solar-pump/README.md](research/solar-pump/README.md) for the formulas and assumptions.
+
 ---
 
 ## Running Tests

@@ -1,0 +1,4 @@
+.venv/
+__pycache__/
+.pytest_cache/
+data/metadata/ca_bundle_data_gov_tn.pem

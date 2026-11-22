@@ -1,0 +1,273 @@
+{
+ "ins_tunis_arrivals": {
+  "title": "Apports au marché de gros de Tunis (table 9.5, Bulletin Mensuel de la Statistique)",
+  "publisher": "INS; primary source: Marché de Gros de Tunis (Bir El Kassâa)",
+  "url": "https://www.ins.tn/publication (Bulletin Mensuel de la Statistique)",
+  "files": [
+   "data/raw/ins/bms_aout-2025.pdf",
+   "data/raw/ins/bms_avril-2024.pdf",
+   "data/raw/ins/bms_avril-2025.pdf",
+   "data/raw/ins/bms_avril-2026.pdf",
+   "data/raw/ins/bms_decembre-2022.pdf",
+   "data/raw/ins/bms_decembre-2023.pdf",
+   "data/raw/ins/bms_decembre-2024.pdf",
+   "data/raw/ins/bms_decembre-2025.pdf",
+   "data/raw/ins/bms_fevrier-2024.pdf",
+   "data/raw/ins/bms_fevrier-2026.pdf",
+   "data/raw/ins/bms_janvier-2026.pdf",
+   "data/raw/ins/bms_juillet-2022.pdf",
+   "data/raw/ins/bms_juillet-2023.pdf",
+   "data/raw/ins/bms_juillet-2024.pdf",
+   "data/raw/ins/bms_juillet-2025.pdf",
+   "data/raw/ins/bms_juillet-2026.pdf",
+   "data/raw/ins/bms_juin-2025.pdf",
+   "data/raw/ins/bms_juin-2026.pdf",
+   "data/raw/ins/bms_mai-2025.pdf",
+   "data/raw/ins/bms_mai-2026.pdf",
+   "data/raw/ins/bms_mars-2024.pdf",
+   "data/raw/ins/bms_mars-2025.pdf",
+   "data/raw/ins/bms_mars-2026.pdf",
+   "data/raw/ins/bms_novembre-2025.pdf",
+   "data/raw/ins/bms_octobre-2025.pdf",
+   "data/raw/ins/bms_septembre-2025.pdf"
+  ],
+  "retrieved_at": "2026-11-22T04:43:12+00:00",
+  "units": "tonnes per month",
+  "geography": "Tunis wholesale market only (not national, not consumption)",
+  "level": "official market statistic"
+ },
+ "ins_tunis_retail": {
+  "title": "Prix moyen de détail à Tunis (table 9.1, Bulletin Mensuel de la Statistique)",
+  "publisher": "INS",
+  "url": "https://www.ins.tn/publication (Bulletin Mensuel de la Statistique)",
+  "files": [
+   "data/raw/ins/bms_aout-2025.pdf",
+   "data/raw/ins/bms_avril-2024.pdf",
+   "data/raw/ins/bms_avril-2025.pdf",
+   "data/raw/ins/bms_avril-2026.pdf",
+   "data/raw/ins/bms_decembre-2022.pdf",
+   "data/raw/ins/bms_decembre-2023.pdf",
+   "data/raw/ins/bms_decembre-2024.pdf",
+   "data/raw/ins/bms_decembre-2025.pdf",
+   "data/raw/ins/bms_fevrier-2024.pdf",
+   "data/raw/ins/bms_fevrier-2026.pdf",
+   "data/raw/ins/bms_janvier-2026.pdf",
+   "data/raw/ins/bms_juillet-2022.pdf",
+   "data/raw/ins/bms_juillet-2023.pdf",
+   "data/raw/ins/bms_juillet-2024.pdf",
+   "data/raw/ins/bms_juillet-2025.pdf",
+   "data/raw/ins/bms_juillet-2026.pdf",
+   "data/raw/ins/bms_juin-2025.pdf",
+   "data/raw/ins/bms_juin-2026.pdf",
+   "data/raw/ins/bms_mai-2025.pdf",
+   "data/raw/ins/bms_mai-2026.pdf",
+   "data/raw/ins/bms_mars-2024.pdf",
+   "data/raw/ins/bms_mars-2025.pdf",
+   "data/raw/ins/bms_mars-2026.pdf",
+   "data/raw/ins/bms_novembre-2025.pdf",
+   "data/raw/ins/bms_octobre-2025.pdf",
+   "data/raw/ins/bms_septembre-2025.pdf"
+  ],
+  "retrieved_at": "2026-11-22T04:43:12+00:00",
+  "units": "millimes per kg in the source, converted to DT/kg",
+  "geography": "Tunis (retail)",
+  "level": "official price statistic"
+ },
+ "moa_veg_production_kt": {
+  "title": "Evolution de la production des cultures maraichères (mille Tonnes)",
+  "publisher": "Ministère de l'Agriculture, des Ressources Hydrauliques et de la Pêche",
+  "url": "https://catalog.agridata.tn/dataset/6f957c95-b566-46eb-880c-1e9a067f16f5/resource/3d148603-e000-4a7e-a26a-d08f93611c52/download/statistiques_legumes_production_mille_t.xlsx",
+  "landing_page": "https://catalog.data.gov.tn/fr/dataset/evolution-de-la-production-des-cultures-maraicheres-mille-tonnes",
+  "file": "data/raw/data_gov_tn/evolution-de-la-production-des-cultures-maraicheres-mille-tonnes__0.xlsx",
+  "retrieved_at": "2026-11-22T04:46:12+00:00",
+  "resource_modified": "2025-02-24T22:36:49.294120",
+  "units": "1000 tonnes",
+  "geography": "Tunisia (national)",
+  "level": "official national statistic"
+ },
+ "moa_veg_yield_t_ha": {
+  "title": "Evolution de la productivité des cultures maraichères (Tonnes/Ha)",
+  "publisher": "Ministère de l'Agriculture, des Ressources Hydrauliques et de la Pêche",
+  "url": "https://catalog.agridata.tn/dataset/702175d2-0f00-4f94-8ca5-d4d176b15fa7/resource/da3f4c98-fc24-49e5-8d4f-7d277452c49c/download/statistiques_legumes_productivite_t_ha.xlsx",
+  "landing_page": "https://catalog.data.gov.tn/fr/dataset/evolution-de-la-productivite-des-cultures-maraicheres-tonnes-ha",
+  "file": "data/raw/data_gov_tn/evolution-de-la-productivite-des-cultures-maraicheres-tonnes-ha__0.xlsx",
+  "retrieved_at": "2026-11-22T04:46:12+00:00",
+  "resource_modified": "2025-02-24T22:36:34.955012",
+  "units": "t/ha",
+  "geography": "Tunisia (national)",
+  "level": "official national statistic"
+ },
+ "moa_veg_area_kha": {
+  "title": "Evolution de la superficie des cultures maraîchères (ha)",
+  "publisher": "Ministère de l'Agriculture, des Ressources Hydrauliques et de la Pêche",
+  "url": "https://catalog.agridata.tn/dataset/bcf8ec9b-3558-4a47-b179-9970a886d1f8/resource/f3f44a86-9472-475a-b2c9-7a90b5f90bc7/download/statistiques_legumes_superficie.xlsx",
+  "landing_page": "https://catalog.data.gov.tn/fr/dataset/evolution-de-la-superficie-des-cultures-maraichere",
+  "file": "data/raw/data_gov_tn/evolution-de-la-superficie-des-cultures-maraichere__0.xlsx",
+  "retrieved_at": "2026-11-22T04:46:12+00:00",
+  "resource_modified": "2025-02-26T23:39:00.184765",
+  "units": "1000 ha (column label says ha)",
+  "geography": "Tunisia (national)",
+  "level": "official national statistic"
+ },
+ "moa_veg_producer_price_dt_t": {
+  "title": "Evolution des prix à la production des cultures maraichères (D/T)",
+  "publisher": "Ministère de l'Agriculture, des Ressources Hydrauliques et de la Pêche",
+  "url": "https://catalog.agridata.tn/dataset/7ec6e7d7-37ae-4e01-8171-27999e6f5a37/resource/7b163fe8-766b-4187-b32b-3b886ab53b20/download/statistiques_legumes_prix_production_d_t.xlsx",
+  "landing_page": "https://catalog.data.gov.tn/fr/dataset/evolution-des-prix-a-la-production-des-cultures-maraicheres-d-t",
+  "file": "data/raw/data_gov_tn/evolution-des-prix-a-la-production-des-cultures-maraicheres-d-t__0.xlsx",
+  "retrieved_at": "2026-11-22T04:46:12+00:00",
+  "resource_modified": "2025-02-24T22:36:41.967916",
+  "units": "dinars per tonne (nominal), producer price",
+  "geography": "Tunisia (national)",
+  "level": "official national statistic"
+ },
+ "faostat": {
+  "title": "FAOSTAT Production (QCL) and Producer Prices (PP), Africa bulk files",
+  "publisher": "FAO",
+  "url": "https://bulks-faostat.fao.org/production/",
+  "files": [
+   "data/raw/faostat/Prices_E_Africa.zip",
+   "data/raw/faostat/Production_Crops_Livestock_E_Africa.zip"
+  ],
+  "retrieved_at": "2026-11-22T05:36:00+00:00",
+  "units": "t, ha, t/ha, DT/t (LCU)",
+  "geography": "Tunisia (national)",
+  "level": "international compilation; each value carries its FAO flag (official / estimated / imputed)"
+ },
+ "sidi_bouzid_prices": {
+  "title": "Suivi des prix à Sidi Bouzid",
+  "publisher": "Ministère de l'Agriculture, des Ressources Hydrauliques et de la Pêche",
+  "url": "https://catalog.agridata.tn/dataset/6814fe72-03c0-4956-b685-a5d43ff60c53/resource/65f3827a-c6b1-4306-995b-d083b63ae589/download/legumes.csv",
+  "landing_page": "https://catalog.data.gov.tn/fr/dataset/suivi-des-prix",
+  "file": "data/raw/data_gov_tn/suivi-des-prix__0.csv",
+  "retrieved_at": "2026-11-22T04:46:14+00:00",
+  "resource_modified": "2025-02-25T12:03:08.543302",
+  "units": "qte: tonnes; prices: millimes/kg (unit not stated, inferred from magnitudes)",
+  "geography": "Sidi Bouzid (regional market)",
+  "level": "official regional statistic",
+  "files": [
+   "data/raw/data_gov_tn/suivi-des-prix__0.csv",
+   "data/raw/data_gov_tn/suivi-des-prix__1.csv"
+  ]
+ },
+ "moa_fruit_main": {
+  "title": "Evolution de la production de l 'arboriculture fruitière en tonne",
+  "publisher": "Ministère de l'Agriculture, des Ressources Hydrauliques et de la Pêche",
+  "url": "https://catalog.agridata.tn/dataset/7e52073e-76d4-4b76-bbcf-ba79cb7b4dc4/resource/3853e47e-ea93-4587-a5f3-4b317546e510/download/evolution-de-la-production-de-larboriculture-fruitiere-en-1000-tonnes.xlsx",
+  "landing_page": "https://catalog.data.gov.tn/fr/dataset/evolution-de-la-production-de-l-arboriculture-fruitiere-en-tonne",
+  "file": "data/raw/data_gov_tn/evolution-de-la-production-de-l-arboriculture-fruitiere-en-tonne__0.xlsx",
+  "retrieved_at": "2026-11-22T04:46:13+00:00",
+  "resource_modified": "2025-03-17T01:41:24.921537",
+  "units": "1000 tonnes (title says 'en tonne'; magnitudes and FAOSTAT match 1000 t)",
+  "geography": "Tunisia (national)",
+  "level": "official national statistic"
+ },
+ "moa_fruit_other": {
+  "title": "Evolution de la production des autres arboricultures fruitière",
+  "publisher": "Ministère de l'Agriculture, des Ressources Hydrauliques et de la Pêche",
+  "url": "https://catalog.agridata.tn/dataset/d5028226-d04c-4cfd-ad85-9ac240d0e265/resource/7d048cec-2325-4dd5-ba31-48d0550ddd79/download/evolution-de-la-production-des-autres-arboricultures-fruitieres-en-1000-tonnes.xlsx",
+  "landing_page": "https://catalog.data.gov.tn/fr/dataset/evolution-de-la-production-des-autres-arboricultures-fruitiere",
+  "file": "data/raw/data_gov_tn/evolution-de-la-production-des-autres-arboricultures-fruitiere__0.xlsx",
+  "retrieved_at": "2026-11-22T04:46:13+00:00",
+  "resource_modified": "2025-03-07T00:09:13.183861",
+  "units": "1000 tonnes (title says 'en tonne'; magnitudes and FAOSTAT match 1000 t)",
+  "geography": "Tunisia (national)",
+  "level": "official national statistic"
+ },
+ "moa_citrus_total": {
+  "title": "Production-Agrumes",
+  "publisher": "Ministère de l'Agriculture, des Ressources Hydrauliques et de la Pêche",
+  "url": "https://catalog.agridata.tn/dataset/6becb85c-49f1-4d36-b05d-9b739af423c9/resource/e4651d38-896f-4da9-a7cd-c8044e81265b/download/production-globale.xlsx",
+  "landing_page": "https://catalog.data.gov.tn/fr/dataset/production-agrumes",
+  "file": "data/raw/data_gov_tn/production-agrumes__0.xlsx",
+  "retrieved_at": "2026-11-22T04:46:13+00:00",
+  "resource_modified": "2025-02-24T22:36:26.851372",
+  "units": "1000 tonnes",
+  "geography": "Tunisia (national)",
+  "level": "official national statistic"
+ },
+ "moa_citrus_type": {
+  "title": "Evolution de la production des agrumes par type de produit",
+  "publisher": "Ministère de l'Agriculture, des Ressources Hydrauliques et de la Pêche",
+  "url": "https://catalog.agridata.tn/dataset/9adb1ccc-85f4-402b-b838-82e578ad2234/resource/8ee21ae0-1f0f-4ef6-bf3d-c67ca9a65ce4/download/production-type.xlsx",
+  "landing_page": "https://catalog.data.gov.tn/fr/dataset/evolution-de-la-production-des-agrumes-par-type-de-produit",
+  "file": "data/raw/data_gov_tn/evolution-de-la-production-des-agrumes-par-type-de-produit__0.xlsx",
+  "retrieved_at": "2026-11-22T04:46:13+00:00",
+  "resource_modified": "2025-02-24T22:37:06.086099",
+  "units": "1000 tonnes",
+  "geography": "Tunisia (national)",
+  "level": "official national statistic"
+ },
+ "moa_dates_gov": {
+  "title": "Oasis - Evolution de la production des dattes 1000 t",
+  "publisher": "Ministère de l'Agriculture, des Ressources Hydrauliques et de la Pêche",
+  "url": "https://catalog.agridata.tn/dataset/3aee8a70-73e8-4b27-8679-09f2e8db81d9/resource/3edda926-4b01-4e28-9c6c-53bdfc546aba/download/evolution-de-la-production-des-dattes-1000-tonnes.xlsx",
+  "landing_page": "https://catalog.data.gov.tn/fr/dataset/production-des-dattes-1000-t",
+  "file": "data/raw/data_gov_tn/production-des-dattes-1000-t__0.xlsx",
+  "retrieved_at": "2026-11-22T04:46:13+00:00",
+  "resource_modified": "2025-02-25T12:07:19.335796",
+  "units": "1000 tonnes",
+  "geography": "4 oasis governorates",
+  "level": "official regional statistic"
+ },
+ "nasa_power": {
+  "title": "NASA POWER monthly climatology (T2M_MAX, T2M_MIN, T2M, PRECTOTCORR)",
+  "publisher": "NASA Langley Research Center",
+  "url": "https://power.larc.nasa.gov/api/temporal/climatology/point",
+  "files": [
+   "data/raw/nasa_power/nasa_power_climatology_governorates.json"
+  ],
+  "retrieved_at": "2026-11-22T04:47:27+00:00",
+  "units": "°C, mm/day",
+  "geography": "24 governorate seats (point values)",
+  "level": "satellite/reanalysis model"
+ },
+ "world_bank_cpi": {
+  "title": "Consumer price index (2010 = 100), Tunisia, FP.CPI.TOTL",
+  "publisher": "World Bank (from IMF/INS)",
+  "url": "https://api.worldbank.org/v2/country/TUN/indicator/FP.CPI.TOTL",
+  "files": [
+   "data/raw/world_bank/TUN_FP.CPI.TOTL.json"
+  ],
+  "retrieved_at": "2026-11-11",
+  "units": "index 2010 = 100",
+  "geography": "Tunisia",
+  "level": "official (via World Bank)"
+ },
+ "ins_smag": {
+  "title": "Salaire Minimum Agricole Garanti (SMAG)",
+  "publisher": "INS",
+  "url": "https://www.ins.tn/statistiques/98",
+  "files": [
+   "data/raw/ins/ins_smag_statistiques_98.html"
+  ],
+  "units": "DT per working day",
+  "geography": "Tunisia",
+  "level": "official",
+  "retrieved_at": "2026-11-22"
+ },
+ "secadenord_tariff": {
+  "title": "Evolution  du prix  de vente du m3 d'eau en millime - SECADENORD",
+  "publisher": "SECADENORD",
+  "url": "https://catalog.agridata.tn/dataset/6db3ba1c-28a5-44e5-a77d-60c6ecff5cd0/resource/b7e87dc1-01a1-4788-b664-92d32606a58b/download/evolution-du-tarif-de-vente-de-leau-par-la-secadenord-9.xlsx",
+  "landing_page": "https://catalog.data.gov.tn/fr/dataset/evolution-du-tarif-de-vente-du-m3-d-eau-en-millime_secadenord",
+  "file": "data/raw/data_gov_tn/evolution-du-tarif-de-vente-du-m3-d-eau-en-millime_secadenord__0.xlsx",
+  "retrieved_at": "2026-11-22T04:46:15+00:00",
+  "resource_modified": "2025-03-02T23:46:52.561592",
+  "units": "millimes per m3",
+  "geography": "Northern Tunisia (SECADENORD customers)",
+  "level": "official regional statistic"
+ },
+ "moa_fertiliser": {
+  "title": "Prix des engrais chimiques auprès des sociétés qui s'approvisionnent directement du groupe chimique",
+  "publisher": "Ministère de l'Agriculture, des Ressources Hydrauliques et de la Pêche",
+  "url": "https://catalog.agridata.tn/dataset/78a4d2e7-1ebb-4223-a62d-69f1a761e50d/resource/bb0d74e9-9b9d-4350-b7ea-5c67a40a58e7/download/prix-engrais-chimique.xlsx",
+  "landing_page": "https://catalog.data.gov.tn/fr/dataset/prix-des-engrais-chimiques-aupres-des-societes-qui-s-approvisionnent-directement-du-groupe-chimique",
+  "file": "data/raw/data_gov_tn/prix-des-engrais-chimiques-aupres-des-societes-qui-s-approvisionnent-directement__0.xlsx",
+  "retrieved_at": "2026-11-22T04:46:14+00:00",
+  "resource_modified": "2025-03-07T23:48:22.836801",
+  "units": "DT per tonne",
+  "geography": "Tunisia (national)",
+  "level": "official national statistic"
+ }
+}
