@@ -163,6 +163,13 @@ Engines are tried in order: **Pl@ntNet** (online, best; add a free key from my.p
 Anyone can scan; scans from signed-in users are saved to their history (table `plant_scans`, photos in
 `services/api/data/plant_scans/`). Plant names and care sheets come from English databases.
 
+### 8. Field-unit sensors (dashboard home)
+The ESP32 field unit and LoRa gateway in `firmware/` (see [firmware/README.md](firmware/README.md)) publish a
+reading every 5 s to the HiveMQ broker. The API subscribes when it starts (`app/sensors/feed.py`) and the
+dashboard home shows soil moisture, air temperature, air humidity and light from
+`GET /api/v1/sensors/latest`. Only the device IDs in `SENSOR_DEVICE_IDS` are shown, since the public broker
+is open to anyone; see `services/api/.env.example` for a private HiveMQ Cloud cluster.
+
 ---
 
 ## Running Tests

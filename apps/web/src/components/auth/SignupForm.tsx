@@ -208,17 +208,17 @@ export function SignupForm() {
         <button
           type="button"
           onClick={loginAsDemo}
-          className="text-xs text-neutral-400 hover:text-[#a3e635] transition-colors"
+          className="py-2 text-sm text-neutral-400 hover:text-[#a3e635] transition-colors"
         >
           {t.demoPrompt} <span className="underline underline-offset-4 text-neutral-300 hover:text-[#a3e635]">{t.demoInstant} <span className="flip-rtl">&rarr;</span></span>
         </button>
       </div>
 
-      <div className="text-center text-xs text-neutral-400">
+      <div className="text-center text-sm text-neutral-400">
         {t.already}{" "}
         <Link
           href="/login"
-          className="text-[#a3e635] font-medium hover:underline"
+          className="inline-block py-2 text-[#a3e635] font-medium hover:underline"
         >
           {t.signInLink}
         </Link>

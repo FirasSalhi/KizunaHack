@@ -42,6 +42,17 @@ class Settings(BaseSettings):
     PLANT_MODELS_DIR: str = str(Path(__file__).resolve().parents[2] / "models" / "plants")
     PLANT_SCANS_DIR: str = str(Path(__file__).resolve().parents[2] / "data" / "plant_scans")
 
+    # Field-unit sensor feed (firmware/field-unit -> LoRa gateway -> HiveMQ, see firmware/README.md)
+    SENSOR_FEED_ENABLED: bool = True
+    SENSOR_MQTT_HOST: str = "broker.hivemq.com"
+    SENSOR_MQTT_PORT: int = 8883
+    SENSOR_MQTT_USERNAME: str = ""  # only for a private HiveMQ Cloud cluster
+    SENSOR_MQTT_PASSWORD: str = ""
+    SENSOR_TOPIC_PREFIX: str = "farmlink/v2"
+    # Devices shown on the dashboard. The public broker is open to anyone, so only these are kept.
+    # An empty list keeps every device on the topic.
+    SENSOR_DEVICE_IDS: list[str] = ["kizunahack-field-unit-1"]
+
     # Security & Cookie Flags
     COOKIE_SECURE: bool = False
 

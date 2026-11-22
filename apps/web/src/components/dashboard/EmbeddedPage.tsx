@@ -29,7 +29,7 @@ export function EmbeddedPage({ title, subtitle, note, openTab, frameTitle, src, 
           href={src}
           target="_blank"
           rel="noreferrer"
-          className="shrink-0 text-xs text-neutral-300 hover:text-white underline underline-offset-4"
+          className="shrink-0 self-start md:self-auto py-2 text-xs text-neutral-300 hover:text-white underline underline-offset-4"
         >
           {openTab}
         </a>

@@ -87,7 +87,7 @@ export function AuthLayout({
         <nav className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3 w-full max-w-md mx-auto mb-8 text-xs text-neutral-400">
           <Link
             href="/"
-            className="inline-flex items-center gap-1.5 hover:text-white transition-colors"
+            className="inline-flex items-center gap-1.5 py-2 hover:text-white transition-colors"
           >
             <span aria-hidden="true" className="flip-rtl">&larr;</span> {m.auth.backHome}
           </Link>
@@ -98,7 +98,7 @@ export function AuthLayout({
               <span>{alternateLink.text}</span>
               <Link
                 href={alternateLink.href}
-                className="font-medium text-[#a3e635] hover:underline"
+                className="inline-block py-2 font-medium text-[#a3e635] hover:underline"
               >
                 {alternateLink.actionText}
               </Link>

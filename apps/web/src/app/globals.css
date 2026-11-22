@@ -341,11 +341,6 @@ button { font: inherit; color: inherit; }
   radial-gradient(ellipse 18% 12% at 72% 40%, rgba(240,190,80,.45), transparent 72%),
   linear-gradient(180deg, rgba(0,0,0,.25), transparent 30%, rgba(0,0,0,.45));
   mix-blend-mode: multiply; opacity: calc(.4 + var(--p) * .6); }
-.map-head { position: absolute; z-index: 2; top: 22px; left: 3vw; right: 3vw; display: flex; justify-content: space-between; align-items: center; }
-.brand { display: inline-flex; gap: 8px; align-items: center; font-weight: 600; letter-spacing: .04em; }
-.brand svg { color: var(--lime); }
-.map-tools { display: flex; gap: 8px; }
-.map-tools i { width: 28px; height: 28px; display: grid; place-items: center; background: rgba(20,24,18,.45); font-style: normal; font-size: 11px; }
 .zone-tag { position: absolute; z-index: 2; display: flex; align-items: center; gap: 0; opacity: clamp(0, calc(var(--p) * 4 - var(--k)), 1); }
 .zone-tag i { width: 14px; height: 14px; border-radius: 50%; border: 1px solid #fff; box-shadow: 0 0 0 4px rgba(255,255,255,.25); }
 .zone-tag span { margin-left: 30px; padding: 8px 26px; border: 1px solid rgba(255,255,255,.9); background: rgba(20,24,18,.38); font-size: 12px; position: relative; }
@@ -530,10 +525,14 @@ button { font: inherit; color: inherit; }
   .roots-about > p { justify-self: start; }
   .microbe { top: 92svh; }
   .benefits { bottom: 5svh; }
-  .benefit-grid { grid-template-columns: 1fr 1fr; row-gap: 18px; }
-  .benefit-grid article { padding: 0 10px 14px; }
+  .benefits > p { font-size: 16px; }
+  .benefit-grid { grid-template-columns: 1fr 1fr; row-gap: 20px; }
+  .benefit-grid article { gap: 14px; padding: 0 12px 16px; }
   .benefit-grid article:nth-child(2) { border-right: 1px solid rgba(255,255,255,.4); }
-  .benefit-grid strong { font-size: 14px; }
+  .benefit-icon { width: 44px; height: 44px; }
+  .benefit-icon svg { width: 24px; height: 24px; }
+  .benefit-grid strong { font-size: 17px; }
+  .benefit-grid small { font-size: 13.5px; line-height: 1.4; }
   .problem-axis { top: auto; bottom: 30svh; height: 12svh; left: 6vw; }
   .crop-row { top: 30svh; width: 120vw; height: 30svh; transform: translateX(-52%); }
   .s-problem .demo-btn { right: auto; left: 50%; transform: translateX(-50%); bottom: 17svh; }
@@ -549,12 +548,48 @@ button { font: inherit; color: inherit; }
   .use-card { flex-basis: 70px; height: 24svh; }
   .use-ruler { overflow-x: auto; grid-template-columns: repeat(7, minmax(84px, 1fr)); }
   .terrain-block { width: 84vw; }
-  .glass--risk { bottom: 4svh; width: 58vw; }
+  .glass--risk { bottom: 4svh; width: 64vw; padding: 14px; }
   .glass--chem { top: auto; bottom: 34svh; right: 4vw; width: 56vw; }
   .risk { height: 130px; }
   .closing-foot { grid-template-columns: 1fr; gap: 10px; justify-items: center; }
   .closing-foot i { display: none; }
   .closing-foot span:first-child, .closing-foot span:last-child { justify-self: center; }
+}
+
+/* Phones: no text below 11-12 px and comfortable tap targets on the landing page */
+@media (max-width: 760px) {
+  .ai { font-size: 12px; }
+  .map-scale-labels, .map-scale-months { font-size: 12px; }
+  .ring-count, .ring-label, .rc { font-size: 12px; }
+  .card-index { font-size: 12px; }
+  .process-item h3 span { width: 26px; height: 26px; font-size: 11px; }
+  .detect { padding: 4px 8px; font-size: 12px; }
+  .dash-hello { font-size: 12px; }
+  .dash-stats b { padding: 5px 6px; font-size: 12px; }
+  .metric-v small { font-size: 12px; }
+  .metric-months { font-size: 11px; }
+  .use-chip { padding: 6px 10px; font-size: 12px; }
+  .use-ruler button { min-height: 44px; font-size: 13px; }
+  .risk { gap: 6px; height: 170px; }
+  .risk-axis, .risk-col { font-size: 11px; }
+  .risk-col small { font-size: 11px; line-height: 1.25; }
+  .glass-sub { font-size: 12px; }
+  .chem-call { padding: 3px 7px; font-size: 11px; }
+  .closing-icons a { width: 42px; height: 42px; }
+  .closing-icons svg { width: 18px; height: 18px; }
+}
+
+/* "What FARMLINK delivers" on phones: one full-width card per row, large enough to read at a glance */
+@media (max-width: 560px) {
+  .benefits { bottom: 4svh; left: 5vw; right: 5vw; }
+  .benefits > p { margin-bottom: 14px !important; font-size: 17px; }
+  .benefit-grid { grid-template-columns: 1fr; row-gap: 0; }
+  .benefit-grid article { gap: 18px; padding: 16px 6px; border-left: 0; border-right: 0 !important; border-bottom: 1px solid rgba(255,255,255,.3); }
+  .benefit-grid article:first-child { border-top: 1px solid rgba(255,255,255,.3); }
+  .benefit-icon { width: 50px; height: 50px; outline-offset: 4px; }
+  .benefit-icon svg { width: 28px; height: 28px; }
+  .benefit-grid strong { font-size: 19px; }
+  .benefit-grid small { margin-top: 4px; font-size: 15px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -586,6 +621,29 @@ button { font: inherit; color: inherit; }
 .lang-select--light .lang-select-option.is-active { background: rgba(0,0,0,.05); }
 .lang-select--light .lang-select-option[aria-selected="true"] { color: var(--forest); }
 .site-nav-lang { margin-inline-start: auto; }
+/* Install-the-app button (PWA): same pill as the language menu, lime text; icon only on phones */
+.site-nav-install { display: inline-flex; align-items: center; gap: 7px; height: 34px; padding: 0 12px; margin-inline-start: 8px; border-radius: 999px; border: 1px solid rgba(198,240,74,.45); background: rgba(0,0,0,.42); color: var(--lime); font-size: 13px; font-weight: 600; line-height: 1; cursor: pointer; transition: background .2s, border-color .2s; }
+.site-nav-install:hover { background: rgba(0,0,0,.6); border-color: var(--lime); }
+.site-nav-install svg { font-size: 15px; }
+.site-nav-lang + .site-nav-install + .site-nav-signin, .site-nav-lang + .site-nav-signin { margin-inline-start: 8px; }
+@media (max-width: 760px) {
+  .site-nav-install { width: 34px; padding: 0; justify-content: center; }
+  .site-nav-install .install-label { display: none; }
+}
+/* Small phones: logo, language, install and sign-in on one line */
+.site-nav-logo, .site-nav-install, .site-nav-signin { flex-shrink: 0; }
+.site-nav-signin { white-space: nowrap; }
+.site-nav-lang { min-width: 0; }
+.site-nav-lang .lang-select-button { max-width: 100%; }
+.site-nav-lang .lang-select-button > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+@media (max-width: 480px) {
+  .site-nav { padding: 16px 14px; }
+  .site-nav-signin { padding: 0 16px; gap: 0; }
+  .site-nav-signin .signin-dot, .site-nav-signin .signin-arrow { display: none; }
+  .site-nav-lang { flex: 0 1 auto; }
+  .site-nav-lang + .site-nav-install { margin-inline-start: 6px; }
+  .site-nav-lang + .site-nav-install + .site-nav-signin, .site-nav-lang + .site-nav-signin { margin-inline-start: 6px; }
+}
 
 /* Arabic: an Arabic-capable font, and no letter-spacing (spacing breaks the joins between Arabic letters). */
 html[lang="ar"] body, [lang="ar"].lang-select-option, .lang-select-button [lang="ar"] { font-family: "Noto Sans Arabic", "Segoe UI", "Geeza Pro", "Arial", var(--font); }

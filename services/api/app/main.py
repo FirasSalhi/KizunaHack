@@ -10,7 +10,8 @@ from app.core.database import engine
 from app.core.logging import logger, setup_logging
 from app.models.base import Base
 from app.plants import engine as plant_engine
-from app.routers import irrigation, plants
+from app.routers import irrigation, plants, sensors
+from app.sensors.feed import feed as sensor_feed
 
 
 @asynccontextmanager
@@ -21,6 +22,9 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
     # Load the plant scanner models in the background so the first scan is fast
     plant_engine.warm_up()
 
+    # Listen to the field unit's readings (MQTT, background thread)
+    sensor_feed.start()
+
     # Initialize tables if connected to database
     try:
         async with engine.begin() as conn:
@@ -30,6 +34,8 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
         logger.debug("Database table auto-creation skipped: %s", exc)
 
     yield
+
+    sensor_feed.stop()
 
     # Clean up engine resources on shutdown
     try:
@@ -60,6 +66,7 @@ app.add_middleware(
 app.include_router(api_router, prefix=settings.API_V1_PREFIX)
 app.include_router(irrigation.router)
 app.include_router(plants.router)
+app.include_router(sensors.router)
 
 
 # Backward-compatible root health check

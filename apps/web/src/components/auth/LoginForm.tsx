@@ -74,7 +74,7 @@ export function LoginForm() {
           <button
             type="button"
             onClick={handleFillDemo}
-            className="text-[11px] text-[#a3e635] hover:underline"
+            className="py-1.5 text-xs text-[#a3e635] hover:underline"
           >
             {t.fillTest}
           </button>
@@ -105,7 +105,7 @@ export function LoginForm() {
               e.preventDefault();
               alert(t.resetHelp);
             }}
-            className="text-xs text-neutral-400 hover:text-white transition-colors"
+            className="py-1.5 text-xs text-neutral-400 hover:text-white transition-colors"
           >
             {t.forgot}
           </a>
@@ -133,11 +133,11 @@ export function LoginForm() {
       </div>
 
       <div className="flex items-center pt-1">
-        <label className="flex items-center gap-2 cursor-pointer text-xs text-neutral-400 select-none">
+        <label className="flex items-center gap-2.5 py-1.5 cursor-pointer text-sm text-neutral-400 select-none">
           <input
             type="checkbox"
             defaultChecked
-            className="rounded border-[#2b352d] bg-[#1a201c] text-[#a3e635] focus:ring-0"
+            className="w-[18px] h-[18px] rounded border-[#2b352d] bg-[#1a201c] text-[#a3e635] accent-[#a3e635] focus:ring-0"
           />
           {t.remember}
         </label>
@@ -166,17 +166,17 @@ export function LoginForm() {
         <button
           type="button"
           onClick={loginAsDemo}
-          className="text-xs text-neutral-400 hover:text-[#a3e635] transition-colors"
+          className="py-2 text-sm text-neutral-400 hover:text-[#a3e635] transition-colors"
         >
           {t.demoPrompt} <span className="underline underline-offset-4 text-neutral-300 hover:text-[#a3e635]">{t.demoEnter} <span className="flip-rtl">&rarr;</span></span>
         </button>
       </div>
 
-      <div className="pt-1 text-center text-xs text-neutral-400">
+      <div className="pt-1 text-center text-sm text-neutral-400">
         {t.newHere}{" "}
         <Link
           href="/signup"
-          className="text-[#a3e635] font-medium hover:underline"
+          className="inline-block py-2 text-[#a3e635] font-medium hover:underline"
         >
           {t.register}
         </Link>

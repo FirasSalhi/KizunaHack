@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { PLATE } from "./plateData";
 import { buildCropRow, buildRootContinuation, buildShrub } from "./rootSystem";
 import { BrandMark, IconTrendDown } from "@/components/icons";
+import { InstallBanner, InstallButton } from "@/components/pwa/InstallApp";
 import { LanguageSwitcher } from "@/i18n/LanguageSwitcher";
 import { Lines, useI18n } from "@/i18n/I18nProvider";
 
@@ -22,6 +23,7 @@ function LandingNav() {
     <header className="site-nav">
       <Link href="/" className="site-nav-logo" aria-label={m.common.home}><BrandMark /></Link>
       <LanguageSwitcher className="site-nav-lang" />
+      <InstallButton className="site-nav-install" />
       <Link href="/login" className="site-nav-signin" aria-label={m.auth.signInLink}>
         <span className="signin-dot" aria-hidden="true" />
         <span>{m.common.signIn}</span>
@@ -381,17 +383,13 @@ function VisionAction() {
 /* ---------- 4. Live field map ---------- */
 
 function FieldMap() {
-  const { m, locale } = useI18n();
+  const { m } = useI18n();
   const t = m.landing.map;
   return (
     <section className="s-map scrub" data-scrub aria-label={t.zones.join(" · ")}>
       <div className="sticky">
         <div className="map-photo"><Photo src="/images/farmlink-field-aerial.jpg" alt="Aerial view of farm fields mapped by soil moisture" /></div>
         <div className="map-tint" aria-hidden="true" />
-        <div className="map-head">
-          <span className="brand"><BrandMark /> FARMLINK</span>
-          <span className="map-tools"><i>⌕</i><i>{locale.toUpperCase()}</i></span>
-        </div>
         {t.zones.map((label, i) => (
           <div key={i} className={`zone-tag z${i + 1}`}><i aria-hidden="true" /><span>{label}</span></div>
         ))}
@@ -824,6 +822,7 @@ export default function LandingPage() {
   return (
     <main ref={rootRef} className="landing">
       <LandingNav />
+      <InstallBanner />
       <Hero />
       <RootOpening />
       <ProblemScene />

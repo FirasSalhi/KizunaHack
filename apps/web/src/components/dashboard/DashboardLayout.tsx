@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import { useAuth } from "@/hooks/useAuth";
 import { useI18n } from "@/i18n/I18nProvider";
 import { LanguageSwitcher } from "@/i18n/LanguageSwitcher";
-import { BrandMark, IconCrate, IconFields3D, IconOverview, IconPlanMap, IconScanLeaf, IconSignOut } from "@/components/icons";
+import { BrandMark, IconClose, IconMenu, IconCrate, IconFields3D, IconOverview, IconPlanMap, IconScanLeaf, IconSignOut } from "@/components/icons";
 
 const NAV_ACTIVE = "flex items-center gap-3 px-3 py-2.5 rounded-lg bg-[#c6f04a]/15 text-[#c6f04a] font-medium border border-[#c6f04a]/20";
 const NAV_IDLE = "flex items-center gap-3 px-3 py-2.5 rounded-lg text-neutral-400 hover:text-white hover:bg-white/5 border border-transparent transition-colors";
@@ -122,19 +122,21 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
 
       {/* Mobile Top Navigation */}
       <header className="lg:hidden flex items-center justify-between p-4 border-b border-white/10 bg-[#0d100d]">
-        <Link href="/dashboard" className="flex items-center gap-2">
-          <span className="w-7 h-7 rounded-lg bg-[#c6f04a] text-[#0d0f0c] font-bold flex items-center justify-center text-sm">
+        <Link href="/dashboard" className="flex items-center gap-2 py-1.5">
+          <span className="w-8 h-8 rounded-lg bg-[#c6f04a] text-[#0d0f0c] font-bold flex items-center justify-center text-sm">
             <BrandMark />
           </span>
           <span className="font-bold tracking-tight text-white text-sm">FARMLINK</span>
         </Link>
         <LanguageSwitcher className="ms-auto me-2" />
         <button
+          type="button"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="p-2 rounded-lg bg-white/5 text-neutral-300"
+          className="w-11 h-11 grid place-items-center rounded-lg bg-white/5 text-neutral-200 text-xl"
           aria-label={t.toggleNav}
+          aria-expanded={mobileMenuOpen}
         >
-          {mobileMenuOpen ? "✕" : "☰"}
+          {mobileMenuOpen ? <IconClose /> : <IconMenu />}
         </button>
       </header>
 
@@ -142,13 +144,13 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
       {mobileMenuOpen && (
         <div className="lg:hidden p-4 bg-[#0d100d] border-b border-white/10 space-y-3">
           <div className="text-xs text-neutral-400 font-mono">{primaryFarm} ({userRole})</div>
-          <nav className="flex flex-col gap-2">
-            <Link href="/dashboard" className={`text-sm ${pathname === "/dashboard" ? "text-[#c6f04a]" : "text-neutral-300"}`}>{t.nav.overview}</Link>
-            <Link href="/dashboard/planning" className={`text-sm ${pathname === "/dashboard/planning" ? "text-[#c6f04a]" : "text-neutral-300"}`}>{t.nav.planning}</Link>
-            <Link href="/dashboard/post-harvest" className={`text-sm ${pathname === "/dashboard/post-harvest" ? "text-[#c6f04a]" : "text-neutral-300"}`}>{t.nav.postHarvest}</Link>
-            <Link href="/dashboard/irrigation-3d" className={`text-sm ${pathname === "/dashboard/irrigation-3d" ? "text-[#c6f04a]" : "text-neutral-300"}`}>{t.nav.irrigation3d}</Link>
-            <Link href="/dashboard/scanner" className={`text-sm ${pathname === "/dashboard/scanner" ? "text-[#c6f04a]" : "text-neutral-300"}`}>{t.nav.scanner}</Link>
-            <button onClick={() => void logout()} className="text-sm text-red-400 text-start">{m.common.signOut}</button>
+          <nav className="flex flex-col divide-y divide-white/5">
+            <Link href="/dashboard" className={`block py-2.5 text-[15px] ${pathname === "/dashboard" ? "text-[#c6f04a]" : "text-neutral-300"}`}>{t.nav.overview}</Link>
+            <Link href="/dashboard/planning" className={`block py-2.5 text-[15px] ${pathname === "/dashboard/planning" ? "text-[#c6f04a]" : "text-neutral-300"}`}>{t.nav.planning}</Link>
+            <Link href="/dashboard/post-harvest" className={`block py-2.5 text-[15px] ${pathname === "/dashboard/post-harvest" ? "text-[#c6f04a]" : "text-neutral-300"}`}>{t.nav.postHarvest}</Link>
+            <Link href="/dashboard/irrigation-3d" className={`block py-2.5 text-[15px] ${pathname === "/dashboard/irrigation-3d" ? "text-[#c6f04a]" : "text-neutral-300"}`}>{t.nav.irrigation3d}</Link>
+            <Link href="/dashboard/scanner" className={`block py-2.5 text-[15px] ${pathname === "/dashboard/scanner" ? "text-[#c6f04a]" : "text-neutral-300"}`}>{t.nav.scanner}</Link>
+            <button type="button" onClick={() => void logout()} className="py-2.5 text-[15px] text-red-400 text-start">{m.common.signOut}</button>
           </nav>
         </div>
       )}

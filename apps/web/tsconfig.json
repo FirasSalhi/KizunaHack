@@ -26,7 +26,10 @@
       "@/*": [
         "./src/*"
       ]
-    }
+    },
+    "types": [
+      "@serwist/next/typings"
+    ]
   },
   "include": [
     "**/*.ts",
@@ -36,6 +39,8 @@
     ".next-dev/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "public/sw.js",
+    "public/swe-worker-*.js"
   ]
 }
