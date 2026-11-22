@@ -330,6 +330,18 @@ const ja: Messages = {
     noValue: "—",
     trendLabel: "直近1分の変化",
   },
+  farmPlan: {
+    validated: "確定した計画：",
+    fromPlan: "計画の作物：",
+    total: "合計 {area} ha",
+    notStored: "収穫後管理はまだこれらの作物に対応していません。下から選んでください。",
+    openIrrigation: "3D灌漑で見る",
+    openPostHarvest: "収穫後管理で見る",
+    clear: "計画を消去",
+    change: "計画を変更",
+    noneText: "作付け計画を一度確定すると、ここに作物が表示されます。",
+    goPlanning: "作付け計画へ",
+  },
   dashboard: {
     loading: "FARMLINK ダッシュボードを読み込み中...",
     activeProperty: "選択中の農場",

@@ -334,3 +334,10 @@ body.embedded .leaflet-control-layers{background:rgba(18,22,18,.94);color:var(--
 body.embedded .leaflet-control-layers-toggle{filter:invert(1) brightness(1.4)}
 body.embedded .leaflet-control-layers-separator{border-top-color:var(--line)}
 body.embedded .loading-card li.ok{color:#b9c0b6}
+
+/* "Valider ce plan" (inside FARMLINK) */
+.validate-box{margin-top:16px}
+.validate-box .primary.big{margin-top:0}
+.validate-box .primary.done{background:var(--green-600)}
+body.embedded .validate-box .primary.done{background:rgba(198,240,74,.16);color:var(--lime);border:1px solid var(--lime)}
+.validate-box .hint{margin:8px 0 0}

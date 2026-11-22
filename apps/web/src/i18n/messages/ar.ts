@@ -331,6 +331,18 @@ const ar: Messages = {
     noValue: "—",
     trendLabel: "التبدّل في آخر دقيقة",
   },
+  farmPlan: {
+    validated: "البلان تأكّد:",
+    fromPlan: "الزرايع متاع البلان متاعك:",
+    total: "{area} هكتار في المجموع",
+    notStored: "أداة بعد الحصاد مازالت ما تعرفش الزرايع هاذي: اختار وحدة لوطة.",
+    openIrrigation: "شوف في السقي 3D",
+    openPostHarvest: "شوف في بعد الحصاد",
+    clear: "فسّخ البلان",
+    change: "بدّل البلان",
+    noneText: "أكّد بلان زراعة مرّة وحدة والزرايع متاعو يظهرو هوني.",
+    goPlanning: "امشي للتخطيط",
+  },
   dashboard: {
     loading: "قاعد يحمّل في لوحة FARMLINK...",
     activeProperty: "الفيرمة الحالية",

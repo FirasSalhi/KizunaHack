@@ -2,7 +2,9 @@
 
 import React from "react";
 import { useI18n } from "@/i18n/I18nProvider";
+import { IRRIGATION_CROP } from "@/lib/farmPlan";
 import { EmbeddedPage } from "./EmbeddedPage";
+import { PlanSummary, useFarmPlan } from "./PlanSummary";
 
 /**
  * The 3D farm (research/irrigation-notebook/html/ferme_3d.html), French only. With the FARMLINK API running on
@@ -10,6 +12,7 @@ import { EmbeddedPage } from "./EmbeddedPage";
  */
 export function Irrigation3D() {
   const { m, locale } = useI18n();
+  const plan = useFarmPlan();
   const t = m.irrigation3d;
   return (
     <EmbeddedPage
@@ -19,6 +22,7 @@ export function Irrigation3D() {
       openTab={t.openTab}
       frameTitle={t.frameTitle}
       src="/embed/irrigation-3d"
+      extra={<PlanSummary variant="tool" usable={!plan || plan.crops.some((c) => c.id in IRRIGATION_CROP)} />}
       background="#0d100d"
     />
   );

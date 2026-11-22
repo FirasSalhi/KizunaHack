@@ -88,4 +88,5 @@ app.mount("/static", StaticFiles(directory=STATIC), name="static")
 
 @app.get("/")
 def index():
-    return FileResponse(STATIC / "index.html")
+    # Always revalidate the page, so browsers pick up new app.js / app.css versions right away
+    return FileResponse(STATIC / "index.html", headers={"Cache-Control": "no-cache"})

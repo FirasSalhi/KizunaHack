@@ -330,6 +330,18 @@ const en = {
     noValue: "—",
     trendLabel: "Change in the last minute",
   },
+  farmPlan: {
+    validated: "Plan validated:",
+    fromPlan: "Crops from your plan:",
+    total: "{area} ha in total",
+    notStored: "Post-Harvest can't store these crops yet: pick one below.",
+    openIrrigation: "See it in 3D Irrigation",
+    openPostHarvest: "See it in Post-Harvest",
+    clear: "Clear the plan",
+    change: "Change the plan",
+    noneText: "Validate a crop plan once and its crops appear here.",
+    goPlanning: "Go to Crop Planning",
+  },
   dashboard: {
     loading: "Loading FARMLINK Dashboard...",
     activeProperty: "Active Property",

@@ -329,6 +329,18 @@ const fr: Messages = {
     noValue: "—",
     trendLabel: "Variation sur la dernière minute",
   },
+  farmPlan: {
+    validated: "Plan validé :",
+    fromPlan: "Cultures de votre plan :",
+    total: "{area} ha au total",
+    notStored: "L'outil après-récolte ne gère pas encore ces cultures : choisissez-en une ci-dessous.",
+    openIrrigation: "Voir dans Irrigation 3D",
+    openPostHarvest: "Voir dans Après-récolte",
+    clear: "Effacer le plan",
+    change: "Modifier le plan",
+    noneText: "Validez une fois un plan de culture : ses cultures apparaissent ici.",
+    goPlanning: "Aller à la planification",
+  },
   dashboard: {
     loading: "Chargement du tableau de bord FARMLINK...",
     activeProperty: "Exploitation active",

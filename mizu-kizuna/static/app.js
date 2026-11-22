@@ -240,6 +240,26 @@ const badgeClass = lv => ({tres: "b-tres", adapte: "b-ad", possible: "b-pos"}[lv
 const monthName = m => LX().months[m - 1];
 const whenTxt = (perennial, m, kind = "meta") => T(perennial ? (kind === "meta" ? "metaPlant" : "planting") : (kind === "meta" ? "metaSow" : "sowing"), {m: monthName(m)});
 
+/** Send the validated plan to FARMLINK (the page around this one) so its other sections reuse it. */
+function sendPlan(d) {
+  const soil = (d.land && d.land.soil) || {};
+  const plan = {
+    version: 1,
+    validated_at: new Date().toISOString(),
+    area_ha: d.farm.area_ha,
+    location: {lat: d.farm.lat, lon: d.farm.lon},
+    country: d.farm.country,
+    water_source: d.farm.water_source,
+    irrigation_method: d.farm.irrigation_method,
+    soil: {texture: soil.texture || null, clay_pct: soil.clay_pct ?? null, sand_pct: soil.sand_pct ?? null, silt_pct: soil.silt_pct ?? null},
+    crops: d.plan.allocation.map(a => ({id: a.crop, name: a.name, area_ha: a.area_ha, sowing_month: a.sowing_month,
+      perennial: !!a.perennial, irrigated: !!a.irrigated, water_m3_typical: a.water_m3_typical})),
+  };
+  let target = "*";
+  try { if (document.referrer) target = new URL(document.referrer).origin; } catch {}
+  window.parent.postMessage({type: "mizu:plan", plan}, target);
+}
+
 function renderResults(d) {
   clearResultLayers();
   const plan = d.plan, cur = d.farm, rainfedMode = cur.water_source === "pluie";
@@ -282,6 +302,9 @@ function renderResults(d) {
     if (!rainfedMode && d.summary.water_typical_m3 > 0)
       h.push(`<p class="sp-total">${T("waterTotal", {a: fmt(d.summary.water_typical_m3), b: fmt(d.summary.water_dry_year_m3)})}</p>`);
     if (d.summary.area_unplanted_ha > 0.05 * cur.area_ha) h.push(`<div class="alert">${T("unplanted", {x: fmt(d.summary.area_unplanted_ha, 1)})}</div>`);
+    // Inside FARMLINK: the farmer validates the plan once; the other sections reuse these crops.
+    if (EMBEDDED) h.push(`<div class="validate-box"><button class="primary big" id="validateBtn">${T("validatePlan")}</button>
+      <p class="hint" id="validateHint" hidden>${T("planValidatedHint")}</p></div>`);
   }
   // à planter ensemble : 2 meilleures combinaisons possibles qui touchent le plan
   const planIds = new Set(plan.allocation.map(a => a.crop));
@@ -332,6 +355,13 @@ function renderResults(d) {
   $$(".combo-head").forEach(el => el.onclick = () => el.parentElement.classList.toggle("open"));
   $("#backBtn").onclick = () => { res.hidden = true; $("#wizard").hidden = false; clearResultLayers(); updateFarm(false); setStep(3, [1, 2]); };
   $("#printBtn").onclick = () => window.print();
+  const vb = $("#validateBtn");
+  if (vb) vb.onclick = () => {
+    sendPlan(d);
+    vb.textContent = T("planValidated");
+    vb.classList.add("done");
+    $("#validateHint").hidden = false;
+  };
   $("#jsonBtn").onclick = async () => { try { await navigator.clipboard.writeText(JSON.stringify(d, null, 2)); toast(T("tCopied")); } catch { toast(T("tCopyFail")); } };
   res.querySelectorAll(".tabs button").forEach(b => b.onclick = () => {
     res.querySelectorAll(".tabs button").forEach(x => x.classList.toggle("on", x === b)); renderCrops(b.dataset.cat); });

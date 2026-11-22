@@ -13,10 +13,12 @@ type Props = {
   src: string;
   /** Background behind the frame while the page loads, matching the page's own. */
   background: string;
+  /** Extra line under the subtitle (e.g. the farmer's validated plan). */
+  extra?: React.ReactNode;
 };
 
 /** A dashboard section that shows a standalone page unchanged in a frame, under a FARMLINK header. */
-export function EmbeddedPage({ title, subtitle, note, openTab, frameTitle, src, background }: Props) {
+export function EmbeddedPage({ title, subtitle, note, openTab, frameTitle, src, background, extra }: Props) {
   return (
     <div className="flex flex-col h-[calc(100svh-65px)] lg:h-svh">
       <header className="px-6 sm:px-10 pt-6 pb-4 border-b border-white/10 flex flex-col md:flex-row md:items-end md:justify-between gap-3">
@@ -24,6 +26,7 @@ export function EmbeddedPage({ title, subtitle, note, openTab, frameTitle, src, 
           <h1 className="text-2xl font-bold text-white tracking-tight">{title}</h1>
           <p className="text-sm text-neutral-400 mt-1">{subtitle}</p>
           {note && <p className="text-xs text-[#c6f04a] mt-1.5">{note}</p>}
+          {extra}
         </div>
         <a
           href={src}
